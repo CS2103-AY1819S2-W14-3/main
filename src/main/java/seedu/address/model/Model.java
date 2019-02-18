@@ -84,6 +84,11 @@ public interface Model {
      */
     Set<Tag> getAllTags();
 
+    /**
+     * Creates string from existing all tags in AddressBook.
+     */
+    String getAllTagsString();
+
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Person> getFilteredPersonList();
 

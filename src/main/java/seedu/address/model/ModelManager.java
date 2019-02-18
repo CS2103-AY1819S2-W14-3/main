@@ -4,6 +4,8 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 import java.util.function.Predicate;
@@ -124,6 +126,19 @@ public class ModelManager implements Model {
     @Override
     public Set<Tag> getAllTags() {
         return versionedAddressBook.getAllTags();
+    }
+
+    @Override
+    public String getAllTagsString() {
+        Set<Tag> tags = this.getAllTags();
+        List<String> tagsString = new ArrayList<>();
+
+        for (Tag tag : tags) {
+            tagsString.add(tag.getTagName());
+        }
+
+        return String.join(", ", tagsString);
+
     }
 
     //=========== Filtered Person List Accessors =============================================================
