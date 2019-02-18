@@ -11,6 +11,8 @@ import javafx.collections.ObservableList;
 import seedu.address.commons.util.InvalidationListenerManager;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.UniquePersonList;
+import seedu.address.model.person.exceptions.DuplicatePersonException;
+import seedu.address.model.person.exceptions.PersonNotFoundException;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -101,6 +103,23 @@ public class AddressBook implements ReadOnlyAddressBook {
     public void removePerson(Person key) {
         persons.remove(key);
         indicateModified();
+    }
+
+    /**
+     * Removes {@code tag} from {@code person} in this {@code AddressBook}.
+     */
+    private void removeTag(Tag tag, Person person) throws DuplicatePersonException,
+            PersonNotFoundException {
+        Set<Tag> newTags = new HashSet<>(person.getTags());
+        newTags.remove(tag);
+
+        Person editedPerson = new Person(
+                person.getName(),
+                person.getPhone(),
+                person.getEmail(),
+                person.getAddress(),
+                newTags);
+        persons.setPerson(person, editedPerson);
     }
 
     /**
