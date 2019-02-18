@@ -22,6 +22,9 @@ public class PersonCard extends UiPart<Region> {
      * @see <a href="https://github.com/se-edu/addressbook-level4/issues/336">The issue on AddressBook level 4</a>
      */
 
+    private static final String[] TAG_COLOUR_STYLES =
+            { "teal", "grey", "blue"};
+
     public final Person person;
 
     @FXML
@@ -47,7 +50,26 @@ public class PersonCard extends UiPart<Region> {
         phone.setText(person.getPhone().value);
         address.setText(person.getAddress().value);
         email.setText(person.getEmail().value);
-        person.getTags().forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+        initTags(person);
+    }
+
+    /**
+     * @param tagName
+     * returns color style for {@code tagName}'s label
+     */
+    private String getTagColourStyleFor(String tagName){
+        return TAG_COLOUR_STYLES[Math.abs(tagName.hashCode())%TAG_COLOUR_STYLES.length];
+    }
+
+    /**
+     * This initializes the tag labels for {@code person}.
+     */
+    private void initTags (Person person) {
+        person.getTags().forEach(tag -> {
+            Label tagLabel = new Label(tag.tagName);
+            tagLabel.getStyleClass().add(getTagColourStyleFor(tag.tagName));
+            tags.getChildren().add(tagLabel); // add this new coloured tag in
+        });
     }
 
     @Override
@@ -67,4 +89,6 @@ public class PersonCard extends UiPart<Region> {
         return id.getText().equals(card.id.getText())
                 && person.equals(card.person);
     }
+
+
 }
