@@ -23,7 +23,7 @@ public class PersonCard extends UiPart<Region> {
      */
 
     private static final String[] TAG_COLOUR_STYLES =
-            { "teal", "grey", "blue"};
+            { "teal", "red", "yellow", "blue", "orange", "brown", "green", "pink", "black", "grey" };
 
     public final Person person;
 
