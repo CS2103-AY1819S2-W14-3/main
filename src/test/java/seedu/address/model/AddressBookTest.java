@@ -3,8 +3,11 @@ package seedu.address.model;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_UNUSED;
+
 import static seedu.address.testutil.TypicalPersons.ALICE;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
@@ -24,6 +27,8 @@ import javafx.collections.ObservableList;
 
 import seedu.address.model.person.Person;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
+import seedu.address.model.tag.Tag;
+import seedu.address.testutil.AddressBookBuilder;
 import seedu.address.testutil.PersonBuilder;
 
 public class AddressBookTest {
@@ -111,6 +116,17 @@ public class AddressBookTest {
         addressBook.removeListener(listener);
         addressBook.addPerson(ALICE);
         assertEquals(0, counter.get());
+    }
+
+    @Test
+    public void removeTagFromPerson_nonExistentTag_samePerson() throws Exception {
+        addressBook.addPerson(ALICE);
+        addressBook.removeTag(new Tag(VALID_TAG_UNUSED), ALICE);
+
+        AddressBook expectedAddressBook = new AddressBookBuilder().withPerson(ALICE).build();
+
+        assertEquals(expectedAddressBook, addressBook);
+
     }
 
     /**

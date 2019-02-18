@@ -108,7 +108,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     /**
      * Removes {@code tag} from {@code person} in this {@code AddressBook}.
      */
-    private void removeTag(Tag tag, Person person) throws DuplicatePersonException,
+    public void removeTag(Tag tag, Person person) throws DuplicatePersonException,
             PersonNotFoundException {
         Set<Tag> newTags = new HashSet<>(person.getTags());
         newTags.remove(tag);
