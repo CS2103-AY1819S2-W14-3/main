@@ -15,6 +15,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -127,6 +128,26 @@ public class AddressBookTest {
 
         assertEquals(expectedAddressBook, addressBook);
 
+    }
+
+    @Test
+    public void deleteTag_nonExistentTag_forAll() throws Exception {
+        Tag unusedTag = new Tag(VALID_TAG_UNUSED);
+        for (Person person : addressBook.getPersonList()) {
+            Set<Tag> newTags = person.getTags();
+            newTags.add(unusedTag);
+            Person editedPerson = new Person(
+                    person.getName(),
+                    person.getPhone(),
+                    person.getEmail(),
+                    person.getAddress(),
+                    newTags
+            );
+            addressBook.setPerson(person, editedPerson);
+        }
+
+        addressBook.deleteTag(unusedTag);
+        assertEquals(addressBook.getAllTags().contains(unusedTag), false);
     }
 
     /**
