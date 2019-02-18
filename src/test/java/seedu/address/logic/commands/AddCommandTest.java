@@ -205,10 +205,14 @@ public class AddCommandTest {
         }
 
         @Override
-        public Set<Tag> getAllTags() { throw new AssertionError("This method should not be called."); }
+        public Set<Tag> getAllTags() {
+            throw new AssertionError("This method should not be called.");
+        }
 
         @Override
-        public String getAllTagsString() { throw new AssertionError("This method should not be called."); }
+        public String getAllTagsString() {
+            throw new AssertionError("This method should not be called.");
+        }
     }
 
     /**
