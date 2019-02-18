@@ -138,7 +138,6 @@ public class ModelManager implements Model {
         }
 
         return String.join(", ", tagsString);
-
     }
 
     //=========== Filtered Person List Accessors =============================================================
