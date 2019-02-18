@@ -123,6 +123,15 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     /**
+     * Remove {@code tag} from app {@code person}s in this {@code AddressBook}.
+     */
+    public void deleteTag(Tag tag) {
+        for (Person person : this.getPersonList()) {
+            this.removeTag(tag, person);
+        }
+    }
+
+    /**
      * Show all tags that have been used in the address book.
      * Returns a hash set of the tags.
      */
