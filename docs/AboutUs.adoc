@@ -37,7 +37,7 @@ Responsibilities: Data
 '''
 
 === Ian Wu
-image::ian.jpg[width="150", align="left"]
+image::ian.png[width="150", align="left"]
 {empty}[http://github.com/m133225[github]] [<<johndoe#, portfolio>>]
 
 Role: Developer +
