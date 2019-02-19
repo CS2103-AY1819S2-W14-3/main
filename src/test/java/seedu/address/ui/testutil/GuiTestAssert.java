@@ -10,7 +10,7 @@ import guitests.guihandles.PersonCardHandle;
 import guitests.guihandles.PersonListPanelHandle;
 import guitests.guihandles.ResultDisplayHandle;
 import seedu.address.model.person.Person;
-import seedu.address.ui.PersonCard;
+//import seedu.address.ui.PersonCard;
 
 /**
  * A set of assertion methods useful for writing GUI tests.
@@ -45,28 +45,31 @@ public class GuiTestAssert {
         assertTagsEqual(expectedPerson, actualCard);
     }
 
-    private static String getTagColourStyleFor(String tagName){
-        switch (tagName){
-            case "classmates":
-            case "owesMoney":
-                return "teal";
-            case "colleagues":
-            case "neighbours":
-                return "yellow";
-            case "family":
-            case "friend":
-                return "orange";
+    private static String getTagColourStyleFor(String tagName) {
+        switch (tagName) {
+        case "classmates":
+        case "owesMoney":
+            return "teal";
+        case "colleagues":
+        case "neighbours":
+            return "yellow";
+        case "family":
+        case "friend":
+            return "orange";
 
-            case "friends":
-                return "brown";
-            case "husband":
-                return "grey";
-            default:
-                throw new AssertionError(tagName + " does not have a colour assigned.");
+        case "friends":
+            return "brown";
+        case "husband":
+            return "grey";
+        default:
+            throw new AssertionError(tagName + " does not have a colour assigned.");
         }
     }
 
-    private static void assertTagsEqual(Person expectedPerson, PersonCardHandle actualCard){
+    /**
+     * Checks if tags are equal
+     */
+    private static void assertTagsEqual(Person expectedPerson, PersonCardHandle actualCard) {
         List<String> expectedTags = expectedPerson.getTags().stream()
                 .map(tag -> tag.tagName).collect(Collectors.toList());
         assertEquals(expectedTags, actualCard.getTags());
