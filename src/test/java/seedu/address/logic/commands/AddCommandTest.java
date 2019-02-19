@@ -213,6 +213,11 @@ public class AddCommandTest {
         public String getAllTagsString() {
             throw new AssertionError("This method should not be called.");
         }
+
+        @Override
+        public int countTags() {
+            throw new AssertionError("This method should not be called.");
+        }
     }
 
     /**
