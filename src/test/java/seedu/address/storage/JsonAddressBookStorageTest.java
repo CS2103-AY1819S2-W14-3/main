@@ -144,6 +144,6 @@ public class JsonAddressBookStorageTest {
     @Test
     public void backupAddressBook_success() {
         Path filePath = testFolder.getRoot().toPath().resolve("TempAddressBook.json");
-        backupAddressBook(new AddressBook(),filePath.toString());
+        backupAddressBook(new AddressBook(), filePath.toString());
     }
 }
