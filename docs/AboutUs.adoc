@@ -29,7 +29,7 @@ Responsibilities: UI
 '''
 
 === Esther Chong
-image::esther.jpg[width="150", align="left"]
+image::esther.png[width="150", align="left"]
 {empty}[https://github.com/s-tr[github]] [<<johndoe#, portfolio>>]
 
 Role: Developer +
@@ -47,7 +47,7 @@ Responsibilities: Dev Ops + Threading
 '''
 
 === Lucy Chan
-image::lucy.jpg[width="150", align="left"]
+image::lucy.png[width="150", align="left"]
 {empty}[https://github.com/lucydotc[github]] [<<johndoe#, portfolio>>]
 
 Role: Developer +
