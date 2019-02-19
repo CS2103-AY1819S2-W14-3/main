@@ -140,6 +140,12 @@ public class ModelManager implements Model {
         return String.join(", ", tagsString);
     }
 
+    @Override
+    public int countTags() {
+        Set<Tag> tags = this.getAllTags();
+        return tags.size();
+    }
+
     //=========== Filtered Person List Accessors =============================================================
 
     /**

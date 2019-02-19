@@ -85,6 +85,11 @@ public interface Model {
     Set<Tag> getAllTags();
 
     /**
+     * Counts number of tags in {@code AddressBook}.
+     */
+    int countTags();
+
+    /**
      * Creates string from existing all tags in AddressBook.
      */
     String getAllTagsString();
