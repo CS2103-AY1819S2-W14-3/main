@@ -12,42 +12,43 @@ We are based in the http://www.comp.nus.edu.sg[School of Computing, National Uni
 
 === Boston Cheong
 image::boston.png[width="150", align="left"]
-{empty}[http://www.comp.nus.edu.sg/~damithch[homepage]] [https://github.com/damithc[github]] [<<johndoe#, portfolio>>]
+{empty}[https://github.com/bos10[github]] [<<johndoe#, portfolio>>]
 
-Role: Project Advisor
+Role: Developer +
+Responsibility: UI
 
 '''
 
 === Erjill Sison
 image::erjill.png[width="150", align="left"]
-{empty}[http://github.com/lejolly[github]] [<<johndoe#, portfolio>>]
+{empty}[http://github.com/erjillsison[github]] [<<johndoe#, portfolio>>]
 
 Role: Team Lead +
-Responsibilities: UI
+Responsibilities: Logic
 
 '''
 
 === Esther Chong
 image::esther.png[width="150", align="left"]
-{empty}[http://github.com/yijinl[github]] [<<johndoe#, portfolio>>]
+{empty}[http://github.com/s-tr[github]] [<<johndoe#, portfolio>>]
 
 Role: Developer +
-Responsibilities: Data
+Responsibilities: Storage
 
 '''
 
 === Ian Wu
 image::ian.png[width="150", align="left"]
-{empty}[http://github.com/m133225[github]] [<<johndoe#, portfolio>>]
+{empty}[http://github.com/iwle[github]] [<<johndoe#, portfolio>>]
 
 Role: Developer +
-Responsibilities: Dev Ops + Threading
+Responsibilities: Model
 
 '''
 
 === Lucy Chan
 image::lucy.png[width="150", align="left"]
-{empty}[http://github.com/yl-coder[github]] [<<johndoe#, portfolio>>]
+{empty}[http://github.com/lucydotc[github]] [<<johndoe#, portfolio>>]
 
 Role: Developer +
 Responsibilities: UI
