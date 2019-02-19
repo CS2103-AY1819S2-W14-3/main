@@ -116,9 +116,34 @@ public class JsonAddressBookStorageTest {
         }
     }
 
+    /**
+     * Backups {@code addressBook} at the specified {@code filePath}.
+     */
+    private void backupAddressBook(ReadOnlyAddressBook addressBook, String filePath) {
+        try {
+            new JsonAddressBookStorage(Paths.get(filePath))
+                    .backupAddressBook(addressBook);
+        } catch (IOException ioe) {
+            throw new AssertionError(
+                    "There should not be an error writing to the file.", ioe);
+        }
+    }
+
     @Test
     public void saveAddressBook_nullFilePath_throwsNullPointerException() {
         thrown.expect(NullPointerException.class);
         saveAddressBook(new AddressBook(), null);
+    }
+
+    @Test
+    public void backupAddressBook_nullFilePath_throwsNullPointerException() {
+        thrown.expect(NullPointerException.class);
+        backupAddressBook(new AddressBook(), null);
+    }
+
+    @Test
+    public void backupAddressBook_success() {
+        Path filePath = testFolder.getRoot().toPath().resolve("TempAddressBook.json");
+        backupAddressBook(new AddressBook(),filePath.toString());
     }
 }
