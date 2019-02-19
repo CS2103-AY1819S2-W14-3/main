@@ -3,8 +3,11 @@ package seedu.address.model;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_UNUSED;
+
 import static seedu.address.testutil.TypicalPersons.ALICE;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
@@ -12,6 +15,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -21,8 +25,11 @@ import javafx.beans.InvalidationListener;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
 import seedu.address.model.person.Person;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
+import seedu.address.model.tag.Tag;
+import seedu.address.testutil.AddressBookBuilder;
 import seedu.address.testutil.PersonBuilder;
 
 public class AddressBookTest {
@@ -110,6 +117,37 @@ public class AddressBookTest {
         addressBook.removeListener(listener);
         addressBook.addPerson(ALICE);
         assertEquals(0, counter.get());
+    }
+
+    @Test
+    public void removeTagFromPerson_nonExistentTag_samePerson() throws Exception {
+        addressBook.addPerson(ALICE);
+        addressBook.removeTag(new Tag(VALID_TAG_UNUSED), ALICE);
+
+        AddressBook expectedAddressBook = new AddressBookBuilder().withPerson(ALICE).build();
+
+        assertEquals(expectedAddressBook, addressBook);
+
+    }
+
+    @Test
+    public void deleteTag_nonExistentTag_forAll() throws Exception {
+        Tag unusedTag = new Tag(VALID_TAG_UNUSED);
+        for (Person person : addressBook.getPersonList()) {
+            Set<Tag> newTags = person.getTags();
+            newTags.add(unusedTag);
+            Person editedPerson = new Person(
+                    person.getName(),
+                    person.getPhone(),
+                    person.getEmail(),
+                    person.getAddress(),
+                    newTags
+            );
+            addressBook.setPerson(person, editedPerson);
+        }
+
+        addressBook.deleteTag(unusedTag);
+        assertEquals(addressBook.getAllTags().contains(unusedTag), false);
     }
 
     /**

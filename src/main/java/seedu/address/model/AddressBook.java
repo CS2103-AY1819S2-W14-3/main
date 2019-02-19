@@ -2,13 +2,18 @@ package seedu.address.model;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javafx.beans.InvalidationListener;
 import javafx.collections.ObservableList;
 import seedu.address.commons.util.InvalidationListenerManager;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.UniquePersonList;
+import seedu.address.model.person.exceptions.DuplicatePersonException;
+import seedu.address.model.person.exceptions.PersonNotFoundException;
+import seedu.address.model.tag.Tag;
 
 /**
  * Wraps all data at the address-book level
@@ -98,6 +103,47 @@ public class AddressBook implements ReadOnlyAddressBook {
     public void removePerson(Person key) {
         persons.remove(key);
         indicateModified();
+    }
+
+    /**
+     * Removes {@code tag} from {@code person} in this {@code AddressBook}.
+     */
+    public void removeTag(Tag tag, Person person) throws DuplicatePersonException,
+            PersonNotFoundException {
+        Set<Tag> newTags = new HashSet<>(person.getTags());
+        newTags.remove(tag);
+
+        Person editedPerson = new Person(
+                person.getName(),
+                person.getPhone(),
+                person.getEmail(),
+                person.getAddress(),
+                newTags);
+        persons.setPerson(person, editedPerson);
+    }
+
+    /**
+     * Remove {@code tag} from app {@code person}s in this {@code AddressBook}.
+     */
+    public void deleteTag(Tag tag) {
+        for (Person person : this.getPersonList()) {
+            this.removeTag(tag, person);
+        }
+    }
+
+    /**
+     * Show all tags that have been used in the address book.
+     * Returns a hash set of the tags.
+     */
+    public Set<Tag> getAllTags() {
+        Set<Tag> tags = new HashSet<>();
+        for (Person person : persons) {
+            for (Tag t : person.getTags()) {
+                tags.add(t);
+            }
+        }
+
+        return tags;
     }
 
     @Override

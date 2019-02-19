@@ -56,28 +56,25 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 
 Format: `help`
 
-=== Adding a person: `add`
+=== Viewing player map : `print map`
 
-Adds a person to the address book +
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...`
+Prints the player's current map with the position of the ships. +
+Format: `print map`
 
-[TIP]
-A person can have any number of tags (including 0)
+=== Viewing enemy map : `print enemy map`
 
-Examples:
+Prints the player's view of the enemy's map with the position of the ships that have already been hit. +
+Format: `print enemy map`
 
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
+=== Listing all ships : `list`
 
-=== Listing all persons : `list`
-
-Shows a list of all persons in the address book. +
+Shows a list of all the player's battleships +
 Format: `list`
 
 === Editing a person : `edit`
 
-Edits an existing person in the address book. +
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]...`
+Edits a battleship in the current inventory +
+Format: `edit INDEX [n/NAME] [s/SIZE] [c/COMMAND_FLAG] [t/TAGS]`
 
 ****
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index *must be a positive integer* 1, 2, 3, ...
@@ -89,15 +86,23 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]...`
 
 Examples:
 
-* `edit 1 p/91234567 e/johndoe@example.com` +
-Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-* `edit 2 n/Betsy Crower t/` +
-Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+* `edit 1 n/RSS Vanguard s/5 c/false t/bluewater_fleet` +
+Edits the name, size and command status of the 1st ship to `RSS Vanguard`, size `5` and `false` command ship status.
 
-=== Locating persons by name: `find`
+=== Placing a ship: `put`
 
-Finds persons whose names contain any of the given keywords. +
-Format: `find KEYWORD [MORE_KEYWORDS]`
+Adds a ship onto the player's map. Assumes the coordinates specified is the ship's head. +
+Format: `put c/COORDINATES r/ORIENTATION`
+
+Examples:
+
+* `put A1 r/horizontal`
+* `put B2 r/vertical`
+
+=== Locating ships by name: `find`
+
+Finds battleships whose names contain any of the given keywords. +
+Format: `find NAME [MORE_NAMES]`
 
 ****
 * The search is case insensitive. e.g `hans` will match `Hans`
@@ -109,14 +114,28 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 
 Examples:
 
-* `find John` +
-Returns `john` and `John Doe`
-* `find Betsy Tim John` +
-Returns any person having names `Betsy`, `Tim`, or `John`
+* `find Vengence` +
+Returns `Name: RSS Vengence, Size: 4, Command: true, Position: 4, 2`
 
-=== Deleting a person : `delete`
+[NOTE]
+The position may not be displayed if the ship has not been placed.
 
-Deletes the specified person from the address book. +
+=== Locating ships by tags: `findTag`
+
+Finds battleships whose tags contain any of the given keywords. +
+Format: `findTag TAG [MORE_TAGS]`
+
+Examples:
+
+* `findTag bluewater_fleet` +
+Returns `Name: RSS Vengence, Size: 4, Command: true, Position: 4, 2`
+
+[NOTE]
+The position may not be displayed if the ship has not been placed.
+
+=== Deleting a ship: `delete`
+
+Deletes the specified person from the inventory. +
 Format: `delete INDEX`
 
 ****
@@ -129,12 +148,12 @@ Examples:
 
 * `list` +
 `delete 2` +
-Deletes the 2nd person in the address book.
+Deletes the 2nd battleship in the inventory.
 * `find Betsy` +
 `delete 1` +
 Deletes the 1st person in the results of the `find` command.
 
-=== Selecting a person : `select`
+=== Selecting a ship : `select`
 
 Selects the person identified by the index number used in the displayed person list. +
 Format: `select INDEX`
@@ -149,10 +168,41 @@ Examples:
 
 * `list` +
 `select 2` +
-Selects the 2nd person in the address book.
+Selects the 2nd battleship in the inventory.
 * `find Betsy` +
 `select 1` +
-Selects the 1st person in the results of the `find` command.
+Selects the 1st battleship in the results of the `find` command.
+
+=== Starting a game: `play`
+
+Starts a game of Battleship with a computer enemy. Creates a game loop that allows the player to fight with the enemy. +
+Format: `play`
+
+Example:
+
+* `play`
+
+=== Shooting at a coordinate: `shoot`
+
+Launches a missile onto given coordinate. +
+Format: `shoot c/COORDINATES`
+
+Example:
+
+* `shoot A6`
+
+****
+* The program will check if the coordinates are within the map itself.
+****
+
+=== Starting a game: `stats`
+
+Prints a list of statistics related to gameplay, such as accuracy and current hits. +
+Format: `stats`
+
+Example:
+
+* `stats`
 
 === Listing entered commands : `history`
 
@@ -167,12 +217,12 @@ Pressing the kbd:[&uarr;] and kbd:[&darr;] arrows will display the previous and 
 // tag::undoredo[]
 === Undoing previous command : `undo`
 
-Restores the address book to the state before the previous _undoable_ command was executed. +
+Restores the inventory to the state before the previous _undoable_ command was executed. +
 Format: `undo`
 
 [NOTE]
 ====
-Undoable commands: those commands that modify the address book's content (`add`, `delete`, `edit` and `clear`).
+Undoable commands: those commands that modify the inventory's content (`add`, `delete`, `edit` and `clear`).
 ====
 
 Examples:
@@ -216,7 +266,7 @@ The `redo` command fails as there are no `undo` commands executed previously.
 
 === Clearing all entries : `clear`
 
-Clears all entries from the address book. +
+Clears all entries from the inventory. +
 Format: `clear`
 
 === Exiting the program : `exit`
@@ -242,19 +292,21 @@ _{explain how the user can enable/disable data encryption}_
 
 == Command Summary
 
-* *Add* `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...` +
-e.g. `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
-* *Clear* : `clear`
-* *Delete* : `delete INDEX` +
-e.g. `delete 3`
-* *Edit* : `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]...` +
-e.g. `edit 2 n/James Lee e/jameslee@example.com`
-* *Find* : `find KEYWORD [MORE_KEYWORDS]` +
-e.g. `find James Jake`
-* *List* : `list`
-* *Help* : `help`
-* *Select* : `select INDEX` +
-e.g.`select 2`
-* *History* : `history`
-* *Undo* : `undo`
-* *Redo* : `redo`
+* **Exit**: `exit`
+* **Clear**: `clear`
+* **Redo**: `redo`
+* **Undo**: `undo`
+* **History**: `history`
+* **Stats**: `stats`
+* **Shoot**: `shoot c/COORDINATES`
+* **Play**: `play`
+* **Select**: `select INDEX`
+* **Delete**: `delete INDEX`
+* **Find Tag**: `findTag TAG [MORE_TAGS]`
+* **Find**: `find NAME [MORE_NAMES]`
+* **Put**: `put c/COORDINATES r/ORIENTATION`
+* **Edit**: `edit INDEX [n/NAME] [s/SIZE] [c/COMMAND_FLAG] [t/TAGS]`
+* **List**: `list`
+* **Print enemy map**: `print enemy map`
+* **Print player map**: `print map`
+* **Help**: `help`
