@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Optional;
 import java.util.logging.Logger;
 
@@ -21,10 +22,15 @@ public class JsonAddressBookStorage implements AddressBookStorage {
 
     private static final Logger logger = LogsCenter.getLogger(JsonAddressBookStorage.class);
 
+    private static final String DEFAULT_BACKUP_PATH = ".backup.json";
+
     private Path filePath;
+
+    private Path backupFilePath;
 
     public JsonAddressBookStorage(Path filePath) {
         this.filePath = filePath;
+        this.backupFilePath = Paths.get(".backup", DEFAULT_BACKUP_PATH);
     }
 
     public Path getAddressBookFilePath() {
@@ -85,6 +91,6 @@ public class JsonAddressBookStorage implements AddressBookStorage {
      */
     @Override
     public void backupAddressBook(ReadOnlyAddressBook addressBook) throws IOException {
-        return;
+        saveAddressBook(addressBook, backupFilePath);
     }
 }

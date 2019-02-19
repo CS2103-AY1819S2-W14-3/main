@@ -74,4 +74,14 @@ public class StorageManager implements Storage {
         addressBookStorage.saveAddressBook(addressBook, filePath);
     }
 
+    /**
+     * Saves the ReadOnlyAddressBook locally in a fixed temporary location.
+     *
+     * @param addressBook cannot be null.
+     * @throws IOException if there was any problem writing to the file.
+     */
+    @Override
+    public void backupAddressBook(ReadOnlyAddressBook addressBook) throws IOException {
+        addressBookStorage.backupAddressBook(addressBook);
+    }
 }
