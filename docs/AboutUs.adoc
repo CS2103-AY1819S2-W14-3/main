@@ -11,7 +11,7 @@ We are based in the http://www.comp.nus.edu.sg[School of Computing, National Uni
 == Project Team
 
 === Boston Cheong
-image::boston.jpg[width="150", align="left"]
+image::boston.png[width="150", align="left"]
 {empty}[http://www.comp.nus.edu.sg/~damithch[homepage]] [https://github.com/damithc[github]] [<<johndoe#, portfolio>>]
 
 Role: Project Advisor
