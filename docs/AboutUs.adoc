@@ -4,7 +4,7 @@
 :imagesDir: images
 :stylesDir: stylesheets
 
-Battleships was developed by Team W14-G3. We are a team from Singapore developing retro games for the world. +
+Battleship was developed by Team W14-G3. We are a team from Singapore developing retro games for the world. +
 
 We are based in the http://www.comp.nus.edu.sg[School of Computing, National University of Singapore].
 
