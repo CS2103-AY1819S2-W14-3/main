@@ -16,9 +16,10 @@ image::images/Ui.png[width="600"]
 endif::[]
 
 * This is a desktop Battleships application. It has a GUI but most of the user interactions happen using a CLI (Command Line Interface).
-* It is an application designed for people who want to play Battleships but prefer to use the command-line while doing it.
-* This project is written in an OOP style.
-* Support for _Build Automation_ using Gradle and for _Continuous Integration_ using Travis CI.
+* One can play the classic Battleships game against the computer on this app.
+* This application is designed for people who want to play Battleships but prefer to use the command-line or are otherwise unable to operate a GUI.
+** This project is written in an OOP style.
+** Support for _Build Automation_ using Gradle and for _Continuous Integration_ using Travis CI.
 
 == Site Map
 
