@@ -23,7 +23,7 @@ public class PersonCard extends UiPart<Region> {
      */
 
     private static final String[] TAG_COLOUR_STYLES =
-            { "teal", "red", "yellow", "blue", "orange", "brown", "green", "pink", "black", "grey" };
+        { "teal", "red", "yellow", "blue", "orange", "brown", "green", "pink", "black", "grey" };
 
     public final Person person;
 
@@ -57,8 +57,8 @@ public class PersonCard extends UiPart<Region> {
      * @param tagName
      * returns color style for {@code tagName}'s label
      */
-    private String getTagColourStyleFor(String tagName){
-        return TAG_COLOUR_STYLES[Math.abs(tagName.hashCode())%TAG_COLOUR_STYLES.length];
+    private String getTagColourStyleFor(String tagName) {
+        return TAG_COLOUR_STYLES[Math.abs(tagName.hashCode()) % TAG_COLOUR_STYLES.length];
     }
 
     /**
