@@ -11,16 +11,17 @@ We are based in the http://www.comp.nus.edu.sg[School of Computing, National Uni
 == Project Team
 
 === Boston Cheong
-image::boston.jpg[width="150", align="left"]
-{empty}[http://www.comp.nus.edu.sg/~damithch[homepage]] [https://github.com/damithc[github]] [<<johndoe#, portfolio>>]
+image::boston.png[width="150", align="left"]
+{empty}[https://github.com/bos10[github]] [<<johndoe#, portfolio>>]
 
-Role: Project Advisor
+Role: Developer +
+Responsibilities: Logic
 
 '''
 
 === Erjill Sison
 image::erjill.jpg[width="150", align="left"]
-{empty}[http://github.com/lejolly[github]] [<<johndoe#, portfolio>>]
+{empty}[https://github.com/erjillsison[github]] [<<johndoe#, portfolio>>]
 
 Role: Team Lead +
 Responsibilities: UI
@@ -29,7 +30,7 @@ Responsibilities: UI
 
 === Esther Chong
 image::esther.jpg[width="150", align="left"]
-{empty}[http://github.com/yijinl[github]] [<<johndoe#, portfolio>>]
+{empty}[https://github.com/s-tr[github]] [<<johndoe#, portfolio>>]
 
 Role: Developer +
 Responsibilities: Data
@@ -38,7 +39,7 @@ Responsibilities: Data
 
 === Ian Wu
 image::ian.png[width="150", align="left"]
-{empty}[http://github.com/m133225[github]] [<<johndoe#, portfolio>>]
+{empty}[https://github.com/iwle[github]] [<<johndoe#, portfolio>>]
 
 Role: Developer +
 Responsibilities: Dev Ops + Threading
@@ -47,7 +48,7 @@ Responsibilities: Dev Ops + Threading
 
 === Lucy Chan
 image::lucy.jpg[width="150", align="left"]
-{empty}[http://github.com/yl-coder[github]] [<<johndoe#, portfolio>>]
+{empty}[https://github.com/lucydotc[github]] [<<johndoe#, portfolio>>]
 
 Role: Developer +
 Responsibilities: UI
