@@ -7,11 +7,11 @@ https://ci.appveyor.com/project/damithc/addressbook-level4[image:https://ci.appv
 https://coveralls.io/github/se-edu/addressbook-level4?branch=master[image:https://coveralls.io/repos/github/se-edu/addressbook-level4/badge.svg?branch=master[Coverage Status]]
 endif::[]
 
-ifdef::eeenv-github[]
+ifdef::env-github[]
 image::docs/images/Ui.png[width="600"]
 endif::[]
 
-ifndef::eeenv-github[]
+ifndef::env-github[]
 image::images/Ui.png[width="600"]
 endif::[]
 
