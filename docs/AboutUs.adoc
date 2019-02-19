@@ -19,7 +19,7 @@ Role: Project Advisor
 '''
 
 === Erjill Sison
-image::erjill.jpg[width="150", align="left"]
+image::erjill.png[width="150", align="left"]
 {empty}[http://github.com/lejolly[github]] [<<johndoe#, portfolio>>]
 
 Role: Team Lead +
@@ -28,7 +28,7 @@ Responsibilities: UI
 '''
 
 === Esther Chong
-image::esther.jpg[width="150", align="left"]
+image::esther.png[width="150", align="left"]
 {empty}[http://github.com/yijinl[github]] [<<johndoe#, portfolio>>]
 
 Role: Developer +
@@ -46,7 +46,7 @@ Responsibilities: Dev Ops + Threading
 '''
 
 === Lucy Chan
-image::lucy.jpg[width="150", align="left"]
+image::lucy.png[width="150", align="left"]
 {empty}[http://github.com/yl-coder[github]] [<<johndoe#, portfolio>>]
 
 Role: Developer +
