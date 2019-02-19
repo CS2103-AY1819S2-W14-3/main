@@ -152,12 +152,7 @@ public class ModelManagerTest {
     @Test
     public void countTags() throws Exception {
         modelManager.addPerson(ALICE);
-        int beforeCount = modelManager.countTags();
-        assertEquals(beforeCount, 1);
-
-        modelManager.addPerson(BENSON);
-        int afterCount = modelManager.countTags();
-        assertEquals(beforeCount, 2);
+        assertEquals(modelManager.countTags(), ALICE.getTags().size());
     }
 
     @Test
