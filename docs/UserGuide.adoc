@@ -66,22 +66,6 @@ Format: `print map`
 Prints the player's view of the enemy's map with the position of the ships that have already been hit. +
 Format: `print enemy map`
 
-=== Adding a ship: `add ship`
-
-Adds a battleship to the player's inventory. There is a maximum number of battleships that a player may have. +
-Format: `add ship n/NAME s/SIZE c/COMMAND_FLAG t/TAGS`
-
-[NOTE]
-There is a maximum size that all of the player's battleships may add to.
-
-[NOTE]
-The command battleship must be only of size 3. If the command battleship has been hit the player will lose more points. Each player must have only 1 command battleship.
-
-Examples:
-
-* `add ship n/RSS Vengence s/4 c/true t/bluewater_fleet`
-* `add ship n/RSS Putra s/1 c/false`
-
 === Listing all ships : `list`
 
 Shows a list of all the player's battleships +
@@ -105,15 +89,15 @@ Examples:
 * `edit 1 n/RSS Vanguard s/5 c/false t/bluewater_fleet` +
 Edits the name, size and command status of the 1st ship to `RSS Vanguard`, size `5` and `false` command ship status.
 
-=== Placing a ship: `put ship`
+=== Placing a ship: `put`
 
-Adds a ship onto the player's map. +
-Format: `put ship x/ROW_COORDINATE y/COL_COORDINATE r/ORIENTATION`
+Adds a ship onto the player's map. Assumes the coordinates specified is the ship's head. +
+Format: `put c/COORDINATES r/ORIENTATION`
 
 Examples:
 
-* `put ship x/5 y/2 r/horizontal`
-* `put ship x/1 y/4 r/vertical`
+* `put A1 r/horizontal`
+* `put B2 r/vertical`
 
 === Locating ships by name: `find`
 
@@ -201,11 +185,11 @@ Example:
 === Shooting at a coordinate: `shoot`
 
 Launches a missile onto given coordinate. +
-Format: `shoot x/X_COORD y/Y_COORD`
+Format: `shoot c/COORDINATES`
 
 Example:
 
-* `shoot x/5 y/2`
+* `shoot A6`
 
 ****
 * The program will check if the coordinates are within the map itself.
@@ -314,16 +298,15 @@ _{explain how the user can enable/disable data encryption}_
 * **Undo**: `undo`
 * **History**: `history`
 * **Stats**: `stats`
-* **Shoot**: `shoot x/X_COORD y/Y_COORD`
+* **Shoot**: `shoot c/COORDINATES`
 * **Play**: `play`
 * **Select**: `select INDEX`
 * **Delete**: `delete INDEX`
 * **Find Tag**: `findTag TAG [MORE_TAGS]`
 * **Find**: `find NAME [MORE_NAMES]`
-* **Put**: `put ship x/ROW_COORDINATE y/COL_COORDINATE r/ORIENTATION`
+* **Put**: `put c/COORDINATES r/ORIENTATION`
 * **Edit**: `edit INDEX [n/NAME] [s/SIZE] [c/COMMAND_FLAG] [t/TAGS]`
 * **List**: `list`
-* **Help**: `add ship n/NAME s/SIZE c/COMMAND_FLAG t/TAGS`
 * **Print enemy map**: `print enemy map`
 * **Print player map**: `print map`
 * **Help**: `help`
