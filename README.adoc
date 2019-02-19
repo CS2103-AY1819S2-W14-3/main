@@ -1,4 +1,4 @@
-= Address Book (Level 4)
+= CLI Battleship
 ifdef::env-github,env-browser[:relfileprefix: docs/]
 
 https://github.com/CS2103-AY1819S2-W14-3/main[image:https://travis-ci.org/CS2103-AY1819S2-W14-3/main.svg?branch=master[Build Status]]
@@ -15,9 +15,9 @@ ifndef::env-github[]
 image::images/Ui.png[width="600"]
 endif::[]
 
-* This is a desktop Battleships application. It has a GUI but most of the user interactions happen using a CLI (Command Line Interface).
-* One can play the classic Battleships game against the computer on this app.
-* This application is designed for people who want to play Battleships but prefer to use the command-line or are otherwise unable to operate a GUI.
+* This is a desktop Battleship application. It has a GUI but most of the user interactions happen using a CLI (Command Line Interface).
+* One can play the classic Battleship game against the computer on this app.
+* This application is designed for people who want to play Battleship but prefer to use the command-line or are otherwise unable to operate a GUI.
 ** This project is written in an OOP style.
 ** Support for _Build Automation_ using Gradle and for _Continuous Integration_ using Travis CI.
 
