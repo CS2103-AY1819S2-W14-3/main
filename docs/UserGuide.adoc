@@ -14,11 +14,13 @@ ifdef::env-github[]
 endif::[]
 :repoURL: https://github.com/se-edu/addressbook-level4
 
-By: `Team SE-EDU`      Since: `Jun 2016`      Licence: `MIT`
+By: `Team W14-3`      Since: `Jan 2019`      Licence: `MIT`
 
 == Introduction
 
-AddressBook Level 4 (AB4) is for those who *prefer to use a desktop app for managing contacts*. More importantly, AB4 is *optimized for those who prefer to work with a Command Line Interface* (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB4 can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <<Quick Start>> to get started. Enjoy!
+Ships ahoy! Battleships is a for people who want to have the joy of playing Battleships without the hassle and fuss of a physical game.
+
+Battleships is optimised for people who want to use a Command Line Interface (CLI), while still retaining the benefits of a Graphical User Interface (GUI). It can guarantee many hours of fun, especially between those long and boring periods of the day. Can't wait to get started? Head over to <<Quick Start>> to fire away!
 
 == Quick Start
 
