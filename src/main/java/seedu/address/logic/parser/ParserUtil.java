@@ -21,6 +21,7 @@ import seedu.address.model.tag.Tag;
 public class ParserUtil {
 
     public static final String MESSAGE_INVALID_INDEX = "Index is not a non-zero unsigned integer.";
+    public static final String MESSAGE_INVALID_SIZE = "Map size is not a non-zero unsigned integer";
 
     /**
      * Parses mapSize into an int and returns it.
@@ -31,7 +32,7 @@ public class ParserUtil {
     public static int parseMapSize(String mapSize) throws ParseException {
         String trimmedSize = mapSize.trim();
         if (!StringUtil.isNonZeroUnsignedInteger(trimmedSize)) {
-            throw new ParseException(MESSAGE_INVALID_INDEX);
+            throw new ParseException(MESSAGE_INVALID_SIZE);
         }
         return Integer.parseInt(trimmedSize);
     }
