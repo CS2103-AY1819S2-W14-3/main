@@ -16,7 +16,7 @@ public class InitialiseMapCommand extends Command {
     public static final String COMMAND_WORD = "init";
     public static final String COMMAND_ALIAS = "i";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a person to the address book. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Initialise the map to specified size. "
             + "Parameters: "
             + PREFIX_MAP_SIZE + "MAPSIZE "
             + "Example: " + COMMAND_WORD + " "
@@ -24,16 +24,13 @@ public class InitialiseMapCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "Map initialised to size: %d";
 
-    private final Person toAdd;
     private final int mapSize;
 
     /**
      * Initialise map command
      */
-    public InitialiseMapCommand(Person person, int size) {
-        requireNonNull(person);
+    public InitialiseMapCommand(int size) {
         mapSize = size;
-        toAdd = person;
     }
 
     @Override
@@ -45,7 +42,7 @@ public class InitialiseMapCommand extends Command {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }*/
 
-        model.addPerson(toAdd);
+        //model.addPerson(toAdd);
         model.commitAddressBook();
         return new CommandResult(String.format(MESSAGE_SUCCESS, mapSize));
     }
@@ -53,7 +50,7 @@ public class InitialiseMapCommand extends Command {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof InitialiseMapCommand // instanceof handles nulls
-                && toAdd.equals(((InitialiseMapCommand) other).toAdd));
+                || (other instanceof InitialiseMapCommand); // instanceof handles nulls
+                //&& toAdd.equals(((InitialiseMapCommand) other).toAdd));
     }
 }
