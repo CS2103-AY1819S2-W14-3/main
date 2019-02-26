@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MAP_SIZE;
 
 import seedu.address.logic.CommandHistory;
-import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 
@@ -34,7 +34,7 @@ public class InitialiseMapCommand extends Command {
     }
 
     @Override
-    public CommandResult execute(Model model, CommandHistory history) throws CommandException {
+    public CommandResult execute(Model model, CommandHistory history) {
         requireNonNull(model);
 
         /**
@@ -42,7 +42,11 @@ public class InitialiseMapCommand extends Command {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }*/
 
-        model.addPerson(new Person());
+        model.setAddressBook(new AddressBook());
+
+        for (int i = 0; i < mapSize; i++) {
+            model.addPerson(new Person());
+        }
 
         model.commitAddressBook();
         return new CommandResult(String.format(MESSAGE_SUCCESS, mapSize));
