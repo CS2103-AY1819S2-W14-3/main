@@ -42,7 +42,8 @@ public class InitialiseMapCommand extends Command {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }*/
 
-        //model.addPerson(toAdd);
+        model.addPerson(new Person());
+
         model.commitAddressBook();
         return new CommandResult(String.format(MESSAGE_SUCCESS, mapSize));
     }

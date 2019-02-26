@@ -36,6 +36,17 @@ public class Person {
         this.tags.addAll(tags);
     }
 
+    /**
+     * Constructor for person that requires not arguments
+     * To prepare with refactoring Person to a cell
+     */
+    public Person() {
+        this.name = new Name("placeholder");
+        this.phone = new Phone("123");
+        this.email = new Email("placeholder@gmail.com");
+        this.address = new Address("placeholder");
+    }
+
     public Name getName() {
         return name;
     }
