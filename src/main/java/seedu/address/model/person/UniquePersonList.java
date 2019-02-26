@@ -42,9 +42,11 @@ public class UniquePersonList implements Iterable<Person> {
      */
     public void add(Person toAdd) {
         requireNonNull(toAdd);
+        /**
         if (contains(toAdd)) {
             throw new DuplicatePersonException();
         }
+         */
         internalList.add(toAdd);
     }
 
@@ -90,10 +92,12 @@ public class UniquePersonList implements Iterable<Person> {
      */
     public void setPersons(List<Person> persons) {
         requireAllNonNull(persons);
+
+        /**
         if (!personsAreUnique(persons)) {
             throw new DuplicatePersonException();
         }
-
+        */
         internalList.setAll(persons);
     }
 
