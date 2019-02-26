@@ -8,7 +8,6 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.testutil.TypicalPersons.ALICE;
 import static seedu.address.testutil.TypicalPersons.BOB;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -57,12 +56,14 @@ public class UniquePersonListTest {
         uniquePersonList.add(null);
     }
 
+    /**
     @Test
     public void add_duplicatePerson_throwsDuplicatePersonException() {
         uniquePersonList.add(ALICE);
         thrown.expect(DuplicatePersonException.class);
         uniquePersonList.add(ALICE);
     }
+    */
 
     @Test
     public void setPerson_nullTargetPerson_throwsNullPointerException() {
@@ -168,13 +169,6 @@ public class UniquePersonListTest {
         UniquePersonList expectedUniquePersonList = new UniquePersonList();
         expectedUniquePersonList.add(BOB);
         assertEquals(expectedUniquePersonList, uniquePersonList);
-    }
-
-    @Test
-    public void setPersons_listWithDuplicatePersons_throwsDuplicatePersonException() {
-        List<Person> listWithDuplicatePersons = Arrays.asList(ALICE, ALICE);
-        thrown.expect(DuplicatePersonException.class);
-        uniquePersonList.setPersons(listWithDuplicatePersons);
     }
 
     @Test
