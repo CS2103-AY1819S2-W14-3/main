@@ -52,7 +52,7 @@ public interface Model {
      */
     void setAddressBook(ReadOnlyAddressBook addressBook);
 
-    /** Returns the AddressBook */
+    /** Returns the MapGrid */
     ReadOnlyAddressBook getAddressBook();
 
     /**
@@ -80,17 +80,17 @@ public interface Model {
     void setPerson(Person target, Person editedPerson);
 
     /**
-     * Gets all tags from the {@code persons} in the {@code AddressBook}.
+     * Gets all tags from the {@code persons} in the {@code MapGrid}.
      */
     Set<Tag> getAllTags();
 
     /**
-     * Counts number of tags in {@code AddressBook}.
+     * Counts number of tags in {@code MapGrid}.
      */
     int countTags();
 
     /**
-     * Creates string from existing all tags in AddressBook.
+     * Creates string from existing all tags in MapGrid.
      */
     String getAllTagsString();
 

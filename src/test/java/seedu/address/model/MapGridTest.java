@@ -29,68 +29,68 @@ import seedu.address.model.tag.Tag;
 import seedu.address.testutil.AddressBookBuilder;
 import seedu.address.testutil.PersonBuilder;
 
-public class AddressBookTest {
+public class MapGridTest {
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
-    private final AddressBook addressBook = new AddressBook();
+    private final MapGrid mapGrid = new MapGrid();
 
     @Test
     public void constructor() {
-        assertEquals(Collections.emptyList(), addressBook.getPersonList());
+        assertEquals(Collections.emptyList(), mapGrid.getPersonList());
     }
 
     @Test
     public void resetData_null_throwsNullPointerException() {
         thrown.expect(NullPointerException.class);
-        addressBook.resetData(null);
+        mapGrid.resetData(null);
     }
 
     @Test
     public void resetData_withValidReadOnlyAddressBook_replacesData() {
-        AddressBook newData = getTypicalAddressBook();
-        addressBook.resetData(newData);
-        assertEquals(newData, addressBook);
+        MapGrid newData = getTypicalAddressBook();
+        mapGrid.resetData(newData);
+        assertEquals(newData, mapGrid);
     }
 
     @Test
     public void hasPerson_nullPerson_throwsNullPointerException() {
         thrown.expect(NullPointerException.class);
-        addressBook.hasPerson(null);
+        mapGrid.hasPerson(null);
     }
 
     @Test
     public void hasPerson_personNotInAddressBook_returnsFalse() {
-        assertFalse(addressBook.hasPerson(ALICE));
+        assertFalse(mapGrid.hasPerson(ALICE));
     }
 
     @Test
     public void hasPerson_personInAddressBook_returnsTrue() {
-        addressBook.addPerson(ALICE);
-        assertTrue(addressBook.hasPerson(ALICE));
+        mapGrid.addPerson(ALICE);
+        assertTrue(mapGrid.hasPerson(ALICE));
     }
 
     @Test
     public void hasPerson_personWithSameIdentityFieldsInAddressBook_returnsTrue() {
-        addressBook.addPerson(ALICE);
+        mapGrid.addPerson(ALICE);
         Person editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
-        assertTrue(addressBook.hasPerson(editedAlice));
+        assertTrue(mapGrid.hasPerson(editedAlice));
     }
 
     @Test
     public void getPersonList_modifyList_throwsUnsupportedOperationException() {
         thrown.expect(UnsupportedOperationException.class);
-        addressBook.getPersonList().remove(0);
+        mapGrid.getPersonList().remove(0);
     }
 
     @Test
     public void addListener_withInvalidationListener_listenerAdded() {
         SimpleIntegerProperty counter = new SimpleIntegerProperty();
         InvalidationListener listener = observable -> counter.set(counter.get() + 1);
-        addressBook.addListener(listener);
-        addressBook.addPerson(ALICE);
+        mapGrid.addListener(listener);
+        mapGrid.addPerson(ALICE);
         assertEquals(1, counter.get());
     }
 
@@ -98,27 +98,27 @@ public class AddressBookTest {
     public void removeListener_withInvalidationListener_listenerRemoved() {
         SimpleIntegerProperty counter = new SimpleIntegerProperty();
         InvalidationListener listener = observable -> counter.set(counter.get() + 1);
-        addressBook.addListener(listener);
-        addressBook.removeListener(listener);
-        addressBook.addPerson(ALICE);
+        mapGrid.addListener(listener);
+        mapGrid.removeListener(listener);
+        mapGrid.addPerson(ALICE);
         assertEquals(0, counter.get());
     }
 
     @Test
     public void removeTagFromPerson_nonExistentTag_samePerson() throws Exception {
-        addressBook.addPerson(ALICE);
-        addressBook.removeTag(new Tag(VALID_TAG_UNUSED), ALICE);
+        mapGrid.addPerson(ALICE);
+        mapGrid.removeTag(new Tag(VALID_TAG_UNUSED), ALICE);
 
-        AddressBook expectedAddressBook = new AddressBookBuilder().withPerson(ALICE).build();
+        MapGrid expectedMapGrid = new AddressBookBuilder().withPerson(ALICE).build();
 
-        assertEquals(expectedAddressBook, addressBook);
+        assertEquals(expectedMapGrid, mapGrid);
 
     }
 
     @Test
     public void deleteTag_nonExistentTag_forAll() throws Exception {
         Tag unusedTag = new Tag(VALID_TAG_UNUSED);
-        for (Person person : addressBook.getPersonList()) {
+        for (Person person : mapGrid.getPersonList()) {
             Set<Tag> newTags = person.getTags();
             newTags.add(unusedTag);
             Person editedPerson = new Person(
@@ -128,11 +128,11 @@ public class AddressBookTest {
                     person.getAddress(),
                     newTags
             );
-            addressBook.setPerson(person, editedPerson);
+            mapGrid.setPerson(person, editedPerson);
         }
 
-        addressBook.deleteTag(unusedTag);
-        assertEquals(addressBook.getAllTags().contains(unusedTag), false);
+        mapGrid.deleteTag(unusedTag);
+        assertEquals(mapGrid.getAllTags().contains(unusedTag), false);
     }
 
     /**
