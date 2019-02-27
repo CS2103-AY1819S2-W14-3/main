@@ -146,6 +146,13 @@ public class MapGrid implements ReadOnlyAddressBook {
         return tags;
     }
 
+    /**
+     * Returns map size
+     */
+    public int getMapSize() {
+        return persons.getMapSize();
+    }
+
     @Override
     public void addListener(InvalidationListener listener) {
         invalidationListenerManager.addListener(listener);

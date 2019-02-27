@@ -102,6 +102,13 @@ public class UniquePersonList implements Iterable<Cell> {
     }
 
     /**
+     * Returns the map size
+     */
+    public int getMapSize() {
+        return internalList.size();
+    }
+
+    /**
      * Returns the backing list as an unmodifiable {@code ObservableList}.
      */
     public ObservableList<Cell> asUnmodifiableObservableList() {

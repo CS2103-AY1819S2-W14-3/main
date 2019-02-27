@@ -200,6 +200,11 @@ public class AddCommandTest {
         }
 
         @Override
+        public int getMapSize() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void setSelectedPerson(Cell cell) {
             throw new AssertionError("This method should not be called.");
         }

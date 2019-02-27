@@ -146,6 +146,10 @@ public class ModelManager implements Model {
         return tags.size();
     }
 
+    @Override
+    public int getMapSize() {
+        return versionedAddressBook.getMapSize();
+    }
     //=========== Filtered Cell List Accessors =============================================================
 
     /**

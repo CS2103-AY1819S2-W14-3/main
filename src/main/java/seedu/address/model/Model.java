@@ -141,6 +141,11 @@ public interface Model {
     Cell getSelectedPerson();
 
     /**
+     * Returns the map size
+     */
+    int getMapSize();
+
+    /**
      * Sets the selected cell in the filtered cell list.
      */
     void setSelectedPerson(Cell cell);
