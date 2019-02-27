@@ -14,9 +14,9 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.person.Address;
+import seedu.address.model.person.Cell;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
-import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
 
@@ -37,14 +37,14 @@ public class ListTagsCommandTest {
         testTags.add(new Tag("testTag1"));
         testTags.add(new Tag("testTag2"));
 
-        Person testPerson = new Person(
-                new Name("Test Person"),
+        Cell testCell = new Cell(
+                new Name("Test Cell"),
                 new Phone("000"),
                 new Email("test@test.com"),
                 new Address("Test Avenue"),
                 testTags);
 
-        model.addPerson(testPerson);
+        model.addPerson(testCell);
     }
 
     @Test

@@ -10,10 +10,10 @@ import java.util.Set;
 import seedu.address.model.tag.Tag;
 
 /**
- * Represents a Person in the address book.
- * Guarantees: details are present and not null, field values are validated, immutable.
+ * Represents a Cell in the map grid.
+ * Guarantees: details are present and not null, field values are validated.
  */
-public class Person {
+public class Cell {
 
     // Identity fields
     private final Name name;
@@ -27,7 +27,7 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
+    public Cell(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
         requireAllNonNull(name, phone, email, address, tags);
         this.name = name;
         this.phone = phone;
@@ -37,10 +37,10 @@ public class Person {
     }
 
     /**
-     * Constructor for person that requires not arguments
-     * To prepare with refactoring Person to a cell
+     * Constructor for cell that requires not arguments
+     * To prepare with refactoring Cell to a cell
      */
-    public Person() {
+    public Cell() {
         this.name = new Name("placeholder");
         this.phone = new Phone("123");
         this.email = new Email("placeholder@gmail.com");
@@ -75,14 +75,14 @@ public class Person {
      * Returns true if both persons of the same name have at least one other identity field that is the same.
      * This defines a weaker notion of equality between two persons.
      */
-    public boolean isSamePerson(Person otherPerson) {
-        if (otherPerson == this) {
+    public boolean isSamePerson(Cell otherCell) {
+        if (otherCell == this) {
             return true;
         }
 
-        return otherPerson != null
-                && otherPerson.getName().equals(getName())
-                && (otherPerson.getPhone().equals(getPhone()) || otherPerson.getEmail().equals(getEmail()));
+        return otherCell != null
+                && otherCell.getName().equals(getName())
+                && (otherCell.getPhone().equals(getPhone()) || otherCell.getEmail().equals(getEmail()));
     }
 
     /**
@@ -95,16 +95,16 @@ public class Person {
             return true;
         }
 
-        if (!(other instanceof Person)) {
+        if (!(other instanceof Cell)) {
             return false;
         }
 
-        Person otherPerson = (Person) other;
-        return otherPerson.getName().equals(getName())
-                && otherPerson.getPhone().equals(getPhone())
-                && otherPerson.getEmail().equals(getEmail())
-                && otherPerson.getAddress().equals(getAddress())
-                && otherPerson.getTags().equals(getTags());
+        Cell otherCell = (Cell) other;
+        return otherCell.getName().equals(getName())
+                && otherCell.getPhone().equals(getPhone())
+                && otherCell.getEmail().equals(getEmail())
+                && otherCell.getAddress().equals(getAddress())
+                && otherCell.getTags().equals(getTags());
     }
 
     @Override

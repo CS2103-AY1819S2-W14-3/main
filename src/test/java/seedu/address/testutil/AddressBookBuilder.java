@@ -1,7 +1,7 @@
 package seedu.address.testutil;
 
 import seedu.address.model.MapGrid;
-import seedu.address.model.person.Person;
+import seedu.address.model.person.Cell;
 
 /**
  * A utility class to help with building Addressbook objects.
@@ -21,10 +21,10 @@ public class AddressBookBuilder {
     }
 
     /**
-     * Adds a new {@code Person} to the {@code MapGrid} that we are building.
+     * Adds a new {@code Cell} to the {@code MapGrid} that we are building.
      */
-    public AddressBookBuilder withPerson(Person person) {
-        mapGrid.addPerson(person);
+    public AddressBookBuilder withPerson(Cell cell) {
+        mapGrid.addPerson(cell);
         return this;
     }
 

@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.MapGrid;
 import seedu.address.model.ReadOnlyAddressBook;
-import seedu.address.model.person.Person;
+import seedu.address.model.person.Cell;
 
 /**
  * An Immutable MapGrid that is serializable to JSON format.
@@ -19,7 +19,7 @@ import seedu.address.model.person.Person;
 @JsonRootName(value = "addressbook")
 class JsonSerializableAddressBook {
 
-    public static final String MESSAGE_DUPLICATE_PERSON = "Persons list contains duplicate person(s).";
+    public static final String MESSAGE_DUPLICATE_PERSON = "Persons list contains duplicate cell(s).";
 
     private final List<JsonAdaptedPerson> persons = new ArrayList<>();
 
@@ -48,13 +48,13 @@ class JsonSerializableAddressBook {
     public MapGrid toModelType() throws IllegalValueException {
         MapGrid mapGrid = new MapGrid();
         for (JsonAdaptedPerson jsonAdaptedPerson : persons) {
-            Person person = jsonAdaptedPerson.toModelType();
+            Cell cell = jsonAdaptedPerson.toModelType();
             /**
-            if (mapGrid.hasPerson(person)) {
+            if (mapGrid.hasPerson(cell)) {
                 throw new IllegalValueException(MESSAGE_DUPLICATE_PERSON);
             }
              */
-            mapGrid.addPerson(person);
+            mapGrid.addPerson(cell);
         }
         return mapGrid;
     }

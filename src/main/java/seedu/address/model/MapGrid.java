@@ -9,7 +9,7 @@ import java.util.Set;
 import javafx.beans.InvalidationListener;
 import javafx.collections.ObservableList;
 import seedu.address.commons.util.InvalidationListenerManager;
-import seedu.address.model.person.Person;
+import seedu.address.model.person.Cell;
 import seedu.address.model.person.UniquePersonList;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
@@ -48,11 +48,11 @@ public class MapGrid implements ReadOnlyAddressBook {
     //// list overwrite operations
 
     /**
-     * Replaces the contents of the person list with {@code persons}.
-     * {@code persons} must not contain duplicate persons.
+     * Replaces the contents of the cell list with {@code cells}.
+     * {@code cells} must not contain duplicate cells.
      */
-    public void setPersons(List<Person> persons) {
-        this.persons.setPersons(persons);
+    public void setPersons(List<Cell> cells) {
+        this.persons.setPersons(cells);
         indicateModified();
     }
 
@@ -65,34 +65,34 @@ public class MapGrid implements ReadOnlyAddressBook {
         setPersons(newData.getPersonList());
     }
 
-    //// person-level operations
+    //// cell-level operations
 
     /**
-     * Returns true if a person with the same identity as {@code person} exists in the address book.
+     * Returns true if a cell with the same identity as {@code cell} exists in the address book.
      */
-    public boolean hasPerson(Person person) {
-        requireNonNull(person);
-        return persons.contains(person);
+    public boolean hasPerson(Cell cell) {
+        requireNonNull(cell);
+        return persons.contains(cell);
     }
 
     /**
-     * Adds a person to the address book.
-     * The person must not already exist in the address book.
+     * Adds a cell to the address book.
+     * The cell must not already exist in the address book.
      */
-    public void addPerson(Person p) {
+    public void addPerson(Cell p) {
         persons.add(p);
         indicateModified();
     }
 
     /**
-     * Replaces the given person {@code target} in the list with {@code editedPerson}.
+     * Replaces the given cell {@code target} in the list with {@code editedCell}.
      * {@code target} must exist in the address book.
-     * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
+     * The cell identity of {@code editedCell} must not be the same as another existing cell in the address book.
      */
-    public void setPerson(Person target, Person editedPerson) {
-        requireNonNull(editedPerson);
+    public void setPerson(Cell target, Cell editedCell) {
+        requireNonNull(editedCell);
 
-        persons.setPerson(target, editedPerson);
+        persons.setPerson(target, editedCell);
         indicateModified();
     }
 
@@ -100,34 +100,34 @@ public class MapGrid implements ReadOnlyAddressBook {
      * Removes {@code key} from this {@code MapGrid}.
      * {@code key} must exist in the address book.
      */
-    public void removePerson(Person key) {
+    public void removePerson(Cell key) {
         persons.remove(key);
         indicateModified();
     }
 
     /**
-     * Removes {@code tag} from {@code person} in this {@code MapGrid}.
+     * Removes {@code tag} from {@code cell} in this {@code MapGrid}.
      */
-    public void removeTag(Tag tag, Person person) throws DuplicatePersonException,
+    public void removeTag(Tag tag, Cell cell) throws DuplicatePersonException,
             PersonNotFoundException {
-        Set<Tag> newTags = new HashSet<>(person.getTags());
+        Set<Tag> newTags = new HashSet<>(cell.getTags());
         newTags.remove(tag);
 
-        Person editedPerson = new Person(
-                person.getName(),
-                person.getPhone(),
-                person.getEmail(),
-                person.getAddress(),
+        Cell editedCell = new Cell(
+                cell.getName(),
+                cell.getPhone(),
+                cell.getEmail(),
+                cell.getAddress(),
                 newTags);
-        persons.setPerson(person, editedPerson);
+        persons.setPerson(cell, editedCell);
     }
 
     /**
-     * Remove {@code tag} from app {@code person}s in this {@code MapGrid}.
+     * Remove {@code tag} from app {@code cell}s in this {@code MapGrid}.
      */
     public void deleteTag(Tag tag) {
-        for (Person person : this.getPersonList()) {
-            this.removeTag(tag, person);
+        for (Cell cell : this.getPersonList()) {
+            this.removeTag(tag, cell);
         }
     }
 
@@ -137,8 +137,8 @@ public class MapGrid implements ReadOnlyAddressBook {
      */
     public Set<Tag> getAllTags() {
         Set<Tag> tags = new HashSet<>();
-        for (Person person : persons) {
-            for (Tag t : person.getTags()) {
+        for (Cell cell : persons) {
+            for (Tag t : cell.getTags()) {
                 tags.add(t);
             }
         }
@@ -172,7 +172,7 @@ public class MapGrid implements ReadOnlyAddressBook {
     }
 
     @Override
-    public ObservableList<Person> getPersonList() {
+    public ObservableList<Cell> getPersonList() {
         return persons.asUnmodifiableObservableList();
     }
 

@@ -24,7 +24,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import seedu.address.model.person.Person;
+import seedu.address.model.person.Cell;
 import seedu.address.model.tag.Tag;
 import seedu.address.testutil.AddressBookBuilder;
 import seedu.address.testutil.PersonBuilder;
@@ -74,7 +74,7 @@ public class MapGridTest {
     @Test
     public void hasPerson_personWithSameIdentityFieldsInAddressBook_returnsTrue() {
         mapGrid.addPerson(ALICE);
-        Person editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
+        Cell editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
         assertTrue(mapGrid.hasPerson(editedAlice));
     }
@@ -118,17 +118,17 @@ public class MapGridTest {
     @Test
     public void deleteTag_nonExistentTag_forAll() throws Exception {
         Tag unusedTag = new Tag(VALID_TAG_UNUSED);
-        for (Person person : mapGrid.getPersonList()) {
-            Set<Tag> newTags = person.getTags();
+        for (Cell cell : mapGrid.getPersonList()) {
+            Set<Tag> newTags = cell.getTags();
             newTags.add(unusedTag);
-            Person editedPerson = new Person(
-                    person.getName(),
-                    person.getPhone(),
-                    person.getEmail(),
-                    person.getAddress(),
+            Cell editedCell = new Cell(
+                    cell.getName(),
+                    cell.getPhone(),
+                    cell.getEmail(),
+                    cell.getAddress(),
                     newTags
             );
-            mapGrid.setPerson(person, editedPerson);
+            mapGrid.setPerson(cell, editedCell);
         }
 
         mapGrid.deleteTag(unusedTag);
@@ -136,18 +136,18 @@ public class MapGridTest {
     }
 
     /**
-     * A stub ReadOnlyAddressBook whose persons list can violate interface constraints.
+     * A stub ReadOnlyAddressBook whose cells list can violate interface constraints.
      */
     private static class AddressBookStub implements ReadOnlyAddressBook {
-        private final ObservableList<Person> persons = FXCollections.observableArrayList();
+        private final ObservableList<Cell> cells = FXCollections.observableArrayList();
 
-        AddressBookStub(Collection<Person> persons) {
-            this.persons.setAll(persons);
+        AddressBookStub(Collection<Cell> cells) {
+            this.cells.setAll(cells);
         }
 
         @Override
-        public ObservableList<Person> getPersonList() {
-            return persons;
+        public ObservableList<Cell> getPersonList() {
+            return cells;
         }
 
         @Override

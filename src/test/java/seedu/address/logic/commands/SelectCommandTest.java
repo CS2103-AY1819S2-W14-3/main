@@ -81,13 +81,13 @@ public class SelectCommandTest {
         // null -> returns false
         assertFalse(selectFirstCommand.equals(null));
 
-        // different person -> returns false
+        // different cell -> returns false
         assertFalse(selectFirstCommand.equals(selectSecondCommand));
     }
 
     /**
      * Executes a {@code SelectCommand} with the given {@code index},
-     * and checks that the model's selected person is set to the person at {@code index} in the filtered person list.
+     * and checks that the model's selected cell is set to the cell at {@code index} in the filtered cell list.
      */
     private void assertExecutionSuccess(Index index) {
         SelectCommand selectCommand = new SelectCommand(index);
