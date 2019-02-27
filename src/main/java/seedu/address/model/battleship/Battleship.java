@@ -80,8 +80,8 @@ public class Battleship {
     }
 
     /**
-     * Returns true if both persons have the same identity fields.
-     * This defines a stronger notion of equality between two persons.
+     * Returns true if both battleships have the same identity fields.
+     * This defines a stronger notion of equality between two battleships.
      */
     @Override
     public boolean equals(Object other) {
