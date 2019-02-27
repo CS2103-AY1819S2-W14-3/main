@@ -5,8 +5,10 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
+import seedu.address.model.battleship.Battleship;
 import seedu.address.model.battleship.Name;
 import seedu.address.model.tag.Tag;
 
@@ -22,6 +24,7 @@ public class Cell {
     private final Email email;
 
     // Data fields
+    private Optional<Battleship> battleship;
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
 
@@ -30,6 +33,7 @@ public class Cell {
      */
     public Cell(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
         requireAllNonNull(name, phone, email, address, tags);
+        this.battleship = Optional.empty();
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -38,11 +42,22 @@ public class Cell {
     }
 
     /**
-     * Constructor for cell that requires not arguments
+     * Constructor for cell that requires no arguments
      * To prepare with refactoring Cell to a cell
      */
     public Cell() {
+        this.battleship = Optional.empty();
         this.name = new Name("placeholder");
+        this.phone = new Phone("123");
+        this.email = new Email("placeholder@gmail.com");
+        this.address = new Address("placeholder");
+    }
+    /**
+     * Constructor for cell that contains battleship
+     */
+    public Cell(Battleship battleship) {
+        this.battleship = Optional.of(battleship);
+        this.name = new Name("This has a ship");
         this.phone = new Phone("123");
         this.email = new Email("placeholder@gmail.com");
         this.address = new Address("placeholder");
