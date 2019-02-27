@@ -25,11 +25,20 @@ public class Battleship {
     /**
      * Every field must be present and not null.
      */
-    public Battleship(Name name, int length, int life) {
+    public Battleship(Name name, int length, int life, Set<Tag> tags) {
         this.id = ++id;
         this.name = name;
         this.length = length;
         this.life = life;
+        this.tags.addAll(tags);
+    }
+
+    /**
+     * Constructor for Battleship with only name and tags.
+     * Default size is length = 2, life = 1
+     */
+    public Battleship(Name name, Set<Tag> tags) {
+        this(name, 2, 1, tags);
     }
 
     /**
@@ -37,9 +46,7 @@ public class Battleship {
      * To prepare with refactoring Battleship to a Cell.
      */
     public Battleship() {
-        this.name = new Name("placeholder");
-        this.length = 1;
-        this.life = 1;
+        this(new Name("placeholder"), 2, 1, new HashSet<Tag>());
     }
 
     public Name getName() {

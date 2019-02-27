@@ -11,6 +11,7 @@ import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.battleship.Name;
 import seedu.address.model.person.Address;
+import seedu.address.model.person.Coordinate;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
@@ -109,6 +110,22 @@ public class ParserUtil {
         }
         return new Email(trimmedEmail);
     }
+
+    /**
+     * Parses a {@code String coordinate} into a {@code Coordinate}
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code coordinate} is invalid.
+     */
+    public static Coordinate parseCoordinate(String coordinate) throws ParseException {
+        requireNonNull(coordinate);
+        String trimmedCoordinate = coordinate.trim();
+        if (!Coordinate.isValidCoordinate(trimmedCoordinate)) {
+            throw new ParseException(Coordinate.MESSAGE_CONSTRAINTS);
+        }
+        return new Coordinate(trimmedCoordinate);
+    }
+
 
     /**
      * Parses a {@code String tag} into a {@code Tag}.
