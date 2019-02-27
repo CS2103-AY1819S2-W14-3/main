@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-import seedu.address.model.person.Name;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -15,8 +14,8 @@ import seedu.address.model.tag.Tag;
 public class Battleship {
 
     // Identity fields
-    private final Name name;
     private static int id;
+    private final Name name;
 
     // Data fields
     private final Set<Tag> tags = new HashSet<>();
@@ -38,16 +37,18 @@ public class Battleship {
      * To prepare with refactoring Battleship to a Cell.
      */
     public Battleship() {
-        this.name   = new Name("placeholder");
+        this.name = new Name("placeholder");
         this.length = 1;
-        this.life   = 1;
+        this.life = 1;
     }
 
     public Name getName() {
         return this.name;
     }
 
-    public int getId() { return this.id; }
+    public int getId() {
+        return this.id;
+    }
 
     public int getLength() {
         return this.length;
