@@ -23,7 +23,7 @@ public class CoordinateTest {
     @Test
     public void isValidCoordinate() {
         // null address
-        Assert.assertThrows(NullPointerException.class, () -> Address.isValidAddress(null));
+        Assert.assertThrows(NullPointerException.class, () -> Coordinate.isValidCoordinate(null));
 
         // invalid addresses
         assertFalse(Coordinate.isValidCoordinate("")); // empty string
