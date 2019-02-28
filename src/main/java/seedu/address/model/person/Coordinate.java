@@ -1,10 +1,12 @@
 package seedu.address.model.person;
 
+import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.AppUtil.checkArgument;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static java.util.Objects.requireNonNull;
-import static seedu.address.commons.util.AppUtil.checkArgument;
+import seedu.address.commons.core.index.Index;
 
 /**
  * Represents a Cell's coordinate object in the map.
@@ -28,8 +30,8 @@ public class Coordinate {
     public static final String VALIDATION_REGEX = ROW_PART_REGEX + COL_PART_REGEX;
 
     public final String value;
-    public final String row;
-    public final String col;
+    public final Index rowValue;
+    public final Index colValue;
 
     /**
      * Constructs an {@code Coordinate}.
@@ -48,9 +50,39 @@ public class Coordinate {
         Matcher rowMatch = rowRegex.matcher(value);
         Matcher colMatch = colRegex.matcher(value);
 
-        this.row = rowMatch.group(0);
-        this.col = colMatch.group(0);
+        String row = rowMatch.group(0);
+        String col = colMatch.group(0);
 
+        int rowNum = convertAlphabetToNumber(row);
+        int colNum = Integer.parseInt(col);
+
+        this.rowValue = Index.fromZeroBased(rowNum);
+        this.colValue = Index.fromZeroBased(colNum);
+    }
+
+    /**
+     * Converts a string alphabet to its numerical equivalent.
+     *
+     * @param alphabet
+     * @return integer offset from 'a', zero-based
+     */
+    private int convertAlphabetToNumber(String alphabet) {
+        char alphabetChar = alphabet.charAt(0);
+        return alphabetChar - 'a';
+    }
+
+    /**
+     * Returns Index for rowNum
+     */
+    public Index getRowValue() {
+        return this.rowValue;
+    }
+
+    /**
+     * Return Index for colNum
+     */
+    public Index getColValue() {
+        return this.colValue;
     }
 
     /**
