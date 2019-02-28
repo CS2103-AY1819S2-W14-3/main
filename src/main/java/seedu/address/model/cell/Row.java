@@ -12,15 +12,8 @@ import seedu.address.model.cell.exceptions.DuplicatePersonException;
 import seedu.address.model.cell.exceptions.PersonNotFoundException;
 
 /**
- * A list of persons that enforces uniqueness between its elements and does not allow nulls.
- * A cell is considered unique by comparing using {@code Cell#isSamePerson(Cell)}. As such, adding and updating of
- * persons uses Cell#isSamePerson(Cell) for equality so as to ensure that the cell being added or updated is
- * unique in terms of identity in the Row. However, the removal of a cell uses Cell#equals(Object) so
- * as to ensure that the cell with exactly the same fields will be removed.
- *
+ * A list of cells of a row in the map grid.
  * Supports a minimal set of list operations.
- *
- * @see Cell#isSamePerson(Cell)
  */
 public class Row implements Iterable<Cell> {
 
@@ -37,23 +30,16 @@ public class Row implements Iterable<Cell> {
     }
 
     /**
-     * Adds a cell to the list.
-     * The cell must not already exist in the list.
+     * Adds a cell to the row.
      */
     public void add(Cell toAdd) {
         requireNonNull(toAdd);
-        /**
-        if (contains(toAdd)) {
-            throw new DuplicatePersonException();
-        }
-         */
         internalList.add(toAdd);
     }
 
     /**
      * Replaces the cell {@code target} in the list with {@code editedCell}.
      * {@code target} must exist in the list.
-     * The cell identity of {@code editedCell} must not be the same as another existing cell in the list.
      */
     public void setPerson(Cell target, Cell editedCell) {
         requireAllNonNull(target, editedCell);
@@ -130,19 +116,5 @@ public class Row implements Iterable<Cell> {
     @Override
     public int hashCode() {
         return internalList.hashCode();
-    }
-
-    /**
-     * Returns true if {@code cells} contains only unique cells.
-     */
-    private boolean personsAreUnique(List<Cell> cells) {
-        for (int i = 0; i < cells.size() - 1; i++) {
-            for (int j = i + 1; j < cells.size(); j++) {
-                if (cells.get(i).isSamePerson(cells.get(j))) {
-                    return false;
-                }
-            }
-        }
-        return true;
     }
 }
