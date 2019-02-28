@@ -80,6 +80,16 @@ public class Cell {
     }
 
     /**
+     * Returns true if this cell has a battleship, otherwise returns false
+     */
+    public boolean hasBattleShip() {
+        if (battleship.isPresent()) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
      * if modification is attempted.
      */
