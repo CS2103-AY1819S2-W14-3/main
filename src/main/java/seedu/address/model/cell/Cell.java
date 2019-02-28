@@ -48,7 +48,7 @@ public class Cell {
      */
     public Cell() {
         this.battleship = Optional.empty();
-        this.name = new Name("placeholder");
+        this.name = new Name("This cell is empty");
         this.phone = new Phone("123");
         this.email = new Email("placeholder@gmail.com");
         this.address = new Address("placeholder");
