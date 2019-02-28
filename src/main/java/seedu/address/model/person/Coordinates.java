@@ -10,9 +10,9 @@ import seedu.address.commons.core.index.Index;
 
 /**
  * Represents a Cell's coordinate object in the map.
- * Guarantees: immutable; is valid as declared in {@link #isValidCoordinate(String)}
+ * Guarantees: immutable; is valid as declared in {@link #isValidCoordinates(String)}
  */
-public class Coordinate {
+public class Coordinates {
 
     private static final String SPECIAL_CHARACTERS = "!#$%&'*+/=?`{|}~^.-";
     public static final String MESSAGE_CONSTRAINTS = "Coordinates should be of the format row-column "
@@ -27,20 +27,20 @@ public class Coordinate {
     private static final String ROW_PART_REGEX = "^[a-j]{1}";
     private static final String COL_PART_REGEX = "(10|[1-9])$";
 
-    public static final String VALIDATION_REGEX = ROW_PART_REGEX + COL_PART_REGEX;
+    private static final String VALIDATION_REGEX = ROW_PART_REGEX + COL_PART_REGEX;
 
     public final String value;
-    public final Index rowValue;
-    public final Index colValue;
+    private final Index rowValue;
+    private final Index colValue;
 
     /**
-     * Constructs an {@code Coordinate}.
+     * Constructs an {@code Coordinates}.
      *
      * @param coordinate A valid coordinate.
      */
-    public Coordinate(String coordinate) {
+    public Coordinates(String coordinate) {
         requireNonNull(coordinate);
-        checkArgument(isValidCoordinate(coordinate), MESSAGE_CONSTRAINTS);
+        checkArgument(isValidCoordinates(coordinate), MESSAGE_CONSTRAINTS);
         value = coordinate;
 
         // use regex to extract alphabetical row and numeric col
@@ -63,7 +63,7 @@ public class Coordinate {
     /**
      * Converts a string alphabet to its numerical equivalent.
      *
-     * @param alphabet
+     * @param alphabet String of alphabet
      * @return integer offset from 'a', zero-based
      */
     private int convertAlphabetToNumber(String alphabet) {
@@ -88,7 +88,7 @@ public class Coordinate {
     /**
      * Returns if a given string is a valid coordinate.
      */
-    public static boolean isValidCoordinate(String test) {
+    public static boolean isValidCoordinates(String test) {
         return test.matches(VALIDATION_REGEX);
     }
 
@@ -100,8 +100,8 @@ public class Coordinate {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof Coordinate // instanceof handles nulls
-                && value.equals(((Coordinate) other).value)); // state check
+                || (other instanceof Coordinates // instanceof handles nulls
+                && value.equals(((Coordinates) other).value)); // state check
     }
 
     @Override
