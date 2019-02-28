@@ -15,14 +15,14 @@ import seedu.address.model.cell.exceptions.PersonNotFoundException;
  * A list of persons that enforces uniqueness between its elements and does not allow nulls.
  * A cell is considered unique by comparing using {@code Cell#isSamePerson(Cell)}. As such, adding and updating of
  * persons uses Cell#isSamePerson(Cell) for equality so as to ensure that the cell being added or updated is
- * unique in terms of identity in the UniquePersonList. However, the removal of a cell uses Cell#equals(Object) so
+ * unique in terms of identity in the Row. However, the removal of a cell uses Cell#equals(Object) so
  * as to ensure that the cell with exactly the same fields will be removed.
  *
  * Supports a minimal set of list operations.
  *
  * @see Cell#isSamePerson(Cell)
  */
-public class UniquePersonList implements Iterable<Cell> {
+public class Row implements Iterable<Cell> {
 
     private final ObservableList<Cell> internalList = FXCollections.observableArrayList();
     private final ObservableList<Cell> internalUnmodifiableList =
@@ -81,7 +81,7 @@ public class UniquePersonList implements Iterable<Cell> {
         }
     }
 
-    public void setPersons(UniquePersonList replacement) {
+    public void setPersons(Row replacement) {
         requireNonNull(replacement);
         internalList.setAll(replacement.internalList);
     }
@@ -123,8 +123,8 @@ public class UniquePersonList implements Iterable<Cell> {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof UniquePersonList // instanceof handles nulls
-                        && internalList.equals(((UniquePersonList) other).internalList));
+                || (other instanceof Row // instanceof handles nulls
+                        && internalList.equals(((Row) other).internalList));
     }
 
     @Override

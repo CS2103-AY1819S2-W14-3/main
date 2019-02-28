@@ -10,7 +10,7 @@ import javafx.beans.InvalidationListener;
 import javafx.collections.ObservableList;
 import seedu.address.commons.util.InvalidationListenerManager;
 import seedu.address.model.cell.Cell;
-import seedu.address.model.cell.UniquePersonList;
+import seedu.address.model.cell.Row;
 import seedu.address.model.cell.exceptions.DuplicatePersonException;
 import seedu.address.model.cell.exceptions.PersonNotFoundException;
 import seedu.address.model.tag.Tag;
@@ -21,7 +21,7 @@ import seedu.address.model.tag.Tag;
  */
 public class MapGrid implements ReadOnlyAddressBook {
 
-    private final UniquePersonList persons;
+    private final Row persons;
     private final InvalidationListenerManager invalidationListenerManager = new InvalidationListenerManager();
 
     /*
@@ -32,7 +32,7 @@ public class MapGrid implements ReadOnlyAddressBook {
      *   among constructors.
      */
     {
-        persons = new UniquePersonList();
+        persons = new Row();
     }
 
     public MapGrid() {}
