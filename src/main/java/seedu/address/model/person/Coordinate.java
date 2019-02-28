@@ -1,5 +1,8 @@
 package seedu.address.model.person;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
@@ -25,6 +28,8 @@ public class Coordinate {
     public static final String VALIDATION_REGEX = ROW_PART_REGEX + COL_PART_REGEX;
 
     public final String value;
+    public final String row;
+    public final String col;
 
     /**
      * Constructs an {@code Coordinate}.
@@ -35,6 +40,17 @@ public class Coordinate {
         requireNonNull(coordinate);
         checkArgument(isValidCoordinate(coordinate), MESSAGE_CONSTRAINTS);
         value = coordinate;
+
+        // use regex to extract alphabetical row and numeric col
+        Pattern rowRegex = Pattern.compile(ROW_PART_REGEX);
+        Pattern colRegex = Pattern.compile(COL_PART_REGEX);
+
+        Matcher rowMatch = rowRegex.matcher(value);
+        Matcher colMatch = colRegex.matcher(value);
+
+        this.row = rowMatch.group(0);
+        this.col = colMatch.group(0);
+
     }
 
     /**
