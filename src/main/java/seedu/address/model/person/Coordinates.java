@@ -56,8 +56,8 @@ public class Coordinates {
         int rowNum = convertAlphabetToNumber(row);
         int colNum = Integer.parseInt(col);
 
-        this.rowValue = Index.fromZeroBased(rowNum);
-        this.colValue = Index.fromZeroBased(colNum);
+        this.rowValue = Index.fromOneBased(rowNum);
+        this.colValue = Index.fromOneBased(colNum);
     }
 
     /**
