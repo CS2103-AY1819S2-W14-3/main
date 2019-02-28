@@ -50,7 +50,10 @@ public class LogicManager implements Logic {
         try {
             Command command = addressBookParser.parseCommand(commandText);
             commandResult = command.execute(model, history);
+            // STATISTICS: if command is executed, then add in
+            // FUTURE : Track return value
         } finally {
+            // FOR STATISTICS : PUT A CONDITION TO ADD INTO HISTORY INSTEAD OF FINALLY
             history.add(commandText);
         }
 

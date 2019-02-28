@@ -10,12 +10,13 @@ import seedu.address.model.Model;
 
 /**
  * Lists all the commands entered by user from the start of app launch.
+ *
  */
-public class HistoryCommand extends Command {
+public class StatsCommand extends Command {
 
-    public static final String COMMAND_WORD = "history";
-    public static final String MESSAGE_SUCCESS = "Entered commands (from most recent to earliest):\n%1$s";
-    public static final String MESSAGE_NO_HISTORY = "You have not yet entered any commands.";
+    public static final String COMMAND_WORD = "stats";
+    public static final String MESSAGE_SUCCESS = "CURRENT STATISTICS:\n%1$s";
+    public static final String MESSAGE_NO_HISTORY = "There are no statistics to show";
 
     @Override
     public CommandResult execute(Model model, CommandHistory history) {
