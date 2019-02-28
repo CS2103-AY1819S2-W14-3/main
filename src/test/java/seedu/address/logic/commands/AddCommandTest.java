@@ -24,7 +24,7 @@ import seedu.address.model.MapGrid;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
-import seedu.address.model.person.Cell;
+import seedu.address.model.cell.Cell;
 import seedu.address.model.tag.Tag;
 import seedu.address.testutil.PersonBuilder;
 

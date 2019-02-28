@@ -18,7 +18,7 @@ import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.UndoCommand;
 import seedu.address.model.Model;
-import seedu.address.model.person.Cell;
+import seedu.address.model.cell.Cell;
 
 public class DeleteCommandSystemTest extends MapGridSystemTest {
 

@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.MapGrid;
 import seedu.address.model.ReadOnlyAddressBook;
-import seedu.address.model.person.Cell;
+import seedu.address.model.cell.Cell;
 
 /**
  * An Immutable MapGrid that is serializable to JSON format.

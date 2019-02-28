@@ -4,10 +4,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 import seedu.address.model.battleship.Name;
-import seedu.address.model.person.Address;
-import seedu.address.model.person.Cell;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Phone;
+import seedu.address.model.cell.Address;
+import seedu.address.model.cell.Cell;
+import seedu.address.model.cell.Email;
+import seedu.address.model.cell.Phone;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 

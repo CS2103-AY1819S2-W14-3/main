@@ -1,7 +1,7 @@
 package seedu.address.testutil;
 
 import seedu.address.model.MapGrid;
-import seedu.address.model.person.Cell;
+import seedu.address.model.cell.Cell;
 
 /**
  * A utility class to help with building Addressbook objects.

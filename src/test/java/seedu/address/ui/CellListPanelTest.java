@@ -18,10 +18,10 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.address.model.battleship.Name;
-import seedu.address.model.person.Address;
-import seedu.address.model.person.Cell;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Phone;
+import seedu.address.model.cell.Address;
+import seedu.address.model.cell.Cell;
+import seedu.address.model.cell.Email;
+import seedu.address.model.cell.Phone;
 
 public class CellListPanelTest extends GuiUnitTest {
     private static final ObservableList<Cell> TYPICAL_CELLS =

@@ -6,7 +6,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_MAP_SIZE;
 import seedu.address.logic.CommandHistory;
 import seedu.address.model.MapGrid;
 import seedu.address.model.Model;
-import seedu.address.model.person.Cell;
+import seedu.address.model.cell.Cell;
 
 /**
  * Initialise map to size input by user.
