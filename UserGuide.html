@@ -14,25 +14,24 @@
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#viewing-player-map-code-print-map-code">3.2. Viewing player map : <code>print map</code></a></li>
-<li><a href="#viewing-enemy-map-code-print-enemy-map-code">3.3. Viewing enemy map : <code>print enemy map</code></a></li>
-<li><a href="#listing-all-ships-code-list-code">3.4. Listing all ships : <code>list</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">3.5. Editing a person : <code>edit</code></a></li>
-<li><a href="#placing-a-ship-code-put-code">3.6. Placing a ship: <code>put</code></a></li>
-<li><a href="#locating-ships-by-name-code-find-code">3.7. Locating ships by name: <code>find</code></a></li>
-<li><a href="#locating-ships-by-tags-code-findtag-code">3.8. Locating ships by tags: <code>findTag</code></a></li>
-<li><a href="#deleting-a-ship-code-delete-code">3.9. Deleting a ship: <code>delete</code></a></li>
-<li><a href="#selecting-a-ship-code-select-code">3.10. Selecting a ship : <code>select</code></a></li>
-<li><a href="#starting-a-game-code-play-code">3.11. Starting a game: <code>play</code></a></li>
-<li><a href="#shooting-at-a-coordinate-code-shoot-code">3.12. Shooting at a coordinate: <code>shoot</code></a></li>
-<li><a href="#starting-a-game-code-stats-code">3.13. Starting a game: <code>stats</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.14. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.15. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.16. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.17. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.18. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.19. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.20. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#initialising-the-maps-code-init-code">3.2. Initialising the maps : <code>init</code></a></li>
+<li><a href="#listing-all-ships-code-list-code">3.3. Listing all ships : <code>list</code></a></li>
+<li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
+<li><a href="#placing-a-ship-code-put-code">3.5. Placing a ship: <code>put</code></a></li>
+<li><a href="#locating-ships-by-name-code-find-code">3.6. Locating ships by name: <code>find</code></a></li>
+<li><a href="#locating-ships-by-tags-code-findtag-code">3.7. Locating ships by tags: <code>findTag</code></a></li>
+<li><a href="#deleting-a-ship-code-delete-code">3.8. Deleting a ship: <code>delete</code></a></li>
+<li><a href="#selecting-a-ship-code-select-code">3.9. Selecting a ship : <code>select</code></a></li>
+<li><a href="#starting-a-game-code-play-code">3.10. Starting a game: <code>play</code></a></li>
+<li><a href="#shooting-at-a-coordinate-code-shoot-code">3.11. Shooting at a coordinate: <code>shoot</code></a></li>
+<li><a href="#starting-a-game-code-stats-code">3.12. Starting a game: <code>stats</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.13. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.14. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.15. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.16. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.18. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.19. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -136,28 +135,21 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-player-map-code-print-map-code"><a class="link" href="#viewing-player-map-code-print-map-code">3.2. Viewing player map : <code>print map</code></a></h3>
+<h3 id="initialising-the-maps-code-init-code"><a class="link" href="#initialising-the-maps-code-init-code">3.2. Initialising the maps : <code>init</code></a></h3>
 <div class="paragraph">
-<p>Prints the player&#8217;s current map with the position of the ships.<br>
-Format: <code>print map</code></p>
+<p>Initialises the both player&#8217;s map to the specified size.
+Format: <code>init [s/MAP_SIZE]</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-enemy-map-code-print-enemy-map-code"><a class="link" href="#viewing-enemy-map-code-print-enemy-map-code">3.3. Viewing enemy map : <code>print enemy map</code></a></h3>
-<div class="paragraph">
-<p>Prints the player&#8217;s view of the enemy&#8217;s map with the position of the ships that have already been hit.<br>
-Format: <code>print enemy map</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="listing-all-ships-code-list-code"><a class="link" href="#listing-all-ships-code-list-code">3.4. Listing all ships : <code>list</code></a></h3>
+<h3 id="listing-all-ships-code-list-code"><a class="link" href="#listing-all-ships-code-list-code">3.3. Listing all ships : <code>list</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all the player&#8217;s battleships<br>
 Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.5. Editing a person : <code>edit</code></a></h3>
+<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Edits a battleship in the current inventory<br>
 Format: <code>edit INDEX [n/NAME] [s/SIZE] [c/COMMAND_FLAG] [t/TAGS]</code></p>
@@ -198,7 +190,7 @@ Edits the name, size and command status of the 1st ship to <code>RSS Vanguard</c
 </div>
 </div>
 <div class="sect2">
-<h3 id="placing-a-ship-code-put-code"><a class="link" href="#placing-a-ship-code-put-code">3.6. Placing a ship: <code>put</code></a></h3>
+<h3 id="placing-a-ship-code-put-code"><a class="link" href="#placing-a-ship-code-put-code">3.5. Placing a ship: <code>put</code></a></h3>
 <div class="paragraph">
 <p>Adds a ship onto the player&#8217;s map. Assumes the coordinates specified is the ship&#8217;s head.<br>
 Format: <code>put c/COORDINATES r/ORIENTATION</code></p>
@@ -218,7 +210,7 @@ Format: <code>put c/COORDINATES r/ORIENTATION</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-ships-by-name-code-find-code"><a class="link" href="#locating-ships-by-name-code-find-code">3.7. Locating ships by name: <code>find</code></a></h3>
+<h3 id="locating-ships-by-name-code-find-code"><a class="link" href="#locating-ships-by-name-code-find-code">3.6. Locating ships by name: <code>find</code></a></h3>
 <div class="paragraph">
 <p>Finds battleships whose names contain any of the given keywords.<br>
 Format: <code>find NAME [MORE_NAMES]</code></p>
@@ -271,7 +263,7 @@ The position may not be displayed if the ship has not been placed.
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-ships-by-tags-code-findtag-code"><a class="link" href="#locating-ships-by-tags-code-findtag-code">3.8. Locating ships by tags: <code>findTag</code></a></h3>
+<h3 id="locating-ships-by-tags-code-findtag-code"><a class="link" href="#locating-ships-by-tags-code-findtag-code">3.7. Locating ships by tags: <code>findTag</code></a></h3>
 <div class="paragraph">
 <p>Finds battleships whose tags contain any of the given keywords.<br>
 Format: <code>findTag TAG [MORE_TAGS]</code></p>
@@ -301,7 +293,7 @@ The position may not be displayed if the ship has not been placed.
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-ship-code-delete-code"><a class="link" href="#deleting-a-ship-code-delete-code">3.9. Deleting a ship: <code>delete</code></a></h3>
+<h3 id="deleting-a-ship-code-delete-code"><a class="link" href="#deleting-a-ship-code-delete-code">3.8. Deleting a ship: <code>delete</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified person from the inventory.<br>
 Format: <code>delete INDEX</code></p>
@@ -342,7 +334,7 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-ship-code-select-code"><a class="link" href="#selecting-a-ship-code-select-code">3.10. Selecting a ship : <code>select</code></a></h3>
+<h3 id="selecting-a-ship-code-select-code"><a class="link" href="#selecting-a-ship-code-select-code">3.9. Selecting a ship : <code>select</code></a></h3>
 <div class="paragraph">
 <p>Selects the person identified by the index number used in the displayed person list.<br>
 Format: <code>select INDEX</code></p>
@@ -383,7 +375,7 @@ Selects the 1st battleship in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="starting-a-game-code-play-code"><a class="link" href="#starting-a-game-code-play-code">3.11. Starting a game: <code>play</code></a></h3>
+<h3 id="starting-a-game-code-play-code"><a class="link" href="#starting-a-game-code-play-code">3.10. Starting a game: <code>play</code></a></h3>
 <div class="paragraph">
 <p>Starts a game of Battleship with a computer enemy. Creates a game loop that allows the player to fight with the enemy.<br>
 Format: <code>play</code></p>
@@ -400,7 +392,7 @@ Format: <code>play</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="shooting-at-a-coordinate-code-shoot-code"><a class="link" href="#shooting-at-a-coordinate-code-shoot-code">3.12. Shooting at a coordinate: <code>shoot</code></a></h3>
+<h3 id="shooting-at-a-coordinate-code-shoot-code"><a class="link" href="#shooting-at-a-coordinate-code-shoot-code">3.11. Shooting at a coordinate: <code>shoot</code></a></h3>
 <div class="paragraph">
 <p>Launches a missile onto given coordinate.<br>
 Format: <code>shoot c/COORDINATES</code></p>
@@ -428,7 +420,7 @@ Format: <code>shoot c/COORDINATES</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="starting-a-game-code-stats-code"><a class="link" href="#starting-a-game-code-stats-code">3.13. Starting a game: <code>stats</code></a></h3>
+<h3 id="starting-a-game-code-stats-code"><a class="link" href="#starting-a-game-code-stats-code">3.12. Starting a game: <code>stats</code></a></h3>
 <div class="paragraph">
 <p>Prints a list of statistics related to gameplay, such as accuracy and current hits.<br>
 Format: <code>stats</code></p>
@@ -445,7 +437,7 @@ Format: <code>stats</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.14. Listing entered commands : <code>history</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.13. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -466,7 +458,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.15. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.14. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the inventory to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -511,7 +503,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.16. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.15. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -543,28 +535,28 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.17. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.16. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the inventory.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.18. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.19. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.18. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.20. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.19. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -631,10 +623,7 @@ There is no need to save manually.</p>
 <p><strong>List</strong>: <code>list</code></p>
 </li>
 <li>
-<p><strong>Print enemy map</strong>: <code>print enemy map</code></p>
-</li>
-<li>
-<p><strong>Print player map</strong>: <code>print map</code></p>
+<p><strong>Initialise maps</strong>: <code>init [s/MAP_SIZE]</code></p>
 </li>
 <li>
 <p><strong>Help</strong>: <code>help</code></p>
@@ -642,4 +631,4 @@ There is no need to save manually.</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-01 16:46:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-02 01:53:49 UTC</div></div></div></body></html>
