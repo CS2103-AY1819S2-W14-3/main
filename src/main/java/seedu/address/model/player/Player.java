@@ -2,6 +2,8 @@ package seedu.address.model.player;
 
 import java.util.ArrayList;
 
+import seedu.address.model.MapGrid;
+
 /**
  * Represents a player in the game.
  * Can be either a user or a computerised enemy.
@@ -11,6 +13,7 @@ public class Player {
     private final String name;
     private final int fleetSize;
     private final Fleet fleet;
+    private final MapGrid mapGrid;
 
     /**
      * Constructor presented to user.
@@ -19,6 +22,7 @@ public class Player {
         this.name = name;
         this.fleetSize = fleetSize;
         this.fleet = new Fleet(fleetSize);
+        this.mapGrid = new MapGrid();
     }
 
     /**
@@ -35,7 +39,11 @@ public class Player {
     private Fleet getFleet() {
         return this.fleet; }
     public ArrayList getFleetContents() {
-        return this.fleet.getFleetContents(); }
+        return this.fleet.getFleetContents();
+    }
+    public MapGrid getMapGrid(){
+        return this.mapGrid;
+    }
 
     @Override
     public String toString() {
