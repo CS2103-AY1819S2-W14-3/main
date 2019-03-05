@@ -89,12 +89,12 @@ Edits the name, size and command status of the 1st ship to `RSS Vanguard`, size 
 === Placing a ship: `put`
 
 Adds a ship onto the player's map. Assumes the coordinates specified is the ship's head. +
-Format: `put c/COORDINATES r/ORIENTATION`
+Format: `put n/NAME c/COORDINATES`
 
 Examples:
 
-* `put A1 r/horizontal`
-* `put B2 r/vertical`
+* `put n/Destroyer c/A1`
+* `put n/Aircraft Carrier c/B1`
 
 === Locating ships by name: `find`
 

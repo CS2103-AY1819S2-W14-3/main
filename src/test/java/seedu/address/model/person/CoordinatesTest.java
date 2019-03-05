@@ -45,14 +45,14 @@ public class CoordinatesTest {
     @Test
     public void testGetRow() {
         Coordinates coordinates = new Coordinates("b5");
-        Index correct_col_index = Index.fromOneBased(5);
-        assertEquals(coordinates.getColIndex(), correct_col_index);
+        Index correctColIndex = Index.fromOneBased(5);
+        assertEquals(coordinates.getColIndex(), correctColIndex);
     }
 
     @Test
     public void testGetCol() {
         Coordinates coordinates = new Coordinates("a1");
-        Index correct_col_index = Index.fromOneBased(1);
-        assertEquals(coordinates.getColIndex(), correct_col_index);
+        Index correctColIndex = Index.fromOneBased(1);
+        assertEquals(coordinates.getColIndex(), correctColIndex);
     }
 }

@@ -24,7 +24,6 @@ import seedu.address.model.cell.Cell;
 import seedu.address.model.cell.Coordinates;
 import seedu.address.model.cell.Email;
 import seedu.address.model.cell.Phone;
-import seedu.address.model.cell.exceptions.DuplicatePersonException;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -41,7 +40,7 @@ public class PutShipCommand extends Command {
             + "Parameters: "
             + "[" + PREFIX_NAME + "NAME] "
             + "[" + PREFIX_COORDINATES + "COORDINATES]\n"
-            + "Example: " + COMMAND_WORD + " 1 "
+            + "Example: " + COMMAND_WORD
             + PREFIX_NAME + "Destroyer "
             + PREFIX_COORDINATES + "c1";
 
@@ -80,15 +79,7 @@ public class PutShipCommand extends Command {
         if (cellToEdit.hasBattleShip()) {
             throw new CommandException(MESSAGE_BATTLESHIP_PRESENT);
         } else {
-            EditPersonDescriptor editPersonDescriptor = new EditPersonDescriptor();
-            editPersonDescriptor.setName(battleship.getName());
-            editPersonDescriptor.setBattleship(battleship);
-            try {
-                Cell cellToUpdate = createEditedPerson(cellToEdit, editPersonDescriptor);
-                model.setPerson(cellToEdit, cellToUpdate);
-            } catch (DuplicatePersonException dpe) {
-                throw new CommandException(MESSAGE_DUPLICATE_PERSON);
-            }
+            cellToEdit.putShip(battleship);
         }
 
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
