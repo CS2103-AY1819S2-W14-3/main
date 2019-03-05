@@ -12,12 +12,13 @@ public class PlayerTest {
 
     //Lucy TO-FIX:
   /*  @Test
+
     public void constructor_default() {
         Player newPlayer1 = new Player();
         Player newPlayer2 = new Player("Player1", 5);
         assertEquals(newPlayer1, newPlayer2);
     }
-    */
+  
 
     @Test
     public void isValidName() {
