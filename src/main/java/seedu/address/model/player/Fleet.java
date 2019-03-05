@@ -20,7 +20,7 @@ public class Fleet {
      * Default constructor for a fleet of size 5 with placeholder ship names.
      */
     public Fleet() {
-        new Fleet(5);
+        this(5);
     }
     /**
      * Constructor for a fleet with placeholder ship names.
@@ -32,6 +32,7 @@ public class Fleet {
         }
 
         this.size = size;
+        this.fleetContents = new ArrayList<>();
 
         for (int i = 1; i <= size; i++) {
             HashSet<Tag> tags = new HashSet<>();
