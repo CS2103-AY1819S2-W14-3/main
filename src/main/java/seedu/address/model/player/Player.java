@@ -1,6 +1,10 @@
 package seedu.address.model.player;
 
+import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.AppUtil.checkArgument;
+
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 import seedu.address.model.MapGrid;
 
@@ -9,6 +13,11 @@ import seedu.address.model.MapGrid;
  * Can be either a user or a computerised enemy.
  */
 public class Player {
+
+    private static final String VALID_NAME_REGEX = "^[a-zA-Z0-9]{3,16}$";
+    private static final String MESSAGE_CONSTRAINTS = "Name should contain only alphanumerical characters,"
+            + "with no whitespaces.\n"
+            + "and be of length 3 to 16 characters, inclusive.\n";
 
     private final String name;
     private final int fleetSize;
@@ -19,6 +28,9 @@ public class Player {
      * Constructor presented to user.
      */
     public Player(String name, int fleetSize) {
+        requireNonNull(name);
+        checkArgument(isValidName(name), MESSAGE_CONSTRAINTS);
+
         this.name = name;
         this.fleetSize = fleetSize;
         this.fleet = new Fleet(fleetSize);
@@ -26,10 +38,10 @@ public class Player {
     }
 
     /**
-     * Default constructor for Player with provided name and fleet size 5.
+     * Default constructor with name Player1 and fleet size 5.
      */
-    public Player(String name) {
-        this(name, 5);
+    public Player() {
+        this("Player1", 5);
     }
 
     public String getName() {
@@ -41,8 +53,12 @@ public class Player {
     public ArrayList getFleetContents() {
         return this.fleet.getFleetContents();
     }
-    public MapGrid getMapGrid(){
+    public MapGrid getMapGrid() {
         return this.mapGrid;
+    }
+
+    public static boolean isValidName(String name) {
+        return Pattern.matches(VALID_NAME_REGEX, name);
     }
 
     @Override
