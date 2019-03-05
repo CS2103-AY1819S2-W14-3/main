@@ -11,14 +11,14 @@ public class PlayerTest {
     public final Player testPlayer = new Player("Alice", 7);
 
     //Lucy TO-FIX:
-  /*  @Test
+    /*  @Test
 
     public void constructor_default() {
         Player newPlayer1 = new Player();
         Player newPlayer2 = new Player("Player1", 5);
         assertEquals(newPlayer1, newPlayer2);
     }
-  */
+    */
 
     @Test
     public void isValidName() {
