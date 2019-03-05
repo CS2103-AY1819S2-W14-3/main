@@ -23,9 +23,8 @@ public class FleetTest {
     }
 
     @Test(
-            expected =
-                    IllegalArgumentException.class
-        ) public void constructor_invalidInput_throwsIllegalArgumentException() {
+            expected = IllegalArgumentException.class
+    ) public void constructor_invalidInput_throwsIllegalArgumentException() {
         new Fleet(0);
     }
 
