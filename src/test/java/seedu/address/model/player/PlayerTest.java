@@ -18,7 +18,7 @@ public class PlayerTest {
         Player newPlayer2 = new Player("Player1", 5);
         assertEquals(newPlayer1, newPlayer2);
     }
-  
+  */
 
     @Test
     public void isValidName() {
