@@ -192,7 +192,20 @@ Example:
 * The program will check if the coordinates are within the map itself.
 ****
 
-=== Starting a game: `stats`
+=== Starts Enemy's turn: `enemyturn`
+
+Ends Player turn and starts Enemy's turn. +
+Format: `shoot c/COORDINATES`
+
+Example:
+
+* `enemyturn`
+
+****
+* The program will end the player's turn and automatically play the Enemy's turns, til the Player's next turn.
+****
+
+=== Retrieving game statistics: `stats`
 
 Prints a list of statistics related to gameplay, such as accuracy and current hits. +
 Format: `stats`
@@ -295,6 +308,7 @@ _{explain how the user can enable/disable data encryption}_
 * **Undo**: `undo`
 * **Statistics**: `stats`
 * **Stats**: `stats`
+* **"enemyTurn**: `enemyturn`
 * **Shoot**: `shoot c/COORDINATES`
 * **Play**: `play`
 * **Select**: `select INDEX`
