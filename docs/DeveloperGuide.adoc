@@ -827,21 +827,23 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 [width="59%",cols="22%,<23%,<25%,<30%",options="header",]
 |=======================================================================
 |Priority |As a ... |I want to ... |So that I can...
-|`* * *` |new user |see usage instructions |refer to instructions when I forget how to use the App
+|`* * *` |new player |see usage instructions |refer to instructions when I forget how to use the App
 
-|`* * *` |user |initialise a new game board / map|start a new game
+|`* * *` |player |initialise a new game board / map|start a new game
 
-|`* * *` | user | put a battleship on the map |play the game
+|`* * *` | player | put a battleship on the map |play the game
 
-|`* * *` | user | see where my battleships are on the map |have a visual representation of the game
+|`* * *` | player | end my turn |the enemy can start its turn
 
-|`* * *` |user |delete a person |remove entries that I no longer need
+|`* * *` | player | see where my battleships are on the map |have a visual representation of the game
 
-|`* * *` |user |find a person by name |locate details of persons without having to go through the entire list
+|`* * *` |player |delete a person |remove entries that I no longer need
 
-|`* *` |user |hide <<private-contact-detail,private contact details>> by default |minimize chance of someone else seeing them by accident
+|`* * *` |player |find a person by name |locate details of persons without having to go through the entire list
 
-|`*` |user with many persons in the address book |sort persons by name |locate a person easily
+|`* *` |player |hide <<private-contact-detail,private contact details>> by default |minimize chance of someone else seeing them by accident
+
+|`*` |player with many persons in the address book |sort persons by name |locate a person easily
 |=======================================================================
 
 _{More to be added}_
@@ -884,6 +886,27 @@ Use case ends.
 
 [none]
 * 2a. If there is a ship present in the cell, show an error.
+
+=== Use case: End player turn
+
+*MSS*
+
+1. User requests for enemy to start turn.
+2. User's turn is automatically ended.
+3. Enemy player turn starts.
++
+Use case ends.
+
+=== Use case: Play enemy turn
+
+*Actor:* `enemy player`
+
+*MSS*
+
+1. Enemy turn starts.
+2. Enemy performs Enemy Attack(See Enemy Attack Use Case).
+3. Enemy turn ends.
+4. Control is given back to Player
 
 _{More to be added}_
 
