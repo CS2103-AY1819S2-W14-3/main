@@ -14,14 +14,25 @@ import seedu.address.model.tag.Tag;
  */
 public class Fleet {
 
-    private final int size;
+    private int size;
     private ArrayList<Battleship> fleetContents;
-
     /**
-     * Default constructor for a fleet with placeholder ship names.
+     * Default constructor for a fleet of size 5 with placeholder ship names.
      */
-    public Fleet(int size) {
+    public Fleet() {
+        this(5);
+    }
+    /**
+     * Constructor for a fleet with placeholder ship names.
+     */
+    public Fleet(int size) throws IllegalArgumentException {
+
+        if (size <= 0) {
+            throw new IllegalArgumentException();
+        }
+
         this.size = size;
+        this.fleetContents = new ArrayList<>();
 
         for (int i = 1; i <= size; i++) {
             HashSet<Tag> tags = new HashSet<>();
