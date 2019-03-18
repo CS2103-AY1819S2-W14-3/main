@@ -26,13 +26,11 @@
 <li><a href="#shooting-at-a-coordinate-code-shoot-code">3.11. Shooting at a coordinate: <code>shoot</code></a></li>
 <li><a href="#starts-enemy-s-turn-code-enemyturn-code">3.12. Starts Enemy&#8217;s turn: <code>enemyturn</code></a></li>
 <li><a href="#retrieving-game-statistics-code-stats-code">3.13. Retrieving game statistics: <code>stats</code></a></li>
-<li><a href="#listing-entered-commands-code-stats-code">3.14. Listing entered commands : <code>stats</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.15. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.16. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.17. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.18. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.19. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.20. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.14. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.15. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.16. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.18. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -82,13 +80,16 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>list</code></strong> : lists all contacts</p>
+<p><strong><code>list</code></strong> : lists all battleships</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
+<p><strong><code>put</code></strong><code>a1</code> : Puts a battleship with its head at the A1 cell</p>
 </li>
 <li>
-<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
+<p><strong><code>play</code></strong> : Start the game</p>
+</li>
+<li>
+<p><strong><code>shoot</code></strong><code>a1</code> : Attacks the enemy&#8217;s A1 cell</p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app</p>
@@ -96,10 +97,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </ul>
 </div>
 </li>
-<li>
-<p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
-</li>
 </ol>
+</div>
+<div class="paragraph">
+<p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
 </div>
 </div>
 </div>
@@ -129,30 +130,45 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pressing the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows will display the previous and next input respectively in the command box.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="sect2">
 <h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
 <div class="paragraph">
-<p>Format: <code>help</code></p>
+<p>Opens a help window that displays this User Guide.<br>
+Format: <code>help</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="initialising-the-maps-code-init-code"><a class="link" href="#initialising-the-maps-code-init-code">3.2. Initialising the maps : <code>init</code></a></h3>
 <div class="paragraph">
-<p>Initialises both player&#8217;s map to the specified size<br>
+<p>Initialises both player&#8217;s maps to the specified size.<br>
 Format: <code>init [s/MAP_SIZE]</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="listing-all-ships-code-list-code"><a class="link" href="#listing-all-ships-code-list-code">3.3. Listing all ships : <code>list</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all the player&#8217;s battleships<br>
+<p>Shows a list of all the player&#8217;s battleships.<br>
 Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
 <div class="paragraph">
-<p>Edits a battleship in the current inventory<br>
+<p>Edits a battleship in the current inventory.<br>
 Format: <code>edit INDEX [n/NAME] [s/SIZE] [c/COMMAND_FLAG] [t/TAGS]</code></p>
 </div>
 <div class="sidebarblock">
@@ -160,7 +176,7 @@ Format: <code>edit INDEX [n/NAME] [s/SIZE] [c/COMMAND_FLAG] [t/TAGS]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed person list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Edits the battleship at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed person list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -169,10 +185,10 @@ Format: <code>edit INDEX [n/NAME] [s/SIZE] [c/COMMAND_FLAG] [t/TAGS]</code></p>
 <p>Existing values will be updated to the input values.</p>
 </li>
 <li>
-<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
+<p>When editing tags, the existing tags of the battleship will be removed i.e adding of tags is not cumulative.</p>
 </li>
 <li>
-<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+<p>You can remove all the battleship&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
 </li>
 </ul>
 </div>
@@ -193,10 +209,10 @@ Edits the name, size and command status of the 1st ship to <code>RSS Vanguard</c
 <div class="sect2">
 <h3 id="placing-a-ship-code-put-code"><a class="link" href="#placing-a-ship-code-put-code">3.5. Placing a ship: <code>put</code></a></h3>
 <div class="paragraph">
-<p>Adds a ship onto the player&#8217;s map. Assumes the coordinates specified is the ship&#8217;s head.<br></p>
+<p>Adds a ship onto the player&#8217;s map. The coordinates specified is the position of the ship&#8217;s head.<br></p>
 </div>
 <div class="paragraph">
-<p>Please specify the horizontal or vertical orientation of the ship when placing it. The orientation may be shortened to <code>h</code> or <code>v</code>.<br></p>
+<p>The orientation of the ship (horizontal or vertical) must be specified. The orientation may be shortened to <code>h</code> or <code>v</code>.<br></p>
 </div>
 <div class="paragraph">
 <p>Format: <code>put n/NAME c/COORDINATES r/ORIENTATION</code></p>
@@ -226,19 +242,20 @@ Format: <code>find NAME [MORE_NAMES]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
+<p>The search is case insensitive. e.g <code>hood</code> will match <code>Hood</code></p>
 </li>
 <li>
-<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
+<p>The order of the keywords does not matter. e.g. <code>Wales Prince</code> will match <code>Prince Of Wales</code></p>
 </li>
 <li>
 <p>Only the name is searched.</p>
 </li>
 <li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
+<p>Only full words will be matched e.g. <code>Bel</code> will not match <code>Belfast</code></p>
 </li>
 <li>
-<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search).<br>
+e.g. <code>King York</code> will return <code>King George V</code>, <code>Duke of York</code></p>
 </li>
 </ul>
 </div>
@@ -250,8 +267,8 @@ Format: <code>find NAME [MORE_NAMES]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>find Vengence</code><br>
-Returns <code>Name: RSS Vengence, Size: 4, Command: true, Position: 4, 2</code></p>
+<p><code>find Vengeance</code><br>
+Returns <code>Name: RSS Vengeance, Size: 4, Command: true, Position: d2</code></p>
 </li>
 </ul>
 </div>
@@ -281,7 +298,7 @@ Format: <code>findTag TAG [MORE_TAGS]</code></p>
 <ul>
 <li>
 <p><code>findTag bluewater_fleet</code><br>
-Returns <code>Name: RSS Vengence, Size: 4, Command: true, Position: 4, 2</code></p>
+Returns <code>Name: RSS Vengeance, Size: 4, Command: true, Position: d2</code></p>
 </li>
 </ul>
 </div>
@@ -301,7 +318,7 @@ The position may not be displayed if the ship has not been placed.
 <div class="sect2">
 <h3 id="deleting-a-ship-code-delete-code"><a class="link" href="#deleting-a-ship-code-delete-code">3.8. Deleting a ship: <code>delete</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified person from the inventory.<br>
+<p>Deletes the specified ship from the inventory.<br>
 Format: <code>delete INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -309,10 +326,10 @@ Format: <code>delete INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the person at the specified <code>INDEX</code>.</p>
+<p>Deletes the ship at the specified <code>INDEX</code>.</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed person list.</p>
+<p>The index refers to the index number shown in the displayed ship list.</p>
 </li>
 <li>
 <p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
@@ -332,9 +349,9 @@ Format: <code>delete INDEX</code></p>
 Deletes the 2nd battleship in the inventory.</p>
 </li>
 <li>
-<p><code>find Betsy</code><br>
+<p><code>find Prinz Eugen</code><br>
 <code>delete 1</code><br>
-Deletes the 1st person in the results of the <code>find</code> command.</p>
+Deletes the 1st ship in the results of the <code>find</code> command.</p>
 </li>
 </ul>
 </div>
@@ -342,7 +359,7 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 <div class="sect2">
 <h3 id="selecting-a-ship-code-select-code"><a class="link" href="#selecting-a-ship-code-select-code">3.9. Selecting a ship : <code>select</code></a></h3>
 <div class="paragraph">
-<p>Selects the person identified by the index number used in the displayed person list.<br>
+<p>Selects the battleship identified by the index number used in the displayed ship list.<br>
 Format: <code>select INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -350,10 +367,7 @@ Format: <code>select INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Selects the person and loads the Google search page the person at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed person list.</p>
+<p>The index refers to the index number shown in the displayed ship list.</p>
 </li>
 <li>
 <p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
@@ -373,7 +387,7 @@ Format: <code>select INDEX</code></p>
 Selects the 2nd battleship in the inventory.</p>
 </li>
 <li>
-<p><code>find Betsy</code><br>
+<p><code>find Prinz Eugen</code><br>
 <code>select 1</code><br>
 Selects the 1st battleship in the results of the <code>find</code> command.</p>
 </li>
@@ -383,7 +397,7 @@ Selects the 1st battleship in the results of the <code>find</code> command.</p>
 <div class="sect2">
 <h3 id="starting-a-game-code-play-code"><a class="link" href="#starting-a-game-code-play-code">3.10. Starting a game: <code>play</code></a></h3>
 <div class="paragraph">
-<p>Starts a game of Battleship with a computer enemy. Creates a game loop that allows the player to fight with the enemy.<br>
+<p>Starts a game of Battleship with a computer enemy.<br>
 Format: <code>play</code></p>
 </div>
 <div class="paragraph">
@@ -400,8 +414,8 @@ Format: <code>play</code></p>
 <div class="sect2">
 <h3 id="shooting-at-a-coordinate-code-shoot-code"><a class="link" href="#shooting-at-a-coordinate-code-shoot-code">3.11. Shooting at a coordinate: <code>shoot</code></a></h3>
 <div class="paragraph">
-<p>Launches a missile onto given coordinate.<br>
-Format: <code>shoot c/COORDINATES</code></p>
+<p>Launches an attack against given coordinate on the enemy&#8217;s map.<br>
+Format: <code>shoot COORDINATES</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -418,7 +432,10 @@ Format: <code>shoot c/COORDINATES</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>The program will check if the coordinates are within the map itself.</p>
+<p>The program will prevent an attack on an invalid coordinate..</p>
+</li>
+<li>
+<p>The program will prevent an attack on a square that has already been attacked.</p>
 </li>
 </ul>
 </div>
@@ -429,24 +446,15 @@ Format: <code>shoot c/COORDINATES</code></p>
 <h3 id="starts-enemy-s-turn-code-enemyturn-code"><a class="link" href="#starts-enemy-s-turn-code-enemyturn-code">3.12. Starts Enemy&#8217;s turn: <code>enemyturn</code></a></h3>
 <div class="paragraph">
 <p>Ends Player turn and starts Enemy&#8217;s turn.<br>
-Format: <code>shoot c/COORDINATES</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>enemyturn</code></p>
-</li>
-</ul>
+Format: <code>enemyturn</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>The program will end the player&#8217;s turn and automatically play the Enemy&#8217;s turns, til the Player&#8217;s next turn.</p>
+<p>The program will end the player&#8217;s turn and automatically play the Enemy&#8217;s turns, until the Player&#8217;s next turn.
+While that is happening, the player can see the enemy&#8217;s attacks reflected on the map.</p>
 </li>
 </ul>
 </div>
@@ -471,28 +479,7 @@ Format: <code>stats</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-stats-code"><a class="link" href="#listing-entered-commands-code-stats-code">3.14. Listing entered commands : <code>stats</code></a></h3>
-<div class="paragraph">
-<p>Displays statistics of commands used<br>
-Format: <code>stats</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Pressing the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows will display the previous and next input respectively in the command box.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.15. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.14. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the inventory to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -537,7 +524,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.16. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.15. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -569,30 +556,23 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.17. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.16. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the inventory.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.18. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.19. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.18. Saving the data</a></h3>
 <div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
-There is no need to save manually.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.20. Encrypting data files <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
+<p>(placeholder for Statistics saving)</p>
 </div>
 </div>
 </div>
@@ -633,7 +613,7 @@ There is no need to save manually.</p>
 <p><strong>"enemyTurn</strong>: <code>enemyturn</code></p>
 </li>
 <li>
-<p><strong>Shoot</strong>: <code>shoot c/COORDINATES</code></p>
+<p><strong>Shoot</strong>: <code>shoot COORDINATES</code></p>
 </li>
 <li>
 <p><strong>Play</strong>: <code>play</code></p>
@@ -668,4 +648,4 @@ There is no need to save manually.</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-18 07:11:55 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-18 07:21:53 UTC</div></div></div></body></html>
