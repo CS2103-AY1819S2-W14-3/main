@@ -14,6 +14,7 @@ import javafx.scene.text.Text;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.MapGrid;
 import seedu.address.model.cell.Cell;
+import seedu.address.model.cell.Status;
 
 /**
  * Panel containing the list of persons.
@@ -34,7 +35,7 @@ public abstract class Map extends UiPart<Region> {
 
         modelUpdateObservable.addListener(observable -> {
             int size = mapGrid.getMapSize();
-            mapArray = mapGrid.get2dArrayMapGridCopy();
+            Status[][] mapView = getMapView(mapGrid);
             columnLabel = 1;
             rowLabel = 'A';
 
@@ -51,8 +52,7 @@ public abstract class Map extends UiPart<Region> {
                     } else if (j == 0) {
                         sp = getColumnLabelCell();
                     } else {
-                        Cell mapCell = mapArray[i - 1][j - 1];
-                        sp = getUiCell("", getColor(mapCell));
+                        sp = getUiCell("", getColor(mapView[i - 1][j - 1]));
                     }
 
                     row.getChildren().add(sp);
@@ -83,8 +83,26 @@ public abstract class Map extends UiPart<Region> {
         return sp;
     }
 
+    protected abstract Status[][] getMapView(MapGrid mapGrid);
     /**
      * Determine color of cell from the status of cell
      */
-    protected abstract Color getColor(Cell cell);
+    Color getColor(Status status) {
+        switch (status) {
+        case HIDDEN:
+            return Color.CADETBLUE;
+        case SHIP:
+            return Color.BLACK;
+        case SHIPHIT:
+            return Color.ORANGE;
+        case EMPTY:
+            return Color.LIGHTBLUE;
+        case EMPTYHIT:
+            return Color.DARKBLUE;
+        case DESTROYED:
+            return Color.RED;
+        default:
+            return Color.WHITE;
+        }
+    }
 }
