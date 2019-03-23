@@ -5,6 +5,10 @@ package seedu.address.model.cell;
  */
 public enum Status {
     /**
+     * This cell has not been hit. Used when showing the map from the enemy's perspective.
+     */
+    HIDDEN,
+    /**
      * This cell is empty and has not been hit.
      */
     EMPTY,

@@ -16,6 +16,7 @@ import seedu.address.model.battleship.Battleship;
 import seedu.address.model.cell.Cell;
 import seedu.address.model.cell.Coordinates;
 import seedu.address.model.cell.Row;
+import seedu.address.model.cell.Status;
 import seedu.address.model.cell.exceptions.DuplicatePersonException;
 import seedu.address.model.cell.exceptions.PersonNotFoundException;
 import seedu.address.model.tag.Tag;
@@ -78,6 +79,22 @@ public class MapGrid implements ReadOnlyAddressBook {
         copy2dArray(mapCopy, cellGrid);
 
         return mapCopy;
+    }
+
+    /**
+     * Returns a 2D array of {@code Status} which represents the view of this map from the enemy's perspective.
+     */
+    public Status[][] getEnemyMapView() {
+        Status[][] enemyMapView = new Status[size][size];
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                Status cellStatus = cellGrid[i][j].getStatus();
+                enemyMapView[i][j] = (cellStatus == Status.EMPTY || cellStatus == Status.SHIP)
+                        ? Status.HIDDEN : cellStatus;
+            }
+        }
+        return enemyMapView;
     }
 
     /**
