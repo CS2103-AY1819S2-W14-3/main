@@ -82,7 +82,22 @@ public class MapGrid implements ReadOnlyAddressBook {
     }
 
     /**
-     * Returns a 2D array of {@code Status} which represents the view of this map from the enemy's perspective.
+     * Returns a 2D array of {@code Status} which represents the view of this map from this map owner's perspective.
+     */
+    public Status[][] getPlayerMapView() {
+        Status[][] playerMapView = new Status[size][size];
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                playerMapView[i][j] = cellGrid[i][j].getStatus();
+            }
+        }
+        return playerMapView;
+    }
+
+    /**
+     * Returns a 2D array of {@code Status} which represents the view of this map from
+     * the perspective of the enemy of this map's owner.
      */
     public Status[][] getEnemyMapView() {
         Status[][] enemyMapView = new Status[size][size];
