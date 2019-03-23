@@ -13,7 +13,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.MapGrid;
-import seedu.address.model.cell.Cell;
 import seedu.address.model.cell.Status;
 
 /**
@@ -25,7 +24,6 @@ public abstract class Map extends UiPart<Region> {
 
     private int columnLabel = 1;
     private char rowLabel = 'A';
-    private Cell[][] mapArray;
 
     @FXML
     private VBox grid;
@@ -45,6 +43,7 @@ public abstract class Map extends UiPart<Region> {
                 HBox row = new HBox();
                 for (int j = 0; j < size + 1; j++) {
                     StackPane sp;
+                    // First row and column are used for labels
                     if (i == 0 && j == 0) {
                         sp = getUiCell("", Color.WHITE);
                     } else if (i == 0) { // if first row
@@ -84,6 +83,7 @@ public abstract class Map extends UiPart<Region> {
     }
 
     protected abstract Status[][] getMapView(MapGrid mapGrid);
+
     /**
      * Determine color of cell from the status of cell
      */
