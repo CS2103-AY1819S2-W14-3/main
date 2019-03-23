@@ -29,7 +29,15 @@ public interface Model {
      */
     void updateUi();
 
-    ObservableBooleanValue getModelUpdateObservable();
+    /**
+     * Returns the observable value in the human map. Used by the Ui to listen to for changes.
+     */
+    ObservableBooleanValue getHumanMapObservable();
+
+    /**
+     * Returns the observable value in the human map. Used by the Ui to listen to for changes.
+     */
+    ObservableBooleanValue getEnemyMapObservable();
 
     /**
      * Returns the player map grid

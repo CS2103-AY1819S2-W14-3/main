@@ -126,10 +126,10 @@ public class MainWindow extends UiPart<Stage> {
      * Fills up all the placeholders of this window.
      */
     void fillInnerParts() {
-        playerMap = new PlayerMap(logic.getModelUpdateObservable(), logic.getHumanMapGrid());
+        playerMap = new PlayerMap(logic.getHumanMapObservable(), logic.getHumanMapGrid());
         personListPanelPlaceholder.getChildren().add(playerMap.getRoot());
 
-        enemyMap = new EnemyMap(logic.getModelUpdateObservable(), logic.getEnemyMapGrid());
+        enemyMap = new EnemyMap(logic.getEnemyMapObservable(), logic.getEnemyMapGrid());
         browserPlaceholder.getChildren().add(enemyMap.getRoot());
 
         resultDisplay = new ResultDisplay();

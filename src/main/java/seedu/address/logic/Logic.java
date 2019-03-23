@@ -68,7 +68,12 @@ public interface Logic {
     /**
      * Used for the Ui to listen to and trigger changes.
      */
-    ObservableBooleanValue getModelUpdateObservable();
+    ObservableBooleanValue getHumanMapObservable();
+
+    /**
+     * Used for the Ui to listen to and trigger changes.
+     */
+    ObservableBooleanValue getEnemyMapObservable();
 
     /**
      * Returns the player map grid

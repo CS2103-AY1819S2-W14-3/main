@@ -87,14 +87,20 @@ public class ModelManager implements Model {
 
     @Override
     public void updateUi() {
-        versionedAddressBook.updateUi();
+        getHumanMapGrid().updateUi();
+        getEnemyMapGrid().updateUi();
     }
 
     //=========== UserPrefs ==================================================================================
 
     @Override
-    public ObservableBooleanValue getModelUpdateObservable() {
-        return getHumanPlayer().getMapGrid().getObservableValue();
+    public ObservableBooleanValue getHumanMapObservable() {
+        return getHumanMapGrid().getObservableValue();
+    }
+
+    @Override
+    public ObservableBooleanValue getEnemyMapObservable() {
+        return getEnemyMapGrid().getObservableValue();
     }
 
     @Override

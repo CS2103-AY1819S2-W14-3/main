@@ -129,8 +129,13 @@ public class LogicManager implements Logic {
     }
 
     @Override
-    public ObservableBooleanValue getModelUpdateObservable() {
-        return model.getModelUpdateObservable();
+    public ObservableBooleanValue getHumanMapObservable() {
+        return model.getHumanMapObservable();
+    }
+
+    @Override
+    public ObservableBooleanValue getEnemyMapObservable() {
+        return model.getEnemyMapObservable();
     }
 
     @Override
