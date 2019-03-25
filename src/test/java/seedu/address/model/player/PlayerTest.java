@@ -6,6 +6,9 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import seedu.address.model.cell.Coordinates;
+import seedu.address.testutil.TypicalIndexes;
+
 public class PlayerTest {
 
     public final Player testPlayer = new Player("Alice", 5, 2, 1);
@@ -56,8 +59,32 @@ public class PlayerTest {
         Player newPlayer1 = new Player("Bob", 5, 2, 1);
         assertEquals(newPlayer1.getMapGrid(), testPlayer.getMapGrid());
     }
-    @Test public void test_getTargetHistory() {
+
+    @Test
+    public void test_getTargetHistory() {
         Player newPlayer1 = new Player("Bob", 5, 2, 1);
         assertEquals(newPlayer1.getTargetHistory(), testPlayer.getTargetHistory());
+    }
+
+    @Test
+    public void addToTargetHistory_addDistinct_returnsTrue() {
+        Player newPlayer1 = new Player();
+        assertTrue(newPlayer1.addToTargetHistory(TypicalIndexes.COORDINATES_A1));
+        assertTrue(newPlayer1.addToTargetHistory(TypicalIndexes.COORDINATES_A2));
+        assertTrue(newPlayer1.addToTargetHistory(TypicalIndexes.COORDINATES_B1));
+        assertTrue(newPlayer1.addToTargetHistory(TypicalIndexes.COORDINATES_J1));
+    }
+
+    @Test
+    public void addToTargetHistory_addDuplicate_returnsFalse() {
+        Player newPlayer1 = new Player();
+        assertTrue(newPlayer1.addToTargetHistory(TypicalIndexes.COORDINATES_A1));
+        assertTrue(newPlayer1.addToTargetHistory(TypicalIndexes.COORDINATES_A2));
+        assertTrue(newPlayer1.addToTargetHistory(TypicalIndexes.COORDINATES_B1));
+        assertTrue(newPlayer1.addToTargetHistory(TypicalIndexes.COORDINATES_J1));
+        assertFalse(newPlayer1.addToTargetHistory(TypicalIndexes.COORDINATES_A1));
+        assertFalse(newPlayer1.addToTargetHistory(TypicalIndexes.COORDINATES_A2));
+        assertFalse(newPlayer1.addToTargetHistory(TypicalIndexes.COORDINATES_B1));
+        assertFalse(newPlayer1.addToTargetHistory(TypicalIndexes.COORDINATES_J1));
     }
 }
