@@ -14,7 +14,7 @@
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#initialising-the-maps-code-init-code">3.2. Initialising the maps : <code>init</code></a></li>
+<li><a href="#map-code-init-code">3.2. Map : <code>init</code></a></li>
 <li><a href="#listing-all-ships-code-list-code">3.3. Listing all ships : <code>list</code></a></li>
 <li><a href="#placing-a-ship-code-put-code">3.4. Placing a ship: <code>put</code></a></li>
 <li><a href="#locating-ships-by-name-code-find-code">3.5. Locating ships by name: <code>find</code></a></li>
@@ -150,10 +150,66 @@ Format: <code>help</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="initialising-the-maps-code-init-code"><a class="link" href="#initialising-the-maps-code-init-code">3.2. Initialising the maps : <code>init</code></a></h3>
+<h3 id="map-code-init-code"><a class="link" href="#map-code-init-code">3.2. Map : <code>init</code></a></h3>
 <div class="paragraph">
 <p>Initialises both player&#8217;s maps to the specified size.<br>
-Format: <code>init [s/MAP_SIZE]</code></p>
+Format: <code>init MAP_SIZE</code><br>
+Example: <code>init 10</code></p>
+</div>
+<div class="paragraph">
+<p><em>Figure 1</em> below shows how the maps will be displayed in the UI.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/initmapresult.png" alt="initmapresult" width="650">
+</div>
+<div class="title">Figure 1. Player and enemy maps</div>
+</div>
+<div class="paragraph">
+<p>Throughout the course of the game, the cells in the map will change colour based on their status.<br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<div class="title">Cell statuses:</div>
+<ul>
+<li>
+<p>Hidden - Enemy map cell that has not been hit</p>
+</li>
+<li>
+<p>Water - Empty (i.e cell with no ship) player cell that has not been hit</p>
+</li>
+<li>
+<p>Water Hit - Empty cell that has been hit</p>
+</li>
+<li>
+<p>Ship - Player cell that has a ship and has not been hit</p>
+</li>
+<li>
+<p>Ship Hit - Ship cell that has been hit but not yet destroyed</p>
+</li>
+<li>
+<p>Ship Destroyed - Ship cell that has been destroyed</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><em>Figure 2</em> below shows which colour is used for each status.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/maplegend.png" alt="maplegend" width="400">
+</div>
+<div class="title">Figure 2. Cell colours</div>
 </div>
 </div>
 <div class="sect2">
@@ -560,4 +616,4 @@ Format: <code>exit</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-25 17:12:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-25 17:18:30 UTC</div></div></div></body></html>
