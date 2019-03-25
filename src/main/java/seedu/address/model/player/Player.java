@@ -30,7 +30,7 @@ public class Player {
     private final int fleetSize;
     private final Fleet fleet;
     private final MapGrid mapGrid;
-    private Set targetHistory = new HashSet();
+    private Set<Coordinates> targetHistory = new HashSet<>();
 
     /**
      * Constructor presented to user.
