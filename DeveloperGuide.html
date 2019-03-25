@@ -80,8 +80,9 @@
 <li><a href="#instructions-for-manual-testing-must-change-to-fit-our-context">Appendix G: Instructions for Manual Testing (!!Must change to fit our context!!)</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
-<li><a href="#saving-data">G.3. Saving data</a></li>
+<li><a href="#initialising-the-maps">G.2. Initialising the maps</a></li>
+<li><a href="#deleting-a-person">G.3. Deleting a person</a></li>
+<li><a href="#saving-data">G.4. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -574,7 +575,25 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>A map grid is a 2D array made up of <code>Cell</code> objects. This 2D array is encapsulated within the <code>MapGrid</code> class.</p>
+<p>The map feature is facilitated by <code>MapGrid</code>.
+The map grid is stored as a 2D array of <code>Cell</code>.
+This 2D array is encapsulated within the <code>MapGrid</code> class.
+<code>MapGrid</code> implements the following method to initialise the map.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>MapGrid#initialise(Cell[][] map)</code>&#8201;&#8212;&#8201;initialises the map using the given <code>Cell</code> 2D array.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how a map is initialised:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/InitialiseMapCommandSequenceDiagram.png" alt="InitialiseMapCommandSequenceDiagram" width="800">
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -1673,7 +1692,34 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a person</a></h3>
+<h3 id="initialising-the-maps"><a class="link" href="#initialising-the-maps">G.2. Initialising the maps</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Initialising the maps after launching the game</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>init 7</code><br>
+Expected: Displays two empty map grids of size 7 in the GUI. Both maps will have the appropriate alphanumeric labels on the first row and column.</p>
+</li>
+<li>
+<p>Test case: <code>init 0</code><br>
+Expected: If this is the first command ran, no map will be displayed. Otherwise, no changes will be made to the displayed maps.
+Error message will be displayed in the result display box.</p>
+</li>
+<li>
+<p>Other incorrect initialise commands to try: <code>init</code>, <code>init x</code> (where x is smaller or larger than the specified minimum or maximum map size respectively).<br>
+Expected: No map will be displayed if this is the first command ran. Otherwise, no changes will be made to the displayed map.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.3. Deleting a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1705,7 +1751,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">G.4. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1725,4 +1771,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-25 08:44:09 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-25 08:51:24 UTC</div></div></div></body></html>
