@@ -70,6 +70,10 @@ public class Player {
         return this.name;
     }
 
+    public void resetFleet(int mapSize) {
+        fleet.resetFleet(mapSize);
+    }
+
     public int getFleetSize() {
         return this.fleetSize;
     }

@@ -1,5 +1,6 @@
 package seedu.address.model.cell;
 
+import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Collections;
@@ -14,7 +15,6 @@ import seedu.address.model.tag.Tag;
 
 /**
  * Represents a Cell in the map grid.
- * Guarantees: details are present and not null, field values are validated.
  */
 public class Cell {
 
@@ -45,9 +45,10 @@ public class Cell {
     }
 
     /**
-     * Constructor for cell that requires no arguments
+     * Coordinates must be present and not null.
      */
     public Cell(Coordinates coordinates) {
+        requireNonNull(coordinates);
         this.battleship = Optional.empty();
         this.coordinates = coordinates;
         this.name = new Name("This cell is empty");
@@ -69,7 +70,7 @@ public class Cell {
     }
 
     /**
-     * Constructor to copy a given Cell
+     * Constructor to copy a given Cell.
      */
     public Cell(Cell newCell) {
         this.battleship = newCell.battleship;
@@ -105,15 +106,16 @@ public class Cell {
     }
 
     /**
-     * Put battleship in this cell
+     * Put a battleship in this cell. Battleship must be present and not null.
      */
     public void putShip(Battleship battleship) {
+        requireNonNull(battleship);
         this.battleship = Optional.of(battleship);
         this.name = battleship.getName();
     }
 
     /**
-     * Returns the status of this cell
+     * Returns the {@code Status} of this cell
      */
     public Status getStatus() {
         if (battleship.isPresent()) {

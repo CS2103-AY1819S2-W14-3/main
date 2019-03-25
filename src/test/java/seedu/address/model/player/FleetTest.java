@@ -145,4 +145,22 @@ public class FleetTest {
         assertEquals(testFleet.getNumCruiser(), 1);
         assertEquals(testFleet.getNumAircraftCarrier(), 1);
     }
+
+    @Test
+    public void testResetFleet() {
+        Fleet testFleet = new Fleet(6);
+        assertEquals(testFleet.getNumDestroyer(), 1);
+        assertEquals(testFleet.getNumCruiser(), 1);
+        assertEquals(testFleet.getNumAircraftCarrier(), 1);
+
+        Battleship testDestroyer = new DestroyerBattleship(emptySet);
+        Coordinates testCoordinates = new Coordinates("a1");
+        Orientation testOrientation = new Orientation("vertical");
+
+        testFleet.deployOneBattleship(testDestroyer, testCoordinates, testOrientation);
+        assertEquals(testFleet.getDeployedFleet().isEmpty(), false);
+
+        testFleet.resetFleet(6);
+        assertEquals(testFleet.getDeployedFleet().isEmpty(), true);
+    }
 }

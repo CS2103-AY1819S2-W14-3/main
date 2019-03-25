@@ -50,6 +50,9 @@ public class InitialiseMapCommand extends Command {
         model.getHumanMapGrid().initialise(cellGrid);
         model.getEnemyMapGrid().initialise(cellGrid);
 
+        model.getHumanPlayer().resetFleet(mapSize);
+        model.getEnemyPlayer().resetFleet(mapSize);
+
         return new CommandResult(String.format(MESSAGE_SUCCESS, mapSize));
     }
 

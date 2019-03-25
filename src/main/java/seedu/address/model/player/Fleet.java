@@ -34,6 +34,14 @@ public class Fleet {
     public Fleet() {
         this(5, 2, 1);
     }
+
+    /**
+     * Constructor using formula according to mapSize.
+     */
+    public Fleet (int mapSize) {
+        this(1, mapSize - 5, (mapSize + 2) / 5);
+    }
+
     /**
      * Constructor for a fleet with placeholder ship names.
      */
@@ -57,6 +65,16 @@ public class Fleet {
 
     public ArrayList<FleetEntry> getDeployedFleet() {
         return this.deployedFleet;
+    }
+
+    /**
+     * Resets the fleet.
+     */
+    public void resetFleet(int mapSize) {
+        this.numDestroyer = (mapSize + 2) / 5;
+        this.numCruiser = mapSize - 5;
+        this.numAircraftCarrier = 1;
+        this.deployedFleet = new ArrayList<>();
     }
 
     /**

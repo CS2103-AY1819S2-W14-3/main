@@ -22,8 +22,7 @@ import seedu.address.model.cell.exceptions.PersonNotFoundException;
 import seedu.address.model.tag.Tag;
 
 /**
- * Wraps all data at the address-book level
- * Duplicates are not allowed (by .isSamePerson comparison)
+ * Wraps all data at the map grid level
  */
 public class MapGrid implements ReadOnlyAddressBook {
 

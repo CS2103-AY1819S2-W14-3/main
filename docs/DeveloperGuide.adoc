@@ -236,7 +236,16 @@ This section describes some noteworthy details on how certain features are imple
 // tag::initmap[]
 === Map Feature
 ==== Current Implementation
-A map grid is a 2D array made up of `Cell` objects. This 2D array is encapsulated within the `MapGrid` class.
+The map feature is facilitated by `MapGrid`.
+The map grid is stored as a 2D array of `Cell`.
+This 2D array is encapsulated within the `MapGrid` class.
+`MapGrid` implements the following method to initialise the map.
+
+* `MapGrid#initialise(Cell[][] map)` -- initialises the map using the given `Cell` 2D array.
+
+The following sequence diagram shows how a map is initialised:
+
+image::InitialiseMapCommandSequenceDiagram.png[width=800]
 
 ==== Design Considerations
 ===== Aspect: How initialise map works
@@ -684,6 +693,17 @@ These instructions only provide a starting point for testers to work on; testers
    Expected: The most recent window size and location is retained.
 
 _{ more test cases ... }_
+
+=== Initialising the maps
+. Initialising the maps after launching the game
+
+.. Test case: `init 7` +
+   Expected: Displays two empty map grids of size 7 in the GUI. Both maps will have the appropriate alphanumeric labels on the first row and column.
+.. Test case: `init 0` +
+   Expected: If this is the first command ran, no map will be displayed. Otherwise, no changes will be made to the displayed maps.
+   Error message will be displayed in the result display box.
+.. Other incorrect initialise commands to try: `init`, `init x` (where x is smaller or larger than the specified minimum or maximum map size respectively). +
+   Expected: No map will be displayed if this is the first command ran. Otherwise, no changes will be made to the displayed map.
 
 === Deleting a person
 
