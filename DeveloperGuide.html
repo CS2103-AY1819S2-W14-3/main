@@ -70,8 +70,11 @@
 <li><a href="#use-cases">Appendix C: Use Cases</a>
 <ul class="sectlevel2">
 <li><a href="#use-case-put-battleship">C.1. Use case: Put Battleship</a></li>
-<li><a href="#use-case-end-player-turn">C.2. Use case: End player turn</a></li>
-<li><a href="#use-case-play-enemy-turn">C.3. Use case: Play enemy turn</a></li>
+<li><a href="#use-case-list-battleship">C.2. Use case: List Battleship</a></li>
+<li><a href="#use-case-list-tags-that-battleships-have">C.3. Use case: List tags that Battleships have</a></li>
+<li><a href="#use-case-list-battleships-by-tag">C.4. Use case: List Battleships by tag</a></li>
+<li><a href="#use-case-end-player-turn">C.5. Use case: End player turn</a></li>
+<li><a href="#use-case-play-enemy-turn">C.6. Use case: Play enemy turn</a></li>
 </ul>
 </li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
@@ -81,7 +84,7 @@
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
 <li><a href="#initialising-the-maps">G.2. Initialising the maps</a></li>
-<li><a href="#deleting-a-person">G.3. Deleting a person</a></li>
+<li><a href="#putting-a-ship">G.3. Putting a ship</a></li>
 <li><a href="#saving-data">G.4. Saving data</a></li>
 </ul>
 </li>
@@ -1387,6 +1390,24 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">player</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tag my battleships</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">manage my battleships during the game</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">player</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list my battleships</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">check the status of my battleships during the game</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">player</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list my battleships by tag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">check the status of specific battleships during the game</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">see the number of actions I made</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">keep track of my play style</p></td>
@@ -1513,7 +1534,84 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-end-player-turn"><a class="link" href="#use-case-end-player-turn">C.2. Use case: End player turn</a></h3>
+<h3 id="use-case-list-battleship"><a class="link" href="#use-case-list-battleship">C.2. Use case: List Battleship</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list battleships deployed on map.</p>
+</li>
+<li>
+<p>Shows all of the user&#8217;s battleships deployed on map.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. If there are no ships deployed, inform the user.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-list-tags-that-battleships-have"><a class="link" href="#use-case-list-tags-that-battleships-have">C.3. Use case: List tags that Battleships have</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list tags of battleships that have already been deployed on map.</p>
+</li>
+<li>
+<p>Shows all of the tags of battleships that have already been deployed on map.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-list-battleships-by-tag"><a class="link" href="#use-case-list-battleships-by-tag">C.4. Use case: List Battleships by tag</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list battleships deployed on map that have certain tags.</p>
+</li>
+<li>
+<p>Shows all of the user&#8217;s battleships deployed on map that have certain tags.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. If there are no ships deployed, inform the user.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-end-player-turn"><a class="link" href="#use-case-end-player-turn">C.5. Use case: End player turn</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1535,7 +1633,7 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-play-enemy-turn"><a class="link" href="#use-case-play-enemy-turn">C.3. Use case: Play enemy turn</a></h3>
+<h3 id="use-case-play-enemy-turn"><a class="link" href="#use-case-play-enemy-turn">C.6. Use case: Play enemy turn</a></h3>
 <div class="paragraph">
 <p><strong>Actor:</strong> <code>enemy player</code></p>
 </div>
@@ -1719,27 +1817,39 @@ Expected: No map will be displayed if this is the first command ran. Otherwise, 
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.3. Deleting a person</a></h3>
+<h3 id="putting-a-ship"><a class="link" href="#putting-a-ship">G.3. Putting a ship</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Deleting a person while all persons are listed</p>
+<p>Putting a ship on the map after initialising the map.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+<p>Prerequisites: There are ships in your fleet ready to be deployed. This means that the number of battleships in the fleet is more than 0. The map is initialised to a size between 6 and 10.</p>
 </li>
 <li>
-<p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+<p>Test case: <code>put n/destroyer r/horizontal c/b1</code><br>
+Expected: Destroyer battleship of size 3 will be put horizontally on coordinates <code>b1</code>, <code>b2</code> and <code>b3</code>. The map is updated with 3 black cells on each of these coordinates representing the Destroyer battleship.</p>
 </li>
 <li>
-<p>Test case: <code>delete 0</code><br>
-Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
+<p>Test case: <code>put n/aircraft carrier r/horizontal c/c1 t/bluefleet</code><br>
+Expected: Aircraft Carrier battleship of size 5 will be put horizontally on coordinates <code>c1</code>, <code>c2</code>, <code>c3</code>, <code>c4</code> and <code>c5</code>. The map is updated with 5 black cells on each of these coordinates representing the Aircraft Carrier battleship.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
-Expected: Similar to previous.</p>
+<p>Test case: <code>put n/aircraft carrier r/horizontal c/e1 t/nomore</code><br>
+Expected: No battleship is put down on the map. Error details shown in the status message. Map remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>put n/destroyer r/vertical c/b1</code><br>
+Expected: No battleship is put down on the map. Error details shown in the status message. Map remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>put n/destroyer r/vertical c/a1</code><br>
+Expected: No battleship is put down on the map. Error details shown in the status message. Map remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>put n/destroyer r/vertical c/z1</code><br>
+Expected: No battleship is put down on the map. Error details shown in the status message. Map remains the same.</p>
 </li>
 </ol>
 </div>
@@ -1771,4 +1881,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-26 05:22:35 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-26 13:36:14 UTC</div></div></div></body></html>
