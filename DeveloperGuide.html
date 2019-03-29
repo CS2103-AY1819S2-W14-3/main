@@ -674,7 +674,53 @@ This 2D array is encapsulated within the <code>MapGrid</code> class.
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>A battleship is a basic class representing a battleship that can be placed on the map grid. The battleship must be variable in length, depending on the type of battleship.</p>
+<p>A battleship is a basic class representing a battleship that can be placed on the map grid. The battleship must be variable in length, depending on the type of battleship.<br></p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how a battleship is put on the map.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/PutShipSequenceDiagram.png" alt="PutShipSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 9. Sequence diagram of putting a battleship on the map.</div>
+</div>
+<div class="paragraph">
+<p>Battleships can be tagged. You can list all the tags used by battleships that have been deployed on the map grid using the <code>listTags</code> command. The sequence diagram below shows how the tags are listed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ListTagsSequenceDiagram.png" alt="ListTagsSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 10. Sequence diagram of listing battleship tags.</div>
+</div>
+<div class="paragraph">
+<p>Battleships that have been deployed can also be listed. Battleships can be listed in four different ways:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>List all battleships.</p>
+</li>
+<li>
+<p>List battleships that have certain tags.</p>
+</li>
+<li>
+<p>List battleships of a certain type.</p>
+</li>
+<li>
+<p>List battleships of a certain type that have certain tags.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how deployed battleships are listed when the <code>list</code> command is entered into the command line.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ListShipSequenceDiagram.png" alt="ListShipSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 11. Sequence diagram of listing battleships deployed on the map.</div>
 </div>
 </div>
 <div class="sect3">
@@ -978,7 +1024,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 9. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 12. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -1881,4 +1927,4 @@ Expected: No battleship is put down on the map. Error details shown in the statu
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-28 17:10:17 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-29 14:54:23 UTC</div></div></div></body></html>
