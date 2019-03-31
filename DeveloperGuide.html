@@ -85,7 +85,8 @@
 <li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
 <li><a href="#initialising-the-maps">G.2. Initialising the maps</a></li>
 <li><a href="#putting-a-ship">G.3. Putting a ship</a></li>
-<li><a href="#saving-data">G.4. Saving data</a></li>
+<li><a href="#viewing-the-statistics">G.4. Viewing the statistics</a></li>
+<li><a href="#saving-data">G.5. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -984,7 +985,7 @@ This feature stems from a central abstract class that is extended to for a playe
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/StatsWindowSS.png" alt="StatsWindowSS" width="400">
+<img src="images/StatsWindowSS.png" alt="StatsWindowSS" width="600">
 </div>
 </div>
 <div class="paragraph">
@@ -1023,11 +1024,11 @@ This feature stems from a central abstract class that is extended to for a playe
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Statistics will have an initialise method that with a set of default configuration that are used by any Statistics Variant.</p>
+<p><strong>Alternative 1 (current choice):</strong> Statistics class will have an initialise method that with a set of default configuration that are used by any Statistics Variant.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: The underlying variables and values in <code>Statistics</code> is better protected from modification.</p>
+<p>Pros: The underlying variables and values in Statistics is better protected from modification.</p>
 </li>
 <li>
 <p>Cons: It does not accommodate changes in default settings.</p>
@@ -1594,6 +1595,12 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see the number of successful attacks I made</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of how well I am doing in the game</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">see where my battleships are on the map</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">have a visual representation of the game</p></td>
 </tr>
@@ -1608,30 +1615,6 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">player</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">end my turn</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">the enemy can start its turn</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">player</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete a person</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove entries that I no longer need</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">player</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find a person by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate details of persons without having to go through the entire list</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">player</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hide <a href="#private-contact-detail">private contact details</a> by default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">minimize chance of someone else seeing them by accident</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">player with many persons in the address book</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sort persons by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate a person easily</p></td>
 </tr>
 </tbody>
 </table>
@@ -2040,7 +2023,42 @@ Expected: No battleship is put down on the map. Error details shown in the statu
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.4. Saving data</a></h3>
+<h3 id="viewing-the-statistics"><a class="link" href="#viewing-the-statistics">G.4. Viewing the statistics</a></h3>
+<div class="paragraph">
+<p>To test the <code>stats</code> feature. We will perform a before and after check to see if the statistical data of a simple behaviour is captured. In this case, we will perform an attack with a miss result.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Initialize a 8x8 map using <code>init 8</code>.</p>
+</li>
+<li>
+<p>Run the <code>stats</code> command and observe the results</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case : <code>stats</code>  (before)<br>
+Expected: All fields are 0.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Now input <code>attack c1</code> to simulate an attack on the enemy map.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case : <code>stats</code> (after)<br>
+Expected: Number of attacks : 1, Number of Misses : 1</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">G.5. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2060,4 +2078,4 @@ Expected: No battleship is put down on the map. Error details shown in the statu
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-31 10:53:57 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-31 15:02:08 UTC</div></div></div></body></html>
