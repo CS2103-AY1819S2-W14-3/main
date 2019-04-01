@@ -738,6 +738,9 @@ This 2D array is encapsulated within the <code>MapGrid</code> class.
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>The user can tag a battleship using a <code>t/[TAG]</code> parameter in the <code>put</code> command. Tagging battleships is optional.</p>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -756,6 +759,37 @@ The head of a battleship refers to the top-most and left-most cell of the battle
 <div class="paragraph">
 <div class="title">The coordinates of the <code>put</code> command refer to the coordinates of the battleship head.</div>
 <p><span class="image"><img src="images/BattleshipHeadExample2.png" alt="BattleshipHeadExample2" width="800"></span></p>
+</div>
+<div class="paragraph">
+<p>The following operations are called when the <code>put</code> command is called.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>performChecks()</code> - performs boundary checks on the map grid to ensure that the battleship can be placed on the map.</p>
+</li>
+<li>
+<p><code>putShip()</code> - puts the battleship into the cell.</p>
+</li>
+<li>
+<p><code>getCell()</code> - gets the cell that is specified by the coordinates provided by the user.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Here is an example of a given user scenario.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. Initialise the map to a map of size 10.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/PutShipWalkThrough1.png" alt="PutShipWalkThrough1" width="800"></span></p>
+</div>
+<div class="paragraph">
+<p>Step 2. Put the battleship on the map by specifying the name, coordinates, orientation, and tags.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/PutShipWalkThrough2.png" alt="PutShipWalkThrough2" width="800"></span></p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how a battleship is put on the map.</p>
@@ -793,6 +827,56 @@ The head of a battleship refers to the top-most and left-most cell of the battle
 <p>List battleships of a certain type that have certain tags.</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>Here is an example of a given user scenario. In this scenario, the user has deployed some battleships on a 10 by 10 map grid with various tags.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. Initialise the map to a map of size 10.
+Step 2. Deploy battleships by specifying the name, coordinates, orientation, and tags. We will deploy the following battleships:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cruiser at a4 vertical with tag <code>tag1</code>.</p>
+</li>
+<li>
+<p>Cruiser at d4 vertical with tag <code>tag1</code>.</p>
+</li>
+<li>
+<p>Cruiser at f7 horizontal with tag <code>tag2</code>.</p>
+</li>
+<li>
+<p>Cruiser at h8 horizontal with tag <code>tag2</code>.</p>
+</li>
+<li>
+<p>Destroyer at d4 horizontal with tag <code>tag1</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Step 3. List the battleships.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ListExample1.png" alt="ListExample1" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 4. List the battleships by name. Use <code>cruiser</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ListExample2.png" alt="ListExample2" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 5. List the battleships by name and tags. Use <code>cruiser</code> with <code>tag1</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ListExample3.png" alt="ListExample3" width="800">
+</div>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how deployed battleships are listed when the <code>list</code> command is entered into the command line.</p>
@@ -2187,4 +2271,4 @@ Expected: Number of attacks : 1, Number of Misses : 1</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-01 01:00:58 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-01 01:58:50 UTC</div></div></div></body></html>
