@@ -24,7 +24,8 @@
 <li><a href="#Design-Logic">2.3. Logic component</a></li>
 <li><a href="#Design-Model">2.4. Model component</a></li>
 <li><a href="#Design-Storage">2.5. Storage component</a></li>
-<li><a href="#Design-Commons">2.6. Common classes</a></li>
+<li><a href="#Design-Battle">2.6. Battle component</a></li>
+<li><a href="#Design-Commons">2.7. Common classes</a></li>
 </ul>
 </li>
 <li><a href="#implementation">3. Implementation</a>
@@ -561,7 +562,38 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.6. Common classes</a></h3>
+<h3 id="Design-Battle"><a class="link" href="#Design-Battle">2.6. Battle component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/StorageClassDiagram.png" alt="StorageClassDiagram" width="800">
+</div>
+<div class="title">Figure 9. Structure of the Battle Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/address/logic/battle/Battle.java"><code>Battle.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>Battle</code> component,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>keeps track of the progress of the battle,</p>
+</li>
+<li>
+<p>restricts the computer to place its ships at the correct time,</p>
+</li>
+<li>
+<p>allows the user and the computer enemy to attack each other and maintain proper turn-taking while doing so.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>As the</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.7. Common classes</a></h3>
 <div class="paragraph">
 <p>Classes used by multiple components are in the <code>seedu.addressbook.commons</code> package.</p>
 </div>
@@ -732,7 +764,7 @@ The head of a battleship refers to the top-most and left-most cell of the battle
 <div class="content">
 <img src="images/PutShipSequenceDiagram.png" alt="PutShipSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 9. Sequence diagram of putting a battleship on the map.</div>
+<div class="title">Figure 10. Sequence diagram of putting a battleship on the map.</div>
 </div>
 <div class="paragraph">
 <p>Battleships can be tagged. You can list all the tags used by battleships that have been deployed on the map grid using the <code>listTags</code> command. The sequence diagram below shows how the tags are listed.</p>
@@ -741,7 +773,7 @@ The head of a battleship refers to the top-most and left-most cell of the battle
 <div class="content">
 <img src="images/ListTagsSequenceDiagram.png" alt="ListTagsSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 10. Sequence diagram of listing battleship tags.</div>
+<div class="title">Figure 11. Sequence diagram of listing battleship tags.</div>
 </div>
 <div class="paragraph">
 <p>Battleships that have been deployed can also be listed. Battleships can be listed in four different ways:</p>
@@ -769,7 +801,7 @@ The head of a battleship refers to the top-most and left-most cell of the battle
 <div class="content">
 <img src="images/ListShipSequenceDiagram.png" alt="ListShipSequenceDiagram" width="1499][height=2249">
 </div>
-<div class="title">Figure 11. Sequence diagram of listing battleships deployed on the map.</div>
+<div class="title">Figure 12. Sequence diagram of listing battleships deployed on the map.</div>
 </div>
 </div>
 <div class="sect3">
@@ -847,7 +879,44 @@ The head of a battleship refers to the top-most and left-most cell of the battle
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>&lt;Esther&gt;</p>
+<p>The Battle feature handles the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>keeping track of the stage of the battle, and ensuring that the player does not
+enter a command in the wrong stage of the game,</p>
+</li>
+<li>
+<p>allowing the computer to place its ships at the correct time,</p>
+</li>
+<li>
+<p>allowing the user and the computer enemy to attack each other and maintain proper turn-taking while doing so.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Battle feature is split between several packages:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>seedu.address.battle</code>: the main <code>Battle</code> class is implemented here</p>
+</li>
+<li>
+<p><code>seedu.address.battle.state</code>: the battle state classes are implemented here, and
+can be stored and retrieved via <code>Model</code>.</p>
+</li>
+<li>
+<p><code>seedu.address.battle.result</code>: the attack result classes are implemented here.
+These classes are returned by <code>Battle#humanPerformAttack(coordinates)</code> and
+<code>Battle#takeComputerTurn()</code>.</p>
+</li>
+<li>
+<p><code>BeginCommand</code>, <code>AttackCommand</code> and <code>EndTurnCommand</code> handle the player&#8217;s interaction
+with this component.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
@@ -855,27 +924,67 @@ The head of a battleship refers to the top-most and left-most cell of the battle
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong></p>
+<p><strong>Alternative 1 (current choice):</strong><br>
+<code>BattleManager</code> is stored under <code>Model</code>. Every time <code>Attack</code>, <code>EndTurn</code> or <code>Begin</code> commands
+are executed, they will use this <code>BattleManager</code> to actually perform the actions,
+with the logic in the <code>Command</code>-s mostly being error handling.<br>
+When AI performs attacks, the <code>BattleManager</code> will call the AI to compute its attack
+and return it, then call an internal method to actually perform the attack.</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Pros:</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
-<p>Cons:</p>
+<p>Command logic is abstracted into places where it can be reused by the AI.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong></p>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>Model</code> component now contains game logic (<code>BattleManager</code>) within it.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong><br>
+<code>BattleManager</code> is stored under <code>Logic</code>. Every time <code>Attack</code>, <code>EndTurn</code> or <code>Begin</code> commands
+are executed, they will perform the action using the logic coded within themselves, not
+interfacing with <code>BattleManager</code>.<br>
+When AI performs attacks, the <code>BattleManager</code> will create these commands and execute them.
+In the <code>Model</code>, the current attacking player is kept track of, allowing the commands to be
+used for both a human and AI player.</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The game&#8217;s model and logic are kept separate from each other.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>AttackCommand is now state-dependent (the state being the current attacking player) which
+can more easily lead to bugs and race conditions.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -1158,7 +1267,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 12. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 13. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -2078,4 +2187,4 @@ Expected: Number of attacks : 1, Number of Misses : 1</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-31 15:02:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-01 01:00:58 UTC</div></div></div></body></html>

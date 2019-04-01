@@ -20,9 +20,9 @@
 <li><a href="#locating-ships-by-name-code-find-code">3.5. Locating ships by name: <code>find</code></a></li>
 <li><a href="#list-all-tags-code-listtags-code">3.6. List all tags: <code>listTags</code></a></li>
 <li><a href="#selecting-a-ship-code-select-code">3.7. Selecting a ship : <code>select</code></a></li>
-<li><a href="#starting-a-game-code-play-code">3.8. Starting a game: <code>play</code></a></li>
+<li><a href="#beginning-the-battle-code-begin-code">3.8. Beginning the battle: <code>begin</code></a></li>
 <li><a href="#shooting-at-a-coordinate-code-shoot-code">3.9. Shooting at a coordinate: <code>shoot</code></a></li>
-<li><a href="#starts-enemy-s-turn-code-enemyturn-code">3.10. Starts Enemy&#8217;s turn: <code>enemyturn</code></a></li>
+<li><a href="#finishing-a-turn-code-endturn-code">3.10. Finishing a turn: <code>endturn</code></a></li>
 <li><a href="#retrieving-game-statistics-code-stats-code">3.11. Retrieving game statistics: <code>stats</code></a></li>
 <li><a href="#undoing-previous-command-code-undo-code">3.12. Undoing previous command : <code>undo</code></a></li>
 <li><a href="#redoing-the-previously-undone-command-code-redo-code">3.13. Redoing the previously undone command : <code>redo</code></a></li>
@@ -479,27 +479,30 @@ Selects the 1st battleship in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="starting-a-game-code-play-code"><a class="link" href="#starting-a-game-code-play-code">3.8. Starting a game: <code>play</code></a></h3>
+<h3 id="beginning-the-battle-code-begin-code"><a class="link" href="#beginning-the-battle-code-begin-code">3.8. Beginning the battle: <code>begin</code></a></h3>
 <div class="paragraph">
-<p>Starts a game of Battleship with a computer enemy.<br>
-Format: <code>play</code></p>
+<p>Begins the battle against the computer enemy.<br>
+Format: <code>begin</code><br>
+Alternative command: <code>start</code></p>
 </div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p><code>play</code></p>
+<p>After this command is entered, the program&#8217;s AI will place its own ships.</p>
 </li>
 </ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="shooting-at-a-coordinate-code-shoot-code"><a class="link" href="#shooting-at-a-coordinate-code-shoot-code">3.9. Shooting at a coordinate: <code>shoot</code></a></h3>
 <div class="paragraph">
 <p>Launches an attack against given coordinate on the enemy&#8217;s map.<br>
-Format: <code>shoot COORDINATES</code></p>
+Format: <code>shoot COORDINATES</code><br>
+Alternative command: <code>attack</code>, <code>fire</code>, <code>hit</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -521,24 +524,29 @@ Format: <code>shoot COORDINATES</code></p>
 <li>
 <p>The program will prevent an attack on a square that has already been attacked.</p>
 </li>
+<li>
+<p>The program will prevent the user when attacking when they have already attacked.<br>
+After attacking, they should use <code>endturn</code> to allow the computer to make its move.</p>
+</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="starts-enemy-s-turn-code-enemyturn-code"><a class="link" href="#starts-enemy-s-turn-code-enemyturn-code">3.10. Starts Enemy&#8217;s turn: <code>enemyturn</code></a></h3>
+<h3 id="finishing-a-turn-code-endturn-code"><a class="link" href="#finishing-a-turn-code-endturn-code">3.10. Finishing a turn: <code>endturn</code></a></h3>
 <div class="paragraph">
 <p>Ends Player turn and starts Enemy&#8217;s turn.<br>
-Format: <code>enemyturn</code></p>
+Format: <code>endturn</code><br>
+Alternative command: <code>end</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>The program will end the player&#8217;s turn and automatically play the Enemy&#8217;s turns, until the Player&#8217;s next turn.
-While that is happening, the player can see the enemy&#8217;s attacks reflected on the map.</p>
+<p>The program will end the player&#8217;s turn and automatically play the Enemy&#8217;s turn.
+The player can see the enemy&#8217;s attack reflected on the map and in the results box.</p>
 </li>
 </ul>
 </div>
@@ -726,4 +734,4 @@ Format: <code>exit</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-31 15:02:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-01 01:00:58 UTC</div></div></div></body></html>
