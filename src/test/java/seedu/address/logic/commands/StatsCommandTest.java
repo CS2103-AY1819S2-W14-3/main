@@ -39,16 +39,16 @@ public class StatsCommandTest {
     @Test
     public void execute_minusMove_success() {
         PlayerStatistics p1 = new PlayerStatistics();
-        assertEquals(9, p1.minusMove());
-        assertEquals(8, p1.minusMove());
+        assertEquals(9, p1.addMove());
+        assertEquals(8, p1.addMove());
     }
 
     @Test
     public void execute_getMovesLeft_success() {
         PlayerStatistics p1 = new PlayerStatistics();
-        assertEquals(10, p1.getMovesLeft());
-        p1.minusMove();
-        assertEquals(9, p1.getMovesLeft());
+        assertEquals(10, p1.getMovesMade());
+        p1.addMove();
+        assertEquals(9, p1.getMovesMade());
     }
 
     @Test

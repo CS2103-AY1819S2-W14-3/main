@@ -27,14 +27,14 @@ public class StatsCommand extends Command {
 
         PlayerStatistics playerStats = model.getPlayerStats();
         String attacksMade = "Attacks Made : " + playerStats.getAttacksMade();
-        String movesLeft = "Moves Left : " + playerStats.getMovesLeft();
+        String movesMade = "Moves Made : " + playerStats.getMovesMade();
         String hitCount = "Successful Hit : " + playerStats.getHitCount();
         String missCount = "Misses : " + playerStats.getMissCount();
         String shipsDestroyed = "Enemy Ships Destroyed : " + playerStats.getEnemyShipsDestroyed();
-        String accuracy = "Accuracy : " + playerStats.getAccuracy();
+        String accuracy = "Accuracy : " + (int) (playerStats.getAccuracy() * 100) + "%";
 
         // Group data together in a list
-        outputStatistics.add(movesLeft);
+        outputStatistics.add(movesMade);
         outputStatistics.add(attacksMade);
         outputStatistics.add(hitCount);
         outputStatistics.add(missCount);

@@ -23,7 +23,7 @@ public class StatisticView extends UiPart<Stage> {
     private StackPane statisticView;
 
     // set constructor which one
-    public StatisticView(Stage root, XYChart.Series statsData) { //}, List<XYChart.Data<String, Integer>> graphData) {
+    public StatisticView(Stage root, XYChart.Series statsData) {
         super(FXML, root);
         CategoryAxis xAxis = new CategoryAxis();
         NumberAxis yAxis = new NumberAxis();

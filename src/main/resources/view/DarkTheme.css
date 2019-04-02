@@ -6,7 +6,7 @@
 .label {
     -fx-font-size: 11pt;
     -fx-font-family: "Segoe UI Semibold";
-    -fx-text-fill: #555555;
+    -fx-text-fill: white;
     -fx-opacity: 0.9;
 }
 
@@ -149,6 +149,15 @@
 
 .status-bar {
     -fx-background-color: derive(#1d1d1d, 30%);
+}
+
+.chart-bar {
+
+    -fx-background-color: rgba(0,168,355,0.5);
+    -fx-border-color: rgba(0,168,355,0.3) rgba(0,168,355,0.3)
+    transparent rgba(0,168,355,0.3);
+    -fx-background-radius: 0;
+    -fx-background-position: left center;
 }
 
 .result-display {

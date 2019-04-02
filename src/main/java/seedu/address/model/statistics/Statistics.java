@@ -12,10 +12,9 @@ public abstract class Statistics {
 
     protected static int hitCount;
     protected static int missCount;
-    protected static int movesLeft;
+    protected static int movesMade;
     protected static int enemyShipsDestroyed;
     protected static int attackCount;
-    protected static final int TOTAL_MOVES = 10;
     private static final Logger logger = LogsCenter.getLogger(Statistics.class);
 
     /**
@@ -33,7 +32,7 @@ public abstract class Statistics {
         this.missCount = 0;
         this.enemyShipsDestroyed = 0;
         this.attackCount = 0;
-        this.movesLeft = TOTAL_MOVES;
+        this.movesMade = 0;
     }
 
     /**
@@ -76,10 +75,10 @@ public abstract class Statistics {
      * decrements the number of moves left.
      * @return the decremented number of moves
      */
-    public int minusMove() {
-        --this.movesLeft;
-        logger.info("Decrement moves to : " + this.movesLeft);
-        return this.movesLeft;
+    public int addMove() {
+        ++this.movesMade;
+        logger.info("Increment moves to : " + this.movesMade);
+        return this.movesMade;
     }
 
     /**
@@ -94,8 +93,8 @@ public abstract class Statistics {
     public int getAttacksMade() {
         return this.attackCount;
     }
-    public int getMovesLeft() {
-        return this.movesLeft;
+    public int getMovesMade() {
+        return this.movesMade;
     }
 
     public int getHitCount() {
@@ -120,7 +119,11 @@ public abstract class Statistics {
      * @return the registered result string.
      */
     public String addResultToStats(AttackResult res) {
-        String result = res.toString().split(" ")[10];
+        String result = res.toString();
+        if (result.length() < 10) {
+            return result;
+        }
+        result = result.split(" ")[10];
         switch (result) {
         case "hit":
             addHit();
@@ -148,7 +151,7 @@ public abstract class Statistics {
         dataSeries1.getData().add(new XYChart.Data("Hits", getHitCount()));
         dataSeries1.getData().add(new XYChart.Data("Misses", getMissCount()));
         dataSeries1.getData().add(new XYChart.Data("Ships Destroyed", getEnemyShipsDestroyed()));
-        dataSeries1.getData().add(new XYChart.Data("Accuracy", getAccuracy()));
+        //dataSeries1.getData().add(new XYChart.Data("Accuracy", getAccuracy()));
         return dataSeries1;
     }
 

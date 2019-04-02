@@ -82,8 +82,8 @@ public class LogicManager implements Logic {
      */
     public void addToStatistics (String commandText) {
         String commandKeyword = commandText.split(" ")[0]; // Take first word
-        if (commandKeyword.equals("attack")) {
-            int numMovesLeft = statistics.minusMove();
+        if (commandKeyword.matches("attack|shoot|fire|hit  ")) {
+            int numMovesLeft = statistics.addMove();
             statistics.addAttack();
         }
     }
