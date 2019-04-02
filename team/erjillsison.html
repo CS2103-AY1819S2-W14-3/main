@@ -217,9 +217,8 @@ Throughout the course of the game, the cells in the map will change colour based
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>The map feature is facilitated by <code>MapGrid</code>.
-The map grid is stored as a 2D array of <code>Cell</code>.
-This 2D array is encapsulated within the <code>MapGrid</code> class.
+<p>The map feature is facilitated by <code>MapGrid</code> and <code>Cell</code>.
+The map grid is stored internally in <code>MapGrid</code> as a 2D array of <code>Cell</code> objects.
 <code>MapGrid</code> implements the following method to initialise the map.</p>
 </div>
 <div class="ulist">
@@ -230,12 +229,54 @@ This 2D array is encapsulated within the <code>MapGrid</code> class.
 </ul>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how a map is initialised:</p>
+<p>Below is the code snippet for the <code>initialise</code> method</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">    <span class="directive">public</span> <span class="type">void</span> initialise(Cell<span class="type">[]</span><span class="type">[]</span> map) {
+        <span class="local-variable">this</span>.size = map.length;
+
+        cellGrid = <span class="keyword">new</span> Cell[size][size];
+
+        copy2dArray(cellGrid, map);
+        updateUi();
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>cellGrid</code> is the internal 2D array comprising of <code>Cell</code> objects.<br>
+The method <code>copy2dArray</code> copies the <code>map</code> parameter passed in to the internal <code>cellGrid</code></p>
+</div>
+<div class="paragraph">
+<p>Below is the code snippet for the <code>copy2dArray</code> method.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">    <span class="directive">private</span> <span class="type">void</span> copy2dArray(Cell<span class="type">[]</span><span class="type">[]</span> output, Cell<span class="type">[]</span><span class="type">[]</span> toBeCopied) {
+        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="integer">0</span>; i &lt; size; i++) {
+            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="integer">0</span>; j &lt; size; j++) {
+                output[i][j] = <span class="keyword">new</span> Cell(toBeCopied[i][j]);
+            }
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>copy2dArray</code> method creates a new <code>Cell</code> object for each of the input <code>Cell</code> objects.
+The copying is done using a constructor in <code>Cell</code> that takes in a parameter <code>Cell</code>.
+This constructor copies the private attributes of the given <code>Cell</code> parameter.</p>
+</div>
+<div class="paragraph">
+<p><br>
+The following sequence diagram shows how a map is initialised:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/InitialiseMapCommandSequenceDiagram.png" alt="InitialiseMapCommandSequenceDiagram" width="800">
 </div>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 </div>
 <div class="sect3">
@@ -245,20 +286,22 @@ This 2D array is encapsulated within the <code>MapGrid</code> class.
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> MapGrid will have an initialise method that takes in a 2D array of <code>Cell</code> objects. The method will deep copy the new 2D array to the <code>MapGrid</code> map grid.</p>
+<p><strong>Alternative 1 (current choice):</strong> <code>MapGrid</code> will have an initialise method that takes in a 2D array of <code>Cell</code> objects.
+The initialise method in <code>MapGrid</code> will then do a deep copy of the passed in 2D array to initialise the internal 2D array of <code>Cell</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: The underlying 2D array in <code>MapGrid</code> is better protected from modification.</p>
+<p>Pros: The underlying 2D array in <code>MapGrid</code> is better protected from modification as it can only be modified through the initialise method.</p>
 </li>
 <li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
+<p>Cons: Might have more overhead due to deep copying.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Have a method that returns a shallow copy of the 2D array. Initialise command will then populate the 2D array.</p>
+<p><strong>Alternative 2:</strong> <code>MapGrid</code> will have a getter method that returns the 2D array of <code>Cell</code>.
+<code>InitialiseMapCommand</code> will then use this method to get the internal 2D array and populate it from outside of the <code>MapGrid</code> class.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -272,6 +315,9 @@ This 2D array is encapsulated within the <code>MapGrid</code> class.
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Alternative 1 was chosen as the overhead is negligible and a defensive approach to the design is preferable.</p>
+</div>
 </div>
 <div class="sect4">
 <h5 id="aspect-data-structure-to-support-the-map"><a class="link" href="#aspect-data-structure-to-support-the-map">Aspect: Data structure to support the map</a></h5>
@@ -282,7 +328,7 @@ This 2D array is encapsulated within the <code>MapGrid</code> class.
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Resulting code will be simpler.</p>
+<p>Pros: Resulting code is simple and readable.</p>
 </li>
 <li>
 <p>Cons: More changes to be done from the original AB4 codebase.</p>
@@ -298,16 +344,21 @@ This 2D array is encapsulated within the <code>MapGrid</code> class.
 <p>Pros: Easier to implement from the original AB4 codebase.</p>
 </li>
 <li>
-<p>Cons: May have worse performance than a simpler 2D array.</p>
+<p>Cons: Bad code readability and more complicated.</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Alternative 1 was chosen because of good code readability and it being the simpler implementation.
+Good code readability is important for new developers taking on the project.
+Simpler implementation means the likelihood of bugs being introduced is less when changes are made.</p>
 </div>
 <hr>
 </div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 10:01:18 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 10:32:20 UTC</div></div></div></body></html>
