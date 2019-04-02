@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>CLI Battleship - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Battleship - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>CLI Battleship - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>Battleship - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>Team W14-3</code>      Since: <code>Jan 2019</code>      Licence: <code>MIT</code></p>
@@ -11,27 +11,38 @@
 <ul class="sectlevel1">
 <li><a href="#introduction">1. Introduction</a></li>
 <li><a href="#quick-start">2. Quick Start</a></li>
-<li><a href="#Features">3. Features</a>
+<li><a href="#how-to-play">3. How To Play</a></li>
+<li><a href="#Features">4. Features</a>
 <ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#map-code-init-code">3.2. Map : <code>init</code></a></li>
-<li><a href="#placing-a-ship-on-the-map-code-put-code">3.3. Placing a ship on the map: <code>put</code></a></li>
-<li><a href="#listing-all-ships-code-list-code">3.4. Listing all ships : <code>list</code></a></li>
-<li><a href="#locating-ships-by-name-code-find-code">3.5. Locating ships by name: <code>find</code></a></li>
-<li><a href="#list-all-tags-code-listtags-code">3.6. List all tags: <code>listTags</code></a></li>
-<li><a href="#selecting-a-ship-code-select-code">3.7. Selecting a ship : <code>select</code></a></li>
-<li><a href="#beginning-the-battle-code-begin-code">3.8. Beginning the battle: <code>begin</code></a></li>
-<li><a href="#shooting-at-a-coordinate-code-shoot-code">3.9. Shooting at a coordinate: <code>shoot</code></a></li>
-<li><a href="#finishing-a-turn-code-endturn-code">3.10. Finishing a turn: <code>endturn</code></a></li>
-<li><a href="#retrieving-game-statistics-code-stats-code">3.11. Retrieving game statistics: <code>stats</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.12. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.13. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.15. Saving the data</a></li>
+<li><a href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></li>
+<li><a href="#preparation-phase">4.2. Preparation Phase</a>
+<ul class="sectlevel3">
+<li><a href="#map-code-init-code">4.2.1. Map : <code>init</code></a></li>
+<li><a href="#ship-management">4.2.2. Ship Management:</a>
+<ul class="sectlevel4">
+<li><a href="#placing-a-ship-on-the-map-code-put-code">4.2.2.1. Placing a ship on the map: <code>put</code></a></li>
+<li><a href="#listing-all-ships-code-list-code">4.2.2.2. Listing all ships : <code>list</code></a></li>
+<li><a href="#locating-ships-by-name-code-find-code">4.2.2.3. Locating ships by name: <code>find</code></a></li>
+<li><a href="#list-all-tags-code-listtags-code">4.2.2.4. List all tags: <code>listTags</code></a></li>
+<li><a href="#selecting-a-ship-code-select-code">4.2.2.5. Selecting a ship : <code>select</code></a></li>
 </ul>
 </li>
-<li><a href="#faq">4. FAQ</a></li>
-<li><a href="#command-summary">5. Command Summary</a></li>
+</ul>
+</li>
+<li><a href="#battle-phase">4.3. Battle Phase</a>
+<ul class="sectlevel3">
+<li><a href="#beginning-the-battle-code-begin-code">4.3.1. Beginning the battle: <code>begin</code></a></li>
+<li><a href="#shooting-at-a-coordinate-code-shoot-code">4.3.2. Shooting at a coordinate: <code>shoot</code></a></li>
+<li><a href="#finishing-a-turn-code-endturn-code">4.3.3. Finishing a turn: <code>endturn</code></a></li>
+</ul>
+</li>
+<li><a href="#retrieving-game-statistics-code-stats-code">4.4. Retrieving game statistics: <code>stats</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">4.5. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data-code-coming-in-v2-0-code">4.6. Saving the data <code>[coming in v2.0]</code></a></li>
+</ul>
+</li>
+<li><a href="#faq">5. FAQ</a></li>
+<li><a href="#command-summary">6. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -149,12 +160,20 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>The commands will go on, until either your or the enemy&#8217;s fleet is completely destroyed.</p>
 </div>
 <div class="paragraph">
-<p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
+<p>Refer to <a href="#Features">Section 4, &#8220;Features&#8221;</a> for details of each command.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="Features"><a class="link" href="#Features">3. Features</a></h2>
+<h2 id="how-to-play"><a class="link" href="#how-to-play">3. How To Play</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section will describe how to play the classic Battleship game</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Features"><a class="link" href="#Features">4. Features</a></h2>
 <div class="sectionbody">
 <div class="exampleblock">
 <div class="content">
@@ -194,14 +213,16 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </table>
 </div>
 <div class="sect2">
-<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
+<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></h3>
 <div class="paragraph">
 <p>Opens a help window that displays this User Guide.<br>
 Format: <code>help</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="map-code-init-code"><a class="link" href="#map-code-init-code">3.2. Map : <code>init</code></a></h3>
+<h3 id="preparation-phase"><a class="link" href="#preparation-phase">4.2. Preparation Phase</a></h3>
+<div class="sect3">
+<h4 id="map-code-init-code"><a class="link" href="#map-code-init-code">4.2.1. Map : <code>init</code></a></h4>
 <div class="paragraph">
 <p>Initialises both player&#8217;s maps to the specified size.<br>
 Format: <code>init MAP_SIZE</code><br>
@@ -268,8 +289,10 @@ Throughout the course of the game, the cells in the map will change colour based
 <p><br></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="placing-a-ship-on-the-map-code-put-code"><a class="link" href="#placing-a-ship-on-the-map-code-put-code">3.3. Placing a ship on the map: <code>put</code></a></h3>
+<div class="sect3">
+<h4 id="ship-management"><a class="link" href="#ship-management">4.2.2. Ship Management:</a></h4>
+<div class="sect4">
+<h5 id="placing-a-ship-on-the-map-code-put-code"><a class="link" href="#placing-a-ship-on-the-map-code-put-code">4.2.2.1. Placing a ship on the map: <code>put</code></a></h5>
 <div class="paragraph">
 <p>Adds a battleship onto the player&#8217;s map. The coordinates specified is the position of the battleship&#8217;s head.<br></p>
 </div>
@@ -321,8 +344,8 @@ The head of a battleship refers to the top-most and left-most cell of the battle
 <p>The orientation of the battleship can be horizontal or vertical. The orientation of the battleship must be specified. It may be shortened to <code>h</code> or <code>v</code>.<br></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="listing-all-ships-code-list-code"><a class="link" href="#listing-all-ships-code-list-code">3.4. Listing all ships : <code>list</code></a></h3>
+<div class="sect4">
+<h5 id="listing-all-ships-code-list-code"><a class="link" href="#listing-all-ships-code-list-code">4.2.2.2. Listing all ships : <code>list</code></a></h5>
 <div class="paragraph">
 <p>Shows a list of all the player&#8217;s battleships that are have been deployed on the map. There are four ways of using the <code>list</code> command:</p>
 </div>
@@ -420,8 +443,8 @@ The head of a battleship refers to the top-most and left-most cell of the battle
 <div class="title">Figure 7. The <code>list</code> command with name and tags</div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="locating-ships-by-name-code-find-code"><a class="link" href="#locating-ships-by-name-code-find-code">3.5. Locating ships by name: <code>find</code></a></h3>
+<div class="sect4">
+<h5 id="locating-ships-by-name-code-find-code"><a class="link" href="#locating-ships-by-name-code-find-code">4.2.2.3. Locating ships by name: <code>find</code></a></h5>
 <div class="paragraph">
 <p>Finds battleships whose names contain any of the given keywords.<br>
 Format: <code>find NAME [MORE_NAMES]</code></p>
@@ -474,8 +497,8 @@ The position may not be displayed if the ship has not been placed.
 </table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="list-all-tags-code-listtags-code"><a class="link" href="#list-all-tags-code-listtags-code">3.6. List all tags: <code>listTags</code></a></h3>
+<div class="sect4">
+<h5 id="list-all-tags-code-listtags-code"><a class="link" href="#list-all-tags-code-listtags-code">4.2.2.4. List all tags: <code>listTags</code></a></h5>
 <div class="paragraph">
 <p>Lists all the tags that have been used to tag the battleships deployed on the map.<br></p>
 </div>
@@ -496,8 +519,8 @@ The list of tags is given in square brackets.
 </table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="selecting-a-ship-code-select-code"><a class="link" href="#selecting-a-ship-code-select-code">3.7. Selecting a ship : <code>select</code></a></h3>
+<div class="sect4">
+<h5 id="selecting-a-ship-code-select-code"><a class="link" href="#selecting-a-ship-code-select-code">4.2.2.5. Selecting a ship : <code>select</code></a></h5>
 <div class="paragraph">
 <p>Selects the battleship identified by the index number used in the displayed ship list.<br>
 Format: <code>select INDEX</code></p>
@@ -534,8 +557,12 @@ Selects the 1st battleship in the results of the <code>find</code> command.</p>
 </ul>
 </div>
 </div>
+</div>
+</div>
 <div class="sect2">
-<h3 id="beginning-the-battle-code-begin-code"><a class="link" href="#beginning-the-battle-code-begin-code">3.8. Beginning the battle: <code>begin</code></a></h3>
+<h3 id="battle-phase"><a class="link" href="#battle-phase">4.3. Battle Phase</a></h3>
+<div class="sect3">
+<h4 id="beginning-the-battle-code-begin-code"><a class="link" href="#beginning-the-battle-code-begin-code">4.3.1. Beginning the battle: <code>begin</code></a></h4>
 <div class="paragraph">
 <p>Begins the battle against the computer enemy.<br>
 Format: <code>begin</code><br>
@@ -553,8 +580,8 @@ Alternative command: <code>start</code></p>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="shooting-at-a-coordinate-code-shoot-code"><a class="link" href="#shooting-at-a-coordinate-code-shoot-code">3.9. Shooting at a coordinate: <code>shoot</code></a></h3>
+<div class="sect3">
+<h4 id="shooting-at-a-coordinate-code-shoot-code"><a class="link" href="#shooting-at-a-coordinate-code-shoot-code">4.3.2. Shooting at a coordinate: <code>shoot</code></a></h4>
 <div class="paragraph">
 <p>Launches an attack against given coordinate on the enemy&#8217;s map.<br>
 Format: <code>shoot COORDINATES</code><br>
@@ -589,8 +616,8 @@ After attacking, they should use <code>endturn</code> to allow the computer to m
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="finishing-a-turn-code-endturn-code"><a class="link" href="#finishing-a-turn-code-endturn-code">3.10. Finishing a turn: <code>endturn</code></a></h3>
+<div class="sect3">
+<h4 id="finishing-a-turn-code-endturn-code"><a class="link" href="#finishing-a-turn-code-endturn-code">4.3.3. Finishing a turn: <code>endturn</code></a></h4>
 <div class="paragraph">
 <p>Ends Player turn and starts Enemy&#8217;s turn.<br>
 Format: <code>endturn</code><br>
@@ -609,8 +636,9 @@ The player can see the enemy&#8217;s attack reflected on the map and in the resu
 </div>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="retrieving-game-statistics-code-stats-code"><a class="link" href="#retrieving-game-statistics-code-stats-code">3.11. Retrieving game statistics: <code>stats</code></a></h3>
+<h3 id="retrieving-game-statistics-code-stats-code"><a class="link" href="#retrieving-game-statistics-code-stats-code">4.4. Retrieving game statistics: <code>stats</code></a></h3>
 <div class="paragraph">
 <p>Prints a list of statistics related to gameplay, such as accuracy and current hits.<br>
 Format: <code>stats</code></p>
@@ -621,102 +649,20 @@ Format: <code>stats</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>stats</code>
-=== Undoing previous command : <code>undo</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Restores the inventory to the state before the previous <em>undoable</em> command was executed.<br>
-Format: <code>undo</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Undoable commands: those commands that modify the inventory&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code><br>
-<code>list</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>select 1</code><br>
-<code>list</code><br>
-<code>undo</code><br>
-The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
+<p><code>stats</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.12. Redoing the previously undone command : <code>redo</code></a></h3>
-<div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>redo</code><br>
-The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.13. Clearing all entries : <code>clear</code></a></h3>
-<div class="paragraph">
-<p>Clears all entries from the inventory.<br>
-Format: <code>clear</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.5. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.15. Saving the data</a></h3>
+<h3 id="saving-the-data-code-coming-in-v2-0-code"><a class="link" href="#saving-the-data-code-coming-in-v2-0-code">4.6. Saving the data <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>(placeholder for Statistics saving)</p>
 </div>
@@ -724,7 +670,7 @@ Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
+<h2 id="faq"><a class="link" href="#faq">5. FAQ</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
@@ -733,7 +679,7 @@ Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
+<h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -814,4 +760,4 @@ Format: <code>exit</code></p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 11:39:53 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 14:08:36 UTC</div></div></div></body></html>
