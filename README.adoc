@@ -1,4 +1,4 @@
-= CLI Battleship
+= Battleship
 ifdef::env-github,env-browser[:relfileprefix: docs/]
 
 https://github.com/CS2103-AY1819S2-W14-3/main[image:https://travis-ci.org/CS2103-AY1819S2-W14-3/main.svg?branch=master[Build Status]]

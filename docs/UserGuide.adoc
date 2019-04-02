@@ -119,7 +119,6 @@ Had fun? You can view the game statistics with the command `stats`.
 
 ====
 *Command Format*
-
 * Words in `UPPER_CASE` are the parameters to be supplied by the user e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
 * Items in square brackets are optional e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
 * Items with `…`​ after them can be used multiple times including zero times e.g. `[t/TAG]...` can be used as `{nbsp}` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
@@ -132,12 +131,14 @@ Pressing the kbd:[&uarr;] and kbd:[&darr;] arrows will display the previous and 
 ====
 
 === Viewing help : `help`
-
 Opens a help window that displays this User Guide. +
 Format: `help`
 
-=== Preparation Phase
 // tag::map[]
+
+=== Preparation Phase
+This section describes the commands used in the preparation phase.
+
 ==== Map : `init`
 
 Initialises both player's maps to the specified size. +
@@ -204,9 +205,9 @@ The orientation of the battleship can be horizontal or vertical. The orientation
 Shows a list of all the player's battleships that are have been deployed on the map. There are four ways of using the `list` command:
 
 1. List all the battleships.
-1. List all the battleships that match a list of tags.
-1. List all the battleships of a certain type.
-1. List all the battleships of a certain type that match a list of tags.
+2. List all the battleships that match a list of tags.
+3. List all the battleships of a certain type.
+4. List all the battleships of a certain type that match a list of tags.
 
 Format:
 
