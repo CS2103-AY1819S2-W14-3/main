@@ -45,6 +45,26 @@
 <div class="paragraph">
 <p>Battleships is optimised for people who want to use a Command Line Interface (CLI), while still retaining the benefits of a Graphical User Interface (GUI). It can guarantee many hours of fun, especially between those long and boring periods of the day. Can&#8217;t wait to get started? Head over to <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to fire away!</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>What is a Command Line Interface (CLI) and a Graphical User Interface (GUI)? An interface is how a user interacts with the computer. For example, you can use a mouse to click on a file to open it in Windows or MacOS. This is part of the interface for these operating systems.<br></p>
+</div>
+<div class="paragraph">
+<p>A Command Line Interface (CLI) interacts with the user by accepting words that are typed in by the user. Conversely, a Graphical User Interface (GUI) interacts with the user visually. It uses icons and graphics to show the user what the program is doing.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Battleships, as you will see, is a hybrid application. It combines both a CLI and GUI, meaning that the user must type in commands but will see the changes caused by those commands graphically.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -65,7 +85,7 @@
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/Ui.png" alt="Ui" width="790">
+<img src="images/Ui1.png" alt="Ui1" width="800">
 </div>
 </div>
 </li>
@@ -74,28 +94,60 @@
 e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
 </li>
 <li>
-<p>Some example commands you can try:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong><code>list</code></strong> : lists all battleships</p>
+<p>Initialise the map: <code>init 6</code>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/Ui2.png" alt="Ui2" width="800">
+</div>
+</div>
 </li>
 <li>
-<p><strong><code>put</code></strong><code>a1</code> : Puts a battleship with its head at the A1 cell</p>
+<p>Deploy your battleships:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Deploy your aircraft carrier: <code>put n/aircraft carrier c/a1 r/h</code></p>
 </li>
 <li>
-<p><strong><code>play</code></strong> : Start the game</p>
+<p>Deploy your cruiser: <code>put n/cruiser c/c1 r/h</code></p>
 </li>
 <li>
-<p><strong><code>shoot</code></strong><code>a1</code> : Attacks the enemy&#8217;s A1 cell</p>
-</li>
-<li>
-<p><strong><code>exit</code></strong> : exits the app</p>
-</li>
-</ul>
+<p>Deploy your destroyer: <code>put n/destroyer c/e1 r/h</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="images/Ui3.png" alt="Ui3" width="800">
+</div>
 </div>
 </li>
 </ol>
+</div>
+</li>
+<li>
+<p>Start the game: <code>start game</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="images/Ui4.png" alt="Ui4" width="800">
+</div>
+</div>
+</li>
+<li>
+<p>Shoot the enemy: <code>shoot a1</code></p>
+</li>
+<li>
+<p>End your turn: <code>end turn</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="images/Ui5.png" alt="Ui5" width="800">
+</div>
+</div>
+</li>
+<li>
+<p>Shoot the enemy: <code>shoot a5</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The commands will go on, until either your or the enemy&#8217;s fleet is completely destroyed.</p>
 </div>
 <div class="paragraph">
 <p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
@@ -739,4 +791,4 @@ Format: <code>exit</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 10:32:20 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 11:34:14 UTC</div></div></div></body></html>
