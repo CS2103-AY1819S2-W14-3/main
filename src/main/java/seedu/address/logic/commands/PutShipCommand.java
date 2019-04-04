@@ -84,7 +84,16 @@ public class PutShipCommand extends Command {
         Cell cellToEdit = model.getHumanMapGrid().getCell(coordinates);
         model.updateUi();
 
-        return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, cellToEdit));
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(cellToEdit)
+                .append("\n\nNumber of aircraft carriers left: ")
+                .append(model.getFleet().getNumAircraftCarrierLeft())
+                .append("\nNumber of cruisers left: ")
+                .append(model.getFleet().getNumCruiserLeft())
+                .append("\nNumber of destroyers left: ")
+                .append(model.getFleet().getNumDestroyerLeft());
+
+        return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, stringBuilder.toString()));
     }
 
     /**

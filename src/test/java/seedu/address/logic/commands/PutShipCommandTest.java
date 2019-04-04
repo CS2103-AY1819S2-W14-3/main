@@ -35,7 +35,7 @@ import seedu.address.model.cell.Coordinates;
 import seedu.address.model.tag.Tag;
 
 /**
- * Contains integration tests (interaction with the Model, UndoCommand and RedoCommand) and unit tests for EditCommand.
+ * Contains integration tests (interaction with the Model).
  */
 public class PutShipCommandTest {
 

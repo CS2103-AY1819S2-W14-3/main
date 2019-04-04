@@ -68,7 +68,7 @@ public class ListCommand extends Command {
                     .append("\n");
         }
 
-        if (builder.toString().isEmpty()) {
+        if (fleetResult.isEmpty()) {
             return new CommandResult("There are no results.");
         }
         return new CommandResult(builder.toString());

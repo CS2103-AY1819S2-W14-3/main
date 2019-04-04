@@ -11,8 +11,8 @@ import seedu.address.logic.parser.exceptions.ParseException;
 public class InitialiseMapCommandParser implements Parser<InitialiseMapCommand> {
 
     /**
-     * Parses the given {@code String} of arguments in the context of the AddCommand
-     * and returns an AddCommand object for execution.
+     * Parses the given {@code String} of arguments in the context of the InitialiseMapCommand
+     * and returns an InitialiseMapCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
     public InitialiseMapCommand parse(String args) throws ParseException {

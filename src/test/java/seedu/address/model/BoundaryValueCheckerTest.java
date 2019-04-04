@@ -24,7 +24,7 @@ import seedu.address.model.cell.Cell;
 import seedu.address.testutil.Assert;
 
 /**
- * Contains integration tests (interaction with the Model, UndoCommand and RedoCommand) and unit tests for EditCommand.
+ * Contains integration tests (interaction with the Model).
  */
 public class BoundaryValueCheckerTest {
 
