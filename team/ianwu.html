@@ -234,14 +234,14 @@ The map grid is stored internally in <code>MapGrid</code> as a 2D array of <code
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">    <span class="directive">public</span> <span class="type">void</span> initialise(Cell<span class="type">[]</span><span class="type">[]</span> map) {
-        <span class="local-variable">this</span>.size = map.length;
-
-        cellGrid = <span class="keyword">new</span> Cell[size][size];
-
-        copy2dArray(cellGrid, map);
+<pre class="CodeRay highlight"><code data-lang="java">        copy2dArray(cellGrid, map);
         updateUi();
-    }</code></pre>
+    }
+
+    <span class="comment">/**
+     * Returns a copy of the map grid
+     */</span>
+    <span class="directive">public</span> Cell<span class="type">[]</span><span class="type">[]</span> get2dArrayMapGridCopy() {</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -253,13 +253,13 @@ The method <code>copy2dArray</code> copies the <code>map</code> parameter passed
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">    <span class="directive">private</span> <span class="type">void</span> copy2dArray(Cell<span class="type">[]</span><span class="type">[]</span> output, Cell<span class="type">[]</span><span class="type">[]</span> toBeCopied) {
-        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="integer">0</span>; i &lt; size; i++) {
-            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="integer">0</span>; j &lt; size; j++) {
-                output[i][j] = <span class="keyword">new</span> Cell(toBeCopied[i][j]);
-            }
-        }
-    }</code></pre>
+<pre class="CodeRay highlight"><code data-lang="java">        }
+    }
+
+    <span class="comment">/**
+     * Returns map size
+     */</span>
+    <span class="directive">public</span> <span class="type">int</span> getMapSize() {</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -362,4 +362,4 @@ Simpler implementation means the likelihood of bugs being introduced is less whe
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-07 05:06:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-07 05:17:12 UTC</div></div></div></body></html>
