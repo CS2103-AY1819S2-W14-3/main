@@ -2,6 +2,7 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -9,6 +10,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import seedu.address.logic.CommandHistory;
+import seedu.address.logic.battle.state.BattleState;
 import seedu.address.model.Model;
 import seedu.address.model.battleship.Name;
 import seedu.address.model.player.Fleet;
@@ -27,11 +29,17 @@ public class ListCommand extends Command {
     public ListCommand(Optional<Set<Tag>> optionalTagSet, Optional<Name> optionalName) {
         this.optionalTagSet = optionalTagSet;
         this.optionalName = optionalName;
+        setPermissibleStates(EnumSet.of(
+            BattleState.PLAYER_PUT_SHIP,
+            BattleState.ENEMY_PUT_SHIP,
+            BattleState.PLAYER_ATTACK,
+            BattleState.ENEMY_ATTACK));
     }
 
     @Override
     public CommandResult execute(Model model, CommandHistory history) {
         requireNonNull(model);
+        assert canExecuteIn(model.getBattleState());
 
         Fleet fleet = model.getHumanPlayer().getFleet();
 
@@ -68,7 +76,7 @@ public class ListCommand extends Command {
                     .append("\n");
         }
 
-        if (builder.toString().isEmpty()) {
+        if (fleetResult.isEmpty()) {
             return new CommandResult("There are no results.");
         }
         return new CommandResult(builder.toString());

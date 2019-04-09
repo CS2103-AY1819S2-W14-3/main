@@ -1,0 +1,63 @@
+= Lucy Chan - Project Portfolio for Battleship
+:site-section: AboutUs
+:imagesDir: ../images
+:stylesDir: ../stylesheets
+
+== Project Overview
+
+My team and I were presented with an existing code base for a command line interface(CLI) address book application.
+We were tasked to enhance or morph the product in to a product of our own choice.
+We chose to morph it into a game of Battleship.
+
+Battleship is a desktop game application based on the classic Battleship game.
+The user interacts with it using a CLI and it has a graphical user interface(GUI) created using JavaFX.
+It is written in Java, and has about 10 kLoC.
+
+My role was to design and write the code for the `Enemy AI` feature of the game.
+The following sections illustrate the feature in more detail, as well as the relevant sections I have added to the user and developer guides in relation to this feature.
+
+== Summary of contributions
+
+* *Major enhancement*: added *the Enemy AI feature of the game*
+** What it does: It is a fully automated computerised enemy player that can randomly fill its own map and attack the player's ship with some level of intelligence.
+** Justification: We wanted to make this single-player game as realistic as possible, and so the need for a smarter computerised player arose.
+** Highlights: [placeholder]
+** Credits: The algorithm for the enemy shooting references this article heavily. [http://www.datagenetics.com/blog/december32011/index.html[DataGeneticsBattleshipAglo]].
+
+* *Code contributed*: [https://github.com[Functional code]] [https://github.com[Test code]] _{give links to collated code files}_
+
+* *Other contributions*:
+
+** Project management:
+*** Actively hit all milestones in time, and used git issue tracker to track tasks.
+** Enhancements to existing features:
+*** Made many improvements to the intelligence of the pseudo-random algorithms used by the Enemy AI.
+** Documentation:
+*** Wrote the Game Rules section in the User Guide.
+*** Wrote the Enemy AI section in the Developer Guide.
+** Community:
+*** PRs reviewed (with non-trivial review comments):
+*** Contributed to forum discussions (examples:  https://github.com[1], https://github.com[2], https://github.com[3], https://github.com[4])
+*** Reported bugs and suggestions for other teams in the class (examples:  https://github.com[1], https://github.com[2], https://github.com[3])
+*** Some parts of the history feature I added was adopted by several other class mates (https://github.com[1], https://github.com[2])
+** Tools:
+*** Integrated Netlify to the project
+
+== Contributions to the User Guide
+
+
+|===
+|_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._
+|===
+
+include::../UserGuide.adoc[tag=enemy]
+
+== Contributions to the Developer Guide
+
+|===
+|_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
+|===
+
+include::../DeveloperGuide.adoc[tag=enemy]
+
+---

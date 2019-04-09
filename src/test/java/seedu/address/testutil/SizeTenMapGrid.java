@@ -16,7 +16,7 @@ public class SizeTenMapGrid {
         char row = 'a';
         for (int i = 0; i < SIZE_TEN; i++) {
             for (int j = 0; j < SIZE_TEN; j++) {
-                cellGrid[i][j] = new Cell(new Coordinates(String.format("%c%d", row + i, j + 1)));
+                cellGrid[i][j] = new Cell(new Coordinates(i, j));
             }
         }
 

@@ -5,8 +5,8 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.battleship.Battleship;
 import seedu.address.model.battleship.Orientation;
-import seedu.address.model.cell.Cell;
 import seedu.address.model.cell.Coordinates;
+import seedu.address.model.cell.Status;
 
 /**
  * Wraps all data at the address-book level
@@ -32,8 +32,6 @@ public class BoundaryValueChecker {
         this.battleship = battleship;
         this.coordinates = coordinates;
         this.orientation = orientation;
-
-
     }
 
     /**
@@ -42,7 +40,7 @@ public class BoundaryValueChecker {
      */
     public void performChecks() throws CommandException {
         if (!this.isHeadWithinBounds()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+            throw new CommandException(MESSAGE_OUT_OF_BOUNDS);
         } else if (this.orientation.isHorizontal()) {
             if (!this.isBattleshipAbsent()) {
                 throw new CommandException(MESSAGE_BATTLESHIP_PRESENT);
@@ -69,8 +67,8 @@ public class BoundaryValueChecker {
         Index rowIndex = coordinates.getRowIndex();
         Index colIndex = coordinates.getColIndex();
 
-        if ((rowIndex.getZeroBased() > mapGrid.getMapSize())
-                || colIndex.getZeroBased() > mapGrid.getMapSize()) {
+        if ((rowIndex.getZeroBased() >= mapGrid.getMapSize())
+                || colIndex.getZeroBased() >= mapGrid.getMapSize()) {
             return false;
         }
 
@@ -113,32 +111,28 @@ public class BoundaryValueChecker {
      * Checks if there is no battleship on the grids.
      */
     public boolean isBattleshipAbsent() {
-        Index rowIndex = coordinates.getRowIndex();
-        Index colIndex = coordinates.getColIndex();
+        Status status = mapGrid.getCellStatus(coordinates);
 
-        Cell cellToInspect = mapGrid.getCell(rowIndex.getZeroBased(), colIndex.getZeroBased());
-
-        if (cellToInspect.hasBattleShip()) {
-            return false;
+        if (status == Status.EMPTY) {
+            return true;
         }
 
-        return true;
+        return false;
     }
 
     /**
      * Checks if the vertical does not have any other battleships.
      */
     public boolean isVerticalClear() {
-        Index rowIndex = coordinates.getRowIndex();
-        Index colIndex = coordinates.getColIndex();
-
         int length = battleship.getLength();
 
         for (int i = 1; i < length; i++) {
-            Cell cellToInspect = mapGrid.getCell(rowIndex.getZeroBased() + i,
-                    colIndex.getZeroBased());
+            Coordinates cellCoords = new Coordinates(
+                    coordinates.getRowIndex().getZeroBased() + i,
+                    coordinates.getColIndex().getZeroBased());
+            Status status = mapGrid.getCellStatus(cellCoords);
 
-            if (cellToInspect.hasBattleShip()) {
+            if (status == Status.SHIP) {
                 return false;
             }
         }
@@ -150,16 +144,15 @@ public class BoundaryValueChecker {
      * Checks if the horizontal does not have any other battleships.
      */
     public boolean isHorizontalClear() {
-        Index rowIndex = coordinates.getRowIndex();
-        Index colIndex = coordinates.getColIndex();
-
         int length = battleship.getLength();
 
         for (int i = 1; i < length; i++) {
-            Cell cellToInspect = mapGrid.getCell(rowIndex.getZeroBased(),
-                    colIndex.getZeroBased() + i);
+            Coordinates cellCoords = new Coordinates(
+                    coordinates.getRowIndex().getZeroBased(),
+                    coordinates.getColIndex().getZeroBased() + i);
+            Status status = mapGrid.getCellStatus(cellCoords);
 
-            if (cellToInspect.hasBattleShip()) {
+            if (status == Status.SHIP) {
                 return false;
             }
         }

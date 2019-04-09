@@ -8,8 +8,6 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import seedu.address.commons.core.Config;
 import seedu.address.commons.core.GuiSettings;
-import seedu.address.commons.exceptions.DataConversionException;
-import seedu.address.model.MapGrid;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.UserPrefs;
 import seedu.address.storage.JsonAddressBookStorage;
@@ -67,7 +65,7 @@ public class TestApp extends MainApp {
 
     /**
      * Returns a defensive copy of the address book data stored inside the storage file.
-     */
+
     public MapGrid readStorageAddressBook() {
         try {
             return new MapGrid(storage.readAddressBook().get());
@@ -77,6 +75,7 @@ public class TestApp extends MainApp {
             throw new AssertionError("Storage file cannot be found.", ioe);
         }
     }
+     */
 
     /**
      * Returns the file path of the storage file.

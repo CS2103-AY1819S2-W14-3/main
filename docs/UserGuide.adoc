@@ -20,31 +20,34 @@ By: `Team W14-3`      Since: `Jan 2019`      Licence: `MIT`
 
 == Introduction
 
-Ships ahoy! Battleships is a retro game for people who want to have the joy of playing Battleships without the hassle and fuss of a physical game.
+Ships ahoy! Battleship is a simple computer-based remake of the classic Battleship game, for people who want to have the
+joy of playing Battleships without the hassle and fuss of dealing with physical game pieces.
 
-Battleships is optimised for people who want to use a Command Line Interface (CLI), while still retaining the benefits of a Graphical User Interface (GUI). It can guarantee many hours of fun, especially between those long and boring periods of the day. Can't wait to get started? Head over to <<Quick Start>> to fire away!
+Battleship is optimised for people who want to use a Command Line Interface (CLI), while still retaining the benefits of a Graphical User Interface (GUI).
+It can guarantee many hours of fun, especially between those long and boring periods of the day. Can't wait to get started? Head over to <<Quick Start>> to fire away!
 
 [NOTE]
 ====
-What is a Command Line Interface (CLI) and a Graphical User Interface (GUI)? An interface is how a user interacts with the computer. For example, you can use a mouse to click on a file to open it in Windows or MacOS. This is part of the interface for these operating systems. +
+*What is a Command Line Interface (CLI) and a Graphical User Interface (GUI)?* +
+An interface is how a user interacts with the computer. For example, you can use a mouse to click on a file to open it in Windows or MacOS. This is part of the interface for these operating systems. +
 
 A Command Line Interface (CLI) interacts with the user by accepting words that are typed in by the user. Conversely, a Graphical User Interface (GUI) interacts with the user visually. It uses icons and graphics to show the user what the program is doing.
 ====
 
-Battleships, as you will see, is a hybrid application. It combines both a CLI and GUI, meaning that the user must type in commands but will see the changes caused by those commands graphically.
+Battleship, as you will see, is a hybrid application. It combines both a CLI and GUI, meaning that the user must type in commands but will see the changes caused by those commands graphically.
 
 == Quick Start
 
 .  Ensure you have Java version `9` or later installed in your Computer.
-.  Download the latest `addressbook.jar` link:{repoURL}/releases[here].
+.  Download the latest `addressbook.jar` link:https://github.com/CS2103-AY1819S2-W14-3/main/releases[here].
 .  Copy the file to the folder you want to use as the home folder for your Address Book.
 .  Double-click the file to start the app. The GUI should appear in a few seconds.
 +
 image::Ui1.png[width=800]
 +
-.  Type the command in the command box and press kbd:[Enter] to execute it. +
+.  Type commands in the command box and press kbd:[Enter] to execute them. +
 e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
-.  Initialise the map: `init 6`.
+.  To begin playing, first initialise the map to a size between 6 to 10. eg: `init 6`.
 +
 image::Ui2.png[width=800]
 +
@@ -59,18 +62,17 @@ image::Ui3.png[width=800]
 +
 image::Ui4.png[width=800]
 +
-.  Shoot the enemy: `shoot a1`
-.  End your turn: `end turn`
+.  Shoot the enemy's map at a specific cell. eg: `shoot a1`
 +
 image::Ui5.png[width=800]
 +
-.  Shoot the enemy: `shoot a5`
 
-The commands will go on, until either your or the enemy's fleet is completely destroyed.
+The game will go on until either party's ships are totally destroyed.
 
 Refer to <<Features>> for details of each command.
 
 == Game Rules
+// tag::gamerules[]
 This section will describe the game rules and how to play the classic Battleship game.
 ====
 *Goal*
@@ -100,10 +102,10 @@ image::mapSizeFleetSize.png[width=550]
 The Player will always be given the first turn.
 The Player may fire shots at the enemy map through the command `shoot <a1>`.
 
-The player is allowed to continue firing until a miss.
-
-Upon a miss, the player must end their turn here, and relinquish the turn
-to the enemy through the command `end turn`. All's fair in love and war.
+If the shot hit a ship, the Player may continue taking shots til a miss.
+Upon a miss, the turn will be turned over to the enemy.
+The same goes for the enemy. The enemy will take its shot automatically, firing until a miss, before
+passing the turn back to the Player.
 ====
 
 ====
@@ -245,32 +247,9 @@ We are able to list a specific battleship by the name of `destroyer` with the ta
 .The `list` command with name and tags
 image::listbytagbyname.png[width=750]
 
-===== Locating ships by name: `find`
-
-Finds battleships whose names contain any of the given keywords. +
-Format: `find NAME [MORE_NAMES]`
-
-****
-* The search is case insensitive. e.g `hood` will match `Hood`
-* The order of the keywords does not matter. e.g. `Wales Prince` will match `Prince Of Wales`
-* Only the name is searched.
-* Only full words will be matched e.g. `Bel` will not match `Belfast`
-* Persons matching at least one keyword will be returned (i.e. `OR` search). +
-e.g. `King York` will return `King George V`, `Duke of York`
-****
-
-Examples:
-
-* `find Vengeance` +
-Returns `Name: RSS Vengeance, Size: 4, Command: true, Position: d2`
-
-[NOTE]
-The position may not be displayed if the ship has not been placed.
-
 ===== List all tags: `listTags`
 
 Lists all the tags that have been used to tag the battleships deployed on the map. +
-
 
 Format: `listTags` +
 Examples: `listTags`
@@ -278,25 +257,7 @@ Examples: `listTags`
 [NOTE]
 The list of tags is given in square brackets.
 
-===== Selecting a ship : `select`
-
-Selects the battleship identified by the index number used in the displayed ship list. +
-Format: `select INDEX`
-
-****
-* The index refers to the index number shown in the displayed ship list.
-* The index *must be a positive integer* `1, 2, 3, ...`
-****
-
-Examples:
-
-* `list` +
-`select 2` +
-Selects the 2nd battleship in the inventory.
-* `find Prinz Eugen` +
-`select 1` +
-Selects the 1st battleship in the results of the `find` command.
-
+// tag::battle[]
 === Battle Phase
 
 ==== Beginning the battle: `begin`
@@ -307,35 +268,28 @@ Alternative command: `start`
 
 ****
 * After this command is entered, the program's AI will place its own ships.
+* After the AI completes its placing of ships, you can take your first turn.
 ****
 
 ==== Shooting at a coordinate: `shoot`
 
 Launches an attack against given coordinate on the enemy's map. +
 Format: `shoot COORDINATES` +
-Alternative command: `attack`, `fire`, `hit`
+Alternative commands: `attack`, `fire`, `hit`
 
 Example:
 
 * `shoot A6`
 
 ****
-* The program will prevent an attack on an invalid coordinate..
-* The program will prevent an attack on a square that has already been attacked.
-* The program will prevent the user when attacking when they have already attacked. +
-After attacking, they should use `endturn` to allow the computer to make its move.
+* The program will prevent you from attacking an invalid coordinate.
+* The program will prevent you from attacking a square that you have already attacked.
+* The program will prevent the you from making another attack when you have already taken your turn.
+After attacking, you should use `endturn` to allow the computer to make its move.
 ****
 
-==== Finishing a turn: `endturn`
+// end::battle[]
 
-Ends Player turn and starts Enemy's turn. +
-Format: `endturn` +
-Alternative command: `end`
-
-****
-* The program will end the player's turn and automatically play the Enemy's turn.
-The player can see the enemy's attack reflected on the map and in the results box.
-****
 // tag::stats[]
 === Retrieving game statistics: `stats`
 
@@ -358,8 +312,8 @@ Format: `exit`
 
 == FAQ
 
-*Q*: How do I transfer my data to another Computer? +
-*A*: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.
+*Q*: How are you today? +
+*A*: I'm fine and dandy thank you very much.
 
 == Command Summary
 
@@ -367,10 +321,8 @@ Format: `exit`
 |=======================================================================
 |Feature |Format |Purpose   | Example
 |*Attack*| `attack [coordinate]` |Attacks a selected cell on the enemy map.| `attack c1`
-|*Clear*| `clear` |Clears the command box. | `clear`
-|*End player turn*| `end turn` |Relinquish player turn to allow enemy to shoot once. | `end turn`
-|*Help*| `help` |Opens up the help guide window. | `help`
-|*Create map*| `init [integer_size]` | Initializes the map grid. | `init 8`
+|*Game manual*| `help` |Opens up the help guide window. | `help`
+|*Create map of size 6-10*| `init [integer_size]` | Initializes the map grid. | `init 8`
 |*List ships*| `list` |List all available battleships | `list`
 |*List tags*| `listTags` |List all available battleships by tags | `listTags`
 |*Put ship on map*| `put n/NAME r/ORIENTATION c/COORDINATE [optional]t/TAG` |Place your battleship on the map. | `put n/Destroyer r/vertical c/a1 t/myfleet`

@@ -1,6 +1,5 @@
 package seedu.address.logic.battle;
 
-import seedu.address.model.battleship.Battleship;
 import seedu.address.model.cell.Coordinates;
 import seedu.address.model.player.Player;
 
@@ -8,21 +7,20 @@ import seedu.address.model.player.Player;
  * Represents the result of an attack that hit and destroyed a ship.
  */
 public class AttackDestroyedShip extends AttackResult {
-    private Battleship destroyedShip;
+    private String destroyedShipName;
 
-    public AttackDestroyedShip(Player attacker, Player target, Coordinates cell, Battleship destroyedShip) {
+    public AttackDestroyedShip(Player attacker, Player target, Coordinates cell, String destroyedShipName) {
         super(attacker, target, cell);
-        this.destroyedShip = destroyedShip;
+        this.destroyedShipName = destroyedShipName;
     }
 
     @Override
     public boolean isHit() {
-        return false;
+        return true;
     }
 
     @Override
-    public String toString() {
-        return String.format(ATTACK + "destroyed %s",
-            attacker.getName(), coords, target.getName(), destroyedShip.getName());
+    public String resultString() {
+        return String.format("destroyed %s", destroyedShipName);
     }
 }

@@ -5,10 +5,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import seedu.address.commons.core.index.Index;
-import seedu.address.model.Model;
-import seedu.address.model.cell.Cell;
-
 /**
  * A utility class for test cases.
  */
@@ -30,26 +26,5 @@ public class TestUtil {
             throw new RuntimeException(e);
         }
         return SANDBOX_FOLDER.resolve(fileName);
-    }
-
-    /**
-     * Returns the middle index of the cell in the {@code model}'s cell list.
-     */
-    public static Index getMidIndex(Model model) {
-        return Index.fromOneBased(model.getFilteredPersonList().size() / 2);
-    }
-
-    /**
-     * Returns the last index of the cell in the {@code model}'s cell list.
-     */
-    public static Index getLastIndex(Model model) {
-        return Index.fromOneBased(model.getFilteredPersonList().size());
-    }
-
-    /**
-     * Returns the cell in the {@code model}'s cell list at {@code index}.
-     */
-    public static Cell getPerson(Model model, Index index) {
-        return model.getFilteredPersonList().get(index.getZeroBased());
     }
 }

@@ -16,7 +16,7 @@ import seedu.address.commons.core.LogsCenter;
 public class Orientation {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Orientation should either be left or right, case-insensitive";
+            "Orientation should either be horizontal or vertical, case-insensitive";
 
     /*
      * The first character of the address must not be a whitespace,

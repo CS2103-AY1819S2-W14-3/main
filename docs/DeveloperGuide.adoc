@@ -1,4 +1,4 @@
-= CLI Battleship - Developer Guide
+= Battleship - Developer Guide
 :site-section: DeveloperGuide
 :toc:
 :toc-title:
@@ -224,6 +224,9 @@ The `Storage` component,
 * can save `UserPref` objects in json format and read it back.
 * can save the Address Book data in json format and read it back.
 
+
+// tag::battle[]
+
 [[Design-Battle]]
 === Battle component
 
@@ -239,6 +242,9 @@ The `Battle` component,
 * allows the user and the computer enemy to attack each other and maintain proper turn-taking while doing so.
 
 As the
+
+
+// end::battle[]
 
 [[Design-Commons]]
 === Common classes
@@ -326,9 +332,9 @@ A battleship is a basic class representing a battleship that can be placed on th
 
 The number of battleship types that a user can deploy on the map depends on the size of the map. It is given by the formula:
 
-1. Number of cruisers = `mapSize` - 5.
-1. Number of destroyers = (`mapSize` + 2) / 5.
-1. Number of aircraft carriers = 1.
+1. Number of cruisers = `mapSize - 5`
+1. Number of destroyers = `(mapSize + 2) / 5`.
+1. Number of aircraft carriers = `1`.
 
 The user can tag a battleship using a `t/[TAG]` parameter in the `put` command. Tagging battleships is optional.
 
@@ -404,21 +410,25 @@ image::ListShipSequenceDiagram.png[width=1499][height=2249]
 
 ==== Design Considerations
 ===== Aspect: How a battleship is placed on the map
-* **Alternative 1 (current choice):** The same `Battleship` object is put in multiple cells.
+* **Alternative 1 (current choice):** +
+ The same `Battleship` object is put in multiple cells. Each cell contains a reference to the same `Battleship` object. When a battleship on the `Cell` needs to be modified, the `Battleship` attribute in the `Cell` is accessed.
 ** Pros: This allows any cell that is hit to access the same `Battleship` object without having to separately find the `Battleship` object.
 ** Cons: Difficult to keep track of each `Battleship` position.
-* **Alternative 2:** Have a separate `Battleship` object and `BattleshipPart` object that points to the main `Battleship` object.
+* **Alternative 2:** +
+Have two separate `Battleship` and `BattleshipPart` objects. The `BattleshipPart` object represents the "body" of the `Battleship` and contains an attribute that points to the `Battleship`. When a battleship on the `Cell` needs to be modified, the `BattleshipPart` is accessed, which then accesses the main `Battleship` object.
 ** Pros: Clearer separation between the "body" of the Battleship and the Battleship itself.
-** Cons: Difficult to handle being hit on a cell.
+** Cons: Difficult to handle hit on the cell.
 
 ===== Aspect: Data structure to record battleships in player
-* **Alternative 1 (current choice):** `ArrayList` of `FleetEntry`, where `FleetEntry` contains a reference to the `Battleship`, its `Orientation` and `Coordinates` of the head.
+* **Alternative 1 (current choice):** +
+`ArrayList` of `FleetEntry`, where `FleetEntry` contains a reference to the `Battleship`, its `Orientation` and `Coordinates` of the head. The `FleetEntry` subclass exists in `Fleet`. Whenever a `Fleet` method is called, it accesses the `ArrayList` of `FleetEntry` to obtain information about the `Battleship` and its position on the `MapGrid`.
 ** Pros: Can identify `Battleship` by position.
 ** Cons: Harder to implement.
 * **Alternative 2:** `ArrayList` of `Battleship`.
-** Pros: Cleaner and easier to implement.
-** Cons: Cannot check position of `Battleship` on the map grid.
+** Pros: Easier to implement and provides a cleaner design.
+** Cons: Harder check position of `Battleship` on the map grid. In order to do so, a separate data structure has to be initialised to store the coordinates and orientation of the battleship. This data structure then has to be aligned with the original `ArrayList` that stores the battleship.
 
+// tag::battle[]
 === Battle Feature
 ==== Current Implementation
 The Battle feature handles the following:
@@ -438,6 +448,12 @@ The Battle feature is split between several packages:
     `Battle#takeComputerTurn()`.
   * `BeginCommand`, `AttackCommand` and `EndTurnCommand` handle the player's interaction
     with this component.
+
+The sequence diagram of what happens when the user enters the `begin` command is as follows:
+
+
+.Sequence diagram of beginning the battle.
+image::BeginSequenceDiagram.png[width=800]
 
 ==== Design Considerations
 * **Alternative 1 (current choice):** +
@@ -462,6 +478,9 @@ The Battle feature is split between several packages:
 ** Cons:
 *** AttackCommand is now state-dependent (the state being the current attacking player) which
     can more easily lead to bugs and race conditions.
+
+
+// end::battle[]
 
 === Enemy AI Feature
 ==== Current Implementation

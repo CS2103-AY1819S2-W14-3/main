@@ -1,5 +1,7 @@
 package seedu.address.logic.battle;
 
+import java.util.List;
+
 import seedu.address.model.cell.Coordinates;
 import seedu.address.model.player.Enemy;
 import seedu.address.model.player.Player;
@@ -24,7 +26,7 @@ public interface Battle {
     /**
      * Ends the player turn and causes the AI to make its attack.
      */
-    public AttackResult takeComputerTurn();
+    public List<AttackResult> takeComputerTurns();
 
     /**
      * Returns the human player.

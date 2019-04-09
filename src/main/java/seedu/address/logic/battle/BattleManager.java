@@ -2,12 +2,14 @@ package seedu.address.logic.battle;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.model.battleship.Battleship;
-import seedu.address.model.cell.Cell;
+import seedu.address.model.MapGrid;
 import seedu.address.model.cell.Coordinates;
+import seedu.address.model.cell.Status;
 import seedu.address.model.player.Enemy;
 import seedu.address.model.player.Player;
 
@@ -50,12 +52,12 @@ public class BattleManager implements Battle {
     private AttackResult performAttack(Player attacker, Player target, Coordinates coord) {
         logger.info(String.format(AttackResult.ATTACK, attacker.getName(), coord, target.getName()));
         try {
-            if (target.getMapGrid().attackCell(coord)) {
+            MapGrid targetMapGrid = target.getMapGrid();
+            if (targetMapGrid.attackCell(coord)) {
                 // we hit a ship
-                Cell cell = target.getMapGrid().getCell(coord);
-                Battleship hitShip = cell.getBattleship().get();
-                if (hitShip.isDestroyed()) {
-                    return new AttackDestroyedShip(attacker, target, coord, hitShip);
+                if (targetMapGrid.getCellStatus(coord) == Status.DESTROYED) {
+                    String hitShipName = targetMapGrid.getShipNameInCell(coord);
+                    return new AttackDestroyedShip(attacker, target, coord, hitShipName);
                 } else {
                     return new AttackHit(attacker, target, coord);
                 }
@@ -70,16 +72,33 @@ public class BattleManager implements Battle {
     }
 
     @Override
-    public AttackResult takeComputerTurn() {
+    public List<AttackResult> takeComputerTurns() {
         // AI takes its turn
-
-        Coordinates enemyAttack = enemyPlayer.enemyShootAt();
-
-        AttackResult res = performAttack(enemyPlayer, humanPlayer, enemyAttack);
-        // update the enemy with it's result
-        logger.info(String.format("+++++++BATMAN SAYS: LAST HIT ON: " + enemyAttack.toString()
-                + " status: " + res.toString()));
-        return res;
+        List<AttackResult> resList = new ArrayList<>();
+        try {
+            AttackResult lastRes;
+            do {
+                Coordinates enemyAttack = enemyPlayer.enemyShootAt();
+                lastRes = performAttack(enemyPlayer, humanPlayer, enemyAttack);
+                // update the enemy with its result
+                enemyPlayer.receiveStatus(humanPlayer.getMapGrid().getCellStatus(enemyAttack));
+                logger.info(String.format("+++++++BATMAN SAYS: LAST HIT ON: " + enemyAttack.toString()
+                    + " status: " + lastRes.toString()));
+                resList.add(lastRes);
+                enemyPlayer.getMapGrid().updateUi();
+                try {
+                    Thread.sleep(300);
+                } catch (InterruptedException ex) {
+                    logger.info(ex.getMessage());
+                }
+            } while (lastRes.isHit());
+            return resList;
+        } catch (Exception ex) {
+            resList.add(
+                new AttackFailed(enemyPlayer, humanPlayer, null, ex.getMessage()));
+        } finally {
+            return resList;
+        }
     }
 
     /**

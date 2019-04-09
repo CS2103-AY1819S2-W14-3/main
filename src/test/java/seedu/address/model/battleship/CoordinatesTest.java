@@ -33,8 +33,10 @@ public class CoordinatesTest {
         assertFalse(Coordinates.isValidCoordinates("")); // empty string
         assertFalse(Coordinates.isValidCoordinates(" ")); // spaces only
         assertFalse(Coordinates.isValidCoordinates("*9")); // symbols
-        assertFalse(Coordinates.isValidCoordinates("z9")); // out of bounds row
-        assertFalse(Coordinates.isValidCoordinates("a0")); // out of bounds column
+        assertFalse(Coordinates.isValidCoordinates("9")); // single digit
+        assertFalse(Coordinates.isValidCoordinates("z")); // single alphabet
+        assertFalse(Coordinates.isValidCoordinates("a0")); // invalid column
+        assertFalse(Coordinates.isValidCoordinates("00")); // double digits
 
         // valid addresses
         assertTrue(Coordinates.isValidCoordinates("a1")); // starting coordinate

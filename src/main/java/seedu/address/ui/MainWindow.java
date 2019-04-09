@@ -33,7 +33,6 @@ public class MainWindow extends UiPart<Stage> {
     private Logic logic;
 
     // Independent Ui parts residing in this Ui container
-    private BrowserPanel browserPanel;
     private PlayerMap playerMap;
     private EnemyMap enemyMap;
     private ResultDisplay resultDisplay;

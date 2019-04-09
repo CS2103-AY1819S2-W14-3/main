@@ -14,7 +14,7 @@ import seedu.address.model.tag.Tag;
 
 
 /**
- * Parses input arguments and creates a new FindCommand object
+ * Parses input arguments and creates a new ListCommand object
  */
 public class ListCommandParser implements Parser<ListCommand> {
 
@@ -22,8 +22,8 @@ public class ListCommandParser implements Parser<ListCommand> {
     private Optional<Name> name = Optional.empty();
 
     /**
-     * Parses the given {@code String} of arguments in the context of the FindCommand
-     * and returns an FindCommand object for execution.
+     * Parses the given {@code String} of arguments in the context of the ListCommand
+     * and returns an ListCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
     public ListCommand parse(String args) throws ParseException {

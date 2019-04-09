@@ -104,7 +104,7 @@ public class StatsCommandTest {
         PlayerStatistics p1 = new PlayerStatistics();
         AttackResult res = new AttackDestroyedShip(new Player("Alice", 5, 2, 1),
                 new Player("Bob", 5, 2, 1), new Coordinates("a2"),
-                new Battleship(new Name("Placeholder"), 2, 2, new HashSet<>()));
+                new Battleship(new Name("Placeholder"), 2, 2, new HashSet<>()).toString());
         assertEquals("destroyed", p1.addResultToStats(res));
     }
 

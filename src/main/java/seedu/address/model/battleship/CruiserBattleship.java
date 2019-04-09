@@ -15,7 +15,7 @@ public class CruiserBattleship extends Battleship {
      * Default size is length = 2, life = 1
      */
     public CruiserBattleship(Set<Tag> tagSet) {
-        super(new Name("cruiser"), 2, 2, tagSet);
+        super(Battleship.CRUISER_NAME, Battleship.CRUISER_LENGTH, Battleship.CRUISER_LENGTH, tagSet);
     }
 
 }

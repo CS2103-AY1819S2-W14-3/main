@@ -14,6 +14,22 @@ import seedu.address.model.tag.Tag;
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Battleship {
+
+    // Static constants
+    public static final String AIRCRAFT_CARRIER_STRING = "aircraft carrier";
+    public static final String DESTROYER_STRING = "destroyer";
+    public static final String CRUISER_STRING = "cruiser";
+    public static final Name AIRCRAFT_CARRIER_NAME = new Name(AIRCRAFT_CARRIER_STRING);
+    public static final Name DESTROYER_NAME = new Name(DESTROYER_STRING);
+    public static final Name CRUISER_NAME = new Name(CRUISER_STRING);
+    public static final int AIRCRAFT_CARRIER_LENGTH = 5;
+    public static final int DESTROYER_LENGTH = 3;
+    public static final int CRUISER_LENGTH = 2;
+    public static final String MESSAGE_CONSTRAINTS = "Name must be "
+            + AIRCRAFT_CARRIER_STRING + ", "
+            + DESTROYER_STRING + " or "
+            + CRUISER_STRING + ".";
+
     // Default fields
     protected static final int DEFAULT_LENGTH = 2;
     protected static final int DEFAULT_LIFE = 2;

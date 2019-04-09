@@ -1,0 +1,62 @@
+= Ian Wu - Project Portfolio for Battleship
+:site-section: AboutUs
+:imagesDir: ../images
+:stylesDir: ../stylesheets
+
+== Project: Battleship CLI
+
+Battleship CLI is an implementation of the classic game Battleship.
+
+As part of a group project in the module https://nus-cs2103-ay1819s2.github.io/cs2103-website/index.html[CS2103] in NUS,
+my group had to morph an existing product, https://github.com/nus-cs2103-AY1819S2/addressbook-level4[`addressbook-level4`],
+into a new product, and we chose to morph it into an Battleships, while keeping the original product's
+distinctive feature of being operated through the command-line.
+
+My role in the team was to design and implement the `Battle` feature, which:
+
+  * Ensures that the human and computer players each take their turns in order,
+  * Ensures that the game progresses in a fixed sequence of stages (from setting up the map, to placing ships, to attacking)
+
+The following sections illustrate the feature in more detail, as well as the relevant sections I have added to the user and developer guides in relation to this feature.
+
+== Summary of contributions
+
+* *Major enhancement*: added *the battle feature of the game*
+** What it does: it allows the player to make attacks, and ensures that the player and enemy take turns with each other.
+** Justification: the battle feature is important as it is one of the two important phases of Battleship, along with the placing of ships.
+** Highlights: [placeholder]
+** Credits: [placeholder]
+
+* *Code contributed*: Here are my [https://github.com/CS2103-AY1819S2-W14-3/main/commits/master?author=iwle[code commits]].
+
+* *Other contributions*:
+
+** Project management:
+*** [placeholder]
+** Enhancements to existing features:
+*** [placeholder]
+** Documentation:
+*** [placeholder]
+** Community:
+*** [placeholder]
+** Tools:
+*** [placeholder]
+
+== Contributions to the User Guide
+
+
+|===
+|_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._
+|===
+
+include::../UserGuide.adoc[tag=battle]
+
+== Contributions to the Developer Guide
+
+|===
+|_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
+|===
+
+include::../DeveloperGuide.adoc[tag=battle]
+
+---

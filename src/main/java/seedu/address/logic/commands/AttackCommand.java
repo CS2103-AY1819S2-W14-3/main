@@ -3,6 +3,7 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 
 import java.util.EnumSet;
+import java.util.List;
 
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.battle.AttackResult;
@@ -27,6 +28,7 @@ public class AttackCommand extends Command {
         + "SQUARE (a letter followed by a positive integer)\n"
         + "Example: attack b5";
     public static final String MESSAGE_DUPLICATE = "You have already attacked cell ";
+    public static final String MESSAGE_ANOTHER_TURN = "Take another turn.";
 
     private Coordinates coord;
 
@@ -37,9 +39,14 @@ public class AttackCommand extends Command {
     }
 
     @Override
+    /**
+     * Executes an attack command on a cell.
+     * If the player hits a ship, they can take another turn. If not, then
+     * the AI takes their turn immediately, then the player takes their turn.
+     */
     public CommandResult execute(Model model, CommandHistory history) throws CommandException {
         requireNonNull(model);
-        // assert canExecuteIn(model.getBattleState());
+        assert canExecuteIn(model.getBattleState());
         Player human = model.getHumanPlayer();
         AttackResult res;
 
@@ -50,10 +57,25 @@ public class AttackCommand extends Command {
             throw new CommandException(MESSAGE_DUPLICATE + coord);
         }
         model.getPlayerStats().addResultToStats(res);
-
         model.updateUi();
 
-        return new CommandResult(res.toString());
+        if (res.isHit()) {
+            // player takes another turn
+            return new CommandResult(res.formatAsUserAttack() + "\n" + MESSAGE_ANOTHER_TURN);
+        } else {
+            // immediately, AI takes its turn
+            model.setBattleState(BattleState.ENEMY_ATTACK);
+            List<AttackResult> enemyResList = model.getBattle().takeComputerTurns();
+
+            StringBuilder resultBuilder = new StringBuilder();
+            resultBuilder.append(res.formatAsUserAttack());
+            for (AttackResult enemyRes: enemyResList) {
+                resultBuilder.append("\n");
+                resultBuilder.append(enemyRes.formatAsEnemyAttack());
+            }
+            model.setBattleState(BattleState.PLAYER_ATTACK);
+            return new CommandResult(resultBuilder.toString());
+        }
     }
 
     @Override

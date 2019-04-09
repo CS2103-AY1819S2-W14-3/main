@@ -17,8 +17,7 @@ public class AttackMissed extends AttackResult {
     }
 
     @Override
-    public String toString() {
-        return String.format(ATTACK + "missed",
-            attacker.getName(), coords, target.getName());
+    public String resultString() {
+        return "missed";
     }
 }

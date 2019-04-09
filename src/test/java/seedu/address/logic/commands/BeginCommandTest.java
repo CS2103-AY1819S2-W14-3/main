@@ -5,7 +5,9 @@ import static org.junit.Assert.assertTrue;
 import static seedu.address.testutil.SizeTenMapGrid.initialisePlayerSizeTen;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.battle.BattleManager;
@@ -17,12 +19,15 @@ import seedu.address.model.player.Player;
 import seedu.address.testutil.InterceptedEnemy;
 
 public class BeginCommandTest {
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
     private Player player;
     private InterceptedEnemy enemy;
     private Model model;
 
     @Before
-    public void prepareModel() {
+    public void setUp() {
         player = new Player();
         enemy = new InterceptedEnemy();
         initialisePlayerSizeTen(player);
@@ -40,8 +45,10 @@ public class BeginCommandTest {
     }
 
     @Test
-    public void execute_incorrectState_fails() throws CommandException {
-        // TODO: implement failing behaviour when state is wrong
-        assertTrue(true);
+    public void execute_invalidState_throwAssertionError() throws CommandException {
+        thrown.expect(AssertionError.class);
+        BeginCommand cmd = new BeginCommand();
+        model.setBattleState(BattleState.PLAYER_ATTACK);
+        cmd.execute(model, new CommandHistory());
     }
 }

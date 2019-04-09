@@ -27,8 +27,9 @@ public class Coordinates {
             + "The column number must be between [1-10] inclusive.\n";
 
     // alphanumeric and special characters
-    private static final String ROW_PART_REGEX = "^([a-j]){1}";
-    private static final String COL_PART_REGEX = "(10|[1-9])$";
+    private static final String ROW_PART_REGEX = "^([a-z]){1}";
+    private static final String COL_PART_REGEX = "(\\d+){1}$";
+    private static final String COL_PART_REGEX_NON_MATCH = "[a-z]0";
 
     private static final String VALIDATION_REGEX = ROW_PART_REGEX + COL_PART_REGEX;
 
@@ -42,7 +43,7 @@ public class Coordinates {
      *
      * @param coordinate A valid coordinate.
      */
-    public Coordinates(String coordinate) {
+    public Coordinates(String coordinate) throws NumberFormatException {
         requireNonNull(coordinate);
         checkArgument(isValidCoordinates(coordinate), MESSAGE_CONSTRAINTS);
 
@@ -110,7 +111,7 @@ public class Coordinates {
      * Returns if a given string is a valid coordinate.
      */
     public static boolean isValidCoordinates(String test) {
-        return test.matches(VALIDATION_REGEX);
+        return test.matches(VALIDATION_REGEX) && !test.matches(COL_PART_REGEX_NON_MATCH);
     }
 
     @Override

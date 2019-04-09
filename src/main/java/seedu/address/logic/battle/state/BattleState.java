@@ -23,10 +23,6 @@ public enum BattleState {
     /**
      * The human player is currently planning their attack.
      */
-    PLAYER_ATTACK_AFTER("You have finished attacking...", Stage.STAGE_BATTLE),
-    /**
-     * The human player is currently planning their attack.
-     */
     ENEMY_ATTACK("Enemy is currently planning attack...", Stage.STAGE_BATTLE),
     /**
      * The human player has won the game.

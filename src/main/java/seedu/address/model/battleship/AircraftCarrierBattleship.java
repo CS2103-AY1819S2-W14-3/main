@@ -15,7 +15,8 @@ public class AircraftCarrierBattleship extends Battleship {
      * Default size is length = 2, life = 1
      */
     public AircraftCarrierBattleship(Set<Tag> tagSet) {
-        super(new Name("aircraft carrier"), 5, 5, tagSet);
+        super(Battleship.AIRCRAFT_CARRIER_NAME, Battleship.AIRCRAFT_CARRIER_LENGTH, Battleship.AIRCRAFT_CARRIER_LENGTH,
+                tagSet);
     }
 
 }

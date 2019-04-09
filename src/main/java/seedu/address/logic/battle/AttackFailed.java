@@ -35,8 +35,7 @@ public class AttackFailed extends AttackResult {
      * Returns a String representation of the attack result.
      */
     @Override
-    public String toString() {
-        return String.format(ATTACK + "failed: %s",
-            attacker.getName(), coords, enemyName, reason);
+    public String resultString() {
+        return String.format("failed: %s", reason);
     }
 }

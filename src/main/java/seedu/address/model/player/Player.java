@@ -74,6 +74,10 @@ public class Player {
         fleet.resetFleet(mapSize);
     }
 
+    public void resetTargetHistory() {
+        targetHistory = new HashSet<>();
+    }
+
     public int getFleetSize() {
         return this.fleetSize;
     }
