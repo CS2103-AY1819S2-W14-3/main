@@ -6,17 +6,13 @@ import org.junit.Test;
 
 public class EnemyTest {
 
-    public final Enemy testPlayer = new Enemy();
+    private final Enemy testPlayer = new Enemy();
 
     //Lucy TO-FIX:
-    /*  @Test
-
+    @Test
     public void constructor_default() {
-        Player newPlayer1 = new Player();
-        Player newPlayer2 = new Player("Player1", 5);
-        assertEquals(newPlayer1, newPlayer2);
+        //stub
     }
-    */
 
     @Test
     public void test_getName() {
@@ -45,23 +41,27 @@ public class EnemyTest {
         assertEquals(newPlayer1.getTargetHistory(), testPlayer.getTargetHistory());
     }
 
-    @Test public void test_enemyShootAt() {
-        //stub
-    }
-
     @Test public void test_prepEnemy() {
         //stub
     }
 
-    @Test public void test_drawPossibleTarget() {
+    @Test public void test_fillWithAllCoords() {
         //stub
     }
 
-    @Test public void test_fillallPossibleTargets() {
+    @Test public void test_enemyShootAt() {
         //stub
     }
 
-    @Test public void test_fillallPossiblePopulateCoords() {
+    @Test public void test_drawParityTargets() {
+        //stub
+    }
+
+    @Test public void test_drawFromWatchList() {
+        //stub
+    }
+
+    @Test public void test_drawFromAllTargets() {
         //stub
     }
 
@@ -69,27 +69,51 @@ public class EnemyTest {
         //stub
     }
 
-    @Test public void test_placeAirCraftCarrier () {
+    @Test public void test_placeAirCraftCarrier() {
         //stub
     }
 
-    @Test public void test_placeMultipleDestroyerAndCruiser () {
+    @Test public void test_placeMultipleDestroyerAndCruiser() {
         //stub
     }
 
-    @Test public void test_generateBattleships () {
+    @Test public void test_generateBattleships() {
         //stub
     }
 
-    @Test public void test_markAsOccupied () {
+    @Test public void test_markAsOccupied() {
         //stub
     }
 
-    @Test public void test_justifyCoord () {
+    @Test public void test_justifyCoord() {
         //stub
     }
 
     @Test public void test_generateOrientation() {
+        //stub
+    }
+
+    @Test public void test_receiveStatus() {
+        //stub
+    }
+
+    @Test public void test_updateWatchlist() {
+        //stub
+    }
+
+    @Test public void test_isValidCardinal() {
+        //stub
+    }
+
+    @Test public void test_modeCleanup() {
+        //stub
+    }
+
+    @Test public void test_hasParity() {
+        //stub
+    }
+
+    @Test public void test_cleanseWatchlist() {
         //stub
     }
 }
