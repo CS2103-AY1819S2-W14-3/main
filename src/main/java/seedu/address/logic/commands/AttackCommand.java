@@ -77,7 +77,7 @@ public class AttackCommand extends Command {
                 return new CommandResult(MESSAGE_PLAYER_WIN + "\n"
                     + new SaveCommand().execute(model, history).getFeedbackToUser());
             } else {
-                return new CommandResult(res.formatAsUserAttack() + "\n" + MESSAGE_ANOTHER_TURN );
+                return new CommandResult(res.formatAsUserAttack() + "\n" + MESSAGE_ANOTHER_TURN);
             }
         } else {
             // immediately, AI takes its turn
