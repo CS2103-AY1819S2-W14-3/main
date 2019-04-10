@@ -5,6 +5,7 @@ import static java.util.Objects.requireNonNull;
 import java.util.EnumSet;
 import java.util.List;
 
+import javafx.stage.Stage;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.battle.AttackResult;
 import seedu.address.logic.battle.state.BattleState;
@@ -12,6 +13,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.cell.Coordinates;
 import seedu.address.model.player.Player;
+import seedu.address.ui.StatisticView;
 
 /**
  * Attacks a cell on the board.
@@ -71,10 +73,11 @@ public class AttackCommand extends Command {
             if (res.isWin()) {
                 // Player wins!
                 model.setBattleState(BattleState.PLAYER_WIN);
-
-                return new CommandResult(MESSAGE_PLAYER_WIN);
+                new StatisticView(new Stage(), model.getPlayerStats().generateData()).show();
+                return new CommandResult(MESSAGE_PLAYER_WIN + "\n"
+                    + new SaveCommand().execute(model, history).getFeedbackToUser());
             } else {
-                return new CommandResult(res.formatAsUserAttack() + "\n" + MESSAGE_ANOTHER_TURN);
+                return new CommandResult(res.formatAsUserAttack() + "\n" + MESSAGE_ANOTHER_TURN );
             }
         } else {
             // immediately, AI takes its turn
