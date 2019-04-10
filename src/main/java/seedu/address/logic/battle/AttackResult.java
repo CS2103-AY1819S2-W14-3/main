@@ -26,27 +26,6 @@ public abstract class AttackResult {
     }
 
     /**
-     * Returns the Player object of the attacker.
-     */
-    public Player getAttacker() {
-        return attacker;
-    }
-
-    /**
-     * Returns the Player object of the attacked.
-     */
-    public Player getTarget() {
-        return target;
-    }
-
-    /**
-     * Returns the coordinate of the cell which was attacked.
-     */
-    public Coordinates getCoords() {
-        return coords;
-    }
-
-    /**
      * Checks if this AttackResult actually succeeds in hitting a cell
      */
     public final boolean isSuccessful() {

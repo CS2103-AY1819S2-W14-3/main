@@ -3,8 +3,10 @@ package seedu.address.logic.battle;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static seedu.address.testutil.SizeTenMapGrid.initialisePlayerSizeTen;
+import static seedu.address.testutil.SizeTenMapGrid.setUpAlmostDefeat;
+import static seedu.address.testutil.SizeTenMapGrid.setUpAlmostDestroy;
+import static seedu.address.testutil.SizeTenMapGrid.setUpSingleShip;
 
-import java.util.Collections;
 import java.util.List;
 
 import org.junit.Before;
@@ -13,8 +15,6 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import seedu.address.model.battleship.Battleship;
-import seedu.address.model.battleship.DestroyerBattleship;
-import seedu.address.model.battleship.Orientation;
 import seedu.address.model.player.Player;
 import seedu.address.testutil.InterceptedEnemy;
 import seedu.address.testutil.TypicalIndexes;
@@ -35,63 +35,6 @@ public class BattleManagerTest {
         initialisePlayerSizeTen(enemy);
         batMan = new BattleManager(player, enemy);
         batMan.setDelay(0);
-    }
-
-    /**
-     * Set up the following scenario:
-     *     Player has one ship at a1 vertical with 1 HP
-     * @param p The player to set up
-     * @return the ship that is about to be destroyed
-     */
-    private Battleship setUpAlmostDefeat(Player p) {
-        Battleship ship1 = new DestroyerBattleship(Collections.emptySet());
-        do {
-            ship1.reduceLife();
-        } while (ship1.getLife() != 1);
-        Orientation vertical = new Orientation("v");
-        p.getFleet().deployOneBattleship(ship1, TypicalIndexes.COORDINATES_A1, vertical);
-        p.getMapGrid().putShip(ship1, TypicalIndexes.COORDINATES_A1, vertical);
-
-        return ship1;
-    }
-
-    /**
-     * Set up the following scenario:
-     *     Player has one ship at a1 vertical with full HP
-     * @param p The player to set up
-     * @return The ship that was placed.
-     */
-    private Battleship setUpSingleShip(Player p) {
-        Battleship ship = new DestroyerBattleship(Collections.emptySet());
-        Orientation vertical = new Orientation("v");
-        p.getFleet().deployOneBattleship(ship, TypicalIndexes.COORDINATES_A1, vertical);
-        p.getMapGrid().putShip(ship, TypicalIndexes.COORDINATES_A1, vertical);
-
-        return ship;
-    }
-
-    /**
-     * Set up the following scenario:
-     *     Player has one ship at a1 vertical with 1 HP
-     *     Player has one ship at j1 horizontal with full HP
-     * @param p The player to set up
-     * @return the ship that is about to be destroyed
-     */
-    private Battleship setUpAlmostDestroy(Player p) {
-        Battleship ship1 = new DestroyerBattleship(Collections.emptySet());
-        do {
-            ship1.reduceLife();
-        } while (ship1.getLife() != 1);
-        Orientation vertical = new Orientation("v");
-        p.getFleet().deployOneBattleship(ship1, TypicalIndexes.COORDINATES_A1, vertical);
-        p.getMapGrid().putShip(ship1, TypicalIndexes.COORDINATES_A1, vertical);
-
-        Battleship ship2 = new DestroyerBattleship(Collections.emptySet());
-        Orientation horizontal = new Orientation("h");
-        p.getFleet().deployOneBattleship(ship2, TypicalIndexes.COORDINATES_J1, horizontal);
-        p.getMapGrid().putShip(ship2, TypicalIndexes.COORDINATES_J1, horizontal);
-
-        return ship1;
     }
 
     /**
