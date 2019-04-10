@@ -137,8 +137,13 @@ The following sections illustrate the feature in more detail, as well as the rel
 <div class="sect3">
 <h4 id="map-code-init-code"><a class="link" href="#map-code-init-code">Map : <code>init</code></a></h4>
 <div class="paragraph">
-<p>Initialises both player&#8217;s maps to the specified size.<br>
-Format: <code>init MAP_SIZE</code><br>
+<p>Initialises both player&#8217;s maps to the specified size. The size of the maps must be between 6 and 10, inclusive.<br></p>
+</div>
+<div class="paragraph">
+<p>The <code>init</code> command can be used at any point in time during gameplay. When used in the middle of a game, the <code>init</code> command will act like a "new game" function and will reset the board to a clean state.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>init MAP_SIZE</code><br>
 Example: <code>init 10</code></p>
 </div>
 <div class="paragraph">
@@ -366,4 +371,4 @@ Simpler implementation means the likelihood of bugs being introduced is less whe
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-10 05:32:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-10 05:55:12 UTC</div></div></div></body></html>
