@@ -5,7 +5,7 @@
 
 == Project Overview
 
-My team and I were presented with an existing code base for a command line interface(CLI) address book application.
+Hello! My name is Boston, a Year 2 Computer Science student at the National University of Singapore (NUS) team and I were presented with an existing code base for a command line interface(CLI) address book application.
 We were tasked to enhance or morph the product in to a product of our own choice.
 We chose to morph it into Battleship.
 

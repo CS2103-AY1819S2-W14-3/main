@@ -22,7 +22,7 @@ import seedu.address.storage.Storage;
 public class SaveCommand extends Command {
 
     public static final String COMMAND_WORD = "save";
-    public static final String MESSAGE_SUCCESS = "Statistics Data Saved";
+    public static final String MESSAGE_SUCCESS = "Statistics Analysis";
     private static PlayerStatistics playerStats;
     private Optional<PlayerStatistics> statisticsDataOptional;
     private PlayerStatistics oldPlayerStats;
