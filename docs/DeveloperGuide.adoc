@@ -489,8 +489,8 @@ and serves as the opponent player since `Battleship` is a single-player game.
 The Enemy AI can automatically perform initialising actions similar to the human player.
 Mainly, the Enemy AI can randomly initialise its own mapGrid with randomly generated ships,
 which is invoked by the command `start game`.
-The Enemy AI also supports the ability for the enemy to intelligently shoot
-the player's map when the player inputs the `end turn` command.
+The Enemy AI also supports the ability for the enemy to automatically and intelligently shoot
+the player's map when the player's turn has ended.
 
 Note that the Enemy AI feature does not contain any explicit commands to be
 entered by the Player. Its methods are called by other features instead, and does its
@@ -498,25 +498,31 @@ magic in the background.
 
 *Initialising Enemy MapGrid*
 
-The Enemy AI has the method `populateMapGrid` which is called by the method `prepEnemy()`,
+The Enemy AI has the method `populateEnemyMap` which is called by the method `prepEnemy()`,
 which is in turn called by the Battle Manager when the Player enters the command `start game`.
 
-`populateMapGrid()` will generate randomised battleships based on the number of battleships
+`populateEnemyMap()` will generate randomised battleships based on the number of battleships
 available to it for the current game, as specified in its Parent class - Player.
 The number of battleships available to the Enemy AI is congruent to the number of battleships
 available to the Player. The exact number of the different types of battleships is decided from on
 a formula that is based on the map size specified by the player in the `init` command. Once these randomised
-battleships are generated, `populateMapGrid` will proceed to call `placeAirCraftCarrier()` and `placeMultipleDestroyerAndCruiser()`.
+battleships are generated, `populateEnemyMap()` will proceed to call `placeAirCraftCarrier()` and `placeMultipleDestroyerAndCruiser()`.
+The latter function is called twice - once to deploy Destroyers, and the second time to deploy Cruisers.
+
+The following sequence diagrams illustrate how the `prepEnemy()` calls for the function `populateEnemyMap()`,
+which in turn calls for the functions `placeAirCraftCarrier()` and `placeMultipleDestroyerAndCruiser()`
+all work together to place ships onto the Enemy map grid.
+
+image::PrepEnemyMapSequenceDiagram.png[width=800]
 
 *Calculating Cell to Attack*
 
-The Enemy AI has the method `enemyShootAt()` that is invoked when the player ends their turn
-with the command `end turn`. The Enemy AI will attempt to generate a random Coordinate to attack,
+The Enemy AI has the method `enemyShootAt()` that is invoked when the player ends their turn upon a miss. The Enemy AI will attempt to generate a random Coordinate to attack,
 and pass this Coordinate to the `BattleManager`. The Enemy AI supports the ability to
-check that its generated coordinates are all valid, and has further algorithm that will
+check that its generated coordinates are all valid, and has further algorithms that will
 increase its accuracy upon detecting a successful hit.
 
-image::enemyShoot.gif[width=500]
+//image::enemyShoot.gif[width=500]
 
 __Note: All actions taken by the Enemy AI are seeded by a pseudo-random generator.
 Thus, its behaviour will be different for every game session.__
