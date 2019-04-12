@@ -10,6 +10,7 @@ import static seedu.address.testutil.SizeTenMapGrid.initialisePlayerSizeTen;
 
 import org.junit.Before;
 import org.junit.Test;
+
 import seedu.address.model.cell.Status;
 
 public class EnemyTest {
