@@ -50,8 +50,7 @@ public class Enemy extends Player {
         mapSize = this.getMapGrid().getMapSize();
         logger.info(String.format("~~~~~~~~~~~~~~~~~~++++++++this.getMapGrid().getMapSize(): " + mapSize));
 
-        fillWithAllCoords();
-        populateEnemyMap();
+
     }
     /**************************************************
      * fills allPossibleTargets, allPossiblePopulateCoords, allParityTargets
@@ -417,5 +416,16 @@ public class Enemy extends Player {
     }
     public Status getLastAttackStatus() {
         return this.lastAttackStatus;
+    }
+    public ArrayList<Coordinates> getallPossibleTargets() {
+        return this.allPossibleTargets;
+    }
+
+    public ArrayList<Coordinates> getAllParityTargets() {
+        return this.allParityTargets;
+    }
+
+    public ArrayList<Coordinates> getallPossiblePopulateCoords() {
+        return this.allPossibleTargets;
     }
 }
