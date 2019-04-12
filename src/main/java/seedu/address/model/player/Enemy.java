@@ -28,15 +28,13 @@ public class Enemy extends Player {
     private static final Random randGen2 = new Random();
     private static final Logger logger = LogsCenter.getLogger(Enemy.class);
 
-
     private static ArrayList<Coordinates> allPossibleTargets = new ArrayList<>(); //one-based
     private static ArrayList<Coordinates> allParityTargets = new ArrayList<>(); //one-based
     private static ArrayList<Coordinates> allPossiblePopulateCoords = new ArrayList<>(); //zero-based, two ints
     private Stack<Coordinates> watchlist = new Stack<>(); //one based
-    private Status lastAttackStatus;
     private int mapSize = 0;
+    private Status lastAttackStatus;
     private Coordinates lastCoordAttacked;
-
     /**
      * Default constructor with fleet size 8.
      */
@@ -417,5 +415,8 @@ public class Enemy extends Player {
             logger.info(String.format("++++++++RELEASE ON PAROLE COORD:\n" + useCoord.toString()));
 
         }
+    }
+    public Status getLastAttackStatus() {
+        return this.lastAttackStatus;
     }
 }
