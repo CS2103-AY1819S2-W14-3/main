@@ -7,22 +7,10 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import seedu.address.commons.core.index.Index;
-import seedu.address.model.cell.Address;
 import seedu.address.model.cell.Coordinates;
 import seedu.address.testutil.Assert;
 
 public class CoordinatesTest {
-
-    @Test
-    public void constructor_null_throwsNullPointerException() {
-        Assert.assertThrows(NullPointerException.class, () -> new Address(null));
-    }
-
-    @Test
-    public void constructor_invalidAddress_throwsIllegalArgumentException() {
-        String invalidAddress = "";
-        Assert.assertThrows(IllegalArgumentException.class, () -> new Address(invalidAddress));
-    }
 
     @Test
     public void isValidCoordinates() {

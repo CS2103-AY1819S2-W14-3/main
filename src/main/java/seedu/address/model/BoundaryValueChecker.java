@@ -1,5 +1,8 @@
 package seedu.address.model;
 
+import java.util.logging.Logger;
+
+import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -7,6 +10,7 @@ import seedu.address.model.battleship.Battleship;
 import seedu.address.model.battleship.Orientation;
 import seedu.address.model.cell.Coordinates;
 import seedu.address.model.cell.Status;
+import seedu.address.model.exceptions.BoundaryValueException;
 
 /**
  * Wraps all data at the address-book level
@@ -20,6 +24,8 @@ public class BoundaryValueChecker {
     public static final String MESSAGE_BATTLESHIP_PRESENT_BODY_HORIZONTAL =
             "There is already a ship along the horizontal coordinates";
     public static final String MESSAGE_OUT_OF_BOUNDS = "Out of bounds";
+
+    private static final Logger logger = LogsCenter.getLogger(BoundaryValueChecker.class);
 
     private final MapGrid mapGrid;
     private final Battleship battleship;
@@ -38,24 +44,30 @@ public class BoundaryValueChecker {
      * Performs all the relevant checks.
      * @throws CommandException when a check fails
      */
-    public void performChecks() throws CommandException {
+    public void performChecks() throws BoundaryValueException {
         if (!this.isHeadWithinBounds()) {
-            throw new CommandException(MESSAGE_OUT_OF_BOUNDS);
+            throw new BoundaryValueException(MESSAGE_OUT_OF_BOUNDS);
         } else if (this.orientation.isHorizontal()) {
             if (!this.isBattleshipAbsent()) {
-                throw new CommandException(MESSAGE_BATTLESHIP_PRESENT);
+                logger.info("BATTLESHIP ABSENT. Throwing BoundaryValueException.");
+                throw new BoundaryValueException(MESSAGE_BATTLESHIP_PRESENT);
             } else if (!this.isBodyWithinHorizontalBounds()) {
-                throw new CommandException(Messages.MESSAGE_BODY_LENGTH_TOO_LONG);
+                logger.info("BATTLESHIP NOT WITHIN HORIZONTAL BOUNDS. Throwing BoundaryValueException.");
+                throw new BoundaryValueException(Messages.MESSAGE_BODY_LENGTH_TOO_LONG);
             } else if (!this.isHorizontalClear()) {
-                throw new CommandException(MESSAGE_BATTLESHIP_PRESENT_BODY_HORIZONTAL);
+                logger.info("HORIZONTAL BOUNDS NOT CLEAR. Throwing BoundaryValueException.");
+                throw new BoundaryValueException(MESSAGE_BATTLESHIP_PRESENT_BODY_HORIZONTAL);
             }
         } else if (this.orientation.isVertical()) {
             if (!this.isBattleshipAbsent()) {
-                throw new CommandException(MESSAGE_BATTLESHIP_PRESENT);
+                logger.info("BATTLESHIP ABSENT. Throwing BoundaryValueException.");
+                throw new BoundaryValueException(MESSAGE_BATTLESHIP_PRESENT);
             } else if (!this.isBodyWithinVerticalBounds()) {
-                throw new CommandException(Messages.MESSAGE_BODY_LENGTH_TOO_LONG);
+                logger.info("BATTLESHIP NOT WITHIN VERTICAL BOUNDS. Throwing BoundaryValueException.");
+                throw new BoundaryValueException(Messages.MESSAGE_BODY_LENGTH_TOO_LONG);
             } else if (!this.isVerticalClear()) {
-                throw new CommandException(MESSAGE_BATTLESHIP_PRESENT_BODY_VERTICAL);
+                logger.info("BATTLESHIP NOT WITHIN VERTICAL BOUNDS. Throwing BoundaryValueException.");
+                throw new BoundaryValueException(MESSAGE_BATTLESHIP_PRESENT_BODY_VERTICAL);
             }
         }
     }

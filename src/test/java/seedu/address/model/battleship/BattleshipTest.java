@@ -11,24 +11,11 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import seedu.address.model.cell.Address;
 import seedu.address.model.tag.Tag;
-import seedu.address.testutil.Assert;
 
 public class BattleshipTest {
 
     private final Set<Tag> emptySet = new HashSet<>();
-
-    @Test
-    public void constructor_null_throwsNullPointerException() {
-        Assert.assertThrows(NullPointerException.class, () -> new Address(null));
-    }
-
-    @Test
-    public void constructor_invalidAddress_throwsIllegalArgumentException() {
-        String invalidAddress = "";
-        Assert.assertThrows(IllegalArgumentException.class, () -> new Address(invalidAddress));
-    }
 
     @Test
     public void testDefaultConstructors() {

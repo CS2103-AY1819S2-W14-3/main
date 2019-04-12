@@ -47,7 +47,7 @@ public class Coordinates {
         requireNonNull(coordinate);
         checkArgument(isValidCoordinates(coordinate), MESSAGE_CONSTRAINTS);
 
-        logger.fine("Create coordinates");
+        logger.info("COORDINATES INITIALISED.");
         String value = coordinate;
 
         // use regex to extract alphabetical row and numeric col
@@ -71,13 +71,13 @@ public class Coordinates {
     }
 
     public Coordinates(int rowZeroBased, int colZeroBased) {
-        logger.fine("Create coordinates");
+        logger.info("COORDINATES INITIALISED.");
         this.rowIndex = Index.fromZeroBased(rowZeroBased);
         this.colIndex = Index.fromZeroBased(colZeroBased);
     }
 
     public Coordinates(Index rowIndex, Index colIndex) {
-        logger.fine("Create coordinates");
+        logger.info("COORDINATES INITIALISED.");
         this.rowIndex = rowIndex;
         this.colIndex = colIndex;
     }

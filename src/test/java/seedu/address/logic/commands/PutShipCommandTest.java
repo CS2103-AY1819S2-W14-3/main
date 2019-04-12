@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_HORIZONTAL_ORIENTATION;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_VERTICAL_ORIENTATION;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
+import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalIndexes.COORDINATES_A1;
 import static seedu.address.testutil.TypicalIndexes.COORDINATES_A10;
 import static seedu.address.testutil.TypicalIndexes.COORDINATES_A2;
@@ -25,6 +26,7 @@ import seedu.address.commons.core.Messages;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.battle.state.BattleState;
 import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.model.BoundaryValueChecker;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.battleship.AircraftCarrierBattleship;
@@ -62,36 +64,38 @@ public class PutShipCommandTest {
         PutShipCommand putShipCommand = new PutShipCommand(COORDINATES_A1, battleship, orientation);
 
         assertCommandFailure(putShipCommand, model, commandHistory,
-                PutShipCommand.MESSAGE_BATTLESHIP_PRESENT);
+                BoundaryValueChecker.MESSAGE_BATTLESHIP_PRESENT);
     }
 
     @Test
     public void execute_putBattleshipVertical_failure() {
-        Battleship battleship = new Battleship();
+        Battleship battleship = new DestroyerBattleship(emptySet);
         Orientation orientation = new Orientation(VALID_VERTICAL_ORIENTATION);
         model.getHumanMapGrid().putShip(battleship, COORDINATES_B1, orientation);
 
         PutShipCommand putShipCommand = new PutShipCommand(COORDINATES_A1, battleship, orientation);
 
         assertCommandFailure(putShipCommand, model, commandHistory,
-                PutShipCommand.MESSAGE_BATTLESHIP_PRESENT_BODY_VERTICAL);
+                BoundaryValueChecker.MESSAGE_BATTLESHIP_PRESENT_BODY_VERTICAL);
     }
 
     @Test
     public void execute_putBattleshipHorizontal_failure() {
-        Battleship battleship = new Battleship();
+        Battleship battleship = new DestroyerBattleship(emptySet);
         Orientation orientation = new Orientation(VALID_HORIZONTAL_ORIENTATION);
 
         model.getHumanMapGrid().putShip(battleship, COORDINATES_A2, orientation);
         PutShipCommand putShipCommand = new PutShipCommand(COORDINATES_A1, battleship, orientation);
 
+        assertThrows(CommandException.class, () -> putShipCommand.execute(model, commandHistory));
+
         assertCommandFailure(putShipCommand, model, commandHistory,
-                PutShipCommand.MESSAGE_BATTLESHIP_PRESENT_BODY_HORIZONTAL);
+                BoundaryValueChecker.MESSAGE_BATTLESHIP_PRESENT_BODY_HORIZONTAL);
     }
 
     @Test
     public void execute_battleshipTooHorizontal_failure() {
-        Battleship battleship = new Battleship();
+        Battleship battleship = new DestroyerBattleship(emptySet);
         Orientation orientation = new Orientation(VALID_HORIZONTAL_ORIENTATION);
 
         PutShipCommand putShipCommand = new PutShipCommand(COORDINATES_A10, battleship, orientation);
@@ -102,7 +106,7 @@ public class PutShipCommandTest {
 
     @Test
     public void execute_battleshipTooVertical_failure() {
-        Battleship battleship = new Battleship();
+        Battleship battleship = new DestroyerBattleship(emptySet);
         Orientation orientation = new Orientation(VALID_VERTICAL_ORIENTATION);
 
         PutShipCommand putShipCommand = new PutShipCommand(COORDINATES_J1, battleship, orientation);
@@ -168,7 +172,7 @@ public class PutShipCommandTest {
         PutShipCommand putShipCommand = new PutShipCommand(COORDINATES_A1, battleship, orientation);
 
         assertCommandFailure(putShipCommand, model, commandHistory,
-                "Not enough aircraft carriers.");
+                "Not enough battleships.");
 
     }
 

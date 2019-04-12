@@ -2,6 +2,7 @@ package seedu.address.logic.commands;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,6 +13,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import seedu.address.logic.CommandHistory;
+import seedu.address.logic.Logic;
 import seedu.address.logic.battle.state.BattleState;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
@@ -30,6 +32,9 @@ public class ListTagsCommandTest {
     public ExpectedException thrown = ExpectedException.none();
 
     private Model model;
+    private Model expectedModel;
+    private Logic logic;
+    private CommandHistory commandHistory = new CommandHistory();
 
     private Set<Tag> testTags1 = new HashSet<>();
     private Set<Tag> testTags2 = new HashSet<>();
@@ -44,6 +49,12 @@ public class ListTagsCommandTest {
     @Before
     public void setUp() {
         model = new ModelManager();
+        expectedModel = new ModelManager();
+
+        // set the tests in the context of deploying ships
+        model.setBattleState(BattleState.PLAYER_PUT_SHIP);
+        expectedModel.setBattleState(BattleState.PLAYER_PUT_SHIP);
+
         testTags1.add(testTag1);
         testTags1.add(testTag2);
         testTags2.add(testTag3);
@@ -89,5 +100,50 @@ public class ListTagsCommandTest {
         ListTagsCommand cmd = new ListTagsCommand();
         model.setBattleState(BattleState.PRE_BATTLE);
         cmd.execute(model, new CommandHistory());
+    }
+
+    @Test
+    public void execute_testCommandResult_success() {
+        ListTagsCommand cmd = new ListTagsCommand();
+
+        StringBuilder expectedOutput = new StringBuilder();
+        expectedOutput.append(ListTagsCommand.MESSAGE_SUCCESS)
+                .append(model.getHumanPlayer().getFleet().getAllTags().size())
+                .append(ListTagsCommand.TAGS_FOUND);
+
+        int counter = 0;
+        for (Tag tag : model.getHumanPlayer().getFleet().getAllTags()) {
+            expectedOutput.append(tag.getTagName());
+            if (++counter < model.getHumanPlayer().getFleet().getAllTags().size()) {
+                expectedOutput.append(", ");
+
+            }
+        }
+
+        CommandResult expectedCommandResult = new CommandResult(expectedOutput.toString(), false, false);
+        assertCommandSuccess(cmd, model, commandHistory, expectedCommandResult, expectedModel);
+
+    }
+
+    @Test
+    public void execute_testEmptyCommandResult_success() {
+        ListTagsCommand listTagsCommand = new ListTagsCommand();
+        InitialiseMapCommand initialiseMapCommand = new InitialiseMapCommand(10);
+
+        try {
+            initialiseMapCommand.execute(model, commandHistory);
+            initialiseMapCommand.execute(expectedModel, commandHistory);
+        } catch (CommandException ce) {
+            assert false; // error should not occur
+        }
+
+        StringBuilder expectedOutput = new StringBuilder();
+        expectedOutput.append(ListTagsCommand.MESSAGE_SUCCESS)
+                .append(ListTagsCommand.TAGS_NOT_FOUND);
+
+        CommandResult expectedCommandResult = new CommandResult(expectedOutput.toString(), false, false);
+        assertCommandSuccess(listTagsCommand, model, commandHistory, expectedCommandResult, expectedModel);
+
+
     }
 }
