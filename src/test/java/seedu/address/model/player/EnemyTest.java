@@ -16,12 +16,15 @@ import seedu.address.model.cell.Status;
 public class EnemyTest {
 
     private Enemy testEnemy;
+    private Player testPlayer;
 
     @Before
     public void readyEnemyForTesting() {
 
         testEnemy = new Enemy();
         initialisePlayerSizeTen(testEnemy);
+        testPlayer = new Player("Bob", 5, 2, 1);
+
 
     }
 
@@ -43,19 +46,23 @@ public class EnemyTest {
 
     @Test
     public void test_getFleetContents() {
-        Player newPlayer1 = new Player("Bob", 5, 2, 1);
-        assertEquals(newPlayer1.getFleetContents(), testEnemy.getFleetContents());
+        assertEquals(testPlayer.getFleetContents(), testEnemy.getFleetContents());
     }
 
     @Test
     public void test_getMapGrid() {
-        Player newPlayer1 = new Player("Bob", 5, 2, 1);
-        assertEquals(newPlayer1.getMapGrid(), testEnemy.getMapGrid());
+        assertEquals(testPlayer.getMapGrid(), testEnemy.getMapGrid());
     }
 
     @Test public void test_getTargetHistory() {
-        Player newPlayer1 = new Player("Bob", 5, 2, 1);
-        assertEquals(newPlayer1.getTargetHistory(), testEnemy.getTargetHistory());
+        assertEquals(testPlayer.getTargetHistory(), testEnemy.getTargetHistory());
+    }
+
+    @Test public void test_getLastAttackStatus() {
+
+        testEnemy.receiveStatus(Status.SHIPHIT);
+
+        assertThat(testEnemy.getLastAttackStatus(), is(Status.SHIPHIT));
     }
 
 
