@@ -1,12 +1,28 @@
 package seedu.address.model.player;
 
+import static org.assertj.core.api.Assertions.not;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertTrue;
+import static seedu.address.testutil.SizeTenMapGrid.initialisePlayerSizeTen;
 
+import org.junit.Before;
 import org.junit.Test;
+import seedu.address.model.cell.Status;
 
 public class EnemyTest {
 
-    private final Enemy testPlayer = new Enemy();
+    private Enemy testEnemy;
+
+    @Before
+    public void readyEnemyForTesting() {
+
+        testEnemy = new Enemy();
+        initialisePlayerSizeTen(testEnemy);
+
+    }
 
     //Lucy TO-FIX:
     @Test
@@ -16,29 +32,29 @@ public class EnemyTest {
 
     @Test
     public void test_getName() {
-        assertEquals("EnemyPlayer", testPlayer.getName());
+        assertEquals("EnemyPlayer", testEnemy.getName());
     }
 
     @Test
     public void test_getFleetSize() {
-        assertEquals(8, testPlayer.getFleetSize());
+        assertEquals(8, testEnemy.getFleetSize());
     }
 
     @Test
     public void test_getFleetContents() {
         Player newPlayer1 = new Player("Bob", 5, 2, 1);
-        assertEquals(newPlayer1.getFleetContents(), testPlayer.getFleetContents());
+        assertEquals(newPlayer1.getFleetContents(), testEnemy.getFleetContents());
     }
 
     @Test
     public void test_getMapGrid() {
         Player newPlayer1 = new Player("Bob", 5, 2, 1);
-        assertEquals(newPlayer1.getMapGrid(), testPlayer.getMapGrid());
+        assertEquals(newPlayer1.getMapGrid(), testEnemy.getMapGrid());
     }
 
     @Test public void test_getTargetHistory() {
         Player newPlayer1 = new Player("Bob", 5, 2, 1);
-        assertEquals(newPlayer1.getTargetHistory(), testPlayer.getTargetHistory());
+        assertEquals(newPlayer1.getTargetHistory(), testEnemy.getTargetHistory());
     }
 
 
@@ -56,92 +72,26 @@ public class EnemyTest {
         //stub
     }
 
-    @Test public void test_fillWithAllCoords() {
-        //stub
-    }
-
     @Test public void test_enemyShootAt() {
-        //stub
-    }
-
-    @Test public void test_drawParityTargets() {
-        //stub
-    }
-
-    @Test public void test_drawFromWatchList() {
-        //stub
-    }
-
-    @Test public void test_drawFromAllTargets() {
-        //stub
-    }
-
-    @Test public void test_populateEnemyMap() {
-        //stub
-    }
-
-    @Test public void test_placeAirCraftCarrier() {
-        //stub
-    }
-
-    @Test public void test_placeMultipleDestroyerAndCruiser() {
-        //stub
-    }
-
-    @Test public void test_generateBattleships() {
-        //stub
-    }
-
-    @Test public void test_markAsOccupied() {
-        //stub
-    }
-
-    @Test public void test_justifyCoord() {
-        //stub
-    }
-
-    @Test public void test_generateOrientation() {
-        //stub
-    }
-
-    @Test public void test_receiveStatus() {
-        //stub
-    }
-
-    @Test public void test_updateWatchlist() {
-        //stub
-    }
-
-    @Test public void test_isValidCardinal() {
-        //stub
-    }
-
-    @Test public void test_modeCleanup() {
-        //stub
-    }
-
-    @Test public void test_hasParity() {
         //stub
     }
 
 
     /**
-     * Setup:
-     *     Watchlist is not empty
-     *     A status of DESTROYED was detected before this method call
      * Expected result:
-     *     All elements in the watchlist are put in allPossibleTargets
-     *     and also in allParityTargets if it satisfied the hasParity() constraint
-     *     this method returns void
+     *
+     *  testEnemy should have its lastAttackStatus attribute be updated to
+     *  the status passed into the receiveStatus method
+     *
      */
-    @Test public void test_cleanseWatchlist() {
-        //stub
-        //provide non empty watchlist
-        //copy this to watchlistCopy
-        //run cleanse watchlist
-        //check that watchlist is now empty
-        //check that all parity targets have parity
-        //allParityTargets is subset of allPossibleTargets
-        //allPossibleTargets should be super set of watchlistCopy
+    @Test public void test_receiveStatus() {
+
+        Status giveStatus = Status.EMPTY;
+        testEnemy.receiveStatus(giveStatus);
+
+        assertThat(testEnemy.getLastAttackStatus(), is(giveStatus));
+        assertThat(testEnemy.getLastAttackStatus(), is(not(Status.DESTROYED)));
+
     }
+
 }
