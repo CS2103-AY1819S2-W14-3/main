@@ -8,6 +8,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static seedu.address.testutil.SizeTenMapGrid.initialisePlayerSizeTen;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -75,6 +76,22 @@ public class EnemyTest {
         testEnemy.receiveStatus(Status.SHIPHIT);
 
         assertThat(testEnemy.getLastAttackStatus(), is(Status.SHIPHIT));
+    }
+
+    @Test public void test_getAllPossibleTargets() {
+        assertTrue(testEnemy.getAllPossibleTargets() instanceof ArrayList);
+        assertFalse(testEnemy.getAllPossibleTargets().isEmpty());
+    }
+
+    @Test public void test_getAllPossiblePopulateCoords() {
+        assertTrue(testEnemy.getAllPossiblePopulateCoords() instanceof ArrayList);
+        assertTrue(testEnemy.getAllPossiblePopulateCoords().isEmpty());
+    }
+
+    @Test public void test_getAllParityTargets() {
+        assertTrue(testEnemy.getAllParityTargets() instanceof ArrayList);
+        assertTrue(testEnemy.getAllParityTargets().isEmpty());
+
     }
 
 
