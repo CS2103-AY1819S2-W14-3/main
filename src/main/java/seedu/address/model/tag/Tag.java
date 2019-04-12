@@ -29,7 +29,7 @@ public class Tag {
         requireNonNull(tagName);
         checkArgument(isValidTagName(tagName), MESSAGE_CONSTRAINTS);
         this.tagName = tagName;
-        logger.fine("Created new tag.");
+        logger.info("CREATED NEW TAG.");
     }
 
     /**

@@ -17,7 +17,7 @@ import seedu.address.model.battleship.Battleship;
 import seedu.address.model.battleship.Orientation;
 import seedu.address.model.cell.Coordinates;
 import seedu.address.model.cell.Status;
-
+import seedu.address.model.exceptions.BoundaryValueException;
 /**
  * Puts ship in an existing cell on the map.
  */
@@ -39,11 +39,6 @@ public class PutShipCommand extends Command {
             + PREFIX_ORIENTATION + "vertical";
 
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Put ship in cell: %1$s";
-    public static final String MESSAGE_BATTLESHIP_PRESENT = "There is already a ship on the coordinate.";
-    public static final String MESSAGE_BATTLESHIP_PRESENT_BODY_VERTICAL =
-            "There is already a ship along the vertical coordinates";
-    public static final String MESSAGE_BATTLESHIP_PRESENT_BODY_HORIZONTAL =
-            "There is already a ship along the horizontal coordinates";
     public static final String MESSAGE_OUT_OF_BOUNDS = "Out of bounds";
 
     private final Coordinates coordinates;
@@ -77,16 +72,19 @@ public class PutShipCommand extends Command {
         BoundaryValueChecker boundaryValueChecker = new BoundaryValueChecker(mapGrid, battleship,
                 coordinates, orientation);
 
-        boundaryValueChecker.performChecks();
+        if (!model.isEnoughBattleships(battleship, 1)) {
+            throw new CommandException("Not enough battleships.");
+        }
 
         try {
-            checkEnoughBattleships(model, battleship, 1);
+            boundaryValueChecker.performChecks();
             mapGrid.putShip(battleship, coordinates, orientation);
             model.deployBattleship(battleship, coordinates, orientation);
         } catch (ArrayIndexOutOfBoundsException | NumberFormatException nfe) {
             throw new CommandException(MESSAGE_OUT_OF_BOUNDS);
-        } catch (Exception e) {
-            throw new CommandException(e.getMessage());
+        } catch (BoundaryValueException obe) {
+
+            throw new CommandException(obe.getMessage());
         }
 
         Status status = model.getHumanMapGrid().getCellStatus(coordinates);
@@ -106,16 +104,6 @@ public class PutShipCommand extends Command {
                 .append(model.getFleet().getNumDestroyerLeft());
 
         return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, stringBuilder.toString()));
-    }
-
-    /**
-     * Checks if there are enough battleships to use. Throws exception if otherwise.
-     */
-    public static void checkEnoughBattleships(Model model, Battleship battleship, int numBattleship)
-            throws Exception {
-        if (!model.isEnoughBattleships(battleship, numBattleship)) {
-            throw new Exception("Not enough " + battleship.getName() + "s.");
-        }
     }
 
     @Override

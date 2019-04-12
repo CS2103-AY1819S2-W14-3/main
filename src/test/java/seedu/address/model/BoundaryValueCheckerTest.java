@@ -15,11 +15,11 @@ import java.util.HashSet;
 import org.junit.Test;
 
 import seedu.address.logic.CommandHistory;
-import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.battleship.Battleship;
 import seedu.address.model.battleship.DestroyerBattleship;
 import seedu.address.model.battleship.Orientation;
 import seedu.address.model.cell.Cell;
+import seedu.address.model.exceptions.BoundaryValueException;
 import seedu.address.testutil.Assert;
 
 /**
@@ -50,7 +50,7 @@ public class BoundaryValueCheckerTest {
         BoundaryValueChecker boundaryValueChecker = new BoundaryValueChecker(model.getHumanMapGrid(),
                 battleship, COORDINATES_A1, orientation);
 
-        Assert.assertThrows(CommandException.class, () -> boundaryValueChecker.performChecks());
+        Assert.assertThrows(BoundaryValueException.class, () -> boundaryValueChecker.performChecks());
     }
 
     @Test
@@ -73,7 +73,7 @@ public class BoundaryValueCheckerTest {
         BoundaryValueChecker boundaryValueChecker = new BoundaryValueChecker(model.getHumanMapGrid(),
                 battleship, COORDINATES_A1, orientation);
 
-        Assert.assertThrows(CommandException.class, () -> boundaryValueChecker.performChecks());
+        Assert.assertThrows(BoundaryValueException.class, () -> boundaryValueChecker.performChecks());
     }
 
     @Test
@@ -95,7 +95,7 @@ public class BoundaryValueCheckerTest {
         BoundaryValueChecker boundaryValueChecker = new BoundaryValueChecker(model.getHumanMapGrid(),
                 battleship, COORDINATES_A1, orientation);
 
-        Assert.assertThrows(CommandException.class, () -> boundaryValueChecker.performChecks());
+        Assert.assertThrows(BoundaryValueException.class, () -> boundaryValueChecker.performChecks());
     }
 
     @Test
@@ -115,7 +115,7 @@ public class BoundaryValueCheckerTest {
         BoundaryValueChecker boundaryValueChecker = new BoundaryValueChecker(model.getHumanMapGrid(),
                 battleship, COORDINATES_A10, orientation);
 
-        Assert.assertThrows(CommandException.class, () -> boundaryValueChecker.performChecks());
+        Assert.assertThrows(BoundaryValueException.class, () -> boundaryValueChecker.performChecks());
     }
 
     @Test
@@ -135,6 +135,6 @@ public class BoundaryValueCheckerTest {
         BoundaryValueChecker boundaryValueChecker = new BoundaryValueChecker(model.getHumanMapGrid(),
                 battleship, COORDINATES_J1, orientation);
 
-        Assert.assertThrows(CommandException.class, () -> boundaryValueChecker.performChecks());
+        Assert.assertThrows(BoundaryValueException.class, () -> boundaryValueChecker.performChecks());
     }
 }

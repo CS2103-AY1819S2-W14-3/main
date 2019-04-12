@@ -51,7 +51,7 @@ public class Battleship {
      * Every field must be present and not null.
      */
     public Battleship(Name name, int length, int life, Set<Tag> tags) {
-        logger.fine("Created battleship");
+        logger.info("BATTLESHIP INITIALISED.");
         this.id = counter++;
         this.name = name;
         this.length = length;

@@ -56,7 +56,7 @@ public class Orientation {
             this.orientation = orientation;
         }
 
-        logger.fine("Created orientation");
+        logger.info("ORIENTATION INSTANCE CREATED.");
     }
 
     /**
