@@ -64,7 +64,8 @@ The following sections illustrate the feature in more detail, as well as the rel
 </div>
 </li>
 <li>
-<p>Enhancements to existing features:</p>
+<p>Enhancements to existing features:
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; Updated upstream</p>
 <div class="ulist">
 <ul>
 <li>
@@ -73,20 +74,42 @@ The following sections illustrate the feature in more detail, as well as the rel
 </ul>
 </div>
 </li>
-<li>
-<p>Documentation:</p>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Setup the structure of the Developer Guide(<a href="https://github.com">#</a>) and updated the User Guide with relevant information for the <code>stats</code> command.</p>
+<p>Morphed HistoryCommand into StatsCommand to be used by rest of the team(Pull requests <a href="https://github.com"><mark></a>, <a href="https://github.com"></mark></a>)</p>
+</li>
+<li>
+<p>Restructured Storage component to accommodate saving of statistics data (Pull requests : #)</p>
+</li>
+<li>
+<p>Introduced an elapsed time functionality in the Graphical User Interface (GUI). (Pull request : # )
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; Stashed changes</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Documentation:</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Community:</p>
+<p>Setup the structure of the Developer Guide(<a href="https://github.com">#</a>) and updated the User Guide with relevant information for the <code>stats</code> command.</p>
 <div class="ulist">
 <ul>
+<li>
+<p>Community:</p>
+</li>
+</ul>
+</div>
+</li>
 <li>
 <p>PRs reviewed (with non-trivial review comments):</p>
 </li>
@@ -98,17 +121,9 @@ The following sections illustrate the feature in more detail, as well as the rel
 </li>
 </ul>
 </div>
-</li>
-</ul>
+<div class="paragraph">
+<p>== Contributions to the User Guide</p>
 </div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
-<div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 100%;">
@@ -119,8 +134,9 @@ The following sections illustrate the feature in more detail, as well as the rel
 </tr>
 </tbody>
 </table>
-<div class="sect2">
-<h3 id="retrieving-game-statistics-code-stats-code"><a class="link" href="#retrieving-game-statistics-code-stats-code">Retrieving game statistics: <code>stats</code></a></h3>
+<div class="paragraph">
+<p>=== Retrieving game statistics: <code>stats</code></p>
+</div>
 <div class="paragraph">
 <p>Prints a list of statistics related to gameplay, such as accuracy and current hits.<br>
 Format: <code>stats</code></p>
@@ -135,12 +151,9 @@ Format: <code>stats</code></p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>== Contributions to the Developer Guide</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
-<div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 100%;">
@@ -151,12 +164,10 @@ Format: <code>stats</code></p>
 </tr>
 </tbody>
 </table>
-<div class="sect2">
-<h3 id="statistics-feature"><a class="link" href="#statistics-feature">Statistics Feature</a></h3>
-<div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>The <code>stats</code> feature allows users to view their current gameplay information. This information will be displayed in a pop-up window and will include: Number of Attacks Made, Number of Successful Hits, Number of Misses, Number of Enemy Ships Destroyed and Accuracy of Shots made.
+<p>=== Statistics Feature
+==== Current Implementation
+The <code>stats</code> feature allows users to view their current gameplay information. This information will be displayed in a pop-up window and will include: Number of Attacks Made, Number of Successful Hits, Number of Misses, Number of Enemy Ships Destroyed and Accuracy of Shots made.
 This feature stems from a central abstract class that is extended to for a player. It is initialized with the main components upon the start of the application and is subsequently passed down as a parameter to the relevant methods which will invoke the corresponding updating methods to the statistical information.</p>
 </div>
 <div class="paragraph">
@@ -232,61 +243,34 @@ This feature stems from a central abstract class that is extended to for a playe
 <img src="../images/StatsSequenceDiagram.PNG" alt="StatsSequenceDiagram" width="800">
 </div>
 </div>
-</div>
-<div class="sect3">
-<h4 id="output-statistical-data"><a class="link" href="#output-statistical-data">Output Statistical Data</a></h4>
 <div class="paragraph">
-<p>Besides the pop-up window, the data is also captured in the command-line result box.</p>
+<p>==== Output Statistical Data
+Besides the pop-up window, the data is also captured in the command-line result box.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/StatsCommandBox.PNG" alt="StatsCommandBox" width="400">
 </div>
 </div>
+<div class="paragraph">
+<p>==== Design Considerations
+* <strong>Alternative 1 (current choice):</strong> Statistics class will have an initialise method that with a set of default configuration that are used by any Statistics Variant.
+<strong> Pros: The underlying variables and values in Statistics is better protected from modification.
+</strong> Cons: It does not accommodate changes in default settings.
+* <strong>Alternative 2:</strong> Statistics is stored entirely within StatsCommands
+<strong> Pros: Easy to code and less lines of code.
+</strong> Cons: Does not abide by Single Responsibility Principle as the <code>StatsCommand</code> will also contain filtering and analysis of data.</p>
 </div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Statistics class will have an initialise method that with a set of default configuration that are used by any Statistics Variant.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: The underlying variables and values in Statistics is better protected from modification.</p>
-</li>
-<li>
-<p>Cons: It does not accommodate changes in default settings.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>=== Logging</p>
 </div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Statistics is stored entirely within StatsCommands</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to code and less lines of code.</p>
-</li>
-<li>
-<p>Cons: Does not abide by Single Responsibility Principle as the <code>StatsCommand</code> will also contain filtering and analysis of data.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Configuration</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">[Implementation-Configuration]</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -315,18 +299,15 @@ This feature stems from a central abstract class that is extended to for a playe
 </li>
 </ul>
 </div>
+<div id="Implementation-Configuration" class="paragraph">
+<p>=== Configuration</p>
 </div>
-<div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
+<div class="paragraph">
+<p>== Documentation</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="documentation"><a class="link" href="#documentation">Documentation</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>We use asciidoc for writing documentation.</p>
 </div>
@@ -342,21 +323,22 @@ We chose asciidoc over Markdown because asciidoc, although a bit more complex th
 </tr>
 </table>
 </div>
-<div class="sect2">
-<h3 id="editing-documentation"><a class="link" href="#editing-documentation">Editing Documentation</a></h3>
+<div class="paragraph">
+<p>=== Editing Documentation</p>
+</div>
 <div class="paragraph">
 <p>See <a href="UsingGradle.html#rendering-asciidoc-files">UsingGradle.adoc</a> to learn how to render <code>.adoc</code> files locally to preview the end result of your edits.
 Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows you to preview the changes you have made to your <code>.adoc</code> files in real-time.</p>
 </div>
+<div class="paragraph">
+<p>=== Publishing Documentation</p>
 </div>
-<div class="sect2">
-<h3 id="publishing-documentation"><a class="link" href="#publishing-documentation">Publishing Documentation</a></h3>
 <div class="paragraph">
 <p>See <a href="UsingTravis.html#deploying-github-pages">UsingTravis.adoc</a> to learn how to deploy GitHub Pages using Travis.</p>
 </div>
+<div class="paragraph">
+<p>=== Converting Documentation to PDF format</p>
 </div>
-<div class="sect2">
-<h3 id="converting-documentation-to-pdf-format"><a class="link" href="#converting-documentation-to-pdf-format">Converting Documentation to PDF format</a></h3>
 <div class="paragraph">
 <p>We use <a href="https://www.google.com/chrome/browser/desktop/">Google Chrome</a> for converting documentation to PDF format, as Chrome&#8217;s PDF engine preserves hyperlinks used in webpages.</p>
 </div>
@@ -385,9 +367,9 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 </div>
 <div class="title">Figure 1. Saving documentation as PDF files in Chrome</div>
 </div>
+<div id="Docs-SiteWideDocSettings" class="paragraph">
+<p>=== Site-wide Documentation Settings</p>
 </div>
-<div class="sect2">
-<h3 id="Docs-SiteWideDocSettings"><a class="link" href="#Docs-SiteWideDocSettings">Site-wide Documentation Settings</a></h3>
 <div class="paragraph">
 <p>The <a href="{repoURL}/build.gradle"><code>build.gradle</code></a> file specifies some project-specific <a href="https://asciidoctor.org/docs/user-manual/#attributes">asciidoc attributes</a> which affects how all documentation files within this project are rendered.</p>
 </div>
@@ -444,9 +426,9 @@ This will render the SE-EDU navigation bar at the top of the page, and add some 
 </tr>
 </tbody>
 </table>
+<div id="Docs-PerFileDocSettings" class="paragraph">
+<p>=== Per-file Documentation Settings</p>
 </div>
-<div class="sect2">
-<h3 id="Docs-PerFileDocSettings"><a class="link" href="#Docs-PerFileDocSettings">Per-file Documentation Settings</a></h3>
 <div class="paragraph">
 <p>Each <code>.adoc</code> file may also specify some file-specific <a href="https://asciidoctor.org/docs/user-manual/#attributes">asciidoc attributes</a> which affects how the file is rendered.</p>
 </div>
@@ -501,9 +483,9 @@ One of: <code>UserGuide</code>, <code>DeveloperGuide</code>, <code>LearningOutco
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>=== Site Template</p>
 </div>
-<div class="sect2">
-<h3 id="site-template"><a class="link" href="#site-template">Site Template</a></h3>
 <div class="paragraph">
 <p>The files in <a href="{repoURL}/docs/stylesheets"><code>docs/stylesheets</code></a> are the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS stylesheets</a> of the site.
 You can modify them to change some properties of the site&#8217;s design.</p>
@@ -528,14 +510,12 @@ The SE-EDU team does not provide support for modified template files.</p>
 </tr>
 </table>
 </div>
+<div id="Testing" class="paragraph">
+<p>== Testing</p>
 </div>
+<div class="paragraph">
+<p>=== Running Tests</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="Testing"><a class="link" href="#Testing">Testing</a></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="running-tests"><a class="link" href="#running-tests">Running Tests</a></h3>
 <div class="paragraph">
 <p>There are three ways to run tests.</p>
 </div>
@@ -595,9 +575,9 @@ See <a href="UsingGradle.html">UsingGradle.adoc</a> for more info on how to run 
 <div class="paragraph">
 <p>To run tests in headless mode, open a console and run the command <code>gradlew clean headless allTests</code> (Mac/Linux: <code>./gradlew clean headless allTests</code>)</p>
 </div>
+<div class="paragraph">
+<p>=== Types of tests</p>
 </div>
-<div class="sect2">
-<h3 id="types-of-tests"><a class="link" href="#types-of-tests">Types of tests</a></h3>
 <div class="paragraph">
 <p>We have two types of tests:</p>
 </div>
@@ -637,11 +617,9 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="troubleshooting-testing"><a class="link" href="#troubleshooting-testing">Troubleshooting Testing</a></h3>
 <div class="paragraph">
-<p><strong>Problem: <code>HelpWindowTest</code> fails with a <code>NullPointerException</code>.</strong></p>
+<p>=== Troubleshooting Testing
+<strong>Problem: <code>HelpWindowTest</code> fails with a <code>NullPointerException</code>.</strong></p>
 </div>
 <div class="ulist">
 <ul>
@@ -653,38 +631,34 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>== Dev Ops</p>
 </div>
+<div class="paragraph">
+<p>=== Build Automation</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="dev-ops"><a class="link" href="#dev-ops">Dev Ops</a></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="build-automation"><a class="link" href="#build-automation">Build Automation</a></h3>
 <div class="paragraph">
 <p>See <a href="UsingGradle.html">UsingGradle.adoc</a> to learn how to use Gradle for build automation.</p>
 </div>
+<div class="paragraph">
+<p>=== Continuous Integration</p>
 </div>
-<div class="sect2">
-<h3 id="continuous-integration"><a class="link" href="#continuous-integration">Continuous Integration</a></h3>
 <div class="paragraph">
 <p>We use <a href="https://travis-ci.org/">Travis CI</a> and <a href="https://www.appveyor.com/">AppVeyor</a> to perform <em>Continuous Integration</em> on our projects. See <a href="UsingTravis.html">UsingTravis.adoc</a> and <a href="UsingAppVeyor.html">UsingAppVeyor.adoc</a> for more details.</p>
 </div>
+<div class="paragraph">
+<p>=== Coverage Reporting</p>
 </div>
-<div class="sect2">
-<h3 id="coverage-reporting"><a class="link" href="#coverage-reporting">Coverage Reporting</a></h3>
 <div class="paragraph">
 <p>We use <a href="https://coveralls.io/">Coveralls</a> to track the code coverage of our projects. See <a href="UsingCoveralls.html">UsingCoveralls.adoc</a> for more details.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="documentation-previews"><a class="link" href="#documentation-previews">Documentation Previews</a></h3>
 <div class="paragraph">
-<p>When a pull request has changes to asciidoc files, you can use <a href="https://www.netlify.com/">Netlify</a> to see a preview of how the HTML version of those asciidoc files will look like when the pull request is merged. See <a href="UsingNetlify.html">UsingNetlify.adoc</a> for more details.</p>
+<p>=== Documentation Previews
+When a pull request has changes to asciidoc files, you can use <a href="https://www.netlify.com/">Netlify</a> to see a preview of how the HTML version of those asciidoc files will look like when the pull request is merged. See <a href="UsingNetlify.html">UsingNetlify.adoc</a> for more details.</p>
 </div>
+<div class="paragraph">
+<p>=== Making a Release</p>
 </div>
-<div class="sect2">
-<h3 id="making-a-release"><a class="link" href="#making-a-release">Making a Release</a></h3>
 <div class="paragraph">
 <p>Here are the steps to create a new release.</p>
 </div>
@@ -704,9 +678,9 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>=== Managing Dependencies</p>
 </div>
-<div class="sect2">
-<h3 id="managing-dependencies"><a class="link" href="#managing-dependencies">Managing Dependencies</a></h3>
 <div class="paragraph">
 <p>A project often depends on third-party libraries. For example, Address Book depends on the <a href="https://github.com/FasterXML/jackson">Jackson library</a> for JSON parsing. Managing these <em>dependencies</em> can be automated using Gradle. For example, Gradle can download the dependencies automatically, which is better than these alternatives:</p>
 </div>
@@ -720,12 +694,9 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>== Product Scope</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="product-scope"><a class="link" href="#product-scope">Appendix A: Product Scope</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Target user profile</strong>:</p>
 </div>
@@ -751,11 +722,9 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 <div class="paragraph">
 <p><strong>Value proposition</strong>: manage contacts faster than a typical mouse/GUI driven app</p>
 </div>
+<div class="paragraph">
+<p>== User Stories</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="user-stories"><a class="link" href="#user-stories">Appendix B: User Stories</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
 </div>
@@ -846,11 +815,9 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 <div class="paragraph">
 <p><em>{More to be added}</em></p>
 </div>
+<div class="paragraph">
+<p>== Use Cases</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is the <code>Battleship</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
@@ -891,8 +858,9 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </li>
 </ul>
 </div>
-<div class="sect2">
-<h3 id="use-case-put-battleship"><a class="link" href="#use-case-put-battleship">Use case: Put Battleship</a></h3>
+<div class="paragraph">
+<p>=== Use case: Put Battleship</p>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -919,9 +887,9 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Use case: List Battleship</p>
 </div>
-<div class="sect2">
-<h3 id="use-case-list-battleship"><a class="link" href="#use-case-list-battleship">Use case: List Battleship</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -948,9 +916,9 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Use case: List tags that Battleships have</p>
 </div>
-<div class="sect2">
-<h3 id="use-case-list-tags-that-battleships-have"><a class="link" href="#use-case-list-tags-that-battleships-have">Use case: List tags that Battleships have</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -967,9 +935,9 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>=== Use case: List Battleships by tag</p>
 </div>
-<div class="sect2">
-<h3 id="use-case-list-battleships-by-tag"><a class="link" href="#use-case-list-battleships-by-tag">Use case: List Battleships by tag</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -996,11 +964,9 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="use-case-view-statistics"><a class="link" href="#use-case-view-statistics">Use case: View statistics</a></h3>
 <div class="paragraph">
-<p><strong>MSS</strong></p>
+<p>=== Use case: View statistics
+<strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1015,9 +981,9 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>=== Use case: End player turn</p>
 </div>
-<div class="sect2">
-<h3 id="use-case-end-player-turn"><a class="link" href="#use-case-end-player-turn">Use case: End player turn</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1037,9 +1003,9 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>=== Use case: Play enemy turn</p>
 </div>
-<div class="sect2">
-<h3 id="use-case-play-enemy-turn"><a class="link" href="#use-case-play-enemy-turn">Use case: Play enemy turn</a></h3>
 <div class="paragraph">
 <p><strong>Actor:</strong> <code>enemy player</code></p>
 </div>
@@ -1065,12 +1031,9 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 <div class="paragraph">
 <p><em>{More to be added}</em></p>
 </div>
+<div class="paragraph">
+<p>== Non Functional Requirements</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></h2>
-<div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1087,11 +1050,9 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 <div class="paragraph">
 <p><em>{More to be added}</em></p>
 </div>
+<div class="paragraph">
+<p>== Glossary</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="glossary"><a class="link" href="#glossary">Appendix E: Glossary</a></h2>
-<div class="sectionbody">
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
@@ -1100,11 +1061,9 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </dd>
 </dl>
 </div>
+<div class="paragraph">
+<p>== Product Survey</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix F: Product Survey</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Product Name</strong></p>
 </div>
@@ -1137,11 +1096,9 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>== Instructions for Manual Testing (!!Must change to fit our context!!)</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing-must-change-to-fit-our-context"><a class="link" href="#instructions-for-manual-testing-must-change-to-fit-our-context">Appendix G: Instructions for Manual Testing (!!Must change to fit our context!!)</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>Given below are instructions to test the app manually.</p>
 </div>
@@ -1157,8 +1114,9 @@ These instructions only provide a starting point for testers to work on; testers
 </tr>
 </table>
 </div>
-<div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">Launch and Shutdown</a></h3>
+<div class="paragraph">
+<p>=== Launch and Shutdown</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1194,13 +1152,10 @@ Expected: The most recent window size and location is retained.</p>
 <div class="paragraph">
 <p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
+<div class="paragraph">
+<p>=== Initialising the maps
+. Initialising the maps after launching the game</p>
 </div>
-<div class="sect2">
-<h3 id="initialising-the-maps"><a class="link" href="#initialising-the-maps">Initialising the maps</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Initialising the maps after launching the game</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -1218,12 +1173,9 @@ Expected: No map will be displayed if this is the first command ran. Otherwise, 
 </li>
 </ol>
 </div>
-</li>
-</ol>
+<div class="paragraph">
+<p>=== Putting a ship</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="putting-a-ship"><a class="link" href="#putting-a-ship">Putting a ship</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1265,9 +1217,9 @@ Expected: No battleship is put down on the map. Error details shown in the statu
 <div class="paragraph">
 <p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
+<div class="paragraph">
+<p>=== Viewing the statistics</p>
 </div>
-<div class="sect2">
-<h3 id="viewing-the-statistics"><a class="link" href="#viewing-the-statistics">Viewing the statistics</a></h3>
 <div class="paragraph">
 <p>To test the <code>stats</code> feature. We will perform a before and after check to see if the statistical data of a simple behaviour is captured. In this case, we will perform an attack with a miss result.</p>
 </div>
@@ -1300,9 +1252,9 @@ Expected: Number of attacks : 1, Number of Misses : 1</p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>=== Saving data</p>
 </div>
-<div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1323,4 +1275,5 @@ Expected: Number of attacks : 1, Number of Misses : 1</p>
 <hr>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 03:00:09 UTC</div></div></div></body></html>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 04:28:25 UTC</div></div></div></body></html>
