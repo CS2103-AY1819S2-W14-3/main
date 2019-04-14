@@ -4,24 +4,59 @@
 <h2 id="project-overview"><a class="link" href="#project-overview">Project Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Battleship is a desktop game application based on the classic Battleship game.
-The user interacts with it using a command-line interface (CLI) and it has a graphical user interface(GUI) created using JavaFX.
-It is written in Java, and has about 10 kLoC.</p>
+<p>The purpose of this document is to showcase the work that I have done for the project named "<strong>Battleship</strong>". The project was done as a requirement for the module <strong>CS2103T Software Engineering</strong> in <strong>National University of Singapore</strong>.</p>
 </div>
 <div class="paragraph">
-<p>My team and I were presented with an existing code base for a command line interface(CLI) address book application.
-We were tasked to enhance or morph the product in to a product of our own choice.
-We chose to morph it into Battleship.</p>
+<p>My team and I were presented with an existing code base for a command line interface (CLI) address book application. We were given about 8 weeks to either enhance or morph the address book application to a product of our own choice. We chose to morph it into <strong>Battleship</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Battleship is a desktop game application based on the classic guessing game, <strong>Battleship</strong>.
+The user interacts with it using a command-line interface (CLI) and it has a graphical user interface(GUI) created using JavaFX.
+It is written in Java, and has about 10 kLoC.</p>
 </div>
 <div class="paragraph">
 <p>My role was to design and write the code for the <code>map</code> feature of the game.
 The following sections illustrate the feature in more detail, as well as the relevant sections I have added to the user and developer guides in relation to this feature.</p>
 </div>
+<div class="paragraph">
+<p><strong>Relevant links:</strong><br>
+Project Respository: <a href="https://github.com/CS2103-AY1819S2-W14-3/main">Battleship</a><br>
+Project Website: <a href="https://cs2103-ay1819s2-w14-3.github.io/main/">Battleship @ github.io</a><br>
+The full User Guide and Developer Guide can be viewed in the project website.</p>
+</div>
+<div class="paragraph">
+<p><strong>Note the following formatting used in this document:</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>MapGrid</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A grey highlight indicates that this is either a <strong>command</strong> that can be inputted into the command line or a <strong>class name</strong> or <strong>method name</strong> that can be found in the code.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../images/important.png" alt="important" width="50">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This symbol indicates important information.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This section provides the summary of the contributions that I have made to the project.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -30,6 +65,9 @@ The following sections illustrate the feature in more detail, as well as the rel
 <ul>
 <li>
 <p>What it does: The player can initialise the maps to the size they specified. The players can place ships on their own map and shoot the opposing players map. The maps are displayed in the UI and each cell will change colour depending on its status. The initialise command can be used at any point in time during the game and will reset the board to a clean state.</p>
+</li>
+<li>
+<p>Highlights: The other features (e.g placing ships) rely heavily on the map. It requires careful planning on the design as the other features must be built on top of it and any changes made later on will affect the other features.</p>
 </li>
 <li>
 <p>Justification: The maps are crucial to the gameplay as it is the basis of all of the game interactions.</p>
@@ -49,7 +87,13 @@ The following sections illustrate the feature in more detail, as well as the rel
 <div class="ulist">
 <ul>
 <li>
-<p>Reported bugs not related to my own feature: Issue <a href="https://github.com/CS2103-AY1819S2-W14-3/main/issues/105">#105</a></p>
+<p>Managed project release in GitHub: v1.2</p>
+</li>
+<li>
+<p>Made changes to the project that do not fall under a specific feature (Pull Requests  <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/352">"Change output jar name" #352</a>, <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/240">"Create Model component diagram" #240</a>, <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/176">"Renaming the app header title and icon" #176</a>)</p>
+</li>
+<li>
+<p>Reported bugs not related to my own feature. (Issues <a href="https://github.com/CS2103-AY1819S2-W14-3/main/issues/339">#339</a>,  <a href="https://github.com/CS2103-AY1819S2-W14-3/main/issues/105">#105</a>, <a href="https://github.com/CS2103-AY1819S2-W14-3/main/issues/61">#61</a>)</p>
 </li>
 </ul>
 </div>
@@ -59,7 +103,7 @@ The following sections illustrate the feature in more detail, as well as the rel
 <div class="ulist">
 <ul>
 <li>
-<p>Overhaul of UI to display the maps: Pull request <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/87">#87</a></p>
+<p>Overhaul of UI to display the maps. (Pull request <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/87">#87</a>)</p>
 </li>
 </ul>
 </div>
@@ -69,7 +113,7 @@ The following sections illustrate the feature in more detail, as well as the rel
 <div class="ulist">
 <ul>
 <li>
-<p>Restructured UG to make it easier to follow when playing the game: Pull Request <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/256">#256</a></p>
+<p>Restructured UG to make it easier to follow when playing the game. (Pull Request <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/256">#256</a>)</p>
 </li>
 </ul>
 </div>
@@ -79,7 +123,10 @@ The following sections illustrate the feature in more detail, as well as the rel
 <div class="ulist">
 <ul>
 <li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  Issue <a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/672">#672</a>, Issue <a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/148">#148</a>)</p>
+<p>PRs reviewed (with non-trivial review comments). (Pull Requests <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/53">#53</a>,  <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/334">#334</a>)</p>
+</li>
+<li>
+<p>Reported bugs and suggestions for other teams in the class. (Issues <a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/672">#672</a>, <a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/148">#148</a>)</p>
 </li>
 </ul>
 </div>
@@ -89,7 +136,7 @@ The following sections illustrate the feature in more detail, as well as the rel
 <div class="ulist">
 <ul>
 <li>
-<p>Integrated Netlify to the project</p>
+<p>Integrated Netlify to the team repo.</p>
 </li>
 </ul>
 </div>
@@ -110,7 +157,7 @@ The following sections illustrate the feature in more detail, as well as the rel
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users. Note that the horizontal lines indicate that they are taken from different sections of the User Guide.</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -191,7 +238,12 @@ Throughout the course of the game, the cells in the map will change colour based
 <div class="paragraph">
 <p><br></p>
 </div>
+<hr>
 </div>
+</div>
+<div class="sect2">
+<h3 id="upcoming-feature-in-v2-0"><a class="link" href="#upcoming-feature-in-v2-0">Upcoming Feature in v2.0</a></h3>
+
 </div>
 </div>
 </div>
@@ -204,10 +256,20 @@ Throughout the course of the game, the cells in the map will change colour based
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project. Note that the horizontal lines indicate that they are taken from different sections of the Developer Guide.</em></p></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>Co-authored the Model diagram as shown below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ModelClassDiagram.png" alt="ModelClassDiagram" width="800">
+</div>
+<div class="title">Figure 3. Model Diagram</div>
+</div>
+<hr>
 <div class="sect2">
 <h3 id="map-feature"><a class="link" href="#map-feature">Map Feature</a></h3>
 <div class="sect3">
@@ -352,8 +414,77 @@ Good code readability is important for new developers taking on the project.
 Simpler implementation means the likelihood of bugs being introduced is less when changes are made.</p>
 </div>
 <hr>
+<h3 id="use-case-initialise-maps" class="discrete">Use case: Initialise Maps</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to initialise maps</p>
+</li>
+<li>
+<p>Battleship creates and displays both player&#8217;s maps</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The map size is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. Battleship shows an error message</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Instructions for Manual Testing</a></h3>
+
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 15:29:22 UTC</div></div></div></body></html>
+<div class="sect2">
+<h3 id="initialising-the-maps"><a class="link" href="#initialising-the-maps">Initialising the maps</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Initialising the maps after launching the game</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>init 7</code><br>
+Expected: Displays two empty map grids of size 7 in the GUI. Both maps will have the appropriate alphanumeric labels on the first row and column.</p>
+</li>
+<li>
+<p>Test case: <code>init 0</code><br>
+Expected: If this is the first command ran, no map will be displayed. Otherwise, no changes will be made to the displayed maps.
+Error message will be displayed in the result display box.</p>
+</li>
+<li>
+<p>Other incorrect initialise commands to try: <code>init</code>, <code>init x</code> (where x is smaller or larger than the specified minimum or maximum map size respectively).<br>
+Expected: No map will be displayed if this is the first command ran. Otherwise, no changes will be made to the displayed map.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 16:20:43 UTC</div></div></div></body></html>
