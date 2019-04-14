@@ -31,7 +31,7 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#map-feature">3.1. Map Feature</a></li>
-<li><a href="#battleship-feature">3.2. Battleship Feature</a></li>
+<li><a href="#ship-management-feature">3.2. Ship Management Feature</a></li>
 <li><a href="#battle-feature">3.3. Battle Feature</a></li>
 <li><a href="#enemy-ai-feature">3.4. Enemy AI Feature</a></li>
 <li><a href="#statistics-feature">3.5. Statistics Feature</a></li>
@@ -70,25 +70,25 @@
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
 <li><a href="#use-cases">Appendix C: Use Cases</a>
 <ul class="sectlevel2">
-<li><a href="#use-case-put-battleship">C.1. Use case: Put Battleship</a></li>
-<li><a href="#use-case-list-battleship">C.2. Use case: List Battleship</a></li>
-<li><a href="#use-case-list-tags-that-battleships-have">C.3. Use case: List tags that Battleships have</a></li>
-<li><a href="#use-case-list-battleships-by-tag">C.4. Use case: List Battleships by tag</a></li>
-<li><a href="#use-case-view-statistics">C.5. Use case: View statistics</a></li>
-<li><a href="#use-case-end-player-turn">C.6. Use case: End player turn</a></li>
-<li><a href="#use-case-play-enemy-turn">C.7. Use case: Play enemy turn</a></li>
+<li><a href="#use-case-initialise-maps">C.1. Use case: Initialise Maps</a></li>
+<li><a href="#use-case-put-battleship">C.2. Use case: Put Battleship</a></li>
+<li><a href="#use-case-list-battleship">C.3. Use case: List Battleship</a></li>
+<li><a href="#use-case-list-tags-that-battleships-have">C.4. Use case: List tags that Battleships have</a></li>
+<li><a href="#use-case-list-battleships-by-tag">C.5. Use case: List Battleships by tag</a></li>
+<li><a href="#use-case-compare-scores-with-previous-games">C.6. Use case: Compare scores with previous games</a></li>
+<li><a href="#use-case-end-player-turn">C.7. Use case: End player turn</a></li>
+<li><a href="#use-case-play-enemy-turn">C.8. Use case: Play enemy turn</a></li>
 </ul>
 </li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
-<li><a href="#product-survey">Appendix F: Product Survey</a></li>
-<li><a href="#instructions-for-manual-testing-must-change-to-fit-our-context">Appendix G: Instructions for Manual Testing (!!Must change to fit our context!!)</a>
+<li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#initialising-the-maps">G.2. Initialising the maps</a></li>
-<li><a href="#putting-a-ship">G.3. Putting a ship</a></li>
-<li><a href="#viewing-the-statistics">G.4. Viewing the statistics</a></li>
-<li><a href="#saving-data">G.5. Saving data</a></li>
+<li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
+<li><a href="#initialising-the-maps">F.2. Initialising the maps</a></li>
+<li><a href="#putting-a-ship">F.3. Putting a ship</a></li>
+<li><a href="#viewing-the-statistics">F.4. Viewing the statistics</a></li>
+<li><a href="#saving-statistics-data">F.5. Saving statistics data</a></li>
 </ul>
 </li>
 </ul>
@@ -432,7 +432,7 @@ The following class plays an important role at the architecture level:</p>
 <p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code>, <code>BrowserPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>Map</code>, <code>StatusBarFooter</code>, <code>BrowserPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
@@ -522,20 +522,6 @@ The following class plays an important role at the architecture level:</p>
 </li>
 </ul>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Person</code> can reference. This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
-<br>
-<span class="image"><img src="images/ModelClassBetterOopDiagram.png" alt="ModelClassBetterOopDiagram" width="800"></span>
-</td>
-</tr>
-</table>
-</div>
 </div>
 <div class="sect2">
 <h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.5. Storage component</a></h3>
@@ -554,10 +540,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="ulist">
 <ul>
 <li>
-<p>can save <code>UserPref</code> objects in json format and read it back.</p>
-</li>
-<li>
-<p>can save the Address Book data in json format and read it back.</p>
+<p>can save <code>PlayerStatistics</code> objects in json format and read it back.</p>
 </li>
 </ul>
 </div>
@@ -566,15 +549,15 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <h3 id="Design-Battle"><a class="link" href="#Design-Battle">2.6. Battle component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/StorageClassDiagram.png" alt="StorageClassDiagram" width="800">
+<img src="images/BattleClassDiagram.png" alt="BattleClassDiagram" width="800">
 </div>
-<div class="title">Figure 9. Structure of the Battle Component</div>
+<div class="title">Figure 9. Structure of the <code>Battle</code> Component and interactions with <code>Model</code> and <code>Logic</code></div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/address/logic/battle/Battle.java"><code>Battle.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The <code>Battle</code> component,</p>
+<p>The <code>Battle</code> component:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -590,7 +573,8 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </ul>
 </div>
 <div class="paragraph">
-<p>As the</p>
+<p>As the battle involves many different components (map, player, etc.),
+this component cannot be reduced to just one interface class of <code>Battle</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -629,13 +613,13 @@ The map grid is stored internally in <code>MapGrid</code> as a 2D array of <code
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java">     */
-    <span class="directive">public</span> Status<span class="type">[]</span><span class="type">[]</span> getPlayerMapView() {
-        Status<span class="type">[]</span><span class="type">[]</span> playerMapView = <span class="keyword">new</span> Status[size][size];
+    <span class="directive">public</span> <span class="type">void</span> initialise(Cell<span class="type">[]</span><span class="type">[]</span> map) {
+        <span class="local-variable">this</span>.size = map.length;
 
-        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="integer">0</span>; i &lt; size; i++) {
-            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="integer">0</span>; j &lt; size; j++) {
-                playerMapView[i][j] = cellGrid[i][j].getStatus();
-            }</code></pre>
+        cellGrid = <span class="keyword">new</span> Cell[size][size];
+
+        copy2dArray(cellGrid, map);
+        updateUi();</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -647,12 +631,13 @@ The method <code>copy2dArray</code> copies the <code>map</code> parameter passed
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">     * Once <span class="local-variable">this</span> value changes the UI will be updated.
-     * <span class="annotation">@return</span> observableValue <span class="keyword">for</span> the UI to listen to.
-     */
-    <span class="directive">public</span> ObservableBooleanValue getObservableValue() {
-        <span class="keyword">return</span> uiUpdateSwitch;
-    }</code></pre>
+<pre class="CodeRay highlight"><code data-lang="java">    }
+
+    <span class="comment">/**
+     * Utility function to do a deep copy of a 2D array
+     * @param output 2D array to copy to.
+     * @param toBeCopied 2D array to copy from.
+     */</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -662,12 +647,22 @@ This constructor copies the private attributes of the given <code>Cell</code> pa
 </div>
 <div class="paragraph">
 <p><br>
-The following sequence diagram shows how a map is initialised:</p>
+The following sequence diagram shows what happens when the "initialise map" command is used.:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/InitialiseMapCommandSequenceDiagram.png" alt="InitialiseMapCommandSequenceDiagram" width="800">
 </div>
+<div class="title">Figure 10. Sequence diagram of initialising the maps</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram shows when the "initialise map" command can be used:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/InitActivityDiagram.png" alt="InitActivityDiagram" width="800">
+</div>
+<div class="title">Figure 11. Activity diagram displaying when the user can initialise the maps</div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -676,7 +671,7 @@ The following sequence diagram shows how a map is initialised:</p>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-initialise-map-works"><a class="link" href="#aspect-how-initialise-map-works">Aspect: How initialise map works</a></h5>
+<h5 id="aspect-how-the-maps-are-initialised"><a class="link" href="#aspect-how-the-maps-are-initialised">Aspect: How the maps are initialised</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -738,7 +733,7 @@ The initialise method in <code>MapGrid</code> will then do a deep copy of the pa
 <p>Pros: Easier to implement from the original AB4 codebase.</p>
 </li>
 <li>
-<p>Cons: Bad code readability and more complicated.</p>
+<p>Cons: Worse readability and more complicated compared to using a 2D array.</p>
 </li>
 </ul>
 </div>
@@ -757,43 +752,21 @@ Simpler implementation means the likelihood of bugs being introduced is less whe
 </div>
 </div>
 <div class="sect2">
-<h3 id="battleship-feature"><a class="link" href="#battleship-feature">3.2. Battleship Feature</a></h3>
+<h3 id="ship-management-feature"><a class="link" href="#ship-management-feature">3.2. Ship Management Feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>A battleship is a basic class representing a battleship that can be placed on the map grid. The length of the battleship varies, depending on the type of battleship. There are three types of battleships:<br></p>
+<p>The ship management feature handles the following:</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
-<p>Cruiser of length 2.</p>
+<p>Putting ships on the map grid and ensuring that ships are placed in valid areas on the map grid.</p>
 </li>
 <li>
-<p>Destroyer of length 3.</p>
+<p>Keeping track of the status of ships in the player.</p>
 </li>
-<li>
-<p>Aircraft carrier of length 5.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>The number of battleship types that a user can deploy on the map depends on the size of the map. It is given by the formula:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Number of cruisers = <code>mapSize - 5</code></p>
-</li>
-<li>
-<p>Number of destroyers = <code>(mapSize + 2) / 5</code>.</p>
-</li>
-<li>
-<p>Number of aircraft carriers = <code>1</code>.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>The user can tag a battleship using a <code>t/[TAG]</code> parameter in the <code>put</code> command. Tagging battleships is optional.</p>
+</ul>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -802,17 +775,73 @@ Simpler implementation means the likelihood of bugs being introduced is less whe
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The head of a battleship refers to the top-most and left-most cell of the battleship. When coordinates are specified in the <code>put</code> command, it specifies the coordinates of the head of the battleship, as shown in the figure below.
+<div class="paragraph">
+<p>The Ship Management feature is named as such to avoid confusion with the main title of the game, Battleship. In this section, the words "battleship" and "ship" are used interchangeably. The capitalised word <code>Battleship</code> in monospace font is used to refer to the Java class.</p>
+</div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/BattleshipHeadExample.png" alt="BattleshipHeadExample" width="800"></span></p>
+<p><code>Battleship</code> is a class representing a ship that can be placed on the map grid. A <code>FleetEntry</code> class is internally used to store the <code>Battleship</code> in a player&#8217;s <code>Fleet</code>. <code>FleetEntry</code> is a nested class within <code>Fleet</code> that contains a <code>Battleship</code>, its head <code>Coordinates</code> and its <code>Orientation</code> on the map grid.</p>
 </div>
 <div class="paragraph">
-<div class="title">The coordinates of the <code>put</code> command refer to the coordinates of the battleship head.</div>
-<p><span class="image"><img src="images/BattleshipHeadExample2.png" alt="BattleshipHeadExample2" width="800"></span></p>
+<p>The length of the ship varies depending on the type of ship. The user can tag a ship using a <code>t/[TAG]</code> parameter in the <code>put</code> command. Tagging a ship is optional.<br></p>
+</div>
+<div class="paragraph">
+<p>There are three types of ships and the number of each ship depends on the size of the map. The relationship between map size and the number of each ship is illustrated in the table below.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type of Ship</th>
+<th class="tableblock halign-left valign-top">Length</th>
+<th class="tableblock halign-left valign-top">Number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cruiser</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mapSize - 5</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Destroyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(mapSize + 2) / 5</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aircraft carrier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The management of ships can be carried out with three commands, namely <code>put</code>, <code>listTags</code> and <code>list</code>.</p>
+</div>
+<div class="sect4">
+<h5 id="3-2-1-1-putting-ships"><a class="link" href="#3-2-1-1-putting-ships">3.2.1.1 Putting ships</a></h5>
+<div class="paragraph">
+<p>The <code>put</code> command puts a ship on the map grid, specified by the <em>head coordinates</em>.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong><em>What are the head coordinates?</em></strong></p>
+</div>
+<div class="paragraph">
+<p>The head coordinates are the coordinates of the top-most and left-most cell of a ship. When coordinates are specified in the <code>put</code> command, they refer to the head coordinates of the ship.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/BattleshipHeadExample.png" alt="BattleshipHeadExample" width="400"></span></p>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>The following operations are called when the <code>put</code> command is called.</p>
@@ -820,136 +849,120 @@ The head of a battleship refers to the top-most and left-most cell of the battle
 <div class="ulist">
 <ul>
 <li>
-<p><code>performChecks()</code> - performs boundary checks on the map grid to ensure that the battleship can be placed on the map.</p>
+<p><code>performChecks()</code> - Performs checks to ensure that the ship can be put on the map.</p>
 </li>
 <li>
-<p><code>putShip()</code> - puts the battleship into the cell.</p>
-</li>
-<li>
-<p><code>getCell()</code> - gets the cell that is specified by the coordinates provided by the user.</p>
+<p><code>putShip()</code> - Puts the ship into the cell.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Here is an example of a given user scenario.</p>
+<p>The boundary checks are essential to the functionality of both the human and computer player. This is because <code>BoundaryValueChecker</code> is used by the human player in the <code>put</code> command, while the computer player when it is deploying its own ships after the human player has ended his or her turn. <code>BoundaryValueChecker</code> relies on four separate methods to perform its checks. They are:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>isHeadWithinBounds()</code> - Checks if the head coordinates falls within the map grid.</p>
+</li>
+<li>
+<p><code>isBodyWithinBounds()</code> - Checks if the body of the ship falls within the map grid.</p>
+</li>
+<li>
+<p><code>isBattleshipAbsent()</code> - Checks if there are no other ships that are situated on the head coordinates.</p>
+</li>
+<li>
+<p><code>isClear()</code> - Checks if there are no other ships that situated along the body of the ship.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>Step 1. Initialise the map to a map of size 10.</p>
+<p>These methods check both the horizontal and vertical boundaries when a ship is being deployed. They also distinguish between the head and body of a ship in order to provide more specific feedback for the user. For the methods <code>isBattleshipAbsent()</code> and <code>isClear()</code>, <code>BoundaryValueChecker</code> calls the <code>getCellStatus()</code> method of the <code>mapGrid</code> object to obtain the status of <code>Cell</code> to carry out its checks.</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/PutShipWalkThrough1.png" alt="PutShipWalkThrough1" width="800"></span></p>
-</div>
-<div class="paragraph">
-<p>Step 2. Put the battleship on the map by specifying the name, coordinates, orientation, and tags.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="images/PutShipWalkThrough2.png" alt="PutShipWalkThrough2" width="800"></span></p>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how a battleship is put on the map.</p>
+<p>Once <code>BoundaryValueChecker</code> has finished its checks and if there are no exceptions thrown, the <code>put</code> command proceeds to call the <code>putShip()</code> method of the <code>mapGrid</code> object to put the ship on the map grid. It then updates the <code>Fleet</code> in the human player. The following sequence diagram illustrates what happens when the <code>put</code> command is called.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/PutShipSequenceDiagram.png" alt="PutShipSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 10. Sequence diagram of putting a battleship on the map.</div>
+<div class="title">Figure 12. Sequence diagram of putting a battleship on the map.</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="3-2-1-2-listing-tags"><a class="link" href="#3-2-1-2-listing-tags">3.2.1.2 Listing tags</a></h5>
+<div class="paragraph">
+<p>Ships can be tagged. You can list all the tags used by battleships that have been deployed on the map grid with the <code>listTags</code> command. The command uses the <code>getAllTags()</code> method of the <code>Fleet</code> class. The code snippet below shows the operation of the <code>getAllTags()</code> method. The method returns a list of all the unique tags present in the player&#8217;s fleet of deployed ships.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">Unresolved directive in DeveloperGuide.adoc - include::../src/main/java/seedu/address/model/Player/Fleet.java[lines=<span class="integer">170</span>.<span class="float">.180</span>]</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Battleships can be tagged. You can list all the tags used by battleships that have been deployed on the map grid using the <code>listTags</code> command. The sequence diagram below shows how the tags are listed.</p>
+<p>The sequence diagram below shows how the tags are listed.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ListTagsSequenceDiagram.png" alt="ListTagsSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 11. Sequence diagram of listing battleship tags.</div>
+<div class="title">Figure 13. Sequence diagram of listing battleship tags.</div>
 </div>
+</div>
+<div class="sect4">
+<h5 id="3-2-1-3-listing-ships"><a class="link" href="#3-2-1-3-listing-ships">3.2.1.3 Listing ships</a></h5>
 <div class="paragraph">
-<p>Battleships that have been deployed can also be listed. Battleships can be listed in four different ways:</p>
+<p>Ships that have been deployed can also be listed in four different ways:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>List all battleships.</p>
+<p>List all ships: <code>list</code></p>
 </li>
 <li>
-<p>List battleships that have certain tags.</p>
+<p>List ships with certain tags: <code>list t/t1 t/t2</code></p>
 </li>
 <li>
-<p>List battleships of a certain type.</p>
+<p>List certain ships: <code>list n/destroyer n/cruiser</code></p>
 </li>
 <li>
-<p>List battleships of a certain type that have certain tags.</p>
+<p>List certain ships with certain tags: <code>list n/destroyer n/cruiser t/t1 t/t2</code></p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Here is an example of a given user scenario. In this scenario, the user has deployed some battleships on a 10 by 10 map grid with various tags.</p>
+<p>The set of unique tags and the set of unique names are presented to the <code>ListCommand</code> as an <code>Optional</code> class. This is because both sets may be empty. In such cases, instead of redudantly checking whether each <code>fleetEntry</code> contains the ship and an empty set, <code>ListCommand</code> simply returns the entire fleet.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. Initialise the map to a map of size 10.
-Step 2. Deploy battleships by specifying the name, coordinates, orientation, and tags. We will deploy the following battleships:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Cruiser at a4 vertical with tag <code>tag1</code>.</p>
-</li>
-<li>
-<p>Cruiser at d4 vertical with tag <code>tag1</code>.</p>
-</li>
-<li>
-<p>Cruiser at f7 horizontal with tag <code>tag2</code>.</p>
-</li>
-<li>
-<p>Cruiser at h8 horizontal with tag <code>tag2</code>.</p>
-</li>
-<li>
-<p>Destroyer at d4 horizontal with tag <code>tag1</code>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Step 3. List the battleships.</p>
+<p>The <code>list</code> command can list certain ships with certain tags by filtering the list of deployed ships. The following sequence diagram shows how deployed battleships are listed when the <code>list</code> command is entered into the command line.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ListExample1.png" alt="ListExample1" width="800">
+<img src="images/ListShipSequenceDiagram.png" alt="ListShipSequenceDiagram">
 </div>
+<div class="title">Figure 14. Sequence diagram of listing battleships deployed on the map.</div>
 </div>
-<div class="paragraph">
-<p>Step 4. List the battleships by name. Use <code>cruiser</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/ListExample2.png" alt="ListExample2" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 5. List the battleships by name and tags. Use <code>cruiser</code> with <code>tag2</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/ListExample3.png" alt="ListExample3" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how deployed battleships are listed when the <code>list</code> command is entered into the command line.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/ListShipSequenceDiagram.png" alt="ListShipSequenceDiagram" width="1499][height=2249">
-</div>
-<div class="title">Figure 12. Sequence diagram of listing battleships deployed on the map.</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<h4 id="activity-diagram"><a class="link" href="#activity-diagram">3.2.2. Activity Diagram</a></h4>
+<div class="paragraph">
+<p>Ship management functions throughout the entirety of the game. As there are multiple states during the game, it is beneficial to visualise the operations of the <code>put</code>, <code>listTags</code> and <code>list</code> commands with respect to the different game states. The activity diagram below illustrates these operations.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ShipManagementActivityDiagram.png" alt="ShipManagementActivityDiagram">
+</div>
+<div class="title">Figure 15. Activity diagram of ship management throughout the game.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.3. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-a-battleship-is-placed-on-the-map"><a class="link" href="#aspect-how-a-battleship-is-placed-on-the-map">Aspect: How a battleship is placed on the map</a></h5>
+<h5 id="aspect-how-a-ship-is-placed-on-the-map"><a class="link" href="#aspect-how-a-ship-is-placed-on-the-map">Aspect: How a ship is placed on the map</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong><br>
+<p><strong>Current choice:</strong><br>
 The same <code>Battleship</code> object is put in multiple cells. Each cell contains a reference to the same <code>Battleship</code> object. When a battleship on the <code>Cell</code> needs to be modified, the <code>Battleship</code> attribute in the <code>Cell</code> is accessed.</p>
 <div class="ulist">
 <ul>
@@ -963,15 +976,15 @@ The same <code>Battleship</code> object is put in multiple cells. Each cell cont
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong><br>
-Have two separate <code>Battleship</code> and <code>BattleshipPart</code> objects. The <code>BattleshipPart</code> object represents the "body" of the <code>Battleship</code> and contains an attribute that points to the <code>Battleship</code>. When a battleship on the <code>Cell</code> needs to be modified, the <code>BattleshipPart</code> is accessed, which then accesses the main <code>Battleship</code> object.</p>
+<p><strong>Alternative:</strong><br>
+Two separate <code>Battleship</code> and <code>BattleshipPart</code> objects are used. The <code>BattleshipPart</code> object represents the body of the <code>Battleship</code> and contains an attribute that points to the <code>Battleship</code>. When a battleship on the <code>Cell</code> needs to be modified, the <code>BattleshipPart</code> is accessed, which then accesses the main <code>Battleship</code> object.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Clearer separation between the "body" of the Battleship and the Battleship itself.</p>
+<p>Pros: Clearer separation between the body of the Battleship and the Battleship itself.</p>
 </li>
 <li>
-<p>Cons: Difficult to handle hit on the cell.</p>
+<p>Cons: Difficult to handle hits on the cell.</p>
 </li>
 </ul>
 </div>
@@ -980,32 +993,32 @@ Have two separate <code>Battleship</code> and <code>BattleshipPart</code> object
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-data-structure-to-record-battleships-in-player"><a class="link" href="#aspect-data-structure-to-record-battleships-in-player">Aspect: Data structure to record battleships in player</a></h5>
+<h5 id="aspect-how-a-ship-is-stored-in-each-player-s-fleet"><a class="link" href="#aspect-how-a-ship-is-stored-in-each-player-s-fleet">Aspect: How a ship is stored in each player&#8217;s fleet</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong><br>
-<code>ArrayList</code> of <code>FleetEntry</code>, where <code>FleetEntry</code> contains a reference to the <code>Battleship</code>, its <code>Orientation</code> and <code>Coordinates</code> of the head. The <code>FleetEntry</code> subclass exists in <code>Fleet</code>. Whenever a <code>Fleet</code> method is called, it accesses the <code>ArrayList</code> of <code>FleetEntry</code> to obtain information about the <code>Battleship</code> and its position on the <code>MapGrid</code>.</p>
+<p><strong>Current choice:</strong><br>
+An <code>ArrayList</code> of <code>FleetEntry</code> objects is used for storage, where <code>FleetEntry</code> contains a reference to the <code>Battleship</code>, its <code>Orientation</code> and <code>Coordinates</code> of the head coordinates. The <code>FleetEntry</code> class is a nested class in <code>Fleet</code>. Whenever a <code>Fleet</code> method is called, it accesses the <code>ArrayList</code> of <code>FleetEntry</code> to obtain information about the <code>Battleship</code> and its position on the <code>MapGrid</code>.</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Pros: Can identify <code>Battleship</code> by position.</p>
 </li>
 <li>
-<p>Cons: Harder to implement.</p>
+<p>Cons: Harder to implement, as a nested class has to be implemented from scratch, compared to using an <code>ArrayList</code>.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> <code>ArrayList</code> of <code>Battleship</code>.</p>
+<p><strong>Alternative:</strong> <code>ArrayList</code> of <code>Battleship</code>.</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Pros: Easier to implement and provides a cleaner design.</p>
 </li>
 <li>
-<p>Cons: Harder check position of <code>Battleship</code> on the map grid. In order to do so, a separate data structure has to be initialised to store the coordinates and orientation of the battleship. This data structure then has to be aligned with the original <code>ArrayList</code> that stores the battleship.</p>
+<p>Cons: Harder check position of <code>Battleship</code> on the map grid. In order to do so, a separate data structure must be created to store the coordinates and orientation of the battleship. This data structure then has to be aligned with the original <code>ArrayList</code> that stores the battleship.</p>
 </li>
 </ul>
 </div>
@@ -1017,8 +1030,6 @@ Have two separate <code>Battleship</code> and <code>BattleshipPart</code> object
 </div>
 <div class="sect2">
 <h3 id="battle-feature"><a class="link" href="#battle-feature">3.3. Battle Feature</a></h3>
-<div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The Battle feature handles the following:</p>
 </div>
@@ -1042,7 +1053,7 @@ enter a command in the wrong stage of the game,</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>seedu.address.battle</code>: the main <code>Battle</code> class is implemented here</p>
+<p><code>seedu.address.battle</code>: the main <code>Battle</code> class is implemented here.</p>
 </li>
 <li>
 <p><code>seedu.address.battle.state</code>: the battle state classes are implemented here, and
@@ -1054,23 +1065,227 @@ These classes are returned by <code>Battle#humanPerformAttack(coordinates)</code
 <code>Battle#takeComputerTurn()</code>.</p>
 </li>
 <li>
-<p><code>BeginCommand</code>, <code>AttackCommand</code> and <code>EndTurnCommand</code> handle the player&#8217;s interaction
+<p><code>BeginCommand</code> and <code>AttackCommand</code> handle the player&#8217;s interaction
 with this component.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The sequence diagram of what happens when the user enters the <code>begin</code> command is as follows:</p>
+<p>In the following sections, we will explain the workings of each of these
+different packages.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-battle-state"><a class="link" href="#implementation-of-battle-state">3.3.1. Implementation of battle state</a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/BattleStateDiagram.png" alt="BattleStateDiagram" width="800">
+</div>
+<div class="title">Figure 16. State diagram of the application</div>
+</div>
+<div class="paragraph">
+<p>In this program, there are certain commands that may only be executed at
+specific phases of the game (e.g. <code>attack</code> must only be used when battling,
+not while placing ships). To implement this, the battle state must be tracked.</p>
+</div>
+<div class="paragraph">
+<p>The battle state is implemented as a <code>BattleState</code> enumeration, and stored
+within the <code>Model</code>. When <code>LogicManager</code> executes a <code>Command</code> object, it checks
+whether that command is allowed to be executed in the current state using
+<code>Command#canExecuteIn(BattleState)</code>. Only if the command is allowed to execute
+does <code>LogicManager</code> then call <code>Command#execute</code> - if it is not, then execution
+is prevented and the user is notified.</p>
+</div>
+<div class="paragraph">
+<p>In addition, certain commands may change the battle state - for example, <code>start</code>
+changes the battle state from <code>PLAYER_PUT_SHIP</code> to <code>ENEMY_PUT_SHIP</code> then finally
+to <code>PLAYER_ATTACK</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-the-code-battlemanager-code-class"><a class="link" href="#implementation-of-the-code-battlemanager-code-class">3.3.2. Implementation of the <code>BattleManager</code> class</a></h4>
+<div class="paragraph">
+<p>The <code>BattleManager</code> class contains four important methods, detailed as follows.</p>
+</div>
+<div class="sect4">
+<h5 id="code-void-startgame-code"><a class="link" href="#code-void-startgame-code"><code>void startGame()</code></a></h5>
+<div class="imageblock">
+<div class="content">
+<img src="images/StartGameSequenceDiagram.png" alt="StartGameSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 17. Sequence diagram of the <code>startGame</code> method</div>
+</div>
+<div class="paragraph">
+<p><code>startGame</code> is called when the player begins the battle (via <code>BeginCommand</code>,
+see next section for more details).</p>
+</div>
+<div class="paragraph">
+<p><code>startGame</code> prepares the <code>Enemy</code> for battle by calling <code>Enemy#prepEnemy</code>,
+which causes the enemy to place its ships and set up other data structures.
+For more information, please see the "Enemy AI Feature" section below.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="code-attackresult-performattack-player-player-coordinates-code"><a class="link" href="#code-attackresult-performattack-player-player-coordinates-code"><code>AttackResult performAttack(Player, Player, Coordinates)</code></a></h5>
+<div class="imageblock">
+<div class="content">
+<img src="images/PerformAttackSequenceDiagram.png" alt="PerformAttackSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 18. Sequence diagram of the <code>performAttack</code> method</div>
+</div>
+<div class="paragraph">
+<p><code>performAttack</code> is the method that actually performs the attack from one
+player to another. It takes in an attacker <code>Player</code>, a target <code>Player</code> and
+the attacked <code>Coordinates</code>, and returns an <code>AttackResult</code>. (See section
+3.3.3 for the description of what <code>AttackResult</code> is returned in what scenario.)</p>
+</div>
+<div class="paragraph">
+<p>This method is an internal method, used by both <code>humanPerformAttack</code> and
+<code>takeComputerTurn</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="code-attackresult-humanperformattack-coordinates-code"><a class="link" href="#code-attackresult-humanperformattack-coordinates-code"><code>AttackResult humanPerformAttack(Coordinates)</code></a></h5>
+<div class="imageblock">
+<div class="content">
+<img src="images/HumanPerformAttackSequenceDiagram.png" alt="HumanPerformAttackSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 19. Sequence diagram of the <code>humanPerformAttack</code> method</div>
+</div>
+<div class="paragraph">
+<p><code>humanPerformAttack</code> is called when the player makes an attack (via
+<code>AttackCommand</code>, see below.)</p>
+</div>
+<div class="paragraph">
+<p>This method simply calls <code>performAttack</code> with the human player as the
+attacker, the computer player as the target and the argument coordinate
+as the attacked coordinate.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="code-list-attackresult-takecomputerturn-code"><a class="link" href="#code-list-attackresult-takecomputerturn-code"><code>List&lt;AttackResult&gt; takeComputerTurn()</code></a></h5>
+<div class="imageblock">
+<div class="content">
+<img src="images/TakeComputerTurnSequenceDiagram.png" alt="TakeComputerTurnSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 20. Sequence diagram of the <code>takeComputerTurn</code> method</div>
+</div>
+<div class="paragraph">
+<p><code>takeComputerTurn</code> is called after the player makes an attack but misses
+(via <code>AttackCommand</code>, see below). As mentioned in the game rules, after
+the player misses the computer may begin to attack until it misses, and
+this method implements that functionality.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-attack-result"><a class="link" href="#implementation-of-attack-result">3.3.3. Implementation of attack result</a></h4>
+<div class="paragraph">
+<p>The representation of the result of an attack is the class <code>AttackResult</code> and
+its subclasses. To help the receiver in deciphering the attack result without
+needing to resort to <code>instanceof</code>, methods are provided to test for attributes
+such as whether the attack is a hit.</p>
+</div>
+<div class="paragraph">
+<p>The methods are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>isSuccessful</code>: tests whether the attack actually completed</p>
+</li>
+<li>
+<p><code>isHit</code>: tests whether the attack damaged a ship</p>
+</li>
+<li>
+<p><code>isDestroy</code>: tests whether the attack destroyed the ship</p>
+</li>
+<li>
+<p><code>isWin</code>: tests whether the attack caused the attacker to win</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A summary of each type of <code>AttackResult</code> can be seen from the following table:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 88%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Result type</th>
+<th class="tableblock halign-left valign-top">Scenario</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AttackFailed</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>Coordinates</code> provided was out of bounds, or
+                       some error occurred during the attack.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AttackMissed</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The attack did not hit an enemy ship.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AttackHit</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The attack hit an enemy ship but did not sink it.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AttackDestroyedShip</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The attack hit an enemy ship and sank it,
+                       but the enemy still has ships remaining.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AttackDefeatedEnemy</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The attack hit the last of the enemy&#8217;s ships and sank
+                       it, resulting in a victory for the attacker.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-player-interaction-via-commands"><a class="link" href="#implementation-of-player-interaction-via-commands">3.3.4. Implementation of player interaction via commands</a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/BattleUseCaseDiagram.png" alt="BattleUseCaseDiagram" width="800">
+</div>
+<div class="title">Figure 21. Use case diagram of the <code>Battle</code> Component.</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/BattleActivityDiagram.png" alt="BattleActivityDiagram" width="800">
+</div>
+<div class="title">Figure 22. Activity diagram of the process of battling.</div>
+</div>
+<div class="paragraph">
+<p>The upper diagram is a use case diagram which shows briefly the possible
+interactions between the user and the application during the battling phase.
+Below is a more detailed activity diagram of what happens when the
+user does battle against the computer enemy. As shown, the player
+does battle by using the <code>begin</code> command to initiate the battle,
+then the <code>attack</code> command to attack the enemy.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagrams show what happens when the user enters
+the <code>begin</code> command, then the <code>attack a1</code> command.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/BeginSequenceDiagram.png" alt="BeginSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 13. Sequence diagram of beginning the battle.</div>
+<div class="title">Figure 23. Sequence diagram of <code>begin</code>.</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AttackSequenceDiagram.png" alt="AttackSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 24. Sequence diagram of <code>attack a1</code>.</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.5. Design Considerations</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1088,6 +1303,12 @@ and return it, then call an internal method to actually perform the attack.</p>
 <ul>
 <li>
 <p>Command logic is abstracted into places where it can be reused by the AI.</p>
+</li>
+<li>
+<p>Flow of program is clear - it always is a higher level component calling a lower-level component.<br>
+(e.g. when the player types in an Attack command, user interacts with <code>UI</code>, which calls <code>Logic</code>,
+which calls <code>Model</code> and <code>BattleManager</code>,
+which call the lowest level classes <code>Map</code> and <code>Player</code>)</p>
 </li>
 </ul>
 </div>
@@ -1130,13 +1351,18 @@ used for both a human and AI player.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>AttackCommand is now state-dependent (the state being the current attacking player) which
+<p><code>AttackCommand</code> is now state-dependent (the state being the current attacking player) which
 can more easily lead to bugs and race conditions.</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>In the end, we decided to implement Option 1. Even though some team members preferred either option,
+we decided that <code>Logic</code> and <code>Model</code> not being kept separate was a worthy tradeoff
+for the advantages of Option 1.</p>
 </div>
 </li>
 </ul>
@@ -1146,15 +1372,30 @@ can more easily lead to bugs and race conditions.</p>
 <div class="sect2">
 <h3 id="enemy-ai-feature"><a class="link" href="#enemy-ai-feature">3.4. Enemy AI Feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.1. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.4.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The Enemy AI feature is currently implemented as an extension of the Player class,
 and serves as the opponent player since <code>Battleship</code> is a single-player game.
 The Enemy AI can automatically perform initialising actions similar to the human player.
 Mainly, the Enemy AI can randomly initialise its own mapGrid with randomly generated ships,
-which is invoked by the command <code>start game</code>.
-The Enemy AI also supports the ability for the enemy to intelligently shoot
-the player&#8217;s map when the player inputs the <code>end turn</code> command.</p>
+which is invoked by the command <code>start game</code>.</p>
+</div>
+<div class="paragraph">
+<p>We can see these scenarios here:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EnemyDeployingUseCaseDiagram.png" alt="EnemyDeployingUseCaseDiagram" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p>The Enemy AI also supports the ability for the enemy to automatically and intelligently shoot
+the player&#8217;s map when the player ends their turn, encapsulated by these scenarios:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EnemyShootingUseCaseDiagram.png" alt="EnemyShootingUseCaseDiagram" width="650">
+</div>
 </div>
 <div class="paragraph">
 <p>Note that the Enemy AI feature does not contain any explicit commands to be
@@ -1165,31 +1406,108 @@ magic in the background.</p>
 <p><strong>Initialising Enemy MapGrid</strong></p>
 </div>
 <div class="paragraph">
-<p>The Enemy AI has the method <code>populateMapGrid</code> which is called by the method <code>prepEnemy()</code>,
+<p>The Enemy AI has the method <code>populateMapGrid()</code> which is called by the method <code>prepEnemy()</code>,
 which is in turn called by the Battle Manager when the Player enters the command <code>start game</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/PrepEnemySequenceDiagram.png" alt="PrepEnemySequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>It can be seen from the above sequence diagram that <code>populateMapGrid()</code> goes on to call the methods
+<code>placeAirCraftCarrier()</code> and <code>placeMultipleDestroyerAndCruiser()</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>placeAirCraftCarrier()</code> is called once, and places only one <code>Aircraft Carrier</code> onto the map, since the game rules state that
+no matter the map size, every game will only feature a single <code>Aircraft Carrier</code>.</p>
+</div>
+<div class="paragraph">
+<p>On the other hand, <code>placeMultipleDestroyerAndCruiser()</code> is called twice consecutively. The first call takes in the parameters required
+to put as many <code>Destroyers</code> as available onto the enemy map, while the second call will do so for <code>Cruisers</code>.</p>
+</div>
+<div class="paragraph">
+<p>The reason why <code>placeMultipleDestroyerAndCruiser()</code> is called twice is because the implementation to place <code>Destroyers</code> and <code>Cruisers</code>
+are identical, but we still want to keep their placement separate for better abstraction and easier testing.</p>
+</div>
+<div class="paragraph">
+<p>The following two sequence diagrams illustrate how <code>placeAirCraftCarrier()</code> and <code>placeMultipleDestroyerAndCruiser()</code> prepare the
+enemy ships and put them on the enemy map grid.</p>
+</div>
+<div class="paragraph">
+<p><strong>Sequence Diagram for <code>placeAirCraftCarrier()</code></strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/PlaceAirCraftCarrierSequenceDiagram.png" alt="PlaceAirCraftCarrierSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Sequence Diagram for <code>placeMultipleDestroyerAndCruiser()</code></strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/PlaceMultipleDestroyerAndCruiserSequenceDiagram.png" alt="PlaceMultipleDestroyerAndCruiserSequenceDiagram" width="800">
+</div>
 </div>
 <div class="paragraph">
 <p><code>populateMapGrid()</code> will generate randomised battleships based on the number of battleships
 available to it for the current game, as specified in its Parent class - Player.
 The number of battleships available to the Enemy AI is congruent to the number of battleships
 available to the Player. The exact number of the different types of battleships is decided from on
-a formula that is based on the map size specified by the player in the <code>init</code> command. Once these randomised
-battleships are generated, <code>populateMapGrid</code> will proceed to call <code>placeAirCraftCarrier()</code> and <code>placeMultipleDestroyerAndCruiser()</code>.</p>
+a formula that is based on the map size specified by the player in the <code>init</code> command.</p>
 </div>
 <div class="paragraph">
-<p><strong>Calculating Cell to Attack</strong></p>
+<p><strong>Calculating Coordinate to Attack</strong></p>
 </div>
 <div class="paragraph">
-<p>The Enemy AI has the method <code>enemyShootAt()</code> that is invoked when the player ends their turn
-with the command <code>end turn</code>. The Enemy AI will attempt to generate a random Coordinate to attack,
+<p>The Enemy AI has the method <code>enemyShootAt()</code> that is invoked when the player ends their turn upon a miss.
+The Enemy AI will attempt to generate a random Coordinate to attack,
 and pass this Coordinate to the <code>BattleManager</code>. The Enemy AI supports the ability to
-check that its generated coordinates are all valid, and has further algorithm that will
-increase its accuracy upon detecting a successful hit.</p>
+check that its generated coordinates are all valid, and will perform certain calculations that will
+increase its accuracy upon detecting a successful hit on any part of a ship.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram illustrates the conditions taken into account by the Enemy AI as part of its shooting algorithm, and shows
+how it decides on which Coordinate to target, depending on the success of previous hits.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/enemyShoot.gif" alt="enemyShoot" width="500">
+<img src="images/EnemyShootingActivityDiagram.png" alt="EnemyShootingActivityDiagram" width="800">
 </div>
+</div>
+<div class="paragraph">
+<p>We can see from the diagram that the start of the game, when scouting for the Player&#8217;s ships, the Enemy first divides the cells with a parity of 1
+on the map into two groups - we will name these groups White and Black for ease of explanation.
+The enemy will then randomly pick a Coordinate from the White group whenever it is guessing where the
+next Player ship might be. The reason for this is that since every ship must be at least of length 2, all ships will
+consist of at least one of each White or Black coordinates.</p>
+</div>
+<div class="paragraph">
+<p>The Black-White groupings of Coordinates through the concept of parity is illustrated here in the following diagram:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CheckeredBoard.png" alt="CheckeredBoard" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p>Once the Enemy hits a Coordinate that has a ship on it, it will note down every valid Coordinate that is cardinal (to the North, South, East and West) to the
+cell that was discovered to hold a ship.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CardinalCoordinates.png" alt="CardinalCoordinates" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p>The validity of these cardinal Coordinates are evaluated by checking if they are within the bounds of the map grid, and
+whether they have not been hit before. If these two conditions are satisfied, then the Enemy will note down the cardinal Coordinate into a <code>watchlist</code>, and
+will from that point shoot everything in the <code>watchlist</code>, until the ship that it is targeting is destroyed.</p>
+</div>
+<div class="paragraph">
+<p>When the Enemy AI detects that it has successfully destroyed the Player ship, it will empty out the <code>watchlist</code>, and go back to scouting the
+map for another part of the Player ship, by randomly targetting coordinates in the Black cells, as illustrated in the previous image.</p>
 </div>
 <div class="paragraph">
 <p><em>Note: All actions taken by the Enemy AI are seeded by a pseudo-random generator.
@@ -1201,7 +1519,7 @@ Thus, its behaviour will be different for every game session.</em></p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> seed all methods with pseudo-random seed</p>
+<p><strong>Alternative 1 (current choice):</strong> seed all methods with pseudo-random seed/</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1233,10 +1551,16 @@ Thus, its behaviour will be different for every game session.</em></p>
 <div class="sect2">
 <h3 id="statistics-feature"><a class="link" href="#statistics-feature">3.5. Statistics Feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.5.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.5.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The <code>stats</code> feature allows users to view their current gameplay information. This information will be displayed in a pop-up window and will include: Number of Attacks Made, Number of Successful Hits, Number of Misses, Number of Enemy Ships Destroyed and Accuracy of Shots made.
-This feature stems from a central abstract class that is extended to for a player. It is initialized with the main components upon the start of the application and is subsequently passed down as a parameter to the relevant methods which will invoke the corresponding updating methods to the statistical information.</p>
+<p>The statistics feature allows users to view their current gameplay information. This information will be displayed in a
+pop-up window that includes: Number of Attacks Made, Number of Successful Hits, Number of Misses and Number of Enemy Ships
+ Destroyed. The statistics command can be called at any juncture of the game.</p>
+</div>
+<div class="paragraph">
+<p>Upon a successful win game, the statistics feature also implements a save command that automatically saves the
+statistical data into the game&#8217;s storage. At the same time, the command will retrieve the statistical data from the
+previous game and perform a comparison of game data.</p>
 </div>
 <div class="paragraph">
 <p>The following operations are invoked upon the calling of the <code>stats</code> command.</p>
@@ -1244,25 +1568,31 @@ This feature stems from a central abstract class that is extended to for a playe
 <div class="ulist">
 <ul>
 <li>
-<p><code>getAttacksMade()</code> - Returns the number of attacks made by the User</p>
+<p><code>getAttacksMade()</code> - Returns the number of attacks made by the User.</p>
 </li>
 <li>
-<p><code>getMovesLeft()</code> - Returns the remaining number of moves left for the User</p>
+<p><code>getMovesLeft()</code> - Returns the remaining number of moves left for the User.</p>
 </li>
 <li>
-<p><code>getHitCount()</code> - Returns the number of successful hit on enemy ships</p>
+<p><code>getHitCount()</code> - Returns the number of successful hit on enemy ships.</p>
 </li>
 <li>
-<p><code>getMissCount()</code> Returns the number of misses made</p>
+<p><code>getMissCount()</code> Returns the number of misses made.</p>
 </li>
 <li>
-<p><code>getEnemyShipsDestroyed()</code> Returns the number of Enemy Ships Destroyed by the player</p>
+<p><code>getEnemyShipsDestroyed()</code> Returns the number of Enemy Ships Destroyed by the player.</p>
 </li>
 <li>
-<p><code>getAccuracy()</code> Returns the current Hit-Miss Ratio of the User based on the game so far</p>
+<p><code>getAccuracy()</code> Returns the current Hit-Miss Ratio of the User based on the game so far.</p>
+</li>
+<li>
+<p><code>generateData()</code> Formats the current statistical data into a json serializable format.</p>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect3">
+<h4 id="display-statistics"><a class="link" href="#display-statistics">3.5.2. Display Statistics</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the <code>stats</code> command behaves at each step.</p>
 </div>
@@ -1270,13 +1600,16 @@ This feature stems from a central abstract class that is extended to for a playe
 <p>Step 1. The User initializes the game with the <code>init 8</code> which will create a 8x8 map.</p>
 </div>
 <div class="paragraph">
-<p>! The Map can be initialized to any valid size (This is just a sample scenario)</p>
+<p>The Map can be initialized to any valid size (This is just a sample scenario)</p>
 </div>
 <div class="paragraph">
-<p>Step 2. Put the ships accordingly&#8230;&#8203;</p>
+<p>Step 2. Put the ships onto the grid via the <code>put</code> ship command.</p>
 </div>
 <div class="paragraph">
 <p>Step 3. Input <code>stats</code> into the command-line and press enter to obtain the current statistical data.</p>
+</div>
+<div class="paragraph">
+<p>Inputting <code>stats</code> :</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1284,8 +1617,7 @@ This feature stems from a central abstract class that is extended to for a playe
 </div>
 </div>
 <div class="paragraph">
-<p>! Note, there should not be any valid data at the moment as the game as not started.
-! Include Screenshot explaining pop-up window and lack of data</p>
+<p>Pop-up window for <code>stats</code> :</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1293,15 +1625,29 @@ This feature stems from a central abstract class that is extended to for a playe
 </div>
 </div>
 <div class="paragraph">
-<p>Step 4. Now proceed with the game and perform an attack &#8230;&#8203;.</p>
+<p>There should not be any valid data at the moment as the game as not started.</p>
 </div>
 <div class="paragraph">
-<p>Step 5. Invoke the <code>stats</code> command again to view the updated statistics</p>
+<p>Step 4. Now proceed with the game and perform an attack. Input <code>attack a1</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. Invoke the <code>stats</code> command again to view the updated statistics of the attack result.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/StatsWindowUpdatedSS.PNG" alt="StatsWindowUpdatedSS" width="400">
 </div>
+</div>
+<div class="paragraph">
+<p>Besides the pop-up window, the data is also captured in the command-line result box.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/StatsCommandBox.PNG" alt="StatsCommandBox" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p>End of Example Usage Scenario</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram summarizes what happens when a User invokes the <code>stats</code> command.</p>
@@ -1313,42 +1659,100 @@ This feature stems from a central abstract class that is extended to for a playe
 </div>
 </div>
 <div class="sect3">
-<h4 id="output-statistical-data"><a class="link" href="#output-statistical-data">3.5.2. Output Statistical Data</a></h4>
+<h4 id="save-and-compare"><a class="link" href="#save-and-compare">3.5.3. Save and Compare</a></h4>
 <div class="paragraph">
-<p>Besides the pop-up window, the data is also captured in the command-line result box.</p>
+<p>Given below is an example usage scenario of the automatic save and compare feature.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Upon winning a game, a user will be presented with the following screen.</p>
+</li>
+</ol>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/StatsCommandBox.PNG" alt="StatsCommandBox" width="400">
+<img src="images/StatsWinScreen.png" alt="StatsWinScreen" width="650">
 </div>
+</div>
+<div class="paragraph">
+<p>Notice the displayed 'Statistics Analysis' section that displays a comparison of the player&#8217;s accuracy in the current game and
+the previous game.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>By inputting <code>init 6</code> and press enter. The game will be restarted with a new map.</p>
+</li>
+<li>
+<p>Next, input the command <code>stats</code> to observe how the previous statistics data has also been cleared in preparation for the
+new game.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>End of Example Usage Scenario.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram summarizes what happens at the end of a game and an automatic save is
+performed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SaveSequenceDiag.PNG" alt="SaveSequenceDiag" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram summarizes what happens when a previous statistic data is read and compared.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.5.3. Design Considerations</a></h4>
+<h4 id="activity-diagram-2"><a class="link" href="#activity-diagram-2">3.5.4. Activity Diagram</a></h4>
+<div class="paragraph">
+<p>The following Activity Diagram shows when the <code>stats</code> command can be used.</p>
+</div>
+<div class="paragraph">
+<p>&lt;Include activity diagram&gt;</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.5.5. Design Considerations</a></h4>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Statistics class will have an initialise method that with a set of default configuration that are used by any Statistics Variant.</p>
+<p><strong>Alternative 1:</strong> The methods that are responsible for incrementing the relevant game data is placed
+in whichever command is required to be tracked. This meant that there would be a method call to the statistics class
+from within every method itself.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: The underlying variables and values in Statistics is better protected from modification.</p>
+<p>Pros: The methods are clearly visible within each command to be tracked and as a developer I can understand when each
+command is being tracked.</p>
 </li>
 <li>
-<p>Cons: It does not accommodate changes in default settings.</p>
+<p>Cons: This implementation violates the &#8230;&#8203; principle (Duplicate code) and while the behaviour is unaltered, it is not
+good programming practice.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Statistics is stored entirely within StatsCommands</p>
+<p><strong>Alternative 2:</strong> The method responsible for incrementing the statistical data is placed only at the Command Result class.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to code and less lines of code.</p>
+<p>Pros: The implementation abides by the &#8230;&#8203; principle (no duplicate code) and contains less dependencies on the respective
+class components.</p>
 </li>
 <li>
-<p>Cons: Does not abide by Single Responsibility Principle as the <code>StatsCommand</code> will also contain filtering and analysis of data.</p>
+<p>Cons: This would mean that the method will have to filter for the corresponding commands only and perform the related
+methods accordingly. Does not abide by Single Responsibility Principle as the <code>StatsCommand</code> will also contain
+filtering and analysis of data</p>
+</li>
+<li>
+<p>Chosen: Alternative 2. Even though the method violates the Single Responsibility Principle, this can be subverted by
+performing the analysis of data in the Storage component instead. By implementing the method calls at a central Command
+Result, will make &#8230;&#8203; more modular&#8230;&#8203; less dependencies especially when working with other components..(Edit)</p>
 </li>
 </ul>
 </div>
@@ -1462,7 +1866,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 14. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 25. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -1811,7 +2215,7 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>has a need to manage a significant number of contacts</p>
+<p>likes retro games</p>
 </li>
 <li>
 <p>prefer desktop apps over other types</p>
@@ -1828,7 +2232,7 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Value proposition</strong>: manage contacts faster than a typical mouse/GUI driven app</p>
+<p><strong>Value proposition</strong>: able to play Battleship using a computer</p>
 </div>
 </div>
 </div>
@@ -1891,16 +2295,22 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">check the status of specific battleships during the game</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see the number of actions I made</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of my play style</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">player</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see how many enemy ships I have destroyed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know how many more enemy ships to find</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see the number of successful attacks I made</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of how well I am doing in the game</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">player</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see game statistics</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know how i am performing in the game</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">player</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">compare scores with previous games</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know if i am getting better at winning the game</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -1933,7 +2343,8 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is the <code>Battleship</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-initialise-maps" class="discrete">Use case: Initialise Maps</h3>
+<div class="sect2">
+<h3 id="use-case-initialise-maps"><a class="link" href="#use-case-initialise-maps">C.1. Use case: Initialise Maps</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1970,8 +2381,9 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </li>
 </ul>
 </div>
+</div>
 <div class="sect2">
-<h3 id="use-case-put-battleship"><a class="link" href="#use-case-put-battleship">C.1. Use case: Put Battleship</a></h3>
+<h3 id="use-case-put-battleship"><a class="link" href="#use-case-put-battleship">C.2. Use case: Put Battleship</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2000,7 +2412,7 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-list-battleship"><a class="link" href="#use-case-list-battleship">C.2. Use case: List Battleship</a></h3>
+<h3 id="use-case-list-battleship"><a class="link" href="#use-case-list-battleship">C.3. Use case: List Battleship</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2029,7 +2441,7 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-list-tags-that-battleships-have"><a class="link" href="#use-case-list-tags-that-battleships-have">C.3. Use case: List tags that Battleships have</a></h3>
+<h3 id="use-case-list-tags-that-battleships-have"><a class="link" href="#use-case-list-tags-that-battleships-have">C.4. Use case: List tags that Battleships have</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2048,7 +2460,7 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-list-battleships-by-tag"><a class="link" href="#use-case-list-battleships-by-tag">C.4. Use case: List Battleships by tag</a></h3>
+<h3 id="use-case-list-battleships-by-tag"><a class="link" href="#use-case-list-battleships-by-tag">C.5. Use case: List Battleships by tag</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2071,32 +2483,81 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. If there are no ships deployed, inform the user.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-view-statistics"><a class="link" href="#use-case-view-statistics">C.5. Use case: View statistics</a></h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
+<p>2a. If there are no ships deployed, inform the user.
+=== Use case: See game statistics
+<strong>MSS</strong></p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>User requests to display current gameplay statistics</p>
 </li>
 <li>
-<p>Shows all of the user&#8217;s gameplay data in one location.</p>
+<p>User is presented with all of the user&#8217;s gameplay data in a pop-up window.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
 </ol>
 </div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. There is no statistics data to display</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. A single statement indicating no statistical data yet is displayed in the command box.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect2">
-<h3 id="use-case-end-player-turn"><a class="link" href="#use-case-end-player-turn">C.6. Use case: End player turn</a></h3>
+<h3 id="use-case-compare-scores-with-previous-games"><a class="link" href="#use-case-compare-scores-with-previous-games">C.6. Use case: Compare scores with previous games</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User wins a game.</p>
+</li>
+<li>
+<p>User is presented with a comparison between the current game and previous game score.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. There is no previous game data.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. A single statement indicating no statistical data yet is displayed in the command box.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-end-player-turn"><a class="link" href="#use-case-end-player-turn">C.7. Use case: End player turn</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2118,7 +2579,7 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-play-enemy-turn"><a class="link" href="#use-case-play-enemy-turn">C.7. Use case: Play enemy turn</a></h3>
+<h3 id="use-case-play-enemy-turn"><a class="link" href="#use-case-play-enemy-turn">C.8. Use case: Play enemy turn</a></h3>
 <div class="paragraph">
 <p><strong>Actor:</strong> <code>enemy player</code></p>
 </div>
@@ -2161,10 +2622,19 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 <li>
 <p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
 </li>
+<li>
+<p>Should not use up too much memory for the application and application data for typical usage.</p>
+</li>
+<li>
+<p>Versions should be backward compatible with each other.</p>
+</li>
+<li>
+<p>Should be usable by a novice who has never played Battleship before.</p>
+</li>
+<li>
+<p>The map grid should be large enough for gameplay.</p>
+</li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
 </div>
 </div>
 </div>
@@ -2182,44 +2652,7 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix F: Product Survey</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Product Name</strong></p>
-</div>
-<div class="paragraph">
-<p>Author: &#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Pros:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Cons:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing-must-change-to-fit-our-context"><a class="link" href="#instructions-for-manual-testing-must-change-to-fit-our-context">Appendix G: Instructions for Manual Testing (!!Must change to fit our context!!)</a></h2>
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Given below are instructions to test the app manually.</p>
@@ -2237,7 +2670,7 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">F.1. Launch and Shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2270,12 +2703,9 @@ Expected: The most recent window size and location is retained.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
 </div>
 <div class="sect2">
-<h3 id="initialising-the-maps"><a class="link" href="#initialising-the-maps">G.2. Initialising the maps</a></h3>
+<h3 id="initialising-the-maps"><a class="link" href="#initialising-the-maps">F.2. Initialising the maps</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2302,7 +2732,7 @@ Expected: No map will be displayed if this is the first command ran. Otherwise, 
 </div>
 </div>
 <div class="sect2">
-<h3 id="putting-a-ship"><a class="link" href="#putting-a-ship">G.3. Putting a ship</a></h3>
+<h3 id="putting-a-ship"><a class="link" href="#putting-a-ship">F.3. Putting a ship</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2324,29 +2754,14 @@ Expected: Aircraft Carrier battleship of size 5 will be put horizontally on coor
 <p>Test case: <code>put n/aircraft carrier r/horizontal c/e1 t/nomore</code><br>
 Expected: No battleship is put down on the map. Error details shown in the status message. Map remains the same.</p>
 </li>
-<li>
-<p>Test case: <code>put n/destroyer r/vertical c/b1</code><br>
-Expected: No battleship is put down on the map. Error details shown in the status message. Map remains the same.</p>
-</li>
-<li>
-<p>Test case: <code>put n/destroyer r/vertical c/a1</code><br>
-Expected: No battleship is put down on the map. Error details shown in the status message. Map remains the same.</p>
-</li>
-<li>
-<p>Test case: <code>put n/destroyer r/vertical c/z1</code><br>
-Expected: No battleship is put down on the map. Error details shown in the status message. Map remains the same.</p>
-</li>
 </ol>
 </div>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-the-statistics"><a class="link" href="#viewing-the-statistics">G.4. Viewing the statistics</a></h3>
+<h3 id="viewing-the-statistics"><a class="link" href="#viewing-the-statistics">F.4. Viewing the statistics</a></h3>
 <div class="paragraph">
 <p>To test the <code>stats</code> feature. We will perform a before and after check to see if the statistical data of a simple behaviour is captured. In this case, we will perform an attack with a miss result.</p>
 </div>
@@ -2381,24 +2796,44 @@ Expected: Number of attacks : 1, Number of Misses : 1</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.5. Saving data</a></h3>
+<h3 id="saving-statistics-data"><a class="link" href="#saving-statistics-data">F.5. Saving statistics data</a></h3>
+<div class="paragraph">
+<p>To test the statistics save and compare feature. We will use a debug command <code>save</code>.</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Dealing with missing/corrupted data files</p>
+<p>Initialize a 8x8 map using <code>init 8</code>.</p>
+</li>
+<li>
+<p>Input <code>save</code> into the command box and press enter.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
+<p>Test case : <code>save</code> (start of game)<br>
+Expected: Accuracy is same as before at 0%. This is because the application
+automatically compares to a default state of 0 if there is no previous game.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Now play the game until you win.</p>
+</li>
+<li>
+<p>At the end of the game, the <code>save</code> command will be automatically called.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case : Win the game<br>
+Expected: A comparison is made between your current game accuracy and the previous
+game accuracy which is 0. Your accuracy has improved.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 16:20:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 19:33:51 UTC</div></div></div></body></html>

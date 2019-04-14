@@ -1,0 +1,576 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Chong Shao Wei - Project Portfolio for Battleship</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Battleship</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S2-W14-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Chong Shao Wei - Project Portfolio for Battleship</h1></div><div id="content"><div class="sect1">
+<h2 id="project-battleship-cli"><a class="link" href="#project-battleship-cli">Project: Battleship CLI</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Battleship CLI is an implementation of the classic game Battleship.</p>
+</div>
+<div class="paragraph">
+<p>As part of a group project in the module <a href="https://nus-cs2103-ay1819s2.github.io/cs2103-website/index.html">CS2103</a> in NUS,
+my group had to morph an existing product, <a href="https://github.com/nus-cs2103-AY1819S2/addressbook-level4"><code>addressbook-level4</code></a>,
+into a new product while keeping the original product&#8217;s distinctive feature of being operated through the command-line.
+My group chose to morph it into a command-line based Battleships application.</p>
+</div>
+<div class="paragraph">
+<p>My role in the team was to design and implement the <code>Battle</code> feature, which:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Ensures that the human and computer players each take their turns in order,</p>
+</li>
+<li>
+<p>Ensures that the game progresses in a fixed sequence of stages (from setting up the map, to placing ships, to attacking)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following sections illustrate the feature in more detail, as well as the relevant sections I have added to the user and developer guides in relation to this feature.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: implemented <strong>the logic for the battle stage of the game</strong><br>
+The battle is one of the two important phases of Battleship, along with the placing of ships.
+Via the battle feature, the user will be able to launch attacks at the enemy, and the enemy launch
+attacks at the user. Cruically, it ensures that the user and enemy take their turns in the correct
+order.</p>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added <strong>the ability to prevent commands from being executed at inappropriate times</strong><br>
+Preventing the user from executing certain commands at certain times (e.g. the user should not
+be placing ships when the battle is already in progress) will ensure the correct progression of
+the game, as well as prevent the game from entering an invalid state.</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: Here are my [<a href="https://github.com/CS2103-AY1819S2-W14-3/main/commits/master?author=s-tr">code commits</a>].</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Removed elements from <code>addressbook-level4</code> that were not used in our project
+(Pull requests
+    <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/274">#274</a>,
+    <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/336">#336</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Testing:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote tests for that increased coverage by 4%
+(Pull requests
+    <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/231">#231</a>,
+    <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/269">#269</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote the sections of the User Guide and Developer guide for the Battle Component,
+as reproduced below</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>[placeholder]</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="battle-phase"><a class="link" href="#battle-phase">Battle Phase</a></h3>
+<div class="sect3">
+<h4 id="beginning-the-battle-code-begin-code"><a class="link" href="#beginning-the-battle-code-begin-code">Beginning the battle: <code>begin</code></a></h4>
+<div class="paragraph">
+<p>Begins the battle against the computer enemy.<br>
+Format: <code>begin</code><br>
+Alternative command: <code>start</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>After this command is entered, the program&#8217;s AI will place its own ships.</p>
+</li>
+<li>
+<p>After the AI completes its placing of ships, you can take your first turn.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="shooting-at-a-coordinate-code-shoot-code"><a class="link" href="#shooting-at-a-coordinate-code-shoot-code">Shooting at a coordinate: <code>shoot</code></a></h4>
+<div class="paragraph">
+<p>Launches an attack against given coordinate on the enemy&#8217;s map.<br>
+Format: <code>shoot COORDINATES</code><br>
+Alternative commands: <code>attack</code>, <code>fire</code>, <code>hit</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>shoot A6</code></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The program will prevent you from attacking an invalid coordinate.</p>
+</li>
+<li>
+<p>The program will prevent you from attacking a square that you have already attacked.</p>
+</li>
+<li>
+<p>If you hit one of the opponent&#8217;s ships, you may make another attack.
+Otherwise, the enemy will take their turn(s), firing until they get a miss.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="Design-Battle"><a class="link" href="#Design-Battle">Battle component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/BattleClassDiagram.png" alt="BattleClassDiagram" width="800">
+</div>
+<div class="title">Figure 1. Structure of the <code>Battle</code> Component and interactions with <code>Model</code> and <code>Logic</code></div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/address/logic/battle/Battle.java"><code>Battle.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>Battle</code> component:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>keeps track of the progress of the battle,</p>
+</li>
+<li>
+<p>restricts the computer to place its ships at the correct time,</p>
+</li>
+<li>
+<p>allows the user and the computer enemy to attack each other and maintain proper turn-taking while doing so.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>As the battle involves many different components (map, player, etc.),
+this component cannot be reduced to just one interface class of <code>Battle</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="battle-feature"><a class="link" href="#battle-feature">Battle Feature</a></h3>
+<div class="paragraph">
+<p>The Battle feature handles the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>keeping track of the stage of the battle, and ensuring that the player does not
+enter a command in the wrong stage of the game,</p>
+</li>
+<li>
+<p>allowing the computer to place its ships at the correct time,</p>
+</li>
+<li>
+<p>allowing the user and the computer enemy to attack each other and maintain proper turn-taking while doing so.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Battle feature is split between several packages:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>seedu.address.battle</code>: the main <code>Battle</code> class is implemented here.</p>
+</li>
+<li>
+<p><code>seedu.address.battle.state</code>: the battle state classes are implemented here, and
+can be stored and retrieved via <code>Model</code>.</p>
+</li>
+<li>
+<p><code>seedu.address.battle.result</code>: the attack result classes are implemented here.
+These classes are returned by <code>Battle#humanPerformAttack(coordinates)</code> and
+<code>Battle#takeComputerTurn()</code>.</p>
+</li>
+<li>
+<p><code>BeginCommand</code> and <code>AttackCommand</code> handle the player&#8217;s interaction
+with this component.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In the following sections, we will explain the workings of each of these
+different packages.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-battle-state"><a class="link" href="#implementation-of-battle-state">Implementation of battle state</a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="../images/BattleStateDiagram.png" alt="BattleStateDiagram" width="800">
+</div>
+<div class="title">Figure 2. State diagram of the application</div>
+</div>
+<div class="paragraph">
+<p>In this program, there are certain commands that may only be executed at
+specific phases of the game (e.g. <code>attack</code> must only be used when battling,
+not while placing ships). To implement this, the battle state must be tracked.</p>
+</div>
+<div class="paragraph">
+<p>The battle state is implemented as a <code>BattleState</code> enumeration, and stored
+within the <code>Model</code>. When <code>LogicManager</code> executes a <code>Command</code> object, it checks
+whether that command is allowed to be executed in the current state using
+<code>Command#canExecuteIn(BattleState)</code>. Only if the command is allowed to execute
+does <code>LogicManager</code> then call <code>Command#execute</code> - if it is not, then execution
+is prevented and the user is notified.</p>
+</div>
+<div class="paragraph">
+<p>In addition, certain commands may change the battle state - for example, <code>start</code>
+changes the battle state from <code>PLAYER_PUT_SHIP</code> to <code>ENEMY_PUT_SHIP</code> then finally
+to <code>PLAYER_ATTACK</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-the-code-battlemanager-code-class"><a class="link" href="#implementation-of-the-code-battlemanager-code-class">Implementation of the <code>BattleManager</code> class</a></h4>
+<div class="paragraph">
+<p>The <code>BattleManager</code> class contains four important methods, detailed as follows.</p>
+</div>
+<div class="sect4">
+<h5 id="code-void-startgame-code"><a class="link" href="#code-void-startgame-code"><code>void startGame()</code></a></h5>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StartGameSequenceDiagram.png" alt="StartGameSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 3. Sequence diagram of the <code>startGame</code> method</div>
+</div>
+<div class="paragraph">
+<p><code>startGame</code> is called when the player begins the battle (via <code>BeginCommand</code>,
+see next section for more details).</p>
+</div>
+<div class="paragraph">
+<p><code>startGame</code> prepares the <code>Enemy</code> for battle by calling <code>Enemy#prepEnemy</code>,
+which causes the enemy to place its ships and set up other data structures.
+For more information, please see the "Enemy AI Feature" section below.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="code-attackresult-performattack-player-player-coordinates-code"><a class="link" href="#code-attackresult-performattack-player-player-coordinates-code"><code>AttackResult performAttack(Player, Player, Coordinates)</code></a></h5>
+<div class="imageblock">
+<div class="content">
+<img src="../images/PerformAttackSequenceDiagram.png" alt="PerformAttackSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 4. Sequence diagram of the <code>performAttack</code> method</div>
+</div>
+<div class="paragraph">
+<p><code>performAttack</code> is the method that actually performs the attack from one
+player to another. It takes in an attacker <code>Player</code>, a target <code>Player</code> and
+the attacked <code>Coordinates</code>, and returns an <code>AttackResult</code>. (See section
+3.3.3 for the description of what <code>AttackResult</code> is returned in what scenario.)</p>
+</div>
+<div class="paragraph">
+<p>This method is an internal method, used by both <code>humanPerformAttack</code> and
+<code>takeComputerTurn</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="code-attackresult-humanperformattack-coordinates-code"><a class="link" href="#code-attackresult-humanperformattack-coordinates-code"><code>AttackResult humanPerformAttack(Coordinates)</code></a></h5>
+<div class="imageblock">
+<div class="content">
+<img src="../images/HumanPerformAttackSequenceDiagram.png" alt="HumanPerformAttackSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 5. Sequence diagram of the <code>humanPerformAttack</code> method</div>
+</div>
+<div class="paragraph">
+<p><code>humanPerformAttack</code> is called when the player makes an attack (via
+<code>AttackCommand</code>, see below.)</p>
+</div>
+<div class="paragraph">
+<p>This method simply calls <code>performAttack</code> with the human player as the
+attacker, the computer player as the target and the argument coordinate
+as the attacked coordinate.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="code-list-attackresult-takecomputerturn-code"><a class="link" href="#code-list-attackresult-takecomputerturn-code"><code>List&lt;AttackResult&gt; takeComputerTurn()</code></a></h5>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TakeComputerTurnSequenceDiagram.png" alt="TakeComputerTurnSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 6. Sequence diagram of the <code>takeComputerTurn</code> method</div>
+</div>
+<div class="paragraph">
+<p><code>takeComputerTurn</code> is called after the player makes an attack but misses
+(via <code>AttackCommand</code>, see below). As mentioned in the game rules, after
+the player misses the computer may begin to attack until it misses, and
+this method implements that functionality.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-attack-result"><a class="link" href="#implementation-of-attack-result">Implementation of attack result</a></h4>
+<div class="paragraph">
+<p>The representation of the result of an attack is the class <code>AttackResult</code> and
+its subclasses. To help the receiver in deciphering the attack result without
+needing to resort to <code>instanceof</code>, methods are provided to test for attributes
+such as whether the attack is a hit.</p>
+</div>
+<div class="paragraph">
+<p>The methods are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>isSuccessful</code>: tests whether the attack actually completed</p>
+</li>
+<li>
+<p><code>isHit</code>: tests whether the attack damaged a ship</p>
+</li>
+<li>
+<p><code>isDestroy</code>: tests whether the attack destroyed the ship</p>
+</li>
+<li>
+<p><code>isWin</code>: tests whether the attack caused the attacker to win</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A summary of each type of <code>AttackResult</code> can be seen from the following table:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 88%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Result type</th>
+<th class="tableblock halign-left valign-top">Scenario</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AttackFailed</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>Coordinates</code> provided was out of bounds, or
+                       some error occurred during the attack.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AttackMissed</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The attack did not hit an enemy ship.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AttackHit</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The attack hit an enemy ship but did not sink it.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AttackDestroyedShip</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The attack hit an enemy ship and sank it,
+                       but the enemy still has ships remaining.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AttackDefeatedEnemy</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The attack hit the last of the enemy&#8217;s ships and sank
+                       it, resulting in a victory for the attacker.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-player-interaction-via-commands"><a class="link" href="#implementation-of-player-interaction-via-commands">Implementation of player interaction via commands</a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="../images/BattleUseCaseDiagram.png" alt="BattleUseCaseDiagram" width="800">
+</div>
+<div class="title">Figure 7. Use case diagram of the <code>Battle</code> Component.</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/BattleActivityDiagram.png" alt="BattleActivityDiagram" width="800">
+</div>
+<div class="title">Figure 8. Activity diagram of the process of battling.</div>
+</div>
+<div class="paragraph">
+<p>The upper diagram is a use case diagram which shows briefly the possible
+interactions between the user and the application during the battling phase.
+Below is a more detailed activity diagram of what happens when the
+user does battle against the computer enemy. As shown, the player
+does battle by using the <code>begin</code> command to initiate the battle,
+then the <code>attack</code> command to attack the enemy.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagrams show what happens when the user enters
+the <code>begin</code> command, then the <code>attack a1</code> command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/BeginSequenceDiagram.png" alt="BeginSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 9. Sequence diagram of <code>begin</code>.</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AttackSequenceDiagram.png" alt="AttackSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 10. Sequence diagram of <code>attack a1</code>.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong><br>
+<code>BattleManager</code> is stored under <code>Model</code>. Every time <code>Attack</code>, <code>EndTurn</code> or <code>Begin</code> commands
+are executed, they will use this <code>BattleManager</code> to actually perform the actions,
+with the logic in the <code>Command</code>-s mostly being error handling.<br>
+When AI performs attacks, the <code>BattleManager</code> will call the AI to compute its attack
+and return it, then call an internal method to actually perform the attack.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Command logic is abstracted into places where it can be reused by the AI.</p>
+</li>
+<li>
+<p>Flow of program is clear - it always is a higher level component calling a lower-level component.<br>
+(e.g. when the player types in an Attack command, user interacts with <code>UI</code>, which calls <code>Logic</code>,
+which calls <code>Model</code> and <code>BattleManager</code>,
+which call the lowest level classes <code>Map</code> and <code>Player</code>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>Model</code> component now contains game logic (<code>BattleManager</code>) within it.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong><br>
+<code>BattleManager</code> is stored under <code>Logic</code>. Every time <code>Attack</code>, <code>EndTurn</code> or <code>Begin</code> commands
+are executed, they will perform the action using the logic coded within themselves, not
+interfacing with <code>BattleManager</code>.<br>
+When AI performs attacks, the <code>BattleManager</code> will create these commands and execute them.
+In the <code>Model</code>, the current attacking player is kept track of, allowing the commands to be
+used for both a human and AI player.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The game&#8217;s model and logic are kept separate from each other.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AttackCommand</code> is now state-dependent (the state being the current attacking player) which
+can more easily lead to bugs and race conditions.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In the end, we decided to implement Option 1. Even though some team members preferred either option,
+we decided that <code>Logic</code> and <code>Model</code> not being kept separate was a worthy tradeoff
+for the advantages of Option 1.</p>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 19:33:51 UTC</div></div></div></body></html>

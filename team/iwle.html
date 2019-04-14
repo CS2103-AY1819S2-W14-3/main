@@ -1,0 +1,500 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Ian Wu - Project Portfolio for Battleship</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Battleship</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S2-W14-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Ian Wu - Project Portfolio for Battleship</h1></div><div id="content"><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Hello there! My name is Ian and I am one of the developers of the Battleship game. The following document is a Project Portfolio Page of my contributions to Battleship.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="project-overview"><a class="link" href="#project-overview">Project Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Battleship is the product of a semester-long project, in which my team was tasked with adapting an existing phone addressbook application into an application of our choice. Our game, Battleship, is a revival of the classic retro game Battleships, where players try to destroy each other&#8217;s ships by guessing the positions of their opponent&#8217;s battleships.</p>
+</div>
+<div class="paragraph">
+<p>In Battleship, however, players have the opportunity to use both a Command Line Interface (CLI) and a Graphical User Interface (GUI) to play the game. The GUI was created with JavaFX and the application code is rigorously tested to ensure a high quality of code.</p>
+</div>
+<div class="paragraph">
+<p>My role in the team was to design and implement the Ship Management feature. The feature allows players to manage their ships during the game. The Ship Manager feature consists of the commands <code>put</code>, <code>list</code> and <code>listTags</code>. Together, these three commands provide an intuitive way for players to interact with their own ships. The following sections illustrate the feature in more detail, as well as the relevant sections I have added to the user and developer guides in relation to this feature.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: I added the Ship Management feature of the game.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: The Ship Management feature consists of three commands, <code>put</code>, <code>list</code>, and <code>listTags</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>put</code> command allows the user to place a ship on the map grid. The user is also given the option of tagging the ships. The ship can be a <code>cruiser</code> of length 2, a <code>cruiser</code> of length 3, or an <code>aircraft carrier</code> of length 5.</p>
+</li>
+<li>
+<p>The <code>list</code> command allows the user to list down the ships that have been placed on the map grid. The user can filter the list by the <code>name</code> of the ship or by specific <code>tags</code>.</p>
+</li>
+<li>
+<p>The <code>listTags</code> command allows the user to list down all the tags that have been used on ships.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Justification: The Ship Manager feature is crucial to the game as it works together with the map grid to allow both the human player and the computer player to interact in a turn-taking game. Behind the scenes, the  feature also implements the <code>Coordinates</code> and <code>Orientation</code> classes for the other features to work. Furthermore, the feature implements boundary value checking that is used by the Battle Manager and Computerised Enemy feature.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Code contributed</strong>: Here are my <a href="https://github.com/CS2103-AY1819S2-W14-3/main/commits/master?author=iwle">code commits</a> and <a href="https://nus-cs2103-ay1819s2.github.io/cs2103-dashboard/#search=iwle">RepoSense</a>.</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management: Managed release <code>v1.3</code> on GitHub.</p>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Morph from <code>AddCommand</code> and <code>EditCommand</code> to create <code>PutShipCommand</code>: <a href="https://github.com/CS2103-AY1819S2-W14-3/main/issues/383">#383</a></p>
+</li>
+<li>
+<p>Morph <code>ListCommand</code> to list and filter ships: <a href="https://github.com/CS2103-AY1819S2-W14-3/main/issues/384">#384</a></p>
+</li>
+<li>
+<p>Add <code>ListTagsCommand</code>: <a href="https://github.com/CS2103-AY1819S2-W14-3/main/issues/385">#385</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Contributed actively in issue tracking: <a href="https://github.com/CS2103-AY1819S2-W14-3/main/issues/created_by/iwle">issues</a> created by me.</p>
+</li>
+<li>
+<p>Contributed actively in forum discussions: <a href="https://github.com/nus-cs2103-AY1819S2/forum/issues/created_by/iwle">discussions</a> raised by me.</p>
+</li>
+<li>
+<p>Reported bugs and suggestions for other teams in the class: <a href="https://bit.ly/2v4qari">bugs</a> found by me.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools: Integrated Travis CI Bot and Coveralls Checker with team repository.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users. I have ommited the entries for <code>ListTags</code> and <code>List</code>. You may refer to the User Guide for more information</em>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ships ahoy! Battleship is a simple computer-based remake of the classic Battleship game. It is for people who want to have the joy of playing Battleships without the hassle and fuss of dealing with physical game pieces.</p>
+</div>
+<div class="paragraph">
+<p>Battleship is optimised for people who want to use a Command Line Interface (CLI), while still retaining the benefits of a Graphical User Interface (GUI).</p>
+</div>
+<div class="paragraph">
+<p>It can guarantee many hours of fun, especially between those long and boring periods of the day. Can&#8217;t wait to get started? Head over to <a href="#Quick Start">[Quick Start]</a> to fire away!</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong>What is a Command Line Interface (CLI) and a Graphical User Interface (GUI)?</strong><br>
+An interface is how a user interacts with the computer. For example, you can use a mouse to click on a file to open it in Windows or MacOS. This is part of the interface for these operating systems.<br></p>
+</div>
+<div class="paragraph">
+<p>A Command Line Interface (CLI) interacts with the user by accepting words that are typed in by the user. Conversely, a Graphical User Interface (GUI) interacts with the user visually. It uses icons and graphics to show the user what the program is doing.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>As you will see, Battleship is a hybrid application. It combines both a CLI and GUI, meaning that the user must type in commands but will see the changes caused by those commands graphically.</p>
+</div>
+<div class="sect3">
+<h4 id="ship-management"><a class="link" href="#ship-management">Ship Management:</a></h4>
+<div class="sect4">
+<h5 id="placing-a-ship-on-the-map-code-put-code"><a class="link" href="#placing-a-ship-on-the-map-code-put-code">Placing a ship on the map: <code>put</code></a></h5>
+<div class="paragraph">
+<p>Adds a battleship onto the player&#8217;s map. The coordinates specified is the position of the ship&#8217;s head.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>put n/NAME c/COORDINATES r/ORIENTATION [t/TAGS]</code><br></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>put n/Destroyer c/a1 r/vertical</code></p>
+</li>
+<li>
+<p><code>put n/Aircraft Carrier c/b1 r/h t/tag1</code><br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The head of a battleship is the top-most and left-most cell of the battleship. When coordinates are specified in the <code>put</code> command, it specifies the coordinates of the head of the battleship, as shown in the figure below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/BattleshipHeadExample2.png" alt="BattleshipHeadExample2" width="800">
+</div>
+<div class="title">Figure 1. The coordinates of the <code>put</code> command refer to the coordinates of the battleship head.</div>
+</div>
+<div class="paragraph">
+<p>The orientation of the ship can be <code>horizontal</code> or <code>vertical</code>. This may be shortened to <code>h</code> or <code>v</code>, respectively. The orientation of the battleship must be specified.<br></p>
+</div>
+<div class="paragraph">
+<p>When putting a ship on the map grid, you should specify the head coordinates such that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The ship falls within the map grid.</p>
+</li>
+<li>
+<p>The ship does not collide with another ship that is already on the map grid.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="model-component"><a class="link" href="#model-component">Model component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ModelClassDiagram.png" alt="ModelClassDiagram" width="800">
+</div>
+<div class="title">Figure 2. Structure of the Model Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>Model</code>,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
+</li>
+<li>
+<p>stores the Address Book data.</p>
+</li>
+<li>
+<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+</li>
+<li>
+<p>does not depend on any of the other three components.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ship-management-feature"><a class="link" href="#ship-management-feature">Ship Management Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The ship management feature handles the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Putting ships on the map grid and ensuring that ships are placed in valid areas on the map grid.</p>
+</li>
+<li>
+<p>Keeping track of the status of ships in the player.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The Ship Management feature is named as such to avoid confusion with the main title of the game, Battleship. In this section, the words "battleship" and "ship" are used interchangeably. The capitalised word <code>Battleship</code> in monospace font is used to refer to the Java class.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><code>Battleship</code> is a class representing a ship that can be placed on the map grid. A <code>FleetEntry</code> class is internally used to store the <code>Battleship</code> in a player&#8217;s <code>Fleet</code>. <code>FleetEntry</code> is a nested class within <code>Fleet</code> that contains a <code>Battleship</code>, its head <code>Coordinates</code> and its <code>Orientation</code> on the map grid.</p>
+</div>
+<div class="paragraph">
+<p>The length of the ship varies depending on the type of ship. The user can tag a ship using a <code>t/[TAG]</code> parameter in the <code>put</code> command. Tagging a ship is optional.<br></p>
+</div>
+<div class="paragraph">
+<p>There are three types of ships and the number of each ship depends on the size of the map. The relationship between map size and the number of each ship is illustrated in the table below.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type of Ship</th>
+<th class="tableblock halign-left valign-top">Length</th>
+<th class="tableblock halign-left valign-top">Number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cruiser</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mapSize - 5</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Destroyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(mapSize + 2) / 5</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aircraft carrier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The management of ships can be carried out with three commands, namely <code>put</code>, <code>listTags</code> and <code>list</code>.</p>
+</div>
+<div class="sect4">
+<h5 id="3-2-1-1-putting-ships"><a class="link" href="#3-2-1-1-putting-ships">3.2.1.1 Putting ships</a></h5>
+<div class="paragraph">
+<p>The <code>put</code> command puts a ship on the map grid, specified by the <em>head coordinates</em>.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong><em>What are the head coordinates?</em></strong></p>
+</div>
+<div class="paragraph">
+<p>The head coordinates are the coordinates of the top-most and left-most cell of a ship. When coordinates are specified in the <code>put</code> command, they refer to the head coordinates of the ship.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/BattleshipHeadExample.png" alt="BattleshipHeadExample" width="400"></span></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The following operations are called when the <code>put</code> command is called.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>performChecks()</code> - Performs checks to ensure that the ship can be put on the map.</p>
+</li>
+<li>
+<p><code>putShip()</code> - Puts the ship into the cell.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The boundary checks are essential to the functionality of both the human and computer player. This is because <code>BoundaryValueChecker</code> is used by the human player in the <code>put</code> command, while the computer player when it is deploying its own ships after the human player has ended his or her turn. <code>BoundaryValueChecker</code> relies on four separate methods to perform its checks. They are:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>isHeadWithinBounds()</code> - Checks if the head coordinates falls within the map grid.</p>
+</li>
+<li>
+<p><code>isBodyWithinBounds()</code> - Checks if the body of the ship falls within the map grid.</p>
+</li>
+<li>
+<p><code>isBattleshipAbsent()</code> - Checks if there are no other ships that are situated on the head coordinates.</p>
+</li>
+<li>
+<p><code>isClear()</code> - Checks if there are no other ships that situated along the body of the ship.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>These methods check both the horizontal and vertical boundaries when a ship is being deployed. They also distinguish between the head and body of a ship in order to provide more specific feedback for the user. For the methods <code>isBattleshipAbsent()</code> and <code>isClear()</code>, <code>BoundaryValueChecker</code> calls the <code>getCellStatus()</code> method of the <code>mapGrid</code> object to obtain the status of <code>Cell</code> to carry out its checks.</p>
+</div>
+<div class="paragraph">
+<p>Once <code>BoundaryValueChecker</code> has finished its checks and if there are no exceptions thrown, the <code>put</code> command proceeds to call the <code>putShip()</code> method of the <code>mapGrid</code> object to put the ship on the map grid. It then updates the <code>Fleet</code> in the human player. The following sequence diagram illustrates what happens when the <code>put</code> command is called.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/PutShipSequenceDiagram.png" alt="PutShipSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 3. Sequence diagram of putting a battleship on the map.</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="3-2-1-2-listing-tags"><a class="link" href="#3-2-1-2-listing-tags">3.2.1.2 Listing tags</a></h5>
+<div class="paragraph">
+<p>Ships can be tagged. You can list all the tags used by battleships that have been deployed on the map grid with the <code>listTags</code> command. The command uses the <code>getAllTags()</code> method of the <code>Fleet</code> class. The code snippet below shows the operation of the <code>getAllTags()</code> method. The method returns a list of all the unique tags present in the player&#8217;s fleet of deployed ships.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">Unresolved directive in /home/travis/build/CS2103-AY1819S2-W14-<span class="integer">3</span>/main/docs/DeveloperGuide.adoc - include::../src/main/java/seedu/address/model/Player/Fleet.java[lines=<span class="integer">170</span>.<span class="float">.180</span>]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below shows how the tags are listed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ListTagsSequenceDiagram.png" alt="ListTagsSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 4. Sequence diagram of listing battleship tags.</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="3-2-1-3-listing-ships"><a class="link" href="#3-2-1-3-listing-ships">3.2.1.3 Listing ships</a></h5>
+<div class="paragraph">
+<p>Ships that have been deployed can also be listed in four different ways:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>List all ships: <code>list</code></p>
+</li>
+<li>
+<p>List ships with certain tags: <code>list t/t1 t/t2</code></p>
+</li>
+<li>
+<p>List certain ships: <code>list n/destroyer n/cruiser</code></p>
+</li>
+<li>
+<p>List certain ships with certain tags: <code>list n/destroyer n/cruiser t/t1 t/t2</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The set of unique tags and the set of unique names are presented to the <code>ListCommand</code> as an <code>Optional</code> class. This is because both sets may be empty. In such cases, instead of redudantly checking whether each <code>fleetEntry</code> contains the ship and an empty set, <code>ListCommand</code> simply returns the entire fleet.</p>
+</div>
+<div class="paragraph">
+<p>The <code>list</code> command can list certain ships with certain tags by filtering the list of deployed ships. The following sequence diagram shows how deployed battleships are listed when the <code>list</code> command is entered into the command line.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ListShipSequenceDiagram.png" alt="ListShipSequenceDiagram">
+</div>
+<div class="title">Figure 5. Sequence diagram of listing battleships deployed on the map.</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="activity-diagram"><a class="link" href="#activity-diagram">Activity Diagram</a></h4>
+<div class="paragraph">
+<p>Ship management functions throughout the entirety of the game. As there are multiple states during the game, it is beneficial to visualise the operations of the <code>put</code>, <code>listTags</code> and <code>list</code> commands with respect to the different game states. The activity diagram below illustrates these operations.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ShipManagementActivityDiagram.png" alt="ShipManagementActivityDiagram">
+</div>
+<div class="title">Figure 6. Activity diagram of ship management throughout the game.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-a-ship-is-placed-on-the-map"><a class="link" href="#aspect-how-a-ship-is-placed-on-the-map">Aspect: How a ship is placed on the map</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Current choice:</strong><br>
+The same <code>Battleship</code> object is put in multiple cells. Each cell contains a reference to the same <code>Battleship</code> object. When a battleship on the <code>Cell</code> needs to be modified, the <code>Battleship</code> attribute in the <code>Cell</code> is accessed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This allows any cell that is hit to access the same <code>Battleship</code> object without having to separately find the <code>Battleship</code> object.</p>
+</li>
+<li>
+<p>Cons: Difficult to keep track of each <code>Battleship</code> position.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative:</strong><br>
+Two separate <code>Battleship</code> and <code>BattleshipPart</code> objects are used. The <code>BattleshipPart</code> object represents the body of the <code>Battleship</code> and contains an attribute that points to the <code>Battleship</code>. When a battleship on the <code>Cell</code> needs to be modified, the <code>BattleshipPart</code> is accessed, which then accesses the main <code>Battleship</code> object.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Clearer separation between the body of the Battleship and the Battleship itself.</p>
+</li>
+<li>
+<p>Cons: Difficult to handle hits on the cell.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 19:33:51 UTC</div></div></div></body></html>

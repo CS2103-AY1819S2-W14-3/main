@@ -1,0 +1,651 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Boston Cheong - Project Portfolio for Battleship</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Battleship</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S2-W14-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Boston Cheong - Project Portfolio for Battleship</h1></div><div id="content"><div class="sect1">
+<h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
+<div class="sectionbody">
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../images/bos10.png" alt="bos10" width="150">
+</div>
+</div>
+<div class="paragraph">
+<p>Hello! My name is Boston, a Year 2 Computer Science student at the National University of Singapore (NUS). This portfolio documents the CS2103T Software Engineering project I have been actively involved in over the past semester. The experience has exposed me to new technologies and helped me to develop relevant skills en route to being a Software Engineer.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="project-overview-battleship"><a class="link" href="#project-overview-battleship">Project Overview : Battleship</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>'Battleship' is a desktop game application based on the classic Battleship guessing game. Borrowing the same game rules,
+the game aims to recreate the adrenaline-filled experience by pitting the player against an intelligent computerized enemy.
+However, instead of using a pencil and paper, players will be introduced with the command-line interface which they
+will use to play the game.</p>
+</div>
+<div class="paragraph">
+<p>My role was to design and implement a method to track and monitor the progress of the game. I managed to achieve this by
+introducing the 'Statistics' feature of Battleships. By allowing the player to view their gameplay data, performance and
+ score at any time during the game, players are able to plan their moves strategically.</p>
+</div>
+<div class="paragraph">
+<p>The following sections will illustrate the feature and its implementation in more detail.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: added the <strong>ability to view the game score data at any juncture of the game</strong>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: By entering the <code>stats</code> command, the player will be given a pop-up display that contains information on
+the number of successful hits, number of misses, number of enemy ships destroyed and even the player&#8217;s current shooting
+accuracy.</p>
+</li>
+<li>
+<p>Justification: This feature is crucial to user experience in the game as it allows players to track and keep up with the progress of the game. It is also fundamental as a basis for deploying strategies in the gameplay.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1819s2.github.io/cs2103-dashboard/#=undefined&amp;search=bos10">Functional code</a>]</p>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added the <strong>ability to compare the game scores between two games.</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Upon winning a game, the game will automatically save the current game statistics into the storage folder
+of the application. At the same time, the game will perform a comparison with the previous game statistics data (if any)
+and will reflect if there are improvements from the previous game.</p>
+</li>
+<li>
+<p>Justification: This feature enhances the user experience by giving constructive feedback
+through an analysis the player&#8217;s past game. This encourage the employment of strategies to be better at the game.
+It also demonstrates the application&#8217;s ability to store game data which is fundamental to a future
+highscore functionality in the game.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Actively update issues and provide constructive comments and feedback to the team.
+(Pull requests <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/147">#147</a>, <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/365">#365</a>, <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/375">#375</a>)</p>
+</li>
+<li>
+<p>Managed the progress of the Developer Guide by delegating the required tasks and ensuring it is completed on time.
+(Issue <a href="https://github.com/CS2103-AY1819S2-W14-3/main/issues/360">#360</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Repurposed HistoryCommand into StatsCommand to be used by rest of the team(Pull request <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/43">#43</a>)</p>
+</li>
+<li>
+<p>Restructured Storage component to accommodate saving of statistics data (Pull request <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/289">#289</a>)</p>
+</li>
+<li>
+<p>Introduced an elapsed time functionality in the Graphical User Interface (GUI). (Pull request <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/108">#108</a>, <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/123">#123</a> )</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added detailed implementation documentation for the statistics feature in the Developer Guide and User Guide, including screenshots
+and diagrams.</p>
+</li>
+<li>
+<p>Added detailed implementation documentation for the storage feature in the Developer Guide and User Guide, including diagrams.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reviewed team member&#8217;s Pull Requests and gave suggestions for improvements
+(Pull requests : <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/365">#365</a>, <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/375">#375</a>)
+(Issues <a href="https://github.com/CS2103-AY1819S2-W14-3/main/issues/376">#376</a> (Suggested renaming key components), <a href="https://github.com/CS2103-AY1819S2-W14-3/main/issues/377">#377</a>(Organization of DG))</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="retrieving-game-statistics-code-stats-code"><a class="link" href="#retrieving-game-statistics-code-stats-code">Retrieving game statistics: <code>stats</code></a></h3>
+<div class="paragraph">
+<p>Prints a list of statistics related to gameplay, such as accuracy and current hits.<br>
+Format: <code>stats</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>stats</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 35%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Feature</th>
+<th class="tableblock halign-left valign-top">Format</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Attack</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>attack [coordinate]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attacks a selected cell on the enemy map.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>attack c1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Game manual</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Opens up the help guide window.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Create map of size 6-10</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>init [integer_size]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Initializes the map grid.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>init 8</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List ships</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List all available battleships</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List tags</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listTags</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List all available battleships by tags</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listTags</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Put ship on map</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>put n/NAME r/ORIENTATION c/COORDINATE [optional]t/TAG</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Place your battleship on the map.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>put n/Destroyer r/vertical c/a1 t/myfleet</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>View statistics</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stats</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Opens a Statistics Window.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stats</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Start game</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>start game</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Let enemy place ships on enemy grid.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>start game</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="statistics-feature"><a class="link" href="#statistics-feature">Statistics Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The statistics feature allows users to view their current gameplay information. This information will be displayed in a
+pop-up window that includes: Number of Attacks Made, Number of Successful Hits, Number of Misses and Number of Enemy Ships
+ Destroyed. The statistics command can be called at any juncture of the game.</p>
+</div>
+<div class="paragraph">
+<p>Upon a successful win game, the statistics feature also implements a save command that automatically saves the
+statistical data into the game&#8217;s storage. At the same time, the command will retrieve the statistical data from the
+previous game and perform a comparison of game data.</p>
+</div>
+<div class="paragraph">
+<p>The following operations are invoked upon the calling of the <code>stats</code> command.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>getAttacksMade()</code> - Returns the number of attacks made by the User.</p>
+</li>
+<li>
+<p><code>getMovesLeft()</code> - Returns the remaining number of moves left for the User.</p>
+</li>
+<li>
+<p><code>getHitCount()</code> - Returns the number of successful hit on enemy ships.</p>
+</li>
+<li>
+<p><code>getMissCount()</code> Returns the number of misses made.</p>
+</li>
+<li>
+<p><code>getEnemyShipsDestroyed()</code> Returns the number of Enemy Ships Destroyed by the player.</p>
+</li>
+<li>
+<p><code>getAccuracy()</code> Returns the current Hit-Miss Ratio of the User based on the game so far.</p>
+</li>
+<li>
+<p><code>generateData()</code> Formats the current statistical data into a json serializable format.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="display-statistics"><a class="link" href="#display-statistics">Display Statistics</a></h4>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the <code>stats</code> command behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The User initializes the game with the <code>init 8</code> which will create a 8x8 map.</p>
+</div>
+<div class="paragraph">
+<p>The Map can be initialized to any valid size (This is just a sample scenario)</p>
+</div>
+<div class="paragraph">
+<p>Step 2. Put the ships onto the grid via the <code>put</code> ship command.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. Input <code>stats</code> into the command-line and press enter to obtain the current statistical data.</p>
+</div>
+<div class="paragraph">
+<p>Inputting <code>stats</code> :</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/inputStatsCommandSS.png" alt="inputStatsCommandSS" width="250">
+</div>
+</div>
+<div class="paragraph">
+<p>Pop-up window for <code>stats</code> :</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StatsWindowSS.png" alt="StatsWindowSS" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>There should not be any valid data at the moment as the game as not started.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. Now proceed with the game and perform an attack. Input <code>attack a1</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. Invoke the <code>stats</code> command again to view the updated statistics of the attack result.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StatsWindowUpdatedSS.PNG" alt="StatsWindowUpdatedSS" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p>Besides the pop-up window, the data is also captured in the command-line result box.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StatsCommandBox.PNG" alt="StatsCommandBox" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p>End of Example Usage Scenario</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram summarizes what happens when a User invokes the <code>stats</code> command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StatsSequenceDiagram.PNG" alt="StatsSequenceDiagram" width="800">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="save-and-compare"><a class="link" href="#save-and-compare">Save and Compare</a></h4>
+<div class="paragraph">
+<p>Given below is an example usage scenario of the automatic save and compare feature.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Upon winning a game, a user will be presented with the following screen.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StatsWinScreen.png" alt="StatsWinScreen" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p>Notice the displayed 'Statistics Analysis' section that displays a comparison of the player&#8217;s accuracy in the current game and
+the previous game.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>By inputting <code>init 6</code> and press enter. The game will be restarted with a new map.</p>
+</li>
+<li>
+<p>Next, input the command <code>stats</code> to observe how the previous statistics data has also been cleared in preparation for the
+new game.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>End of Example Usage Scenario.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram summarizes what happens at the end of a game and an automatic save is
+performed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SaveSequenceDiag.PNG" alt="SaveSequenceDiag" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram summarizes what happens when a previous statistic data is read and compared.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="activity-diagram"><a class="link" href="#activity-diagram">Activity Diagram</a></h4>
+<div class="paragraph">
+<p>The following Activity Diagram shows when the <code>stats</code> command can be used.</p>
+</div>
+<div class="paragraph">
+<p>&lt;Include activity diagram&gt;</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> The methods that are responsible for incrementing the relevant game data is placed
+in whichever command is required to be tracked. This meant that there would be a method call to the statistics class
+from within every method itself.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The methods are clearly visible within each command to be tracked and as a developer I can understand when each
+command is being tracked.</p>
+</li>
+<li>
+<p>Cons: This implementation violates the &#8230;&#8203; principle (Duplicate code) and while the behaviour is unaltered, it is not
+good programming practice.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> The method responsible for incrementing the statistical data is placed only at the Command Result class.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The implementation abides by the &#8230;&#8203; principle (no duplicate code) and contains less dependencies on the respective
+class components.</p>
+</li>
+<li>
+<p>Cons: This would mean that the method will have to filter for the corresponding commands only and perform the related
+methods accordingly. Does not abide by Single Responsibility Principle as the <code>StatsCommand</code> will also contain
+filtering and analysis of data</p>
+</li>
+<li>
+<p>Chosen: Alternative 2. Even though the method violates the Single Responsibility Principle, this can be subverted by
+performing the analysis of data in the Storage component instead. By implementing the method calls at a central Command
+Result, will make &#8230;&#8203; more modular&#8230;&#8203; less dependencies especially when working with other components..(Edit)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="storage-component"><a class="link" href="#storage-component">Storage component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StorageClassDiagram.png" alt="StorageClassDiagram" width="800">
+</div>
+<div class="title">Figure 1. Structure of the Storage Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>Storage</code> component,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>can save <code>PlayerStatistics</code> objects in json format and read it back.</p>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="use-case-see-game-statistics"><a class="link" href="#use-case-see-game-statistics">Use case: See game statistics</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to display current gameplay statistics</p>
+</li>
+<li>
+<p>User is presented with all of the user&#8217;s gameplay data in a pop-up window.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. There is no statistics data to display</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. A single statement indicating no statistical data yet is displayed in the command box.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-compare-scores-with-previous-games"><a class="link" href="#use-case-compare-scores-with-previous-games">Use case: Compare scores with previous games</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User wins a game.</p>
+</li>
+<li>
+<p>User is presented with a comparison between the current game and previous game score.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. There is no previous game data.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. A single statement indicating no statistical data yet is displayed in the command box.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="viewing-the-statistics"><a class="link" href="#viewing-the-statistics">Viewing the statistics</a></h3>
+<div class="paragraph">
+<p>To test the <code>stats</code> feature. We will perform a before and after check to see if the statistical data of a simple behaviour is captured. In this case, we will perform an attack with a miss result.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Initialize a 8x8 map using <code>init 8</code>.</p>
+</li>
+<li>
+<p>Run the <code>stats</code> command and observe the results</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case : <code>stats</code>  (before)<br>
+Expected: All fields are 0.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Now input <code>attack c1</code> to simulate an attack on the enemy map.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case : <code>stats</code> (after)<br>
+Expected: Number of attacks : 1, Number of Misses : 1</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="saving-statistics-data"><a class="link" href="#saving-statistics-data">Saving statistics data</a></h3>
+<div class="paragraph">
+<p>To test the statistics save and compare feature. We will use a debug command <code>save</code>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Initialize a 8x8 map using <code>init 8</code>.</p>
+</li>
+<li>
+<p>Input <code>save</code> into the command box and press enter.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case : <code>save</code> (start of game)<br>
+Expected: Accuracy is same as before at 0%. This is because the application
+automatically compares to a default state of 0 if there is no previous game.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Now play the game until you win.</p>
+</li>
+<li>
+<p>At the end of the game, the <code>save</code> command will be automatically called.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case : Win the game<br>
+Expected: A comparison is made between your current game accuracy and the previous
+game accuracy which is 0. Your accuracy has improved.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<hr>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 19:33:51 UTC</div></div></div></body></html>
