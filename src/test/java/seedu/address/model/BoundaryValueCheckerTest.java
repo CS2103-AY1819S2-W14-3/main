@@ -1,8 +1,13 @@
 
 package seedu.address.model;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_HORIZONTAL_ORIENTATION;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_VERTICAL_ORIENTATION;
+import static seedu.address.model.BoundaryValueChecker.MESSAGE_BATTLESHIP_PRESENT;
+import static seedu.address.model.BoundaryValueChecker.MESSAGE_BATTLESHIP_PRESENT_BODY_HORIZONTAL;
+import static seedu.address.model.BoundaryValueChecker.MESSAGE_BATTLESHIP_PRESENT_BODY_VERTICAL;
+import static seedu.address.model.BoundaryValueChecker.MESSAGE_BODY_LENGTH_TOO_LONG;
 import static seedu.address.testutil.TypicalIndexes.COORDINATES_A1;
 import static seedu.address.testutil.TypicalIndexes.COORDINATES_A10;
 import static seedu.address.testutil.TypicalIndexes.COORDINATES_A2;
@@ -51,6 +56,12 @@ public class BoundaryValueCheckerTest {
                 battleship, COORDINATES_A1, orientation);
 
         Assert.assertThrows(BoundaryValueException.class, () -> boundaryValueChecker.performChecks());
+        try {
+            boundaryValueChecker.performChecks();
+        } catch (BoundaryValueException bve) {
+            assertEquals(bve.getMessage(), MESSAGE_BATTLESHIP_PRESENT);
+        }
+
     }
 
     @Test
@@ -74,6 +85,12 @@ public class BoundaryValueCheckerTest {
                 battleship, COORDINATES_A1, orientation);
 
         Assert.assertThrows(BoundaryValueException.class, () -> boundaryValueChecker.performChecks());
+
+        try {
+            boundaryValueChecker.performChecks();
+        } catch (BoundaryValueException bve) {
+            assertEquals(bve.getMessage(), MESSAGE_BATTLESHIP_PRESENT_BODY_VERTICAL);
+        }
     }
 
     @Test
@@ -96,6 +113,12 @@ public class BoundaryValueCheckerTest {
                 battleship, COORDINATES_A1, orientation);
 
         Assert.assertThrows(BoundaryValueException.class, () -> boundaryValueChecker.performChecks());
+
+        try {
+            boundaryValueChecker.performChecks();
+        } catch (BoundaryValueException bve) {
+            assertEquals(bve.getMessage(), MESSAGE_BATTLESHIP_PRESENT_BODY_HORIZONTAL);
+        }
     }
 
     @Test
@@ -116,6 +139,12 @@ public class BoundaryValueCheckerTest {
                 battleship, COORDINATES_A10, orientation);
 
         Assert.assertThrows(BoundaryValueException.class, () -> boundaryValueChecker.performChecks());
+
+        try {
+            boundaryValueChecker.performChecks();
+        } catch (BoundaryValueException bve) {
+            assertEquals(bve.getMessage(), MESSAGE_BODY_LENGTH_TOO_LONG);
+        }
     }
 
     @Test
@@ -136,5 +165,11 @@ public class BoundaryValueCheckerTest {
                 battleship, COORDINATES_J1, orientation);
 
         Assert.assertThrows(BoundaryValueException.class, () -> boundaryValueChecker.performChecks());
+
+        try {
+            boundaryValueChecker.performChecks();
+        } catch (BoundaryValueException bve) {
+            assertEquals(bve.getMessage(), MESSAGE_BODY_LENGTH_TOO_LONG);
+        }
     }
 }

@@ -87,4 +87,12 @@ public class CellTest {
         Cell cell = new Cell(new Coordinates("a1"));
         assertEquals(cell.toString(), "a1");
     }
+
+    @Test
+    public void hashTest() {
+        Cell cell1 = new Cell(new Coordinates("a1"));
+        Cell cell2 = new Cell(new Coordinates("a1"));
+
+        assertEquals(cell1.hashCode(), cell2.hashCode());
+    }
 }

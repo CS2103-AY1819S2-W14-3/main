@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_HORIZONTAL_ORIENTATION;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_VERTICAL_ORIENTATION;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
+import static seedu.address.model.BoundaryValueChecker.MESSAGE_BODY_LENGTH_TOO_LONG;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalIndexes.COORDINATES_A1;
 import static seedu.address.testutil.TypicalIndexes.COORDINATES_A10;
@@ -22,7 +23,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import seedu.address.commons.core.Messages;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.battle.state.BattleState;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -101,7 +101,7 @@ public class PutShipCommandTest {
         PutShipCommand putShipCommand = new PutShipCommand(COORDINATES_A10, battleship, orientation);
 
         assertCommandFailure(putShipCommand, model, commandHistory,
-                Messages.MESSAGE_BODY_LENGTH_TOO_LONG);
+                MESSAGE_BODY_LENGTH_TOO_LONG);
     }
 
     @Test
@@ -112,7 +112,7 @@ public class PutShipCommandTest {
         PutShipCommand putShipCommand = new PutShipCommand(COORDINATES_J1, battleship, orientation);
 
         assertCommandFailure(putShipCommand, model, commandHistory,
-                Messages.MESSAGE_BODY_LENGTH_TOO_LONG);
+                MESSAGE_BODY_LENGTH_TOO_LONG);
     }
 
     @Test

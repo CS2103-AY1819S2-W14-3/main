@@ -3,7 +3,6 @@ package seedu.address.model;
 import java.util.logging.Logger;
 
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.battleship.Battleship;
@@ -22,7 +21,9 @@ public class BoundaryValueChecker {
             "There is already a ship along the vertical coordinates";
     public static final String MESSAGE_BATTLESHIP_PRESENT_BODY_HORIZONTAL =
             "There is already a ship along the horizontal coordinates";
+    public static final String MESSAGE_BODY_LENGTH_TOO_LONG = "The battleship cannot fit into the space provided.";
     public static final String MESSAGE_OUT_OF_BOUNDS = "The ship falls out of bounds.";
+
 
     private static final Logger logger = LogsCenter.getLogger(BoundaryValueChecker.class);
 
@@ -61,7 +62,7 @@ public class BoundaryValueChecker {
                 throw new BoundaryValueException(MESSAGE_BATTLESHIP_PRESENT);
             } else if (!this.isBodyWithinBounds(coordinates.getColIndex())) {
                 logger.info("BATTLESHIP NOT WITHIN HORIZONTAL BOUNDS. Throwing BoundaryValueException.");
-                throw new BoundaryValueException(Messages.MESSAGE_BODY_LENGTH_TOO_LONG);
+                throw new BoundaryValueException(MESSAGE_BODY_LENGTH_TOO_LONG);
             } else if (!this.isClear(orientation)) {
                 logger.info("HORIZONTAL BOUNDS NOT CLEAR. Throwing BoundaryValueException.");
                 throw new BoundaryValueException(MESSAGE_BATTLESHIP_PRESENT_BODY_HORIZONTAL);
@@ -72,7 +73,7 @@ public class BoundaryValueChecker {
                 throw new BoundaryValueException(MESSAGE_BATTLESHIP_PRESENT);
             } else if (!this.isBodyWithinBounds(coordinates.getRowIndex())) {
                 logger.info("BATTLESHIP NOT WITHIN VERTICAL BOUNDS. Throwing BoundaryValueException.");
-                throw new BoundaryValueException(Messages.MESSAGE_BODY_LENGTH_TOO_LONG);
+                throw new BoundaryValueException(MESSAGE_BODY_LENGTH_TOO_LONG);
             } else if (!this.isClear(orientation)) {
                 logger.info("BATTLESHIP NOT WITHIN VERTICAL BOUNDS. Throwing BoundaryValueException.");
                 throw new BoundaryValueException(MESSAGE_BATTLESHIP_PRESENT_BODY_VERTICAL);
