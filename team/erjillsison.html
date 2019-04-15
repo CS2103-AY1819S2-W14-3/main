@@ -320,14 +320,14 @@ The map grid is stored internally in <code>MapGrid</code> as a 2D array of <code
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">     */
-    <span class="directive">public</span> <span class="type">void</span> initialise(Cell<span class="type">[]</span><span class="type">[]</span> map) {
+<pre class="CodeRay highlight"><code data-lang="java">    <span class="directive">public</span> <span class="type">void</span> initialise(Cell<span class="type">[]</span><span class="type">[]</span> map) {
         <span class="local-variable">this</span>.size = map.length;
 
         cellGrid = <span class="keyword">new</span> Cell[size][size];
 
         copy2dArray(cellGrid, map);
-        updateUi();</code></pre>
+        updateUi();
+    }</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -339,13 +339,13 @@ The method <code>copy2dArray</code> copies the <code>map</code> parameter passed
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">    }
-
-    <span class="comment">/**
-     * Utility function to do a deep copy of a 2D array
-     * @param output 2D array to copy to.
-     * @param toBeCopied 2D array to copy from.
-     */</span></code></pre>
+<pre class="CodeRay highlight"><code data-lang="java">    <span class="directive">private</span> <span class="type">void</span> copy2dArray(Cell<span class="type">[]</span><span class="type">[]</span> output, Cell<span class="type">[]</span><span class="type">[]</span> toBeCopied) {
+        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="integer">0</span>; i &lt; size; i++) {
+            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="integer">0</span>; j &lt; size; j++) {
+                output[i][j] = <span class="keyword">new</span> Cell(toBeCopied[i][j]);
+            }
+        }
+    }</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -529,4 +529,4 @@ Expected: No map will be displayed if this is the first command ran. Otherwise, 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 01:14:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 05:26:37 UTC</div></div></div></body></html>
