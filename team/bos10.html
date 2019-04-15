@@ -5,7 +5,7 @@
 <div class="sectionbody">
 <div class="imageblock" style="text-align: left">
 <div class="content">
-<img src="../images/bos10.png" alt="bos10" width="150">
+<img src="../images/bos10.png" alt="bos10" width="120">
 </div>
 </div>
 <div class="paragraph">
@@ -25,7 +25,7 @@ will use to play the game.</p>
 <div class="paragraph">
 <p>My role was to design and implement a method to track and monitor the progress of the game. I managed to achieve this by
 introducing the 'Statistics' feature of Battleships. By allowing the player to view their gameplay data, performance and
- score at any time during the game, players are able to plan their moves strategically.</p>
+ score at any time during the game players are able to plan their moves strategically.</p>
 </div>
 <div class="paragraph">
 <p>The following sections will illustrate the feature and its implementation in more detail.</p>
@@ -38,7 +38,7 @@ introducing the 'Statistics' feature of Battleships. By allowing the player to v
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added the <strong>ability to view the game score data at any juncture of the game</strong>.</p>
+<p><strong>Major enhancement</strong>: added the <strong>ability to view the game statistics</strong>.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -56,10 +56,7 @@ accuracy.</p>
 </div>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1819s2.github.io/cs2103-dashboard/#=undefined&amp;search=bos10">Functional code</a>]</p>
-</li>
-<li>
-<p><strong>Major enhancement</strong>: added the <strong>ability to compare the game scores between two games.</strong></p>
+<p><strong>Major enhancement</strong>: added the <strong>ability to compare the game statistics between two games.</strong></p>
 <div class="ulist">
 <ul>
 <li>
@@ -69,18 +66,18 @@ and will reflect if there are improvements from the previous game.</p>
 </li>
 <li>
 <p>Justification: This feature enhances the user experience by giving constructive feedback
-through an analysis the player&#8217;s past game. This encourage the employment of strategies to be better at the game.
+through an analysis the player&#8217;s past game. This encourages player to employ different strategies to be better at the game.
 It also demonstrates the application&#8217;s ability to store game data which is fundamental to a future
-highscore functionality in the game.</p>
+highscore feature in the game.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>]</p>
+<p><strong>Minor enhancement</strong>: added the <strong>elapsed time panel to update the duration of the game in real-time</strong>.</p>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added the <strong>elapsed time panel to update the duration of the game in real-time</strong></p>
+<p><strong>Code contributed</strong>: View my <a href="https://nus-cs2103-ay1819s2.github.io/cs2103-dashboard/#=undefined&amp;search=bos10">Project Dashboard</a> and my Github <a href="https://github.com/CS2103-AY1819S2-W14-3/main/commits/master?author=bos10">commits</a>.</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -106,7 +103,7 @@ highscore functionality in the game.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Repurposed HistoryCommand into StatsCommand to be used by rest of the team(Pull request <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/43">#43</a>)</p>
+<p>Overhaul of HistoryCommand into StatsCommand to be used by rest of the team (Pull request <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/43">#43</a>)</p>
 </li>
 <li>
 <p>Restructured Storage component to accommodate saving of statistics data (Pull request <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/289">#289</a>)</p>
@@ -115,7 +112,7 @@ highscore functionality in the game.</p>
 <p>Introduced an elapsed time functionality in the Graphical User Interface (GUI). (Pull request <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/108">#108</a>, <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/123">#123</a> )</p>
 </li>
 <li>
-<p>Wrote tests for the statistics feature and storage component and increased coverage by 5.6%. (Pull Requests __)</p>
+<p>Wrote tests for the statistics feature and storage component and increased coverage by 5.6%. (Pull Requests <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/253">#253</a>, <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/379">#379</a>, <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/397">#397</a>)</p>
 </li>
 </ul>
 </div>
@@ -142,7 +139,7 @@ and diagrams.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Reviewed team member&#8217;s pull requests (With suggestions for improvements)
+<p>Reviewed team member&#8217;s pull requests with suggestions for improvements
 (Pull requests : <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/365">#365</a>, <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/375">#375</a>)
 (Issues <a href="https://github.com/CS2103-AY1819S2-W14-3/main/issues/376">#376</a> (Suggested renaming key components), <a href="https://github.com/CS2103-AY1819S2-W14-3/main/issues/377">#377</a>(Organization of DG))</p>
 </li>
@@ -169,6 +166,8 @@ and diagrams.</p>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="statistics-feature"><a class="link" href="#statistics-feature">Statistics Feature</a></h3>
 <div class="sect3">
 <h4 id="retrieving-game-statistics-code-stats-code"><a class="link" href="#retrieving-game-statistics-code-stats-code">Retrieving game statistics: <code>stats</code></a></h4>
 <div class="paragraph">
@@ -176,16 +175,6 @@ and diagrams.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>stats</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>stats</code></p>
-</li>
-</ul>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -195,85 +184,49 @@ and diagrams.</p>
 <p>The pop-up window will contain a bar chart visualisation of your game play data</p>
 </li>
 <li>
-<p>The pop-up window does not update itself when it is opened and the <code>stats</code> command must be called again to display updated
-values.</p>
+<p>To reload the statistics data, you must close the current pop-up window and call the <code>stats</code> command again
+to display the updated values.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h4>
+<div class="paragraph">
+<p>As the diagram is too large, please refer to 'Command Summary' in the User Guide. (<a href="https://github.com/CS2103-AY1819S2-W14-3/main/blob/master/docs/UserGuide.adoc#7-command-summary">link</a>)</p>
+</div>
+<hr>
 </div>
 </div>
+<div class="sect2">
+<h3 id="coming-in-v2-0"><a class="link" href="#coming-in-v2-0">Coming in V2.0</a></h3>
+
 </div>
-<div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
-<div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 21.4285%;">
-<col style="width: 28.5714%;">
-<col style="width: 35.7142%;">
-<col style="width: 14.2859%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Feature</th>
-<th class="tableblock halign-left valign-top">Format</th>
-<th class="tableblock halign-left valign-top">Purpose</th>
-<th class="tableblock halign-left valign-top">Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Attack</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>attack COORDINATE</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Attacks a selected cell on the enemy map.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>attack c1</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display manual</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Opens up the help guide window.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Create map of size 6-10</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>init MAP_SIZE</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Initializes the map grid.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>init 8</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List ships</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list [n/NAME] [t/TAG]…</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all available battleships, optionally filtering by name and tag(s)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List tags</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listTags</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all tags.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listTags</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Put ship on map</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>put n/NAME r/ORIENTATION c/COORDINATE [t/TAG]…</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Places a battleship on the specified position on the map, optionally adding tag(s).</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>put n/Destroyer r/vertical c/a1 t/myfleet</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>View statistics</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stats</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Opens the Statistics window.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stats</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Start battle</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>start</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Begins the battle.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>start</code></p></td>
-</tr>
-</tbody>
-</table>
+<div class="sect2">
+<h3 id="display-high-score-across-games"><a class="link" href="#display-high-score-across-games">Display high score across games</a></h3>
+<div class="paragraph">
+<p>Display the high score across more than two games.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>stats highscore t/ATTRIBUTE</code><br>
+Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>stats highscore t/time</code><br>
+Display game data from the game that won in the shortest amount of time</p>
+</li>
+<li>
+<p><code>stats highscore t/accuracy</code><br>
+Display game data from the game with the highest accuracy.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -291,7 +244,7 @@ values.</p>
 </table>
 <hr>
 <div class="sect2">
-<h3 id="statistics-feature"><a class="link" href="#statistics-feature">Statistics feature</a></h3>
+<h3 id="statistics-feature-2"><a class="link" href="#statistics-feature-2">Statistics feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current implementation</a></h4>
 <div class="paragraph">
@@ -355,7 +308,7 @@ previous game and perform a comparison of game data.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/inputStatsCommandSS.png" alt="inputStatsCommandSS" width="400">
+<img src="../images/inputStatsCommandSS.png" alt="inputStatsCommandSS" width="200">
 </div>
 </div>
 <div class="paragraph">
@@ -363,11 +316,9 @@ previous game and perform a comparison of game data.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/StatsWindowSS.png" alt="StatsWindowSS" width="800">
+<img src="../images/StatsWindowSS.png" alt="StatsWindowSS" width="350">
 </div>
-</div>
-<div class="paragraph">
-<p>Figure 33. Screenshot of empty statistics pop-up window.</p>
+<div class="title">Figure 1. Screenshot of empty statistics pop-up window.</div>
 </div>
 <div class="paragraph">
 <p>There should not be any valid data at the moment as the game as not started.</p>
@@ -380,18 +331,16 @@ previous game and perform a comparison of game data.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/StatsWindowUpdatedSS.PNG" alt="StatsWindowUpdatedSS" width="800">
+<img src="../images/StatsWindowUpdatedSS.PNG" alt="StatsWindowUpdatedSS" width="350">
 </div>
-</div>
-<div class="paragraph">
-<p>Figure 34. Screenshot of populated statistics pop-up window.</p>
+<div class="title">Figure 2. Screenshot of populated statistics pop-up window.</div>
 </div>
 <div class="paragraph">
 <p>Besides the pop-up window, the data is also captured in the command-line result box.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/StatsCommandBox.PNG" alt="StatsCommandBox" width="400">
+<img src="../images/StatsCommandBox.PNG" alt="StatsCommandBox" width="200">
 </div>
 </div>
 <div class="paragraph">
@@ -399,11 +348,9 @@ previous game and perform a comparison of game data.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/StatsSequenceDiagram.PNG" alt="StatsSequenceDiagram" width="1000">
+<img src="../images/StatsSequenceDiagram.PNG" alt="StatsSequenceDiagram" width="600">
 </div>
-</div>
-<div class="paragraph">
-<p>Figure 35. Sequence diagram of <code>stats</code> command.</p>
+<div class="title">Figure 3. Sequence diagram of <code>stats</code> command.</div>
 </div>
 </div>
 <div class="sect3">
@@ -420,7 +367,7 @@ previous game and perform a comparison of game data.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/StatsWinScreen.PNG" alt="StatsWinScreen" width="650">
+<img src="../images/StatsWinScreen.PNG" alt="StatsWinScreen" width="350">
 </div>
 </div>
 <div class="paragraph">
@@ -444,23 +391,19 @@ performed.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/SaveSequenceDiag.PNG" alt="SaveSequenceDiag" width="800">
+<img src="../images/SaveSequenceDiag.PNG" alt="SaveSequenceDiag" width="350">
 </div>
-</div>
-<div class="paragraph">
-<p>Figure 36. Sequence diagram of how the statistics data is saved.</p>
+<div class="title">Figure 4. Sequence diagram of how the statistics data is saved.</div>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram summarizes what happens at the end of the game and an automatic reading of previous
+<p>The following sequence diagram summarizes what happens at the end of the game where an automatic reading of previous
 statistics data is performed.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ReadSequenceDiagram.PNG" alt="ReadSequenceDiagram" width="800">
+<img src="../images/ReadSequenceDiagram.PNG" alt="ReadSequenceDiagram" width="350">
 </div>
-</div>
-<div class="paragraph">
-<p>Figure 37. Sequence diagram of how the previous statistics data is read from storage.</p>
+<div class="title">Figure 5. Sequence diagram of how the previous statistics data is read from storage.</div>
 </div>
 </div>
 <div class="sect3">
@@ -470,11 +413,9 @@ statistics data is performed.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/StatisticsActivityDiagram.png" alt="StatisticsActivityDiagram" width="1000">
+<img src="../images/StatisticsActivityDiagram.png" alt="StatisticsActivityDiagram" width="450">
 </div>
-</div>
-<div class="paragraph">
-<p>Figure 38. Activity Diagram of the statistics feature.</p>
+<div class="title">Figure 6. Activity Diagram of the statistics feature.</div>
 </div>
 </div>
 <div class="sect3">
@@ -484,11 +425,9 @@ statistics data is performed.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/StatsUseCaseDiag.PNG" alt="StatsUseCaseDiag" width="500">
+<img src="../images/StatsUseCaseDiag.PNG" alt="StatsUseCaseDiag" width="250">
 </div>
-</div>
-<div class="paragraph">
-<p>Figure 39. Use case diagram on the statistics feature.</p>
+<div class="title">Figure 7. Use case diagram on the statistics feature.</div>
 </div>
 </div>
 <div class="sect3">
@@ -569,9 +508,9 @@ command is being tracked.</p>
 <h3 id="storage-component"><a class="link" href="#storage-component">Storage component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="../images/StorageClassDiagram.png" alt="StorageClassDiagram" width="800">
+<img src="../images/StorageClassDiagram.png" alt="StorageClassDiagram" width="700">
 </div>
-<div class="title">Figure 1. Structure of the Storage Component</div>
+<div class="title">Figure 8. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
@@ -588,8 +527,13 @@ command is being tracked.</p>
 </div>
 <hr>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="documentation-of-use-cases"><a class="link" href="#documentation-of-use-cases">Documentation of Use Cases</a></h2>
+<div class="sectionbody">
 <div class="sect2">
-<h3 id="use-case-see-game-statistics"><a class="link" href="#use-case-see-game-statistics">Use case: See game statistics</a></h3>
+<h3 id="see-game-statistics"><a class="link" href="#see-game-statistics">See game statistics</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -625,7 +569,7 @@ command is being tracked.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-compare-scores-with-previous-games"><a class="link" href="#use-case-compare-scores-with-previous-games">Use case: Compare scores with previous games</a></h3>
+<h3 id="compare-scores-with-previous-games"><a class="link" href="#compare-scores-with-previous-games">Compare scores with previous games</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -659,8 +603,12 @@ command is being tracked.</p>
 </li>
 </ul>
 </div>
-<hr>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Instructions for Manual Testing</a></h2>
+<div class="sectionbody">
 <div class="sect2">
 <h3 id="viewing-the-statistics"><a class="link" href="#viewing-the-statistics">Viewing the statistics</a></h3>
 <div class="paragraph">
@@ -739,4 +687,4 @@ game accuracy which is 0. Your accuracy has improved.</p>
 <hr>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:03:23 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:40:29 UTC</div></div></div></body></html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Lucy Chan - Project Portfolio for Battleship</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Battleship</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S2-W14-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Lucy Chan - Project Portfolio for Battleship</h1></div><div id="content"><div class="sect1">
+<h2 id="project-overview"><a class="link" href="#project-overview">Project Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Greetings! My name is Lucy and I am part of a 5-person team developing a classic game of Battleship.</p>
+</div>
+<div class="paragraph">
+<p>For the module CS2103t, we were presented with an existing code base for a command line interface(CLI) address book application.
+It was that which we morphed into a game of Battleship.</p>
+</div>
+<div class="paragraph">
+<p>Battleship is a desktop game application based on the classic Battleship game.
+The user interacts with it using a CLI and it has a graphical user interface(GUI) created using JavaFX.
+It is written in Java, and has about 10 kLoC.</p>
+</div>
+<div class="paragraph">
+<p>My role was to design and write the code for the <code>Enemy AI</code> feature of the game.
+The feature provides the game with an automated and intelligent computerised enemy player for the user to play against
+in our single-player game.</p>
+</div>
+<div class="paragraph">
+<p>The following sections illustrate the feature in more detail, as well as the relevant sections I have added to the user and developer guides in relation to this feature.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: added <strong>the Enemy AI feature of the game</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: It is a fully automated computerised enemy player that can randomly fill its own map and attack the player&#8217;s ship with some level of intelligence.</p>
+</li>
+<li>
+<p>Justification: We wanted to make this single-player game as realistic as possible, and so the need for a smarter computerised player that could substitute a human player arose.</p>
+</li>
+<li>
+<p>Highlights: The behaviour of the computerised enemy AI is randomised with eah game session, to provide the player with a unique experience in each game session.
+Furthermore, the enemy&#8217;s shooting algorithm is also informed by past shot successes and misses, and follows an algorithm customised to the strategy of the Battleship game.</p>
+</li>
+<li>
+<p>Credits: The algorithm for the enemy shooting references this article heavily: [<a href="http://www.datagenetics.com/blog/december32011/index.html">DataGeneticsBattleshipAglo</a>].</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103-AY1819S2-W14-3/main/commits/master?author=lucydotc">Commits</a>] [<a href="https://nus-cs2103-ay1819s2.github.io/cs2103-dashboard/#search=lucydotc&amp;sort=displayName&amp;since=2019-02-28&amp;until=2019-04-15&amp;timeframe=day&amp;reverse=false&amp;repoSort=true">Reposense</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Actively hit all milestones in time, and used git issue tracker to track tasks.</p>
+</li>
+<li>
+<p>Actively create and manage issues for myself and my team. [<a href="https://github.com/CS2103-AY1819S2-W14-3/main/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+assignee%3Alucydotc+">Issues made</a>]</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>N/A - I created a new feature essential to the Battleship game that was not present in the given Address Book codebase.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote the Game Rules section in the User Guide.</p>
+</li>
+<li>
+<p>Wrote the Enemy AI section in the Developer Guide.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Ships ahoy! Battleship is a simple computer-based remake of the classic Battleship game.</p>
+</div>
+<div class="paragraph">
+<p>It is for people who want to experience the joy of playing Battleships without the hassle and fuss of dealing with physical game pieces.</p>
+</div>
+<div class="paragraph">
+<p>Battleship is optimised for people who want to use a Command Line Interface (CLI), while still retaining the benefits of a Graphical User Interface (GUI).</p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s a single-player game, and provides a fully functional computerised enemy player for the player to play against, guaranteeing many hours of fun! Can&#8217;t wait to get started? Head over to <a href="#Quick Start">[Quick Start]</a> to fire away!</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong>What is a Command Line Interface (CLI) and a Graphical User Interface (GUI)?</strong><br>
+An interface is how a user interacts with the computer. For example, you can use a mouse to click on a file to open it in Windows or MacOS. This is part of the interface for these operating systems.<br></p>
+</div>
+<div class="paragraph">
+<p>A Command Line Interface (CLI) interacts with the user by accepting words that are typed in by the user. Conversely, a Graphical User Interface (GUI) interacts with the user visually. It uses icons and graphics to show the user what the program is doing.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>As you will see, Battleship is a hybrid application. It combines both a CLI and GUI, meaning that the user must type in commands but will see the changes caused by those commands graphically.</p>
+</div>
+<div class="paragraph">
+<p>This section will describe the game rules and how to play the classic Battleship game.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Goal</strong></p>
+</div>
+<div class="paragraph">
+<p>Sink all your opponent&#8217;s ships before they sink yours.</p>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Captain, deploy ships!</strong></p>
+</div>
+<div class="paragraph">
+<p>Depending on the chosen size of the map, as specified through the <code>init &lt;map_size&gt;</code> command,
+you will be given different numbers of each ship.</p>
+</div>
+<div class="paragraph">
+<p>The ships available are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cruiser: size 2</p>
+</li>
+<li>
+<p>Destroyer: size 3</p>
+</li>
+<li>
+<p>Aircraft Carrier: size 5</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Depending on your map size, your fleet will have different numbers of each ship.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/mapSizeFleetSize.png" alt="mapSizeFleetSize" width="550">
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Ready, aim, fire!</strong></p>
+</div>
+<div class="paragraph">
+<p>After you have placed all your ships, enter <code>begin</code> to start the battle.</p>
+</div>
+<div class="paragraph">
+<p>You will always be given the first turn.
+You may fire shots at the enemy map through the command <code>shoot</code>, for example <code>shoot a1</code>.</p>
+</div>
+<div class="paragraph">
+<p>If the shot hits a ship, you may continue taking shots until they miss.
+Upon a miss, the turn will be handed over to the enemy.
+The same goes for the enemy - the enemy will take its shot automatically, firing until it misses, before
+passing the turn back to you.</p>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Good Game!</strong></p>
+</div>
+<div class="paragraph">
+<p>Whoever is first to destroy all their opponent&#8217;s ships will be declared the winner.
+Had fun? You can view the game statistics with the command <code>stats</code>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current implementation</a></h4>
+<div class="paragraph">
+<p>The Enemy AI feature is currently implemented as an extension of the Player class,
+and serves as the opponent player since <code>Battleship</code> is a single-player game.
+The Enemy AI can automatically perform initialising actions similar to the human player.
+Mainly, the Enemy AI can randomly initialise its own mapGrid with randomly generated ships,
+which is invoked by the command <code>start game</code>.</p>
+</div>
+<div class="paragraph">
+<p>We can see these scenarios here:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EnemyDeployingUseCaseDiagram.png" alt="EnemyDeployingUseCaseDiagram" width="600">
+</div>
+<div class="title">Figure 1. Use Case Diagram for Enemy Deploying Ships</div>
+</div>
+<div class="paragraph">
+<p>The Enemy AI also supports the ability for the enemy to automatically and intelligently shoot
+the player&#8217;s map when the player ends their turn, encapsulated by these scenarios:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EnemyShootingUseCaseDiagram.png" alt="EnemyShootingUseCaseDiagram" width="600">
+</div>
+<div class="title">Figure 2. Use Case Diagram for Enemy Shooting</div>
+</div>
+<div class="paragraph">
+<p>Note that the Enemy AI feature does not contain any explicit commands to be
+entered by the Player. Its methods are called by other features instead, and does its
+magic in the background.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="initialisation-of-enemy-mapgrid"><a class="link" href="#initialisation-of-enemy-mapgrid">Initialisation of Enemy MapGrid</a></h4>
+<div class="paragraph">
+<p>The Enemy AI has the method <code>populateMapGrid()</code> which is called by the method <code>prepEnemy()</code>,
+which is in turn called by the Battle Manager when the Player enters the command <code>start game</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/PrepEnemySequenceDiagram.png" alt="PrepEnemySequenceDiagram" width="800">
+</div>
+<div class="title">Figure 3. Sequence Diagram for prepEnemy()</div>
+</div>
+<div class="paragraph">
+<p>It can be seen from the above sequence diagram that <code>populateMapGrid()</code> goes on to call the methods
+<code>placeAirCraftCarrier()</code> and <code>placeMultipleDestroyerAndCruiser()</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>placeAirCraftCarrier()</code> is called once, and places only one <code>Aircraft Carrier</code> onto the map, since the game rules state that
+no matter the map size, every game will only feature a single <code>Aircraft Carrier</code>.</p>
+</div>
+<div class="paragraph">
+<p>On the other hand, <code>placeMultipleDestroyerAndCruiser()</code> is called twice consecutively. The first call takes in the parameters required
+to put as many <code>Destroyers</code> as available onto the enemy map, while the second call will do so for <code>Cruisers</code>.</p>
+</div>
+<div class="paragraph">
+<p>The reason why <code>placeMultipleDestroyerAndCruiser()</code> is called twice is because the implementation to place <code>Destroyers</code> and <code>Cruisers</code>
+are identical, but we still want to keep their placement separate for better abstraction and easier testing.</p>
+</div>
+<div class="paragraph">
+<p>The following two sequence diagrams illustrate how <code>placeAirCraftCarrier()</code> and <code>placeMultipleDestroyerAndCruiser()</code> prepare the
+enemy ships and put them on the enemy map grid.</p>
+</div>
+<div class="paragraph">
+<p><strong>Sequence Diagram for <code>placeAirCraftCarrier()</code></strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/PlaceAirCraftCarrierSequenceDiagram.png" alt="PlaceAirCraftCarrierSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 4. Sequence Diagram for placeAirCraftCarrier()</div>
+</div>
+<div class="paragraph">
+<p><strong>Sequence Diagram for <code>placeMultipleDestroyerAndCruiser()</code></strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/PlaceMultipleDestroyerAndCruiserSequenceDiagram.png" alt="PlaceMultipleDestroyerAndCruiserSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 5. Sequence Diagram for placeMultipleDestroyerAndCruiser()</div>
+</div>
+<div class="paragraph">
+<p><code>populateMapGrid()</code> will generate randomised ships based on the number of ships
+available to it for the current game, as specified in its Parent class - Player.
+The number of ships available to the Enemy AI is congruent to the number of ships
+available to the Player. The exact number of the different types of ships is decided from on
+a formula that is based on the map size specified by the player in the <code>init</code> command.
+==== Calculation of Coordinate to Attack</p>
+</div>
+<div class="paragraph">
+<p>The Enemy AI has the method <code>enemyShootAt()</code> that is invoked when the player ends their turn upon a miss.
+The Enemy AI will attempt to generate a random Coordinate to attack,
+and pass this Coordinate to the <code>BattleManager</code>. The Enemy AI supports the ability to
+check that its generated coordinates are all valid, and will perform certain calculations that will
+increase its accuracy upon detecting a successful hit on any part of a ship.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram illustrates the conditions taken into account by the Enemy AI as part of its shooting algorithm, and shows
+how it decides on which Coordinate to target, depending on the success of previous hits.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EnemyShootingActivityDiagram.png" alt="EnemyShootingActivityDiagram" width="800">
+</div>
+<div class="title">Figure 6. Activity Diagram of the Enemy Shooting Process</div>
+</div>
+<div class="paragraph">
+<p>We can see from the diagram that the start of the game, when scouting for the Player&#8217;s ships, the Enemy first divides the cells with a parity of 1
+on the map into two groups - we will name these groups White and Black for ease of explanation.
+The enemy will then randomly pick a Coordinate from the White group whenever it is guessing where the
+next Player ship might be. The reason for this is that since every ship must be at least of length 2, all ships will
+consist of at least one of each White or Black coordinates.</p>
+</div>
+<div class="paragraph">
+<p>The Black-White groupings of Coordinates through the concept of parity is illustrated here in the following diagram:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CheckeredBoard.png" alt="CheckeredBoard" width="650">
+</div>
+<div class="title">Figure 7. Checkered Board illusrating concept of parity</div>
+</div>
+<div class="paragraph">
+<p>Once the Enemy hits a Coordinate that has a ship on it, it will note down every valid Coordinate that is cardinal (to the North, South, East and West) to the
+cell that was discovered to hold a ship.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CardinalCoordinates.png" alt="CardinalCoordinates" width="650">
+</div>
+<div class="title">Figure 8. Examples of valid and invalid cardinal coordinates</div>
+</div>
+<div class="paragraph">
+<p>The validity of these cardinal Coordinates are evaluated by checking if they are within the bounds of the map grid, and
+whether they have not been hit before. If these two conditions are satisfied, then the Enemy will note down the cardinal Coordinate into a <code>watchlist</code>, and
+will from that point shoot everything in the <code>watchlist</code>, until the ship that it is targeting is destroyed.</p>
+</div>
+<div class="paragraph">
+<p>When the Enemy AI detects that it has successfully destroyed the Player ship, it will empty out the <code>watchlist</code>, and go back to scouting the
+map for another part of the Player ship, by randomly targeting coordinates in the Black cells, as illustrated in the previous image.</p>
+</div>
+<div class="paragraph">
+<p>The following code snippet gives a clearer view of how the algorithm flows for the enemy shooting strategy:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">    <span class="directive">public</span> Coordinates enemyShootAt() {
+        Coordinates newTarget;
+
+        <span class="keyword">if</span> (watchlist.isEmpty()) {
+            <span class="keyword">if</span> (!allParityTargets.isEmpty()) {
+                newTarget = drawParityTarget();
+                logger.info(<span class="predefined-type">String</span>.format(<span class="string"><span class="delimiter">&quot;</span><span class="content">++++++++WATCHLIST EMPTY </span><span class="delimiter">&quot;</span></span> + <span class="string"><span class="delimiter">&quot;</span><span class="content">enemy shoot parity: </span><span class="delimiter">&quot;</span></span> + newTarget.toString()));
+            } <span class="keyword">else</span> {
+                newTarget = drawFromAllTargets();
+                logger.info(<span class="predefined-type">String</span>.format(<span class="string"><span class="delimiter">&quot;</span><span class="content">++++++++Parity EMPTY </span><span class="delimiter">&quot;</span></span>));
+            }
+        } <span class="keyword">else</span> {
+            newTarget = drawFromWatchList();
+            logger.info(<span class="predefined-type">String</span>.format(<span class="string"><span class="delimiter">&quot;</span><span class="content">++++++++WATCHLIST STUFFED </span><span class="delimiter">&quot;</span></span> + <span class="string"><span class="delimiter">&quot;</span><span class="content">enemy shoot watched: </span><span class="delimiter">&quot;</span></span> + newTarget.toString()));
+        }
+        modeCleanup(newTarget);
+
+        <span class="local-variable">this</span>.addToTargetHistory(newTarget);
+        <span class="keyword">return</span> newTarget;
+
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Note: All actions taken by the Enemy AI are seeded by a pseudo-random generator.
+Thus, its behaviour will be different for every game session.</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design considerations</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Current choice:</strong> seed all methods with pseudo-random seed</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: each game will be a different experience</p>
+</li>
+<li>
+<p>Cons: testing will be more difficult</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative:</strong> pre-calculate and hardcode the actions the Enemy AI performs</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: testing is made very much easier</p>
+</li>
+<li>
+<p>Cons: games would be less dynamic since the enemy&#8217;s behaviour is non-organic</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:40:29 UTC</div></div></div></body></html>

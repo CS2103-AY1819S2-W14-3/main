@@ -39,7 +39,7 @@ My group chose to morph it into a command-line based Battleships application.</p
 <p><strong>Major enhancement</strong>: implemented <strong>the logic for the battle stage of the game</strong><br>
 The battle is one of the two important phases of Battleship, along with the placing of ships.
 Via the battle feature, the user will be able to launch attacks at the enemy, and the enemy launch
-attacks at the user. Cruically, it ensures that the user and enemy take their turns in the correct
+attacks at the user. Crucially, it ensures that the user and enemy take their turns in the correct
 order.</p>
 </li>
 <li>
@@ -65,6 +65,11 @@ the game, as well as prevent the game from entering an invalid state.</p>
     <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/274">#274</a>,
     <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/336">#336</a>)</p>
 </li>
+<li>
+<p>Refactored the Battle component&#8217;s package structure
+(Pull request
+    <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/407">#407</a>)</p>
+</li>
 </ul>
 </div>
 </li>
@@ -73,10 +78,11 @@ the game, as well as prevent the game from entering an invalid state.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Wrote tests for that increased coverage by 4%
+<p>Wrote tests for that increased coverage by a total of 6.7%
 (Pull requests
     <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/231">#231</a>,
-    <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/269">#269</a>)</p>
+    <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/269">#269</a>,
+    <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/404">#404</a>)</p>
 </li>
 </ul>
 </div>
@@ -97,7 +103,15 @@ as reproduced below</p>
 <div class="ulist">
 <ul>
 <li>
-<p>[placeholder]</p>
+<p>Made summaries of current issues in order to make it easier for
+the team to coordinate our efforts.
+(Issues
+    <a href="https://github.com/CS2103-AY1819S2-W14-3/main/issues/211">#211</a>,
+    <a href="https://github.com/CS2103-AY1819S2-W14-3/main/issues/275">#275</a>,
+    <a href="https://github.com/CS2103-AY1819S2-W14-3/main/issues/394">#394</a>)</p>
+</li>
+<li>
+<p>Reported bugs for team W15-3.</p>
 </li>
 </ul>
 </div>
@@ -197,10 +211,16 @@ Otherwise, the enemy will take their turn(s), firing until they get a miss.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below is an excerpt of my contributions to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.
+ To see my full contribution, please refer to the full Developer Guide.</em></p></td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2-design"><a class="link" href="#2-design">2. Design</a></h2>
+<div class="sectionbody">
 <div class="sect2">
 <h3 id="Design-Battle"><a class="link" href="#Design-Battle">Battle component</a></h3>
 <div class="imageblock">
@@ -212,27 +232,12 @@ Otherwise, the enemy will take their turn(s), firing until they get a miss.</p>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/address/logic/battle/Battle.java"><code>Battle.java</code></a></p>
 </div>
-<div class="paragraph">
-<p>The <code>Battle</code> component:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>keeps track of the progress of the battle,</p>
-</li>
-<li>
-<p>restricts the computer to place its ships at the correct time,</p>
-</li>
-<li>
-<p>allows the user and the computer enemy to attack each other and maintain proper turn-taking while doing so.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>As the battle involves many different components (map, player, etc.),
-this component cannot be reduced to just one interface class of <code>Battle</code>.</p>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="3-implementation"><a class="link" href="#3-implementation">3. Implementation</a></h2>
+<div class="sectionbody">
 <div class="sect2">
 <h3 id="battle-feature"><a class="link" href="#battle-feature">Battle feature</a></h3>
 <div class="paragraph">
@@ -261,12 +266,12 @@ enter a command in the wrong stage of the game,</p>
 <p><code>seedu.address.battle</code>: the main <code>Battle</code> class is implemented here.</p>
 </li>
 <li>
-<p><code>seedu.address.battle.state</code>: the battle state classes are implemented here, and
+<p><code>seedu.address.battle.state</code>: the <code>BattleState</code> class is implemented here, and
 can be stored and retrieved via <code>Model</code>.</p>
 </li>
 <li>
 <p><code>seedu.address.battle.result</code>: the attack result classes are implemented here.
-These classes are returned by <code>Battle#humanPerformAttack(coordinates)</code> and
+These classes are returned by <code>Battle#humanPerformAttack(Coordinates)</code> and
 <code>Battle#takeComputerTurn()</code>.</p>
 </li>
 <li>
@@ -308,71 +313,13 @@ to <code>PLAYER_ATTACK</code>.</p>
 </div>
 <div class="sect3">
 <h4 id="implementation-of-the-code-battlemanager-code-class"><a class="link" href="#implementation-of-the-code-battlemanager-code-class">Implementation of the <code>BattleManager</code> class</a></h4>
-<div class="paragraph">
-<p>The <code>BattleManager</code> class contains four important methods, detailed as follows.</p>
-</div>
-<div class="sect4">
-<h5 id="code-void-startgame-code"><a class="link" href="#code-void-startgame-code"><code>void startGame()</code></a></h5>
-<div class="imageblock">
-<div class="content">
-<img src="../images/StartGameSequenceDiagram.png" alt="StartGameSequenceDiagram" width="800">
-</div>
-<div class="title">Figure 3. Sequence diagram of the <code>startGame</code> method</div>
-</div>
-<div class="paragraph">
-<p><code>startGame</code> is called when the player begins the battle (via <code>BeginCommand</code>,
-see next section for more details).</p>
-</div>
-<div class="paragraph">
-<p><code>startGame</code> prepares the <code>Enemy</code> for battle by calling <code>Enemy#prepEnemy</code>,
-which causes the enemy to place its ships and set up other data structures.
-For more information, please see the "Enemy AI Feature" section below.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="code-attackresult-performattack-player-player-coordinates-code"><a class="link" href="#code-attackresult-performattack-player-player-coordinates-code"><code>AttackResult performAttack(Player, Player, Coordinates)</code></a></h5>
-<div class="imageblock">
-<div class="content">
-<img src="../images/PerformAttackSequenceDiagram.png" alt="PerformAttackSequenceDiagram" width="800">
-</div>
-<div class="title">Figure 4. Sequence diagram of the <code>performAttack</code> method</div>
-</div>
-<div class="paragraph">
-<p><code>performAttack</code> is the method that actually performs the attack from one
-player to another. It takes in an attacker <code>Player</code>, a target <code>Player</code> and
-the attacked <code>Coordinates</code>, and returns an <code>AttackResult</code>. (See section
-3.3.3 for the description of what <code>AttackResult</code> is returned in what scenario.)</p>
-</div>
-<div class="paragraph">
-<p>This method is an internal method, used by both <code>humanPerformAttack</code> and
-<code>takeComputerTurn</code>.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="code-attackresult-humanperformattack-coordinates-code"><a class="link" href="#code-attackresult-humanperformattack-coordinates-code"><code>AttackResult humanPerformAttack(Coordinates)</code></a></h5>
-<div class="imageblock">
-<div class="content">
-<img src="../images/HumanPerformAttackSequenceDiagram.png" alt="HumanPerformAttackSequenceDiagram" width="800">
-</div>
-<div class="title">Figure 5. Sequence diagram of the <code>humanPerformAttack</code> method</div>
-</div>
-<div class="paragraph">
-<p><code>humanPerformAttack</code> is called when the player makes an attack (via
-<code>AttackCommand</code>, see below.)</p>
-</div>
-<div class="paragraph">
-<p>This method simply calls <code>performAttack</code> with the human player as the
-attacker, the computer player as the target and the argument coordinate
-as the attacked coordinate.</p>
-</div>
-</div>
 <div class="sect4">
 <h5 id="code-list-attackresult-takecomputerturn-code"><a class="link" href="#code-list-attackresult-takecomputerturn-code"><code>List&lt;AttackResult&gt; takeComputerTurn()</code></a></h5>
 <div class="imageblock">
 <div class="content">
 <img src="../images/TakeComputerTurnSequenceDiagram.png" alt="TakeComputerTurnSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 6. Sequence diagram of the <code>takeComputerTurn</code> method</div>
+<div class="title">Figure 3. Sequence diagram of the <code>takeComputerTurn</code> method</div>
 </div>
 <div class="paragraph">
 <p><code>takeComputerTurn</code> is called after the player makes an attack but misses
@@ -456,13 +403,13 @@ such as whether the attack is a hit.</p>
 <div class="content">
 <img src="../images/BattleUseCaseDiagram.png" alt="BattleUseCaseDiagram" width="800">
 </div>
-<div class="title">Figure 7. Use case diagram of the <code>Battle</code> Component.</div>
+<div class="title">Figure 4. Use case diagram of the <code>Battle</code> Component.</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/BattleActivityDiagram.png" alt="BattleActivityDiagram" width="800">
 </div>
-<div class="title">Figure 8. Activity diagram of the process of battling.</div>
+<div class="title">Figure 5. Activity diagram of the process of battling.</div>
 </div>
 <div class="paragraph">
 <p>The upper diagram is a use case diagram which shows briefly the possible
@@ -480,13 +427,13 @@ the <code>begin</code> command, then the <code>attack a1</code> command.</p>
 <div class="content">
 <img src="../images/BeginSequenceDiagram.png" alt="BeginSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 9. Sequence diagram of <code>begin</code>.</div>
+<div class="title">Figure 6. Sequence diagram of <code>begin</code>.</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/AttackSequenceDiagram.png" alt="AttackSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 10. Sequence diagram of <code>attack a1</code>.</div>
+<div class="title">Figure 7. Sequence diagram of <code>attack a1</code>.</div>
 </div>
 </div>
 <div class="sect3">
@@ -494,8 +441,8 @@ the <code>begin</code> command, then the <code>attack a1</code> command.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong><br>
-<code>BattleManager</code> is stored under <code>Model</code>. Every time <code>Attack</code>, <code>EndTurn</code> or <code>Begin</code> commands
+<p><strong>Current choice:</strong><br>
+<code>BattleManager</code> is stored under <code>Model</code>. Every time <code>Attack</code> or <code>Begin</code> commands
 are executed, they will use this <code>BattleManager</code> to actually perform the actions,
 with the logic in the <code>Command</code>-s mostly being error handling.<br>
 When AI performs attacks, the <code>BattleManager</code> will call the AI to compute its attack
@@ -532,8 +479,8 @@ which call the lowest level classes <code>Map</code> and <code>Player</code>)</p
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong><br>
-<code>BattleManager</code> is stored under <code>Logic</code>. Every time <code>Attack</code>, <code>EndTurn</code> or <code>Begin</code> commands
+<p><strong>Alternative</strong><br>
+<code>BattleManager</code> is stored under <code>Logic</code>. Every time <code>Attack</code> or <code>Begin</code> commands
 are executed, they will perform the action using the logic coded within themselves, not
 interfacing with <code>BattleManager</code>.<br>
 When AI performs attacks, the <code>BattleManager</code> will create these commands and execute them.
@@ -572,8 +519,116 @@ for the advantages of Option 1.</p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="appendix-c-use-cases"><a class="link" href="#appendix-c-use-cases">Appendix C: Use Cases</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="begin-the-battle"><a class="link" href="#begin-the-battle">Begin the battle</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to begin the battle.</p>
+</li>
+<li>
+<p>Game instructs the enemy to place their ships.</p>
+</li>
+<li>
+<p>Game displays that the battle has begun.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The user has not placed any ships.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. The game prevents the user from starting the battle, and
+informs them to place at least one ship.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="appendix-f-instructions-for-manual-testing"><a class="link" href="#appendix-f-instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="attacking"><a class="link" href="#attacking">Attacking</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>To test <code>attack</code>, we will need to play through the game.
+Please follow the following steps in order.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Start the application, then execute <code>attack</code>.<br>
+Expected result: no attack is executed, and an error message is displayed.</p>
+</li>
+<li>
+<p>Execute <code>init 6</code>, and place your ships on the board.</p>
+</li>
+<li>
+<p>Execute <code>begin</code>.</p>
+</li>
+<li>
+<p>Make an attack on a square that is out of bounds, e.g. <code>attack a9</code>.<br>
+Expected result: no attack is executed, and
+a prompt to select another cell is displayed.</p>
+</li>
+<li>
+<p>Make an attack on a valid square that <strong>misses</strong>.<br>
+Expected result: the attacked square on the enemy map turns dark blue, and
+a "miss" message is displayed. The enemy also makes one or more moves.</p>
+</li>
+<li>
+<p>Make an attack on a square you have already attacked.
+Expected result: no attack is executed, and
+a prompt to select another cell is displayed.</p>
+</li>
+<li>
+<p>Make an attack on a valid square that <strong>hits</strong>. <br>
+Expected result: the attacked square on the enemy map turns orange, and
+a "hit" message is displayed.</p>
+</li>
+<li>
+<p>Make an attack that <strong>destroys a ship</strong>.<br>
+Expected result: the destroyed ship on the enemy map turns red, and
+a "destroy" message is displayed.</p>
+</li>
+<li>
+<p>Destroy all the enemy&#8217;s ships.<br>
+Expected result: a "win" message is displayed.</p>
+</li>
+<li>
+<p>Start another battle, then have all your ships be destroyed by the enemy.<br>
+Expected result: a "lose" message is displayed.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
 <hr>
 </div>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:03:23 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:40:29 UTC</div></div></div></body></html>

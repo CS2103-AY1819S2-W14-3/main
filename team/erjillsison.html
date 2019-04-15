@@ -10,12 +10,10 @@
 <p>My team and I were presented with an existing code base for a command line interface (CLI) address book application. We were given about 8 weeks to either enhance or morph the address book application to a product of our own choice. We chose to morph it into <strong>Battleship</strong>.</p>
 </div>
 <div class="paragraph">
-<p>Battleship is a desktop game application based on the classic guessing game, <strong>Battleship</strong>.
-The user interacts with it using a command-line interface (CLI) and it has a graphical user interface(GUI) created using JavaFX.
-It is written in Java, and has about 10 kLoC.</p>
+<p><strong>Battleship</strong> is a desktop game application based on the classic 2 player guessing game of the same name. The objective of the game is to sink all the opposing player&#8217;s ships. The player interacts with the game using a command-line interface (CLI) and feedback is given to the player through the graphical user interface (GUI). The game is written in Java, with the GUI created using JavaFX and has about 10 kLoC.</p>
 </div>
 <div class="paragraph">
-<p>My role was to design and write the code for the <code>map</code> feature of the game.
+<p>My role was to design and write the code for the <strong>map feature</strong> of the game.
 The following sections illustrate the feature in more detail, as well as the relevant sections I have added to the user and developer guides in relation to this feature.</p>
 </div>
 <div class="paragraph">
@@ -64,19 +62,29 @@ The full User Guide and Developer Guide can be viewed in the project website.</p
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: The player can initialise the maps to the size they specified. The players can place ships on their own map and shoot the opposing players map. The maps are displayed in the UI and each cell will change colour depending on its status. The initialise command can be used at any point in time during the game and will reset the board to a clean state.</p>
+<p>What it does: The player can initialise the maps to the size they specified using the command <code>init</code>. The players can place ships on their own map and shoot the opposing players map. The maps are displayed in the UI and each cell will be represented with different colours depending on its status. The <code>init</code> command can be used at any point in time during the game and will reset the board to a clean state.</p>
 </li>
 <li>
 <p>Highlights: The other features (e.g placing ships) rely heavily on the map. It requires careful planning on the design as the other features must be built on top of it and any changes made later on will affect the other features.</p>
 </li>
 <li>
-<p>Justification: The maps are crucial to the gameplay as it is the basis of all of the game interactions.</p>
+<p>Justification: The maps are crucial to the gameplay as all of the other features are built on top of it.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1819s2.github.io/cs2103-dashboard/#search=erjillsison&amp;sort=displayName&amp;since=2019-02-10&amp;until=2019-04-10&amp;timeframe=day&amp;reverse=false&amp;repoSort=true">Functional code</a>]</p>
+<p><strong>Code contributed</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://nus-cs2103-ay1819s2.github.io/cs2103-dashboard/#=undefined&amp;search=erjillsison">Code extracts</a></p>
+</li>
+<li>
+<p><a href="https://github.com/CS2103-AY1819S2-W14-3/main/commits/master?author=erjillsison">Authored commits</a></p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -103,7 +111,7 @@ The full User Guide and Developer Guide can be viewed in the project website.</p
 <div class="ulist">
 <ul>
 <li>
-<p>Overhaul of UI to display the maps. (Pull request <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/87">#87</a>)</p>
+<p>Overhauled UI to display the maps. (Pull request <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/87">#87</a>)</p>
 </li>
 </ul>
 </div>
@@ -123,7 +131,7 @@ The full User Guide and Developer Guide can be viewed in the project website.</p
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments). (Pull Requests <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/53">#53</a>,  <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/334">#334</a>)</p>
+<p>Reviewed PRs (with non-trivial review comments). (Pull Requests <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/53">#53</a>,  <a href="https://github.com/CS2103-AY1819S2-W14-3/main/pull/334">#334</a>)</p>
 </li>
 <li>
 <p>Reported bugs and suggestions for other teams in the class. (Issues <a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/672">#672</a>, <a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/148">#148</a>)</p>
@@ -137,6 +145,9 @@ The full User Guide and Developer Guide can be viewed in the project website.</p
 <ul>
 <li>
 <p>Integrated Netlify to the team repo.</p>
+</li>
+<li>
+<p>Setup auto publishing of documentation.</p>
 </li>
 </ul>
 </div>
@@ -157,7 +168,7 @@ The full User Guide and Developer Guide can be viewed in the project website.</p
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users. Note that the horizontal lines indicate that they are taken from different sections of the User Guide.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users. Parts of the User Guide that belong to different sections are separated by a horizontal line.</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -167,9 +178,9 @@ The full User Guide and Developer Guide can be viewed in the project website.</p
 <p>This section describes the commands used in the preparation phase.</p>
 </div>
 <div class="sect3">
-<h4 id="initialising-the-map-code-init-code"><a class="link" href="#initialising-the-map-code-init-code">Initialising the map : <code>init</code></a></h4>
+<h4 id="initialising-the-maps-code-init-code"><a class="link" href="#initialising-the-maps-code-init-code">Initialising the maps : <code>init</code></a></h4>
 <div class="paragraph">
-<p>Initialises both player&#8217;s maps to the specified size. The size of the maps must be between 6 and 10, inclusive.<br></p>
+<p>The <code>init</code> command initialises both your map and the enemy AI&#8217;s map to the size that you specify. The size of the maps must be between 6 and 10, inclusive.<br></p>
 </div>
 <div class="paragraph">
 <p>Format: <code>init MAP_SIZE</code><br>
@@ -183,7 +194,7 @@ Example: <code>init 10</code></p>
 <p>The <code>init</code> command can be used at any point in time during gameplay. When used in the middle of a game, the <code>init</code> command functions like a "new game" command and will reset the board to a clean state.</p>
 </li>
 <li>
-<p>Each cell is represented by its coordinates e.g "b1".</p>
+<p>Each cell is represented by its coordinates e.g "b1". The coordinates will be used by the other commands to refer to a cell.</p>
 </li>
 </ul>
 </div>
@@ -196,7 +207,7 @@ Example: <code>init 10</code></p>
 <div class="content">
 <img src="../images/initmapresult.png" alt="initmapresult" width="750">
 </div>
-<div class="title">Figure 1. Player and enemy maps</div>
+<div class="title">Figure 1. The maps as displayed in the UI</div>
 </div>
 <div class="paragraph">
 <p><br>
@@ -252,17 +263,21 @@ Throughout the course of the game, the cells in the map will change colour based
 <hr>
 </div>
 </div>
-<div class="sect2">
-<h3 id="upcoming-feature-in-v2-0"><a class="link" href="#upcoming-feature-in-v2-0">Upcoming Feature in v2.0</a></h3>
-
+</div>
+</div>
+<div class="sect1">
+<h2 id="features-coming-in-v2-0"><a class="link" href="#features-coming-in-v2-0">Features Coming in v2.0</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section describes features that have not been implemented yet and are scheduled to be released in version 2.0.</p>
 </div>
 <div class="sect2">
 <h3 id="special-map-shapes"><a class="link" href="#special-map-shapes">Special map shapes</a></h3>
 <div class="paragraph">
-<p>The player will be allowed to use maps that are randomised in shape. This adds an extra layer of challenge and fun for the player.</p>
+<p>You will be allowed to use maps that are randomised in shape. This adds an extra layer of challenge and fun.</p>
 </div>
 <div class="paragraph">
-<p>The player will not be able to place their ships on the black tiles. The enemy AI will also have a randomised map that will not be the same as the player. The player will not be able to see the shape of the enemy map and can shoot black cells which will be counted as a miss.</p>
+<p>Both yourself and the enemy AI will not be able to place ships on the grey tiles. The enemy AI will also have a randomised map that will not be the same as your map. You will not be able to see the shape of the enemy map and can shoot grey cells which will be counted as a miss.</p>
 </div>
 <div class="paragraph">
 <p>The image below shows an example of a randomised map.</p>
@@ -285,7 +300,7 @@ Throughout the course of the game, the cells in the map will change colour based
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project. Note that the horizontal lines indicate that they are taken from different sections of the Developer Guide.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project. Parts of the Developer Guide that belong to different sections are separated by a horizontal line.</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -294,19 +309,35 @@ Throughout the course of the game, the cells in the map will change colour based
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ModelClassDiagram.png" alt="ModelClassDiagram" width="800">
+<img src="../images/ModelClassDiagram.png" alt="ModelClassDiagram" width="600">
 </div>
 <div class="title">Figure 4. Model Diagram</div>
 </div>
 <hr>
 <div class="sect2">
 <h3 id="map-feature"><a class="link" href="#map-feature">Map feature</a></h3>
+<div class="paragraph">
+<p>The map feature handles the interactions of the game in the map level. The map feature does the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Initialise both players' maps.</p>
+</li>
+<li>
+<p>Allow placing of ships in the cells.</p>
+</li>
+<li>
+<p>Allow attacking of cells.</p>
+</li>
+</ul>
+</div>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">Current implementation</a></h4>
+<h4 id="implementation-of-map-initialisation"><a class="link" href="#implementation-of-map-initialisation">Implementation of map initialisation</a></h4>
 <div class="paragraph">
 <p>The map feature is facilitated by <code>MapGrid</code> and <code>Cell</code>.
 The map grid is stored internally in <code>MapGrid</code> as a 2D array of <code>Cell</code> objects.
-<code>MapGrid</code> implements the following method to initialise the map.</p>
+<code>MapGrid</code> implements the following method to initialise the map:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -316,7 +347,8 @@ The map grid is stored internally in <code>MapGrid</code> as a 2D array of <code
 </ul>
 </div>
 <div class="paragraph">
-<p>Below is the code snippet for the <code>initialise</code> method</p>
+<p>Below is the code snippet for the <code>initialise</code> method. <code>cellGrid</code> is the internal 2D array comprising of <code>Cell</code> objects.<br>
+The method <code>copy2dArray</code> copies the <code>map</code> parameter passed in to the internal <code>cellGrid</code></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -331,11 +363,12 @@ The map grid is stored internally in <code>MapGrid</code> as a 2D array of <code
 </div>
 </div>
 <div class="paragraph">
-<p><code>cellGrid</code> is the internal 2D array comprising of <code>Cell</code> objects.<br>
-The method <code>copy2dArray</code> copies the <code>map</code> parameter passed in to the internal <code>cellGrid</code></p>
+<p><br></p>
 </div>
 <div class="paragraph">
-<p>Below is the code snippet for the <code>copy2dArray</code> method.</p>
+<p>Below is the code snippet for the <code>copy2dArray</code> method. The <code>copy2dArray</code> method creates a new <code>Cell</code> object for each of the input <code>Cell</code> objects.
+The copying is done using a constructor in <code>Cell</code> that takes in a parameter <code>Cell</code>.
+This constructor copies the private attributes of the given <code>Cell</code> parameter.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -349,11 +382,6 @@ The method <code>copy2dArray</code> copies the <code>map</code> parameter passed
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>copy2dArray</code> method creates a new <code>Cell</code> object for each of the input <code>Cell</code> objects.
-The copying is done using a constructor in <code>Cell</code> that takes in a parameter <code>Cell</code>.
-This constructor copies the private attributes of the given <code>Cell</code> parameter.</p>
-</div>
-<div class="paragraph">
 <p><br>
 The following sequence diagram shows what happens when the "initialise map" command is used.:</p>
 </div>
@@ -364,7 +392,7 @@ The following sequence diagram shows what happens when the "initialise map" comm
 <div class="title">Figure 5. Sequence diagram of initialising the maps</div>
 </div>
 <div class="paragraph">
-<p>The following activity diagram shows when the "initialise map" command can be used:</p>
+<p>The following activity diagram shows when the "initialise map" command can be used by the user:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -374,6 +402,86 @@ The following sequence diagram shows what happens when the "initialise map" comm
 </div>
 <div class="paragraph">
 <p><br></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-the-code-cell-code-class"><a class="link" href="#implementation-of-the-code-cell-code-class">Implementation of the <code>Cell</code> class</a></h4>
+<div class="paragraph">
+<p>The cells are the lowest-level feature of the game and is represented by the <code>Cell</code> class. Each <code>Cell</code> allows one ship to be placed on it but the same ship can be referenced from multiple <code>Cell</code> objects. <code>Cell</code> also allows receiving of an attack and will propagate the attack call to the <code>Battleship</code> in it. To support the above, the following methods are available:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>void putShip(Battleship ship)</code> - places a ship in the <code>Cell</code>.</p>
+</li>
+<li>
+<p><code>boolean receiveAttack()</code> - receives an attack and returns true if it&#8217;s a hit, false otherwise.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Also, each <code>Cell</code> has a <code>Status</code> attribute which is an <code>enum</code> of the following:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Status</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HIDDEN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This cell has not been hit.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EMPTY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This cell is empty and has not been hit.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EMPTYHIT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This cell has been hit before, and is empty.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SHIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This cell has a ship in it.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SHIPHIT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This cell has been hit before, and there is a damaged ship here.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DESTROYED</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This cell has been hit before, and the ship here has been destroyed.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The <code>Status</code> of a <code>Cell</code> can be checked through the following method:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Status getStatus()</code> - returns the <code>Status</code> of the <code>Cell</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>Status</code> is used by several higher level functionality such as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the UI to know what colour should a <code>Cell</code> be displayed as.</p>
+</li>
+<li>
+<p>placing ships to check whether a ship has already been placed.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
@@ -458,7 +566,11 @@ Simpler implementation means the likelihood of bugs being introduced is less whe
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-initialise-maps"><a class="link" href="#use-case-initialise-maps">Use case: Initialise Maps</a></h3>
+<h3 id="use-case"><a class="link" href="#use-case">Use Case</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="initialise-maps"><a class="link" href="#initialise-maps">Initialise Maps</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -502,7 +614,7 @@ Simpler implementation means the likelihood of bugs being introduced is less whe
 
 </div>
 <div class="sect2">
-<h3 id="initialising-the-maps"><a class="link" href="#initialising-the-maps">Initialising the maps</a></h3>
+<h3 id="initialise-the-maps"><a class="link" href="#initialise-the-maps">Initialise the maps</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -529,4 +641,4 @@ Expected: No map will be displayed if this is the first command ran. Otherwise, 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:03:23 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:40:29 UTC</div></div></div></body></html>

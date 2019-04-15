@@ -22,8 +22,8 @@
 </li>
 <li><a href="#preparation-phase">4.2. Preparation phase</a>
 <ul class="sectlevel3">
-<li><a href="#initialising-the-map-code-init-code">4.2.1. Initialising the map : <code>init</code></a></li>
-<li><a href="#managing-ships">4.2.2. Managing ships:</a>
+<li><a href="#initialising-the-maps-code-init-code">4.2.1. Initialising the maps : <code>init</code></a></li>
+<li><a href="#managing-ships-code-put-code-code-list-code-code-listtags-code">4.2.2. Managing ships: <code>put</code>, <code>list</code>, <code>listTags</code></a>
 <ul class="sectlevel4">
 <li><a href="#placing-a-ship-on-the-map-code-put-code">4.2.2.1. Placing a ship on the map: <code>put</code></a></li>
 <li><a href="#listing-all-ships-code-list-code">4.2.2.2. Listing all ships : <code>list</code></a></li>
@@ -41,13 +41,15 @@
 </li>
 </ul>
 </li>
-<li><a href="#coming-in-v2-0">5. Coming in v2.0</a>
+<li><a href="#features-coming-in-v2-0">5. Features Coming in v2.0</a>
 <ul class="sectlevel2">
 <li><a href="#special-map-shapes">5.1. Special map shapes</a></li>
+<li><a href="#quick-start-2">5.2. Quick start</a></li>
+<li><a href="#save-and-load-pattern-of-deployed-ships">5.3. Save and load pattern of deployed ships</a></li>
+<li><a href="#display-high-score-across-games">5.4. Display high score across games</a></li>
 </ul>
 </li>
-<li><a href="#faq">6. FAQ</a></li>
-<li><a href="#command-summary">7. Command Summary</a></li>
+<li><a href="#command-summary">6. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -55,13 +57,16 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Ships ahoy! Battleship is a simple computer-based remake of the classic Battleship game. It is for people who want to have the joy of playing Battleships without the hassle and fuss of dealing with physical game pieces.</p>
+<p>Ships ahoy! Battleship is a simple computer-based remake of the classic Battleship game.</p>
+</div>
+<div class="paragraph">
+<p>It is for people who want to experience the joy of playing Battleships without the hassle and fuss of dealing with physical game pieces.</p>
 </div>
 <div class="paragraph">
 <p>Battleship is optimised for people who want to use a Command Line Interface (CLI), while still retaining the benefits of a Graphical User Interface (GUI).</p>
 </div>
 <div class="paragraph">
-<p>It can guarantee many hours of fun, especially between those long and boring periods of the day. Can&#8217;t wait to get started? Head over to <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to fire away!</p>
+<p>It&#8217;s a single-player game, and provides a fully functional computerised enemy player for the player to play against, guaranteeing many hours of fun! Can&#8217;t wait to get started? Head over to <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to fire away!</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -108,7 +113,7 @@ An interface is how a user interacts with the computer. For example, you can use
 e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
 </li>
 <li>
-<p>To begin playing, first initialise the map to a size between 6 to 10. eg: <code>init 6</code>.</p>
+<p>Initialise the map to a size between 6 to 10. eg: <code>init 6</code>.</p>
 </li>
 <li>
 <p>Deploy your battleships:</p>
@@ -118,10 +123,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>Deploy your aircraft carrier: <code>put n/aircraft carrier c/a1 r/h</code></p>
 </li>
 <li>
-<p>Deploy your cruiser: <code>put n/cruiser c/c1 r/h</code></p>
+<p>Deploy your cruiser(s): <code>put n/cruiser c/c1 r/h</code></p>
 </li>
 <li>
-<p>Deploy your destroyer: <code>put n/destroyer c/e1 r/h</code></p>
+<p>Deploy your destroyer(s): <code>put n/destroyer c/e1 r/h</code></p>
 </li>
 </ol>
 </div>
@@ -154,7 +159,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong>Goal</strong></p>
 </div>
 <div class="paragraph">
-<p>Sink all your opponent&#8217;s battleships before they sink yours.</p>
+<p>Sink all your opponent&#8217;s ships before they sink yours.</p>
 </div>
 </div>
 </div>
@@ -165,7 +170,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 <div class="paragraph">
 <p>Depending on the chosen size of the map, as specified through the <code>init &lt;map_size&gt;</code> command,
-the player will be given different numbers of each ship.</p>
+you will be given different numbers of each ship.</p>
 </div>
 <div class="paragraph">
 <p>The ships available are:</p>
@@ -184,8 +189,7 @@ the player will be given different numbers of each ship.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Here are the respective number of each ship in your fleet, depending
-on your map size.</p>
+<p>Depending on your map size, your fleet will have different numbers of each ship.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -200,14 +204,17 @@ on your map size.</p>
 <p><strong>Ready, aim, fire!</strong></p>
 </div>
 <div class="paragraph">
-<p>The Player will always be given the first turn.
-The Player may fire shots at the enemy map through the command <code>shoot</code>, for example <code>shoot a1</code>.</p>
+<p>After you have placed all your ships, enter <code>begin</code> to start the battle.</p>
 </div>
 <div class="paragraph">
-<p>If the shot hits a ship, the Player may continue taking shots until they miss.
+<p>You will always be given the first turn.
+You may fire shots at the enemy map through the command <code>shoot</code>, for example <code>shoot a1</code>.</p>
+</div>
+<div class="paragraph">
+<p>If the shot hits a ship, you may continue taking shots until they miss.
 Upon a miss, the turn will be handed over to the enemy.
 The same goes for the enemy - the enemy will take its shot automatically, firing until it misses, before
-passing the turn back to the Player.</p>
+passing the turn back to you.</p>
 </div>
 </div>
 </div>
@@ -217,7 +224,7 @@ passing the turn back to the Player.</p>
 <p><strong>Good Game!</strong></p>
 </div>
 <div class="paragraph">
-<p>Whoever is first to destroy all their opponent&#8217;s ship will be declared the winner.
+<p>Whoever is first to destroy all their opponent&#8217;s ships will be declared the winner.
 Had fun? You can view the game statistics with the command <code>stats</code>.</p>
 </div>
 </div>
@@ -238,7 +245,7 @@ Had fun? You can view the game statistics with the command <code>stats</code>.</
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>init MAP_SIZE</code>, <code>MAP_SIZE</code> is a parameter which can be used as <code>init 10</code>.</p>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by you e.g. in <code>init MAP_SIZE</code>, <code>MAP_SIZE</code> is a parameter which can be used as <code>init 10</code>.</p>
 </li>
 <li>
 <p>Items in square brackets are optional e.g <code>put n/NAME [t/TAG]</code> can be used as <code>put n/Destroyer t/bestship</code> or as <code>put n/Destroyer</code>.</p>
@@ -285,6 +292,9 @@ time, the program will tell you so.</p>
 </div>
 <div class="sect2">
 <h3 id="general-commands"><a class="link" href="#general-commands">4.1. General commands</a></h3>
+<div class="paragraph">
+<p>This section describes commands that can be executed at any point of time during the game.</p>
+</div>
 <div class="sect3">
 <h4 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">4.1.1. Viewing help : <code>help</code></a></h4>
 <div class="paragraph">
@@ -306,9 +316,9 @@ Format: <code>exit</code></p>
 <p>This section describes the commands used in the preparation phase.</p>
 </div>
 <div class="sect3">
-<h4 id="initialising-the-map-code-init-code"><a class="link" href="#initialising-the-map-code-init-code">4.2.1. Initialising the map : <code>init</code></a></h4>
+<h4 id="initialising-the-maps-code-init-code"><a class="link" href="#initialising-the-maps-code-init-code">4.2.1. Initialising the maps : <code>init</code></a></h4>
 <div class="paragraph">
-<p>Initialises both player&#8217;s maps to the specified size. The size of the maps must be between 6 and 10, inclusive.<br></p>
+<p>The <code>init</code> command initialises both your map and the enemy AI&#8217;s map to the size that you specify. The size of the maps must be between 6 and 10, inclusive.<br></p>
 </div>
 <div class="paragraph">
 <p>Format: <code>init MAP_SIZE</code><br>
@@ -322,7 +332,7 @@ Example: <code>init 10</code></p>
 <p>The <code>init</code> command can be used at any point in time during gameplay. When used in the middle of a game, the <code>init</code> command functions like a "new game" command and will reset the board to a clean state.</p>
 </li>
 <li>
-<p>Each cell is represented by its coordinates e.g "b1".</p>
+<p>Each cell is represented by its coordinates e.g "b1". The coordinates will be used by the other commands to refer to a cell.</p>
 </li>
 </ul>
 </div>
@@ -335,7 +345,7 @@ Example: <code>init 10</code></p>
 <div class="content">
 <img src="images/initmapresult.png" alt="initmapresult" width="750">
 </div>
-<div class="title">Figure 1. Player and enemy maps</div>
+<div class="title">Figure 1. The maps as displayed in the UI</div>
 </div>
 <div class="paragraph">
 <p><br>
@@ -390,11 +400,11 @@ Throughout the course of the game, the cells in the map will change colour based
 </div>
 </div>
 <div class="sect3">
-<h4 id="managing-ships"><a class="link" href="#managing-ships">4.2.2. Managing ships:</a></h4>
+<h4 id="managing-ships-code-put-code-code-list-code-code-listtags-code"><a class="link" href="#managing-ships-code-put-code-code-list-code-code-listtags-code">4.2.2. Managing ships: <code>put</code>, <code>list</code>, <code>listTags</code></a></h4>
 <div class="sect4">
 <h5 id="placing-a-ship-on-the-map-code-put-code"><a class="link" href="#placing-a-ship-on-the-map-code-put-code">4.2.2.1. Placing a ship on the map: <code>put</code></a></h5>
 <div class="paragraph">
-<p>Adds a battleship onto the player&#8217;s map. The coordinates specified is the position of the ship&#8217;s head.<br></p>
+<p>Adds a ship onto your map. The coordinates specified is the position of the ship&#8217;s head.<br></p>
 </div>
 <div class="paragraph">
 <p>Format: <code>put n/NAME c/COORDINATES r/ORIENTATION [t/TAGS]</code><br></p>
@@ -405,24 +415,24 @@ Throughout the course of the game, the cells in the map will change colour based
 <div class="ulist">
 <ul>
 <li>
-<p><code>put n/Destroyer c/a1 r/vertical</code></p>
+<p><code>put n/destroyer c/a1 r/vertical</code></p>
 </li>
 <li>
-<p><code>put n/Aircraft Carrier c/b1 r/h t/tag1</code><br></p>
+<p><code>put n/aircraft carrier c/b1 r/h t/tag1</code><br></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The head of a battleship is the top-most and left-most cell of the battleship. When coordinates are specified in the <code>put</code> command, it specifies the coordinates of the head of the battleship, as shown in the figure below.</p>
+<p>The head of a ship is the top-most and left-most cell of the ship. When coordinates are specified in the <code>put</code> command, it specifies the coordinates of the head of the ship, as shown in the figure below.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/BattleshipHeadExample2.png" alt="BattleshipHeadExample2" width="800">
+<img src="images/BattleshipHeadExample2.png" alt="BattleshipHeadExample2" width="400">
 </div>
-<div class="title">Figure 3. The coordinates of the <code>put</code> command refer to the coordinates of the battleship head.</div>
+<div class="title">Figure 3. The coordinates of the <code>put</code> command refer to the coordinates of the ship head.</div>
 </div>
 <div class="paragraph">
-<p>The orientation of the ship can be <code>horizontal</code> or <code>vertical</code>. This may be shortened to <code>h</code> or <code>v</code>, respectively. The orientation of the battleship must be specified.<br></p>
+<p>The orientation of the ship can be <code>horizontal</code> or <code>vertical</code>. This may be shortened to <code>h</code> or <code>v</code>, respectively. The orientation of the ship must be specified.<br></p>
 </div>
 <div class="paragraph">
 <p>When putting a ship on the map grid, you should specify the head coordinates such that:</p>
@@ -441,7 +451,7 @@ Throughout the course of the game, the cells in the map will change colour based
 <div class="sect4">
 <h5 id="listing-all-ships-code-list-code"><a class="link" href="#listing-all-ships-code-list-code">4.2.2.2. Listing all ships : <code>list</code></a></h5>
 <div class="paragraph">
-<p>Shows a list of all the player&#8217;s battleships that are have been deployed on the map. There are four ways of using the <code>list</code> command:</p>
+<p>Shows a list of all of your ships that have been deployed on the map. There are four ways of using the <code>list</code> command:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -479,7 +489,7 @@ Throughout the course of the game, the cells in the map will change colour based
 </ul>
 </div>
 <div class="paragraph">
-<p>The list will show the battleship&#8217;s head coordinate, the battleship&#8217;s orientation, and the battleship&#8217;s tags in square brackets. The format of each entry in the list is: <code>[NAME] [CURRENT LIFE] at [HEAD COORDINATE] [ORIENTATION] [TAGS]</code>. An example is given below.</p>
+<p>The list will show the ship&#8217;s head coordinate, the ship&#8217;s orientation, and the ship&#8217;s tags in square brackets. The format of each entry in the list is: <code>[NAME] [CURRENT LIFE] at [HEAD COORDINATE] [ORIENTATION] [TAGS]</code>. An example is given below.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -492,14 +502,10 @@ Output:     destroyer (3/3) at g5 vertical [redFleet][blueFleet][greenFleet]
 <div class="sect4">
 <h5 id="listing-all-tags-code-listtags-code"><a class="link" href="#listing-all-tags-code-listtags-code">4.2.2.3. Listing all tags: <code>listTags</code></a></h5>
 <div class="paragraph">
-<p>Lists all the tags that have been used to tag the battleships deployed on the map.<br></p>
+<p>Lists all the tags that have been used to tag the ship deployed on the map.<br></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>listTags</code><br>
-Examples: <code>listTags</code></p>
-</div>
-<div class="paragraph">
-<p>The list of tags is given in square brackets.</p>
+<p>Format: <code>listTags</code></p>
 </div>
 </div>
 </div>
@@ -575,16 +581,6 @@ Otherwise, the enemy will take their turn(s), firing until they get a miss.</p>
 <div class="paragraph">
 <p>Format: <code>stats</code></p>
 </div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>stats</code></p>
-</li>
-</ul>
-</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -593,8 +589,8 @@ Otherwise, the enemy will take their turn(s), firing until they get a miss.</p>
 <p>The pop-up window will contain a bar chart visualisation of your game play data</p>
 </li>
 <li>
-<p>The pop-up window does not update itself when it is opened and the <code>stats</code> command must be called again to display updated
-values.</p>
+<p>To reload the statistics data, you must close the current pop-up window and call the <code>stats</code> command again
+to display the updated values.</p>
 </li>
 </ul>
 </div>
@@ -605,15 +601,18 @@ values.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="coming-in-v2-0"><a class="link" href="#coming-in-v2-0">5. Coming in v2.0</a></h2>
+<h2 id="features-coming-in-v2-0"><a class="link" href="#features-coming-in-v2-0">5. Features Coming in v2.0</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This section describes features that have not been implemented yet and are scheduled to be released in version 2.0.</p>
+</div>
 <div class="sect2">
 <h3 id="special-map-shapes"><a class="link" href="#special-map-shapes">5.1. Special map shapes</a></h3>
 <div class="paragraph">
-<p>The player will be allowed to use maps that are randomised in shape. This adds an extra layer of challenge and fun for the player.</p>
+<p>You will be allowed to use maps that are randomised in shape. This adds an extra layer of challenge and fun.</p>
 </div>
 <div class="paragraph">
-<p>The player will not be able to place their ships on the black tiles. The enemy AI will also have a randomised map that will not be the same as the player. The player will not be able to see the shape of the enemy map and can shoot black cells which will be counted as a miss.</p>
+<p>Both yourself and the enemy AI will not be able to place ships on the grey tiles. The enemy AI will also have a randomised map that will not be the same as your map. You will not be able to see the shape of the enemy map and can shoot grey cells which will be counted as a miss.</p>
 </div>
 <div class="paragraph">
 <p>The image below shows an example of a randomised map.</p>
@@ -625,19 +624,61 @@ values.</p>
 <div class="title">Figure 4. Example of a random map shape</div>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">6. FAQ</a></h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="quick-start-2"><a class="link" href="#quick-start-2">5.2. Quick start</a></h3>
 <div class="paragraph">
-<p><strong>Q</strong>: How are you today?<br>
-<strong>A</strong>: I&#8217;m fine and dandy thank you very much.</p>
+<p>Randomly deploys the all of your ships onto the map and starts the battle.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>quickStart</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="save-and-load-pattern-of-deployed-ships"><a class="link" href="#save-and-load-pattern-of-deployed-ships">5.3. Save and load pattern of deployed ships</a></h3>
+<div class="paragraph">
+<p>Save and load the pattern that you used to deploy your ships.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>pattern i/OPTION p/PATTERN]</code><br>
+Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>pattern i/save</code></p>
+</li>
+<li>
+<p><code>pattern i/load p/circle</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="display-high-score-across-games"><a class="link" href="#display-high-score-across-games">5.4. Display high score across games</a></h3>
+<div class="paragraph">
+<p>Display the high score across more than two games.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>stats highscore t/ATTRIBUTE</code><br>
+Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>stats highscore t/time</code><br>
+Display game data from the game that won in the shortest amount of time</p>
+</li>
+<li>
+<p><code>stats highscore t/accuracy</code><br>
+Display game data from the game with the highest accuracy.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">7. Command Summary</a></h2>
+<h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -676,7 +717,7 @@ values.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List ships</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>list [n/NAME] [t/TAG]…</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all available battleships, optionally filtering by name and tag(s)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all available ships, optionally filtering by name and tag(s)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
 </tr>
 <tr>
@@ -688,7 +729,7 @@ values.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Put ship on map</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>put n/NAME r/ORIENTATION c/COORDINATE [t/TAG]…</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Places a battleship on the specified position on the map, optionally adding tag(s).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Places a ship on the specified position on the map, optionally adding tag(s).</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>put n/Destroyer r/vertical c/a1 t/myfleet</code></p></td>
 </tr>
 <tr>
@@ -706,4 +747,4 @@ values.</p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:03:23 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:40:29 UTC</div></div></div></body></html>
