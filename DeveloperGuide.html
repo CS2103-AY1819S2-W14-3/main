@@ -1612,7 +1612,7 @@ previous game and perform a comparison of game data.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/inputStatsCommandSS.png" alt="inputStatsCommandSS" width="250">
+<img src="images/inputStatsCommandSS.png" alt="inputStatsCommandSS" width="400">
 </div>
 </div>
 <div class="paragraph">
@@ -1620,8 +1620,11 @@ previous game and perform a comparison of game data.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/StatsWindowSS.png" alt="StatsWindowSS" width="600">
+<img src="images/StatsWindowSS.png" alt="StatsWindowSS" width="800">
 </div>
+</div>
+<div class="paragraph">
+<p>Figure 33. Screenshot of empty statistics pop-up window.</p>
 </div>
 <div class="paragraph">
 <p>There should not be any valid data at the moment as the game as not started.</p>
@@ -1634,8 +1637,11 @@ previous game and perform a comparison of game data.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/StatsWindowUpdatedSS.PNG" alt="StatsWindowUpdatedSS" width="400">
+<img src="images/StatsWindowUpdatedSS.PNG" alt="StatsWindowUpdatedSS" width="800">
 </div>
+</div>
+<div class="paragraph">
+<p>Figure 34. Screenshot of populated statistics pop-up window.</p>
 </div>
 <div class="paragraph">
 <p>Besides the pop-up window, the data is also captured in the command-line result box.</p>
@@ -1646,19 +1652,19 @@ previous game and perform a comparison of game data.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>End of Example Usage Scenario</p>
-</div>
-<div class="paragraph">
 <p>The following sequence diagram summarizes what happens when a User invokes the <code>stats</code> command.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/StatsSequenceDiagram.PNG" alt="StatsSequenceDiagram" width="800">
+<img src="images/StatsSequenceDiagram.PNG" alt="StatsSequenceDiagram" width="1000">
 </div>
+</div>
+<div class="paragraph">
+<p>Figure 35. Sequence diagram of <code>stats</code> command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="save-and-compare"><a class="link" href="#save-and-compare">3.5.3. Save and compare</a></h4>
+<h4 id="save-and-compare"><a class="link" href="#save-and-compare">3.5.3. Save and Compare</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario of the automatic save and compare feature.</p>
 </div>
@@ -1671,7 +1677,7 @@ previous game and perform a comparison of game data.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/StatsWinScreen.png" alt="StatsWinScreen" width="650">
+<img src="images/StatsWinScreen.PNG" alt="StatsWinScreen" width="650">
 </div>
 </div>
 <div class="paragraph">
@@ -1690,9 +1696,6 @@ new game.</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>End of Example Usage Scenario.</p>
-</div>
-<div class="paragraph">
 <p>The following sequence diagram summarizes what happens at the end of a game and an automatic save is
 performed.</p>
 </div>
@@ -1702,26 +1705,59 @@ performed.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram summarizes what happens when a previous statistic data is read and compared.</p>
+<p>Figure 36. Sequence diagram of how the statistics data is saved.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram summarizes what happens at the end of the game and an automatic reading of previous
+statistics data is performed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ReadSequenceDiagram.PNG" alt="ReadSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 37. Sequence diagram of how the previous statistics data is read from storage.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="activity-diagram-2"><a class="link" href="#activity-diagram-2">3.5.4. Activity diagram</a></h4>
+<h4 id="activity-diagram-2"><a class="link" href="#activity-diagram-2">3.5.4. Activity Diagram</a></h4>
 <div class="paragraph">
 <p>The following Activity Diagram shows when the <code>stats</code> command can be used.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/StatisticsActivityDiagram.png" alt="StatisticsActivityDiagram" width="1000">
+</div>
+</div>
 <div class="paragraph">
-<p>&lt;Include activity diagram&gt;</p>
+<p>Figure 38. Activity Diagram of the statistics feature.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.5.5. Design considerations</a></h4>
+<h4 id="use-case-diagram"><a class="link" href="#use-case-diagram">3.5.5. Use Case Diagram</a></h4>
+<div class="paragraph">
+<p>The following use-case diagram captures the behaviour of the statistics feature.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/StatsUseCaseDiag.PNG" alt="StatsUseCaseDiag" width="500">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 39. Use case diagram on the statistics feature.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.5.6. Design considerations</a></h4>
+<div class="sect4">
+<h5 id="design-of-data-tracking-methods"><a class="link" href="#design-of-data-tracking-methods">Design of data-tracking methods</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1:</strong> The methods that are responsible for incrementing the relevant game data is placed
-in whichever command is required to be tracked. This meant that there would be a method call to the statistics class
-from within every method itself.</p>
+<p><strong>Alternative 1:</strong> The methods that are responsible for incrementing the relevant game data are placed
+in each of the commands to be tracked. This meant that there would be a method call to the statistics class
+from within every method itself, which also meant that every method had to contain a parameter for the PlayerStatistics Object.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1729,34 +1765,59 @@ from within every method itself.</p>
 command is being tracked.</p>
 </li>
 <li>
-<p>Cons: This implementation violates the &#8230;&#8203; principle (Duplicate code) and while the behaviour is unaltered, it is not
-good programming practice.</p>
+<p>Cons: This implementation violates the DRY principle (Don&#8217;t Repeat Yourself) Principle.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> The method responsible for incrementing the statistical data is placed only at the Command Result class.</p>
+<p><strong>Alternative 2 (Current Choice) :</strong> The method responsible for incrementing the statistical data is placed only at the AttackCommand class.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: The implementation abides by the &#8230;&#8203; principle (no duplicate code) and contains less dependencies on the respective
-class components.</p>
+<p>Pros: The implementation does not violate the DRY principle and contains less dependencies on the other components.</p>
 </li>
 <li>
-<p>Cons: This would mean that the method will have to filter for the corresponding commands only and perform the related
-methods accordingly. Does not abide by Single Responsibility Principle as the <code>StatsCommand</code> will also contain
-filtering and analysis of data</p>
-</li>
-<li>
-<p>Chosen: Alternative 2. Even though the method violates the Single Responsibility Principle, this can be subverted by
-performing the analysis of data in the Storage component instead. By implementing the method calls at a central Command
-Result, will make &#8230;&#8203; more modular&#8230;&#8203; less dependencies especially when working with other components..(Edit)</p>
+<p>Cons: It is more difficult to code as it has to account for different CommandResult objects.</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="type-of-storage-file"><a class="link" href="#type-of-storage-file">Type of Storage File</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current Choice)</strong> : Use JSON file to store statistics data</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement as there are libraries pre-installed.</p>
+</li>
+<li>
+<p>Cons: Formatting errors are not validated</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 </strong> : Use XML file to store statistics data</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Can put metadata into the tags in  the form of attributes.</p>
+</li>
+<li>
+<p>Cons: Difficult to code as it is less readable and external libraries must be imported.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -2829,4 +2890,4 @@ game accuracy which is 0. Your accuracy has improved.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 09:59:01 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 11:16:08 UTC</div></div></div></body></html>
