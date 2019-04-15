@@ -14,32 +14,36 @@
 <li><a href="#game-rules">3. Game Rules</a></li>
 <li><a href="#Features">4. Features</a>
 <ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></li>
-<li><a href="#preparation-phase">4.2. Preparation Phase</a>
+<li><a href="#general-commands">4.1. General commands</a>
 <ul class="sectlevel3">
-<li><a href="#map-code-init-code">4.2.1. Map : <code>init</code></a></li>
-<li><a href="#ship-management">4.2.2. Ship Management:</a>
+<li><a href="#viewing-help-code-help-code">4.1.1. Viewing help : <code>help</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">4.1.2. Exiting the program : <code>exit</code></a></li>
+</ul>
+</li>
+<li><a href="#preparation-phase">4.2. Preparation phase</a>
+<ul class="sectlevel3">
+<li><a href="#initialising-the-map-code-init-code">4.2.1. Initialising the map : <code>init</code></a></li>
+<li><a href="#managing-ships">4.2.2. Managing ships:</a>
 <ul class="sectlevel4">
 <li><a href="#placing-a-ship-on-the-map-code-put-code">4.2.2.1. Placing a ship on the map: <code>put</code></a></li>
 <li><a href="#listing-all-ships-code-list-code">4.2.2.2. Listing all ships : <code>list</code></a></li>
-<li><a href="#list-all-tags-code-listtags-code">4.2.2.3. List all tags: <code>listTags</code></a></li>
+<li><a href="#listing-all-tags-code-listtags-code">4.2.2.3. Listing all tags: <code>listTags</code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#battle-phase">4.3. Battle Phase</a>
+<li><a href="#battle-phase">4.3. Battle phase</a>
 <ul class="sectlevel3">
 <li><a href="#beginning-the-battle-code-begin-code">4.3.1. Beginning the battle: <code>begin</code></a></li>
 <li><a href="#shooting-at-a-coordinate-code-shoot-code">4.3.2. Shooting at a coordinate: <code>shoot</code></a></li>
+<li><a href="#retrieving-game-statistics-code-stats-code">4.3.3. Retrieving game statistics: <code>stats</code></a></li>
 </ul>
 </li>
-<li><a href="#retrieving-game-statistics-code-stats-code">4.4. Retrieving game statistics: <code>stats</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">4.5. Exiting the program : <code>exit</code></a></li>
 </ul>
 </li>
 <li><a href="#coming-in-v2-0">5. Coming in v2.0</a>
 <ul class="sectlevel2">
-<li><a href="#special-map-shapes">5.1. Special Map Shapes</a></li>
+<li><a href="#special-map-shapes">5.1. Special map shapes</a></li>
 </ul>
 </li>
 <li><a href="#faq">6. FAQ</a></li>
@@ -197,12 +201,12 @@ on your map size.</p>
 </div>
 <div class="paragraph">
 <p>The Player will always be given the first turn.
-The Player may fire shots at the enemy map through the command <code>shoot &lt;a1&gt;</code>.</p>
+The Player may fire shots at the enemy map through the command <code>shoot</code>, for example <code>shoot a1</code>.</p>
 </div>
 <div class="paragraph">
-<p>If the shot hit a ship, the Player may continue taking shots til a miss.
+<p>If the shot hits a ship, the Player may continue taking shots until they miss.
 Upon a miss, the turn will be handed over to the enemy.
-The same goes for the enemy. The enemy will take its shot automatically, firing until a miss, before
+The same goes for the enemy - the enemy will take its shot automatically, firing until it misses, before
 passing the turn back to the Player.</p>
 </div>
 </div>
@@ -263,20 +267,46 @@ Had fun? You can view the game statistics with the command <code>stats</code>.</
 </tr>
 </table>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Some commands can only be executed at some part of the game, e.g. <code>attack</code> can only be executed
+when the battle is ongoing. If you try to enter a command that is not allowed at that point in
+time, the program will tell you so.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="sect2">
-<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></h3>
+<h3 id="general-commands"><a class="link" href="#general-commands">4.1. General commands</a></h3>
+<div class="sect3">
+<h4 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">4.1.1. Viewing help : <code>help</code></a></h4>
 <div class="paragraph">
 <p>Opens a help window that displays this User Guide.<br>
 Format: <code>help</code></p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.1.2. Exiting the program : <code>exit</code></a></h4>
+<div class="paragraph">
+<p>Exits the program.<br>
+Format: <code>exit</code></p>
+</div>
+</div>
+</div>
 <div class="sect2">
-<h3 id="preparation-phase"><a class="link" href="#preparation-phase">4.2. Preparation Phase</a></h3>
+<h3 id="preparation-phase"><a class="link" href="#preparation-phase">4.2. Preparation phase</a></h3>
 <div class="paragraph">
 <p>This section describes the commands used in the preparation phase.</p>
 </div>
 <div class="sect3">
-<h4 id="map-code-init-code"><a class="link" href="#map-code-init-code">4.2.1. Map : <code>init</code></a></h4>
+<h4 id="initialising-the-map-code-init-code"><a class="link" href="#initialising-the-map-code-init-code">4.2.1. Initialising the map : <code>init</code></a></h4>
 <div class="paragraph">
 <p>Initialises both player&#8217;s maps to the specified size. The size of the maps must be between 6 and 10, inclusive.<br></p>
 </div>
@@ -360,7 +390,7 @@ Throughout the course of the game, the cells in the map will change colour based
 </div>
 </div>
 <div class="sect3">
-<h4 id="ship-management"><a class="link" href="#ship-management">4.2.2. Ship Management:</a></h4>
+<h4 id="managing-ships"><a class="link" href="#managing-ships">4.2.2. Managing ships:</a></h4>
 <div class="sect4">
 <h5 id="placing-a-ship-on-the-map-code-put-code"><a class="link" href="#placing-a-ship-on-the-map-code-put-code">4.2.2.1. Placing a ship on the map: <code>put</code></a></h5>
 <div class="paragraph">
@@ -460,7 +490,7 @@ Output:     destroyer (3/3) at g5 vertical [redFleet][blueFleet][greenFleet]
 </div>
 </div>
 <div class="sect4">
-<h5 id="list-all-tags-code-listtags-code"><a class="link" href="#list-all-tags-code-listtags-code">4.2.2.3. List all tags: <code>listTags</code></a></h5>
+<h5 id="listing-all-tags-code-listtags-code"><a class="link" href="#listing-all-tags-code-listtags-code">4.2.2.3. Listing all tags: <code>listTags</code></a></h5>
 <div class="paragraph">
 <p>Lists all the tags that have been used to tag the battleships deployed on the map.<br></p>
 </div>
@@ -475,7 +505,7 @@ Examples: <code>listTags</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="battle-phase"><a class="link" href="#battle-phase">4.3. Battle Phase</a></h3>
+<h3 id="battle-phase"><a class="link" href="#battle-phase">4.3. Battle phase</a></h3>
 <div class="sect3">
 <h4 id="beginning-the-battle-code-begin-code"><a class="link" href="#beginning-the-battle-code-begin-code">4.3.1. Beginning the battle: <code>begin</code></a></h4>
 <div class="paragraph">
@@ -506,12 +536,15 @@ Format: <code>shoot COORDINATES</code><br>
 Alternative commands: <code>attack</code>, <code>fire</code>, <code>hit</code></p>
 </div>
 <div class="paragraph">
-<p>Example:</p>
+<p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>shoot A6</code></p>
+<p><code>shoot a6</code></p>
+</li>
+<li>
+<p><code>attack b5</code></p>
 </li>
 </ul>
 </div>
@@ -534,9 +567,8 @@ Otherwise, the enemy will take their turn(s), firing until they get a miss.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="retrieving-game-statistics-code-stats-code"><a class="link" href="#retrieving-game-statistics-code-stats-code">4.4. Retrieving game statistics: <code>stats</code></a></h3>
+<div class="sect3">
+<h4 id="retrieving-game-statistics-code-stats-code"><a class="link" href="#retrieving-game-statistics-code-stats-code">4.3.3. Retrieving game statistics: <code>stats</code></a></h4>
 <div class="paragraph">
 <p>Prints a list of statistics related to gameplay, such as accuracy and current hits.<br>
 Format: <code>stats</code></p>
@@ -552,12 +584,6 @@ Format: <code>stats</code></p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.5. Exiting the program : <code>exit</code></a></h3>
-<div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
-</div>
 </div>
 </div>
 </div>
@@ -565,7 +591,7 @@ Format: <code>exit</code></p>
 <h2 id="coming-in-v2-0"><a class="link" href="#coming-in-v2-0">5. Coming in v2.0</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="special-map-shapes"><a class="link" href="#special-map-shapes">5.1. Special Map Shapes</a></h3>
+<h3 id="special-map-shapes"><a class="link" href="#special-map-shapes">5.1. Special map shapes</a></h3>
 <div class="paragraph">
 <p>The player will be allowed to use maps that are randomised in shape. This adds an extra layer of challenge and fun for the player.</p>
 </div>
@@ -598,10 +624,10 @@ Format: <code>exit</code></p>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 15%;">
-<col style="width: 35%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
+<col style="width: 21.4285%;">
+<col style="width: 28.5714%;">
+<col style="width: 35.7142%;">
+<col style="width: 14.2859%;">
 </colgroup>
 <thead>
 <tr>
@@ -614,53 +640,53 @@ Format: <code>exit</code></p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Attack</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>attack [coordinate]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>attack COORDINATE</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Attacks a selected cell on the enemy map.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>attack c1</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Game manual</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display manual</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Opens up the help guide window.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Create map of size 6-10</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>init [integer_size]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>init MAP_SIZE</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Initializes the map grid.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>init 8</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List ships</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">List all available battleships</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list [n/NAME] [t/TAG]…</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all available battleships, optionally filtering by name and tag(s)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List tags</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>listTags</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">List all available battleships by tags</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all tags.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>listTags</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Put ship on map</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>put n/NAME r/ORIENTATION c/COORDINATE [optional]t/TAG</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Place your battleship on the map.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>put n/NAME r/ORIENTATION c/COORDINATE [t/TAG]…</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Places a battleship on the specified position on the map, optionally adding tag(s).</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>put n/Destroyer r/vertical c/a1 t/myfleet</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>View statistics</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>stats</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Opens a Statistics Window.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Opens the Statistics window.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>stats</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Start game</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>start game</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Let enemy place ships on enemy grid.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>start game</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Start battle</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>start</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Begins the battle.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>start</code></p></td>
 </tr>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 19:33:51 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 01:14:19 UTC</div></div></div></body></html>
